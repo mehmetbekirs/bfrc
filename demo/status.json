@@ -1,0 +1,16 @@
+{
+  "built_at": "2026-10-13T00:03:20+03:00",
+  "demo": true,
+  "fresh_fetches": 2,
+  "errors": [],
+  "charts": [
+    {
+      "chart": "us-yields",
+      "status": " · DEMO / SENTETİK VERİ"
+    },
+    {
+      "chart": "us-curve",
+      "status": " · DEMO / SENTETİK VERİ"
+    }
+  ]
+}
