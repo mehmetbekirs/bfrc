@@ -5,7 +5,6 @@ on:
     branches: [main]
     paths-ignore: ['state/**', 'README.md', 'tests/**']
   schedule:
-    # UTC; Turkey: 03:17, 09:17, 12:17, 15:17, 18:17, 21:17, 00:17
     - cron: '17 0,6,9,12,15,18,21 * * *'
 permissions:
   contents: write
@@ -23,6 +22,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -30,20 +31,80 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m unittest discover -s tests
       - name: Fetch and render live data
-        run: python build.py
+        run: python -u build.py
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           EVDS_API_KEY: ${{ secrets.EVDS_API_KEY }}
       - name: Preserve last successful observations
+        id: preserve
+        continue-on-error: true
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "bfrc-data-bot"
           git config user.email "bfrc-data-bot@users.noreply.github.com"
-          git add state/cache.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Update public API observations [skip ci]"
-            git pull --rebase origin main
-            git push origin HEAD:main
+          cache_snapshot=$(mktemp)
+          cache_worktree=$(mktemp -d)
+          cp state/cache.json "$cache_snapshot"
+          cleanup() {
+            git worktree remove --force "$cache_worktree" >/dev/null 2>&1 || true
+            rm -f "$cache_snapshot"
+          }
+          trap cleanup EXIT
+          git fetch origin main
+          git worktree add --detach "$cache_worktree" origin/main
+          saved=0
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git -C "$cache_worktree" reset --hard origin/main
+            mkdir -p "$cache_worktree/state"
+            python - "$cache_snapshot" "$cache_worktree/state/cache.json" <<'PY'
+          import json
+          from datetime import datetime
+          from pathlib import Path
+          import sys
+          fresh = json.loads(Path(sys.argv[1]).read_text())
+          target = Path(sys.argv[2])
+          remote = json.loads(target.read_text()) if target.exists() else {}
+          def stamp(record):
+              if isinstance(record, dict):
+                  return record.get("fetched_at") or record.get("at")
+              return None
+          def merge(a, b):
+              ta, tb = stamp(a), stamp(b)
+              if ta and tb:
+                  # Choose the complete newest record; do not splice series histories.
+                  return b if datetime.fromisoformat(tb) >= datetime.fromisoformat(ta) else a
+              if isinstance(a, dict) and isinstance(b, dict):
+                  out = dict(a)
+                  for key, value in b.items():
+                      out[key] = merge(out[key], value) if key in out else value
+                  return out
+              return b
+          result = merge(remote, fresh)
+          target.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+          PY
+            git -C "$cache_worktree" add state/cache.json
+            if git -C "$cache_worktree" diff --cached --quiet; then
+              saved=1
+              break
+            fi
+            git -C "$cache_worktree" commit -m "Update public API observations [skip ci]"
+            if git -C "$cache_worktree" push origin HEAD:main; then
+              saved=1
+              break
+            fi
+            echo "Repository changed while saving; retry $attempt/3"
+          done
+          if test "$saved" -ne 1; then
+            echo "::warning::Cache could not be committed after three attempts."
+            exit 1
           fi
+      - name: Note cache persistence warning
+        if: steps.preserve.outcome == 'failure'
+        run: |
+          echo "::warning::API data was rendered, but the cache could not be saved to the repository."
+          echo "Cache save failed. The rendered panel is still being published; the next update may need to fetch history again." >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
