@@ -1,0 +1,14 @@
+{
+  "start_date": "2020-01-01",
+  "logo_path": "assets/bfrc-logo.png",
+  "series": [
+    {"id":"us2y","provider":"fred","code":"DGS2","enabled":true,"max_age_days":7},
+    {"id":"us10y","provider":"fred","code":"DGS10","enabled":true,"max_age_days":7},
+    {"id":"usdtry","provider":"evds_legacy","code":"TP.DK.USD.S.YTL","enabled":false,"max_age_days":7}
+  ],
+  "charts": [
+    {"id":"us-yields","title":"ABD tahvil getirileri","unit":"%","source":"ABD Hazine Bakanlığı / FRED","series":[{"id":"us2y","label":"2 yıl"},{"id":"us10y","label":"10 yıl"}]},
+    {"id":"us-curve","title":"ABD 10 yıl − 2 yıl getiri farkı","unit":"Baz puan","source":"ABD Hazine Bakanlığı / FRED; fark hesaplaması: BFRC","spread":["us10y","us2y"],"multiplier":100},
+    {"id":"usd-try","title":"USD/TRY döviz satış kuru","unit":"TL / USD","source":"TCMB EVDS","series":[{"id":"usdtry","label":"USD/TRY"}]}
+  ]
+}
