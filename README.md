@@ -1,0 +1,2 @@
+# bfrc
+Auto Graph Generator
