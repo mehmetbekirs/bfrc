@@ -1,0 +1,59 @@
+name: BFRC API update and publish
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore: ['state/**', 'README.md', 'tests/**']
+  schedule:
+    # UTC; Turkey: 03:17, 09:17, 12:17, 15:17, 18:17, 21:17, 00:17
+    - cron: '17 0,6,9,12,15,18,21 * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: bfrc-panel
+  cancel-in-progress: false
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests
+      - name: Fetch and render live data
+        run: python build.py
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          EVDS_API_KEY: ${{ secrets.EVDS_API_KEY }}
+      - name: Preserve last successful observations
+        run: |
+          git config user.name "bfrc-data-bot"
+          git config user.email "bfrc-data-bot@users.noreply.github.com"
+          git add state/cache.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update public API observations [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Report complete provider failure after publishing warnings
+        run: |
+          if test -f dist/all_failed.flag; then
+            echo "All API requests failed; last successful observations published with warnings."
+            exit 1
+          fi
