@@ -722,9 +722,15 @@ def curated_figure(chart,records,demo=False):
             (f"Son veri: {last} · API kontrolü: {fetched[:16].replace('T',' ')}",-149)]
     if chart.get("note"):
         labels.append((chart["note"],-169))
-    for text,shift in labels:
-        fig.add_annotation(text=escape(text),x=0,y=0,xref="paper",yref="paper",yshift=shift,
-            xanchor="left",showarrow=False,font={"size":10,"color":"#344654"})
+    footer_shift=-105
+    for text,_ in labels:
+        wrapped=textwrap.wrap(text,width=62) or [text]
+        fig.add_annotation(text="<b>"+"<br>".join(escape(part) for part in wrapped)+"</b>",
+            x=0,y=0,xref="paper",yref="paper",yshift=footer_shift,
+            xanchor="left",yanchor="top",align="left",showarrow=False,
+            font={"family":"Courier New, monospace","size":14,"color":"#172b3b"})
+        footer_shift-=len(wrapped)*18+10
+    fig.update_layout(margin={"b":max(210,abs(footer_shift)+12)})
     warnings=[]
     if demo:warnings.append("DEMO — SENTETİK VERİ")
     if any(records[c].get("fallback") for c in requested):warnings.append("SON BAŞARILI VERİ — API YENİLEMESİ BAŞARISIZ")
