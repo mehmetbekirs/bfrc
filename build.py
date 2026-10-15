@@ -612,7 +612,7 @@ def line(code,label,factor=1,transform="level",color=None):
     return item
 
 CURATED_CHARTS = [
- {"id":"net-ic","name":"Net İç Varlıklar","unit":"Milyar TL","lines":[line("TP.AB.N15","Net iç varlıklar",1e-6)]},
+ {"id":"net-ic","name":"Net İç Varlıklar","unit":"Milyar TL","lines":[line("BFRC.DAILY.NIV","Net iç varlıklar",1e-6)]},
  {"id":"rezerv","name":"Brüt Rezervler","unit":"Milyar ABD doları","lines":[line("TP.AB.TOPLAM","Toplam",.001),line("TP.AB.C2","Döviz",.001),line("TP.AB.C1","Altın",.001)]},
  {"id":"enflasyon","name":"TÜFE–ÜFE","title":"TÜFE ve Yİ-ÜFE — Yıllık Değişim","unit":"Yıllık değişim (%)","note":"Genel endekslerden aynı ayın önceki yıl değeriyle hesaplanır.","lines":[line("TP.GENENDEKS.T1","TÜFE",1,"yoy"),line("TP.TUFE1YI.T1","Yİ-ÜFE",1,"yoy")]},
  {"id":"beklenti","name":"TÜFE Beklenti Anketi","title":"12 Ay Sonrası Yıllık TÜFE Beklentisi","unit":"%","lines":[line("TP.ENFBEK.PKA12ENF","Piyasa katılımcıları")]},
@@ -628,7 +628,7 @@ CURATED_CHARTS = [
  {"id":"ozel-kisa","name":"Özel Sektörün Yurt Dışından Sağladığı Kısa Vadeli Kredi Borcu","title":"Özel Sektör — Kısa Vadeli Dış Borç","unit":"Milyar ABD doları","note":"Güncel EVDS tanımı: kredi ve borç senetleri yükümlülükleri; orijinal vade.","lines":[line("TP.BRUTDBORCOZEL.G15","Kısa vadeli yükümlülükler",.001)]},
  {"id":"para","name":"Para Arzları","unit":"Milyar TL","lines":[line("TP.HPBITABLO1.2","M1",1e-6),line("TP.HPBITABLO1.11","M2",1e-6),line("TP.HPBITABLO1.18","M3",1e-6)]},
  {"id":"mevduat","name":"Vadeli Mevduatlar","unit":"Milyar TL","lines":[line("TP.HPBITABLO1.12","TL vadeli mevduat",1e-6),line("TP.HPBITABLO1.15","YP vadeli mevduat (TL karşılığı)",1e-6)]},
- {"id":"net-dis","name":"Net Dış Varlıklar","unit":"Milyar TL","lines":[line("TP.AB.N05","Net dış varlıklar",1e-6)]},
+ {"id":"net-dis","name":"Net Dış Varlıklar","unit":"Milyar TL","lines":[line("BFRC.DAILY.NDV","Net dış varlıklar",1e-6)]},
  {"id":"guven","name":"Reel Kesim Güven Endeksi","unit":"Endeks","lines":[line("TP.GY1.N2","Arındırılmamış"),line("TP.GY1.N2.MA","Mevsimsellikten arındırılmış")]}
 ]
 
@@ -684,10 +684,15 @@ def curated_figure(chart,records,demo=False):
         if not valid:
             raise DataError("Hesaplama için yeterli dönem yok")
         latest_dates.append(valid[-1][0]);series.append(dict(points))
-        fig.add_trace(go.Scatter(x=[d for d,v in points],y=[v for d,v in points],
-            name=spec["label"],mode="lines",connectgaps=False,
-            line={"color":spec.get("color") or colors[n%len(colors)],"width":3},
-            hovertemplate="%{x|%d.%m.%Y}<br>%{y:,.2f} "+escape(chart["unit"])+"<extra>%{fullData.name}</extra>"))
+        common=dict(x=[d for d,v in points],y=[v for d,v in points],name=spec["label"],
+            hovertemplate="%{x|%d.%m.%Y}<br>%{y:,.2f} "+escape(chart["unit"])+"<extra>%{fullData.name}</extra>")
+        color=spec.get("color") or colors[n%len(colors)]
+        if chart.get('daily_bars'):
+            fig.add_trace(go.Bar(**common,marker_color=color))
+        else:
+            extra={'fill':'tozeroy','fillcolor':'rgba(67,36,84,0.18)'} if chart.get('area') else {}
+            fig.add_trace(go.Scatter(**common,mode='lines',connectgaps=False,
+                line={'color':color,'width':2 if chart.get('area') else 3},**extra))
     if chart.get("difference_bar"):
         common=sorted(series[0].keys()&series[1].keys())
         common=[d for d in common if series[0][d] is not None and series[1][d] is not None]
@@ -722,6 +727,8 @@ def curated_figure(chart,records,demo=False):
             (f"Son veri: {last} · API kontrolü: {fetched[:16].replace('T',' ')}",-149)]
     if chart.get("note"):
         labels.append((chart["note"],-169))
+    anchors=[records[c].get("weekly_anchor") for c in requested if records[c].get("weekly_anchor")]
+    if anchors:labels.append(("Haftalık swap düzeltmesi referansı: "+min(anchors),-189))
     footer_shift=-105
     for text,_ in labels:
         wrapped=textwrap.wrap(text,width=62) or [text]
@@ -740,6 +747,42 @@ def curated_figure(chart,records,demo=False):
     return fig
 
 
+def period_intersects(day,start,end,frequency):
+    """A quarterly label denotes a whole quarter, not just its first day."""
+    observed=date.fromisoformat(day)
+    freq=unicodedata.normalize('NFKD',frequency.lower().replace('ı','i')).encode('ascii','ignore').decode()
+    if 'uc aylik' in freq or 'quarter' in freq:
+        first=date(observed.year,((observed.month-1)//3)*3+1,1)
+        last=(date(first.year+1,1,1) if first.month==10 else date(first.year,first.month+3,1))-timedelta(days=1)
+    elif freq in ('aylik','monthly'):
+        first=observed.replace(day=1)
+        last=(date(first.year+1,1,1) if first.month==12 else date(first.year,first.month+1,1))-timedelta(days=1)
+    elif freq in ('yillik','yearly','annual'):
+        first=date(observed.year,1,1);last=date(observed.year,12,31)
+    else:first=last=observed
+    return first<=end and last>=start
+
+
+def reusable_after_release(record,spec,now):
+    """Reuse today's fetch only until an intraday publication checkpoint is crossed."""
+    if not record or record.get('provider')!='evds3' or record.get('code')!=spec['code']:
+        return False
+    try:
+        fetched=datetime.fromisoformat(record['fetched_at']).astimezone(TR)
+    except (KeyError,ValueError,TypeError):return False
+    now=now.astimezone(TR)
+    if fetched.date()!=now.date() or fetched>now:return False
+    weekly='HAFTALIK' in spec.get('frequency','').upper()
+    if weekly and now.weekday()!=3:return True
+    if weekly:
+        checkpoints=[(14,30)]
+        if spec['group_code'] in ('bie_kt100h','bie_mt100h'):checkpoints.append((17,0))
+    elif spec['group_code']=='bie_dkdovytl':checkpoints=[(10,0),(14,30),(15,30)]
+    elif spec['group_code'] in ('bie_abanlbil','bie_swaptektarf'):checkpoints=[(10,0),(14,30),(17,0)]
+    else:checkpoints=[(10,0),(14,30)]
+    return not any(fetched<now.replace(hour=h,minute=m,second=0,microsecond=0)<=now for h,m in checkpoints)
+
+
 def fetch_curated_group(specs,today):
     # Fetch only the few codes used by the curated charts, never all group subitems.
     buckets={s["code"]:[] for s in specs};periods={s["code"]:{} for s in specs}
@@ -754,10 +797,9 @@ def fetch_curated_group(specs,today):
                 raise DataError("EVDS veri yanıtı doğrulanamadı")
             for row in result["items"]:
                 d=period_date(row["Tarih"])
-                if d<start.isoformat() or d>end.isoformat():
-                    # Monthly period labels may refer to the first day of their month.
-                    if d[:7] not in (start.isoformat()[:7],end.isoformat()[:7]):
-                        raise DataError("EVDS tarih aralığı dışı yanıt")
+                if not period_intersects(d,start,end,specs[0].get('frequency','')):
+                    # Ignore non-overlapping observations, retaining valid quarterly boundaries.
+                    continue
                 for code in buckets:
                     field=code.replace(".","_")
                     if field in row:
@@ -779,7 +821,7 @@ def write_curated(output,records,errors,stamp,demo=False):
     (output/"plotly.min.js").write_text(get_plotlyjs(),encoding="utf-8")
     choices=[];available=0
     for chart in CURATED_CHARTS:
-        item={"id":chart["id"],"name":chart["name"],"unit":chart["unit"],"file":"charts/"+chart["id"]+".json"}
+        item={"default_years":chart.get("default_years",5),"id":chart["id"],"name":chart["name"],"unit":chart["unit"],"file":"charts/"+chart["id"]+".json"}
         try:
             fig=curated_figure(chart,records,demo)
             (output/item["file"]).write_text(pio.to_json(fig),encoding="utf-8");available+=1
@@ -788,7 +830,7 @@ def write_curated(output,records,errors,stamp,demo=False):
         choices.append(item)
     (output/"panel-data.json").write_text(json.dumps({"choices":choices},ensure_ascii=False),encoding="utf-8")
     (output/"status.json").write_text(json.dumps({"built_at":stamp,"demo":demo,
-        "menu_count":18,"available_charts":available,"errors":errors},ensure_ascii=False,indent=2),encoding="utf-8")
+        "menu_count":len(CURATED_CHARTS),"available_charts":available,"errors":errors},ensure_ascii=False,indent=2),encoding="utf-8")
     warning='<p class="notice">DEMO — Sentetik değerler; gerçek veri değildir.</p>' if demo else ''
     if errors:
         warning+='<details class="notice"><summary>Bazı veriler yenilenemedi</summary><ul>'+''.join('<li>'+escape(e)+'</li>' for e in errors)+'</ul></details>'
@@ -804,17 +846,17 @@ button{background:#eff6fa;border:1px solid #cbd7df;border-radius:4px;padding:7px
 #message{padding:30px;font-size:14px}footer{font-size:11px;color:#6e8291;padding-top:12px}
 </style></head><body><main><header><img src="LOGO" alt="BFRC"><div><h1>Güncel Grafikler</h1><p>Bahçeşehir Üniversitesi Finansal Araştırma ve Uygulama Merkezi</p></div></header>WARNING
 <label for="series">GÖSTERGE</label><select id="series" disabled><option>Yükleniyor…</option></select>
-<div class="toolbar"><button data-years="1">1 yıl</button><button data-years="3">3 yıl</button><button data-years="5" class="active">5 yıl</button><button data-years="0">Tümü</button></div>
+<div class="toolbar"><button data-years="0.5">6 ay</button><button data-years="1">1 yıl</button><button data-years="3">3 yıl</button><button data-years="5" class="active">5 yıl</button><button data-years="0">Tümü</button></div>
 <p id="stale" class="notice" hidden>Panel 24 saattir yenilenmemiş. Son veri tarihlerini kontrol edin.</p>
 <div id="wrap"><div id="message" role="status">Grafik yükleniyor…</div><div id="chart"></div></div><footer>Panel güncellemesi: STAMP</footer></main><script>
 const built=STAMP_JSON,select=document.getElementById('series'),msg=document.getElementById('message'),graph=document.getElementById('chart');
 let generation=0,currentFigure=null,currentYears=5;
 function age(){document.getElementById('stale').hidden=Date.now()-new Date(built).getTime()<86400000;}age();setInterval(age,60000);
 function applyRange(){if(!currentFigure)return;const dates=currentFigure.data.flatMap(t=>t.x).filter(Boolean).sort(),end=dates[dates.length-1];
-const start=new Date(end+'T12:00:00Z');start.setUTCFullYear(start.getUTCFullYear()-currentYears);const begin=currentYears===0?dates[0]:start.toISOString().slice(0,10);
+const start=new Date(end+'T12:00:00Z');start.setUTCMonth(start.getUTCMonth()-Math.round(currentYears*12));const begin=currentYears===0?dates[0]:start.toISOString().slice(0,10);
 const values=[];for(const t of currentFigure.data){for(let i=0;i<t.x.length;i++){if(t.x[i]>=begin&&t.x[i]<=end&&typeof t.y[i]==='number'&&Number.isFinite(t.y[i]))values.push(t.y[i]);}
-if(t.type==='bar')values.push(0);}
-const update={'xaxis.autorange':false,'xaxis.range':[begin,end],'xaxis.dtick':currentYears===1?'M1':currentYears===3?'M3':'M6'};
+if(t.type==='bar'||t.fill==='tozeroy')values.push(0);}
+const update={'xaxis.autorange':false,'xaxis.range':[begin,end],'xaxis.dtick':currentYears<=1?'M1':currentYears===3?'M3':'M6'};
 if(values.length){const low=Math.min(...values),high=Math.max(...values),pad=(high-low||Math.abs(high)||1)*.08;update['yaxis.autorange']=false;update['yaxis.range']=[low-pad,high+pad];}
 Plotly.relayout(graph,update);}
 document.querySelectorAll('[data-years]').forEach(b=>b.addEventListener('click',()=>{currentYears=Number(b.dataset.years);
@@ -826,7 +868,7 @@ msg.hidden=false;msg.textContent='Grafik yükleniyor…';graph.hidden=true;
 if(c.error){msg.textContent='Bu gösterge şu an hazır değil: '+c.error;return;}
 try{const reply=await fetch(c.file+'?v='+encodeURIComponent(built));if(!reply.ok)throw Error();const fig=await reply.json();if(token!==generation)return;
 graph.hidden=false;await Plotly.react(graph,fig.data,fig.layout,{responsive:true,displaylogo:false,toImageButtonOptions:{format:'png',filename:'BFRC-'+id,width:1600,height:950,scale:2}});
-if(token===generation){currentFigure=fig;msg.hidden=true;applyRange();}}
+if(token===generation){currentFigure=fig;currentYears=c.default_years??5;document.querySelectorAll('[data-years]').forEach(b=>b.classList.toggle('active',Number(b.dataset.years)===currentYears));msg.hidden=true;applyRange();}}
 catch(e){if(token===generation)msg.textContent='Grafik yüklenemedi. Sayfayı yenileyin veya başka gösterge seçin.';}}
 select.disabled=false;select.addEventListener('change',draw);draw();
 }).catch(()=>{msg.textContent='Veriler yüklenemedi. Sayfayı yenileyin.';});
@@ -857,14 +899,14 @@ def curated_demo(today):
 def build_curated(demo=False):
     today=datetime.now(TR).date();stamp=datetime.now(TR).isoformat(timespec='seconds')
     if demo:
-        n=write_curated(ROOT/'demo',curated_demo(today),[],stamp,True)
+        n=write_curated(ROOT/'demo',demo_with_fx(today),[],stamp,True)
         print(f'{n} demo grafik üretildi');return
     path=ROOT/'state/cache.json';cache=json.loads(path.read_text()) if path.exists() else {}
     previous=cache.get('_panel',{});records={};errors=[];groups={}
     for code,spec in CURATED_SPECS.items():groups.setdefault(spec['group_code'],[]).append(spec)
     def load(items):
         prior=[previous.get(s['code']) for s in items]
-        if all(r and r.get('provider')=='evds3' and r.get('fetched_at','').startswith(today.isoformat()) for r in prior):
+        if all(reusable_after_release(r,s,datetime.now(TR)) for r,s in zip(prior,items)):
             return {s['code']:{**r,**s} for r,s in zip(prior,items)}
         return fetch_curated_group(items,today)
     with ThreadPoolExecutor(max_workers=2) as executor:
@@ -881,14 +923,231 @@ def build_curated(demo=False):
                 old=previous.get(s['code'])
                 if old and old.get('provider')=='evds3':records[s['code']]={**old,**s,'fallback':True}
     if not records:raise DataError('EVDS verisi alınamadı. '+'; '.join(errors[:4]))
+    attach_daily_fx(records,cache,errors,datetime.now(TR))
+    attach_analytic_daily(records,errors)
     output=ROOT/'dist';count=write_curated(output,records,errors,stamp)
     if not count:raise DataError('Seçili göstergeler için grafik üretilemedi')
     cache['_panel']={k:{a:v for a,v in r.items() if a!='fallback'} for k,r in records.items()}
     path.parent.mkdir(exist_ok=True);tmp=path.with_suffix('.tmp');tmp.write_text(json.dumps(cache,ensure_ascii=False),encoding='utf-8');tmp.replace(path)
     if all(r.get('fallback') for r in records.values()):(output/'all_failed.flag').write_text('All APIs failed')
     else:(output/'all_failed.flag').unlink(missing_ok=True)
-    print(f'18 menü başlığı / {count} hazır grafik',flush=True)
+    print(f'{len(CURATED_CHARTS)} menü başlığı / {count} hazır grafik',flush=True)
     for error in errors:print('UYARI:',error,flush=True)
+
+
+FX_SPECS={'TP.AB.A02': {'id': 'TP.AB.A02', 'code': 'TP.AB.A02', 'name': 'A.1 DIŞ VARLIKLAR', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'unit': 'Bin TL', 'frequency': 'İŞ GÜNÜ', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A10': {'id': 'TP.AB.A10', 'code': 'TP.AB.A10', 'name': 'P.1 TOPLAM DÖVİZ YÜKÜMLÜLÜKLERİ', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'unit': 'Bin TL', 'frequency': 'İŞ GÜNÜ', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A13': {'id': 'TP.AB.A13', 'code': 'TP.AB.A13', 'name': 'P.1ba Kamu ve Diğer Döviz Mevduatı', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'unit': 'Bin TL', 'frequency': 'İŞ GÜNÜ', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.DK.USD.A.YTL': {'id': 'TP.DK.USD.A.YTL', 'code': 'TP.DK.USD.A.YTL', 'name': '(USD)  ABD  Doları  (Döviz  Alış)', 'group_code': 'bie_dkdovytl', 'group': 'Döviz Kurları', 'unit': 'TL / ABD doları', 'frequency': 'İŞ GÜNÜ', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.SWAPTEKTAR.TOTALSTOKALIMYONLU': {'id': 'TP.SWAPTEKTAR.TOTALSTOKALIMYONLU', 'code': 'TP.SWAPTEKTAR.TOTALSTOKALIMYONLU', 'name': '19.TOPLAM - STOK (Alım Yönlü)', 'group_code': 'bie_swaptektarf', 'group': 'TCMB Taraflı Swap İşlemleri', 'unit': 'Milyon ABD doları', 'frequency': 'İŞ GÜNÜ', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU': {'id': 'TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU', 'code': 'TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU', 'name': '20.TOPLAM - STOK (Satım Yönlü)', 'group_code': 'bie_swaptektarf', 'group': 'TCMB Taraflı Swap İşlemleri', 'unit': 'Milyon ABD doları', 'frequency': 'İŞ GÜNÜ', 'source': 'TCMB / EVDS', 'provider': 'evds3'}}
+FX_WEEKLY_SEEDS=[{'date': '2023-12-29', 'total': -72457.0, 'domestic': -48746.0}, {'date': '2024-01-05', 'total': -71815.0, 'domestic': -48366.0}, {'date': '2024-01-12', 'total': -68825.0, 'domestic': -45386.0}, {'date': '2024-01-19', 'total': -65501.0, 'domestic': -42147.0}, {'date': '2024-01-26', 'total': -74342.0, 'domestic': -51099.0}, {'date': '2024-02-02', 'total': -72808.0, 'domestic': -49587.0}, {'date': '2024-02-09', 'total': -72448.0, 'domestic': -49259.0}, {'date': '2024-02-16', 'total': -70344.0, 'domestic': -47220.0}, {'date': '2024-02-23', 'total': -68651.0, 'domestic': -45418.0}, {'date': '2024-03-01', 'total': -68293.0, 'domestic': -45055.0}, {'date': '2024-03-08', 'total': -74747.0, 'domestic': -51356.0}, {'date': '2024-03-15', 'total': -79307.0, 'domestic': -55969.0}, {'date': '2024-03-22', 'total': -80307.0, 'domestic': -57080.0}, {'date': '2024-03-29', 'total': -80991.0, 'domestic': -57898.0}, {'date': '2024-04-05', 'total': -76799.0, 'domestic': -53569.0}, {'date': '2024-04-09', 'total': -75617.0, 'domestic': -52336.0}, {'date': '2024-04-19', 'total': -67640.0, 'domestic': -44495.0}, {'date': '2024-04-26', 'total': -62574.0, 'domestic': -39586.0}, {'date': '2024-05-03', 'total': -59865.0, 'domestic': -36813.0}, {'date': '2024-05-10', 'total': -54490.0, 'domestic': -31398.0}, {'date': '2024-05-17', 'total': -48650.0, 'domestic': -25355.0}, {'date': '2024-05-24', 'total': -45474.0, 'domestic': -22264.0}, {'date': '2024-05-31', 'total': -43971.0, 'domestic': -20811.0}, {'date': '2024-06-07', 'total': -41573.0, 'domestic': -18300.0}, {'date': '2024-06-14', 'total': -35514.0, 'domestic': -12496.0}, {'date': '2024-06-21', 'total': -32181.0, 'domestic': -9093.0}, {'date': '2024-06-28', 'total': -27829.0, 'domestic': -4719.0}, {'date': '2024-07-05', 'total': -25422.0, 'domestic': -2322.0}, {'date': '2024-07-12', 'total': -25475.0, 'domestic': -2351.0}, {'date': '2024-07-19', 'total': -25242.0, 'domestic': -2051.0}, {'date': '2024-07-26', 'total': -23186.0, 'domestic': -55.0}, {'date': '2024-08-02', 'total': -22496.0, 'domestic': 180.0}, {'date': '2024-08-09', 'total': -22338.0, 'domestic': 0.0}, {'date': '2024-08-16', 'total': -22087.0, 'domestic': 225.0}, {'date': '2024-08-23', 'total': -22311.0, 'domestic': 0.0}, {'date': '2024-08-29', 'total': -22339.0, 'domestic': 0.0}, {'date': '2024-09-06', 'total': -22332.0, 'domestic': 0.0}, {'date': '2024-09-13', 'total': -22324.0, 'domestic': 0.0}, {'date': '2024-09-20', 'total': -21862.0, 'domestic': 500.0}, {'date': '2024-09-27', 'total': -21303.0, 'domestic': 1095.0}, {'date': '2024-10-04', 'total': -21468.0, 'domestic': 970.0}, {'date': '2024-10-11', 'total': -21107.0, 'domestic': 1300.0}, {'date': '2024-10-18', 'total': -20114.0, 'domestic': 2262.0}, {'date': '2024-10-25', 'total': -17789.0, 'domestic': 4570.0}, {'date': '2024-11-01', 'total': -15495.0, 'domestic': 6913.0}, {'date': '2024-11-08', 'total': -15584.0, 'domestic': 6808.0}, {'date': '2024-11-15', 'total': -14955.0, 'domestic': 7375.0}, {'date': '2024-11-22', 'total': -19204.0, 'domestic': 3081.0}, {'date': '2024-11-29', 'total': -18481.0, 'domestic': 3875.0}, {'date': '2024-12-06', 'total': -16735.0, 'domestic': 5561.0}, {'date': '2024-12-13', 'total': -15461.0, 'domestic': 6822.0}, {'date': '2024-12-20', 'total': -15330.0, 'domestic': 6963.0}, {'date': '2024-12-27', 'total': -19906.0, 'domestic': 2392.0}, {'date': '2025-01-03', 'total': -21043.0, 'domestic': 1281.0}, {'date': '2025-01-10', 'total': -15060.0, 'domestic': 7199.0}, {'date': '2025-01-17', 'total': -12027.0, 'domestic': 10223.0}, {'date': '2025-01-24', 'total': -10695.0, 'domestic': 11588.0}, {'date': '2025-01-31', 'total': -6464.0, 'domestic': 13131.0}, {'date': '2025-02-07', 'total': -7233.0, 'domestic': 12295.0}, {'date': '2025-02-14', 'total': -6806.0, 'domestic': 12788.0}, {'date': '2025-02-21', 'total': -6310.0, 'domestic': 13309.0}, {'date': '2025-02-28', 'total': -7720.0, 'domestic': 12012.0}, {'date': '2025-03-07', 'total': -8515.0, 'domestic': 11156.0}, {'date': '2025-03-14', 'total': -8495.0, 'domestic': 11164.0}, {'date': '2025-03-21', 'total': -9895.0, 'domestic': 9775.0}, {'date': '2025-03-28', 'total': -18346.0, 'domestic': 1401.0}, {'date': '2025-04-04', 'total': -17572.0, 'domestic': 2124.0}, {'date': '2025-04-11', 'total': -18082.0, 'domestic': 1616.0}, {'date': '2025-04-18', 'total': -18202.0, 'domestic': 1508.0}, {'date': '2025-04-25', 'total': -18581.0, 'domestic': 1178.0}, {'date': '2025-05-02', 'total': -19005.0, 'domestic': 576.0}, {'date': '2025-05-09', 'total': -19473.0, 'domestic': 123.0}, {'date': '2025-05-16', 'total': -19592.0, 'domestic': 10.0}, {'date': '2025-05-23', 'total': -19563.0, 'domestic': 23.0}, {'date': '2025-05-30', 'total': -18954.0, 'domestic': 336.0}, {'date': '2025-06-05', 'total': -19619.0, 'domestic': 0.0}, {'date': '2025-06-13', 'total': -19200.0, 'domestic': 269.0}, {'date': '2025-06-20', 'total': -17947.0, 'domestic': 1654.0}, {'date': '2025-06-27', 'total': -17931.0, 'domestic': 1559.0}, {'date': '2025-07-04', 'total': -19205.0, 'domestic': 316.0}, {'date': '2025-07-11', 'total': -19081.0, 'domestic': 833.0}, {'date': '2025-07-18', 'total': -18440.0, 'domestic': 1056.0}, {'date': '2025-07-25', 'total': -17793.0, 'domestic': 1732.0}, {'date': '2025-08-01', 'total': -17594.0, 'domestic': 2033.0}, {'date': '2025-08-08', 'total': -17848.0, 'domestic': 1622.0}, {'date': '2025-08-15', 'total': -17553.0, 'domestic': 1915.0}, {'date': '2025-08-22', 'total': -17014.0, 'domestic': 2412.0}, {'date': '2025-08-29', 'total': -16683.0, 'domestic': 2738.0}, {'date': '2025-09-05', 'total': -16742.0, 'domestic': 2645.0}, {'date': '2025-09-12', 'total': -17578.0, 'domestic': 1872.0}, {'date': '2025-09-19', 'total': -17117.0, 'domestic': 2365.0}, {'date': '2025-09-26', 'total': -15383.0, 'domestic': 4069.0}, {'date': '2025-10-03', 'total': -15562.0, 'domestic': 3817.0}, {'date': '2025-10-10', 'total': -17272.0, 'domestic': 2133.0}, {'date': '2025-10-17', 'total': -16126.0, 'domestic': 3227.0}, {'date': '2025-10-24', 'total': -15614.0, 'domestic': 3982.0}, {'date': '2025-10-31', 'total': -15000.0, 'domestic': 3065.0}, {'date': '2025-11-07', 'total': -14748.0, 'domestic': 2690.0}, {'date': '2025-11-14', 'total': -17000.0, 'domestic': 3145.0}, {'date': '2025-11-21', 'total': -14156.0, 'domestic': 3326.0}, {'date': '2025-11-28', 'total': -14393.0, 'domestic': 3198.0}, {'date': '2025-12-05', 'total': -15350.0, 'domestic': 2091.0}, {'date': '2025-12-12', 'total': -13429.0, 'domestic': 4312.0}, {'date': '2025-12-19', 'total': -13682.0, 'domestic': 3533.0}, {'date': '2025-12-26', 'total': -12250.0, 'domestic': 4904.0}, {'date': '2026-01-02', 'total': -14272.0, 'domestic': 3104.0}, {'date': '2026-01-09', 'total': -12826.0, 'domestic': 4519.0}, {'date': '2026-01-16', 'total': -12237.0, 'domestic': 4901.0}, {'date': '2026-01-23', 'total': -11900.0, 'domestic': 5146.0}, {'date': '2026-01-30', 'total': -10756.0, 'domestic': 5981.0}, {'date': '2026-02-06', 'total': -13532.0, 'domestic': 3912.0}, {'date': '2026-02-13', 'total': -14304.0, 'domestic': 2989.0}, {'date': '2026-02-20', 'total': -13579.0, 'domestic': 3658.0}, {'date': '2026-02-27', 'total': -12941.0, 'domestic': 3417.0}, {'date': '2026-03-06', 'total': -13762.0, 'domestic': 2646.0}, {'date': '2026-03-12', 'total': -13689.0, 'domestic': 1683.0}, {'date': '2026-03-19', 'total': -9218.0, 'domestic': 2581.0}, {'date': '2026-03-27', 'total': -14881.0, 'domestic': 2416.0}, {'date': '2026-04-03', 'total': -27262.0, 'domestic': -10589.0}, {'date': '2026-04-10', 'total': -23436.0, 'domestic': -6869.0}, {'date': '2026-04-17', 'total': -18668.0, 'domestic': -2463.0}, {'date': '2026-04-24', 'total': -17839.0, 'domestic': -1519.0}, {'date': '2026-04-30', 'total': -17397.0, 'domestic': -878.0}, {'date': '2026-05-08', 'total': -15848.0, 'domestic': 444.0}, {'date': '2026-05-15', 'total': -14941.0, 'domestic': 1643.0}, {'date': '2026-05-26', 'total': -19212.0, 'domestic': -2569.64531}, {'date': '2026-06-05', 'total': -17404.0, 'domestic': -789.68893}, {'date': '2026-06-12', 'total': -15981.0, 'domestic': 1080.88879}, {'date': '2026-06-19', 'total': -17408.0, 'domestic': -431.47822999999994}, {'date': '2026-06-26', 'total': -14662.0, 'domestic': 2123.94172}, {'date': '2026-07-03', 'total': -15045.0, 'domestic': 1369.4628400000001}, {'date': '2026-07-10', 'total': -13741.0, 'domestic': 2739.63}, {'date': '2026-07-17', 'total': -13478.0, 'domestic': 3197.14962}, {'date': '2026-07-24', 'total': -12819.0, 'domestic': 3589.82}, {'date': '2026-07-31', 'total': -13349.0, 'domestic': 3245.19}, {'date': '2026-08-07', 'total': -12421.0, 'domestic': 3798.92639}, {'date': '2026-08-14', 'total': -12859.0, 'domestic': 3479.52857}, {'date': '2026-08-21', 'total': -10987.0, 'domestic': 5138.09}, {'date': '2026-08-28', 'total': -10723.0, 'domestic': 5784.81961}, {'date': '2026-09-04', 'total': -12242.0, 'domestic': 4337.65}, {'date': '2026-09-11', 'total': -12286.0, 'domestic': 4270.36841}, {'date': '2026-09-18', 'total': -12703.0, 'domestic': 3789.69}, {'date': '2026-09-25', 'total': -13484.0, 'domestic': 3014.106}, {'date': '2026-10-02', 'total': -15933.0, 'domestic': 599.49993}]
+import io
+import zipfile
+import xml.etree.ElementTree as ET
+from html import unescape
+from urllib.parse import urljoin, urlsplit
+
+FX_LEVEL_CODE='BFRC.NETFX.SWAPEX'
+FX_CHANGE_CODE='BFRC.NETFX.SWAPEX.CHANGE'
+FX_RAW=['TP.AB.A02','TP.AB.A10','TP.AB.A13','TP.DK.USD.A.YTL',
+        'TP.SWAPTEKTAR.TOTALSTOKALIMYONLU','TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU']
+CURATED_SPECS.update(FX_SPECS)
+CURATED_CHARTS[:0]=[
+ {'id':'netfx-gunluk','name':'Net Döviz Pozisyonu (Günlük)',
+  'title':'TCMB Swap Hariç Net Döviz Pozisyonu','unit':'Milyar ABD doları',
+  'note':'Günlük tahmin. Haftalık yabancı swap düzeltmesi son bilinen değerde taşınır.',
+  'default_years':3,'area':True,'lines':[line(FX_LEVEL_CODE,'Swap hariç net döviz pozisyonu',.001,color='#432454')]},
+ {'id':'netfx-degisim','name':'Net Döviz Pozisyonu Günlük Değişim',
+  'title':'TCMB Swap Hariç Net Döviz Pozisyonu Günlük Değişimi','unit':'Milyon ABD doları',
+  'note':'Önceki mevcut iş gününe göre değişim. Kur ve değerleme etkilerini içerir.',
+  'default_years':.5,'daily_bars':True,'lines':[line(FX_CHANGE_CODE,'Günlük değişim',color='#432454')]}
+]
+
+
+def read_xlsx_rows(raw):
+    ns={'s':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+    with zipfile.ZipFile(io.BytesIO(raw)) as book:
+        ss=[]
+        if 'xl/sharedStrings.xml' in book.namelist():
+            ss=[''.join(s.itertext()) for s in ET.fromstring(book.read('xl/sharedStrings.xml')).findall('s:si',ns)]
+        names=sorted(n for n in book.namelist() if re.fullmatch(r'xl/worksheets/sheet\d+\.xml',n))
+        result=[]
+        for name in names:
+            for row in ET.fromstring(book.read(name)).findall('.//s:sheetData/s:row',ns):
+                cells={}
+                for cell in row:
+                    v=cell.find('s:v',ns);value=v.text if v is not None else ''
+                    if cell.get('t')=='s' and value:value=ss[int(value)]
+                    elif cell.get('t')=='inlineStr':value=''.join(cell.find('s:is',ns).itertext())
+                    elif value:
+                        try:value=float(value)
+                        except ValueError:pass
+                    if value!='':cells[re.sub(r'\d','',cell.get('r',''))]=value
+                if cells:result.append(cells)
+        return result
+
+
+def parse_weekly_liquidity(raw,today):
+    with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+        files=[n for n in archive.namelist() if n.lower().endswith('.xlsx')]
+        if len(files)!=1:raise DataError('Haftalık rezerv ZIP dosyasında tek XLSX bekleniyor')
+        rows=read_xlsx_rows(archive.read(files[0]))
+    forward=other=None
+    def norm(value):
+        return unicodedata.normalize('NFKD',str(value).lower().replace('ı','i')).encode('ascii','ignore').decode()
+    for row in rows:
+        text=' '.join(norm(v) for v in row.values() if isinstance(v,str))
+        if text.startswith('ii.2.') and 'forward' in text:forward=row
+        if text.startswith('ii.3.f ') and 'diger alacak' in text:other=row
+    if forward is None or other is None:raise DataError('Haftalık swap düzeltmesi satırları bulunamadı')
+    dates={}
+    for row in rows[:12]:
+        if not any('milyon abd' in norm(v) for v in row.values() if isinstance(v,str)):continue
+        for col,v in row.items():
+            if isinstance(v,(int,float)) and 36000<v<70000 and v==int(v):
+                d=date(1899,12,30)+timedelta(days=int(v))
+                if d<=today:dates[col]=d.isoformat()
+    result=[]
+    for col,d in dates.items():
+        a,b=forward.get(col),other.get(col)
+        if isinstance(a,(int,float)) and isinstance(b,(int,float)):
+            result.append({'date':d,'total':a+b,'source':'TCMB haftalık rezerv/likidite tablosu'})
+    if not result:raise DataError('Haftalık swap düzeltmesinde tarih/değer eşleşmedi')
+    return result
+
+
+def fetch_weekly_liquidity(today):
+    page=('https://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb%2Btr/main%2Bmenu/istatistikler/'
+          'odemeler%2Bdengesi%2Bve%2Bilgili%2Bistatistikler/uluslararasi%2Brezervler%2Bve%2Bdoviz%2Blikiditesi')
+    def download(client,url):
+        parsed=urlsplit(url)
+        if parsed.scheme!='https' or parsed.hostname not in ('www.tcmb.gov.tr','tcmb.gov.tr'):
+            raise DataError('Beklenmeyen TCMB kaynak adresi')
+        try:
+            r=client.get(url,timeout=(10,40));r.raise_for_status()
+            if len(r.content)>15_000_000:raise DataError('TCMB kaynak dosyası beklenenden büyük')
+            return r.content
+        except requests.RequestException:raise DataError('TCMB haftalık tablo bağlantısı başarısız') from None
+    with session() as client:
+        html=download(client,page).decode('utf-8')
+        matches=re.findall(r'href=["\']([^"\']*URDL_(\d{8})\.zip[^"\']*)["\']',html,re.I)
+        if not matches:raise DataError('TCMB haftalık XLSX bağlantısı bulunamadı')
+        candidates=[]
+        for href,day in matches:
+            if datetime.strptime(day,'%Y%m%d').date()<=today:candidates.append((day,href))
+        if not candidates:raise DataError('Geçerli haftalık TCMB dosyası bulunamadı')
+        _,href=max(candidates)
+        return parse_weekly_liquidity(download(client,urljoin(page,unescape(href))),today)
+
+
+def daily_fx_records(records,weekly,now):
+    if not all(c in records for c in FX_RAW):raise DataError('Günlük net döviz hesabının bazı girdileri eksik')
+    values={c:{r['date']:r['value'] for r in records[c]['observations']} for c in FX_RAW}
+    assets,liabilities,treasury,usd,buy,sell=[values[c] for c in FX_RAW]
+    domestic={d:sell[d]-buy[d] for d in buy.keys()&sell.keys()}
+    anchors=[]
+    for item in sorted(weekly,key=lambda r:r['date']):
+        d=item['date'];m=domestic.get(d,item.get('domestic'))
+        if m is not None:anchors.append((d,item['total']-m))
+    if not anchors:raise DataError('Yabancı swap düzeltmesi için ortak tarih yok')
+    level=[];change=[];details=[];last_value=None;last_date=None;anchor_index=-1
+    for d in sorted(assets):
+        while anchor_index+1<len(anchors) and anchors[anchor_index+1][0]<=d:anchor_index+=1
+        valid=(anchor_index>=0 and all(d in v for v in [liabilities,treasury,usd,domestic]) and usd.get(d,0)>0)
+        if valid:valid=(date.fromisoformat(d)-date.fromisoformat(anchors[anchor_index][0])).days<=14
+        if not valid:
+            # Never compute a daily change across an internal missing-input gap.
+            level.append({'date':d,'value':None})
+            last_value=None;last_date=None;continue
+        anchor_day,q=anchors[anchor_index]
+        # EVDS balance sheet is in thousand TL; swap amounts are in million USD.
+        f=(assets[d]-liabilities[d])/(1000*usd[d])
+        h=treasury[d]/(1000*usd[d])
+        r=domestic[d]+q;t=f+r;u=t+h  # workbook: F,H,R,T,U columns
+        level.append({'date':d,'value':u})
+        if last_value is not None:
+            change.append({'date':d,'value':u-last_value})
+        details.append({'date':d,'T':t,'U':u,'F':f,'H':h,'R':r,'Q':q,'anchor_date':anchor_day})
+        last_value=u;last_date=d
+    while level and level[-1]['value'] is None:level.pop()
+    if not level or not change:raise DataError('Günlük net döviz hesabında yeterli ortak gözlem yok')
+    fetched=min(records[c]['fetched_at'] for c in FX_RAW)
+    base={'provider':'derived','source':'TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC',
+          'fetched_at':fetched,'frequency':'Günlük tahmin','group':'Günlük net döviz pozisyonu',
+          'weekly_anchor':details[-1]['anchor_date'],'estimated':True}
+    if any(records[c].get('fallback') for c in FX_RAW):base['fallback']=True
+    return {
+        FX_LEVEL_CODE:{**base,'id':FX_LEVEL_CODE,'code':FX_LEVEL_CODE,'name':'Swap hariç net döviz pozisyonu',
+                       'unit':'Milyon ABD doları','observations':level},
+        FX_CHANGE_CODE:{**base,'id':FX_CHANGE_CODE,'code':FX_CHANGE_CODE,'name':'Günlük net döviz pozisyonu değişimi',
+                       'unit':'Milyon ABD doları','observations':change}},details
+
+
+def attach_daily_fx(records,cache,errors,now):
+    previous=cache.get('_fx_weekly',{})
+    by_date={r['date']:r for r in FX_WEEKLY_SEEDS}
+    by_date.update({r['date']:r for r in previous.get('rows',[])})
+    pseudo={'provider':'evds3','code':'weekly-liquidity','fetched_at':previous.get('fetched_at','')}
+    spec={'code':'weekly-liquidity','group_code':'weekly-liquidity','frequency':'HAFTALIK'}
+    if not reusable_after_release(pseudo,spec,now):
+        try:
+            fetched=fetch_weekly_liquidity(now.date())
+            for r in fetched:
+                by_date[r['date']]={**by_date.get(r['date'],{}),**r}
+            cache['_fx_weekly']={'fetched_at':now.isoformat(timespec='seconds'),'rows':list(by_date.values())}
+        except (DataError,ValueError,zipfile.BadZipFile,ET.ParseError) as error:
+            errors.append('Haftalık swap düzeltmesi: '+str(error))
+    try:
+        derived,details=daily_fx_records(records,list(by_date.values()),now)
+        records.update(derived)
+        cache['_fx_calculation_last']=details[-1]
+    except DataError as error:errors.append('Net döviz pozisyonu: '+str(error))
+
+
+def demo_with_fx(today):
+    records=curated_demo(today);rows={c:[] for c in FX_RAW};weekly=[]
+    for k in range(1100):
+        day=today-timedelta(days=1099-k)
+        if day.weekday()>4:continue
+        d=day.isoformat();values=[6e9+k*1e6,4e9,3e8,30+k*.015,3000,3500+100*math.sin(k/9)]
+        for c,v in zip(FX_RAW,values):rows[c].append({'date':d,'value':v})
+        if not weekly or day.weekday()==4:weekly.append({'date':d,'total':-16000,'domestic':values[5]-values[4]})
+    for c in FX_RAW:records[c]['observations']=rows[c]
+    derived,_=daily_fx_records(records,weekly,datetime.now(TR));records.update(derived)
+    attach_analytic_daily(records,[])
+    return records
+
+
+# Daily analytical balance sheet definitions; independent of swap availability.
+CURATED_SPECS.pop('TP.AB.N15',None)
+CURATED_SPECS.pop('TP.AB.N05',None)
+CURATED_SPECS['TP.AB.A15']={**CURATED_SPECS['TP.AB.A02'],'id':'TP.AB.A15','code':'TP.AB.A15','name':'Merkez Bankası Parası'}
+CURATED_CHARTS.insert(0,{'id':'netfx-bilanco','name':'Net Döviz Pozisyonu — Günlük Analitik Bilanço',
+    'title':'TCMB Net Döviz Pozisyonu (Swap Dahil)','unit':'Milyar ABD doları',
+    'area':True,'default_years':3,
+    'note':'Net dış varlıklar / USD alış kuru. Swap hariç tahmin ayrı göstergedir.',
+    'lines':[line('BFRC.DAILY.NETFX','Net döviz pozisyonu',.001,color='#432454')]})
+for chart in CURATED_CHARTS:
+    if chart['id'] in ('net-ic','net-dis'):
+        chart['name']+=' (Günlük Analitik Bilanço)'
+        chart['area']=True
+        chart['note']=('Net dış varlıklar = dış varlıklar − toplam döviz yükümlülükleri.' if chart['id']=='net-dis' else
+                       'Net iç varlıklar = merkez bankası parası − net dış varlıklar; değerleme dahil.')
+
+def attach_analytic_daily(records,errors):
+    def calculate(code,inputs,formula,unit):
+        if not all(c in records for c in inputs):
+            errors.append(code+': günlük analitik bilanço girdisi eksik');return
+        maps=[{r['date']:r['value'] for r in records[c]['observations'] if r['value'] is not None} for c in inputs]
+        dates=sorted(set.intersection(*(set(m) for m in maps)))
+        rows=[]
+        for d in dates:
+            vals=[m[d] for m in maps]
+            v=formula(*vals)
+            if v is not None:rows.append({'date':d,'value':v})
+        if not rows:errors.append(code+': ortak günlük gözlem yok');return
+        records[code]={'id':code,'code':code,'provider':'derived','source':'TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC',
+            'unit':unit,'frequency':'İŞ GÜNÜ','fetched_at':min(records[c]['fetched_at'] for c in inputs),
+            'observations':rows,'fallback':any(records[c].get('fallback',False) for c in inputs)}
+    calculate('BFRC.DAILY.NDV',['TP.AB.A02','TP.AB.A10'],lambda a,l:a-l,'Bin TL')
+    calculate('BFRC.DAILY.NIV',['TP.AB.A15','BFRC.DAILY.NDV'],lambda m,n:m-n,'Bin TL')
+    calculate('BFRC.DAILY.NETFX',['BFRC.DAILY.NDV','TP.DK.USD.A.YTL'],lambda n,u:n/(1000*u) if u>0 else None,'Milyon ABD doları')
 
 
 if __name__ == "__main__":
