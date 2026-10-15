@@ -707,7 +707,7 @@ def curated_figure(chart,records,demo=False):
     earliest=(latest-timedelta(days=365*5)).isoformat()
     fig.update_layout(template="none",height=760,paper_bgcolor="#eff6fa",plot_bgcolor="#eff6fa",
         font={"family":"Arial, sans-serif","size":14,"color":"#172b3b"},
-        title={"text":"<b>"+title+"</b><br><span style='font-size:16px'>"+escape(chart["unit"])+"</span>",
+        title={"text":"<b>"+title+"</b><br><span style='font-size:16px'>"+escape(chart["unit"])+" · Son gözlem: "+latest.strftime("%d.%m.%Y")+"</span>",
                "font":{"family":"Courier New, monospace","size":23},"x":.025,"y":.97,"xanchor":"left"},
         margin={"l":30,"r":85,"t":110,"b":190},hovermode="x unified",bargap=.32,
         legend={"orientation":"h","x":.5,"xanchor":"center","y":-.17,
@@ -949,13 +949,13 @@ FX_RAW=['TP.AB.A02','TP.AB.A10','TP.AB.A13','TP.DK.USD.A.YTL',
         'TP.SWAPTEKTAR.TOTALSTOKALIMYONLU','TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU']
 CURATED_SPECS.update(FX_SPECS)
 CURATED_CHARTS[:0]=[
- {'id':'netfx-gunluk','name':'Net Döviz Pozisyonu (Günlük)',
+ {'id':'netfx-gunluk','name':'Net Döviz Pozisyonu — Excel Hesabı (Günlük)',
   'title':'TCMB Swap Hariç Net Döviz Pozisyonu','unit':'Milyar ABD doları',
-  'note':'Günlük tahmin. Haftalık yabancı swap düzeltmesi son bilinen değerde taşınır.',
+  'note':'Excel U = F + R + H. Hazine mevduatı eklenir; swap düzeltmesi son haftalık referanstan taşınır.',
   'default_years':3,'area':True,'lines':[line(FX_LEVEL_CODE,'Swap hariç net döviz pozisyonu',.001,color='#432454')]},
  {'id':'netfx-degisim','name':'Net Döviz Pozisyonu Günlük Değişim',
   'title':'TCMB Swap Hariç Net Döviz Pozisyonu Günlük Değişimi','unit':'Milyon ABD doları',
-  'note':'Önceki mevcut iş gününe göre değişim. Kur ve değerleme etkilerini içerir.',
+  'note':'Excel W = U(t) − U(önceki iş günü). Kur ve değerleme etkilerini içerir.',
   'default_years':.5,'daily_bars':True,'lines':[line(FX_CHANGE_CODE,'Günlük değişim',color='#432454')]}
 ]
 
@@ -1118,11 +1118,12 @@ def demo_with_fx(today):
 CURATED_SPECS.pop('TP.AB.N15',None)
 CURATED_SPECS.pop('TP.AB.N05',None)
 CURATED_SPECS['TP.AB.A15']={**CURATED_SPECS['TP.AB.A02'],'id':'TP.AB.A15','code':'TP.AB.A15','name':'Merkez Bankası Parası'}
-CURATED_CHARTS.insert(0,{'id':'netfx-bilanco','name':'Net Döviz Pozisyonu — Günlük Analitik Bilanço',
-    'title':'TCMB Net Döviz Pozisyonu (Swap Dahil)','unit':'Milyar ABD doları',
+CURATED_CHARTS.insert(0,{'id':'netfx-bilanco','name':'Net Rezerv — Swap Dahil (Günlük)',
+    'title':'TCMB Net Rezervi (Swap Dahil)','unit':'Milyar ABD doları',
     'area':True,'default_years':3,
     'note':'Net dış varlıklar / USD alış kuru. Swap hariç tahmin ayrı göstergedir.',
-    'lines':[line('BFRC.DAILY.NETFX','Net döviz pozisyonu',.001,color='#432454')]})
+    'lines':[line('BFRC.DAILY.NETFX','Swap dahil net rezerv',.001,color='#432454')]})
+CURATED_CHARTS.sort(key=lambda c: {'netfx-gunluk':0,'netfx-degisim':1,'netfx-bilanco':2}.get(c['id'],3))
 for chart in CURATED_CHARTS:
     if chart['id'] in ('net-ic','net-dis'):
         chart['name']+=' (Günlük Analitik Bilanço)'
