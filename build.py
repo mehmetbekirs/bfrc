@@ -651,7 +651,7 @@ def previous_month(key,lag):
 def transformed(record,spec):
     factor=spec.get("factor",1)
     if spec.get("transform","level")=="level":
-        return [(r["date"],r["value"]*factor) for r in record["observations"]]
+        return [(r["date"],None if r["value"] is None else r["value"]*factor) for r in record["observations"]]
     monthly=monthly_map(record);result=[]
     for key in sorted(monthly):
         if spec["transform"]=="yoy":
