@@ -718,6 +718,9 @@ def curated_figure(chart,records,demo=False):
         yaxis={"side":"right","showgrid":True,"gridcolor":"rgba(44,66,83,0.35)",
                "griddash":"dot","zeroline":True,"zerolinecolor":"#7d8f9b",
                "tickformat":",.1f","showline":False,"fixedrange":False})
+    if chart.get("daily_bars"):
+        fig.update_xaxes(range=[(date.fromisoformat(earliest)-timedelta(days=1)).isoformat(),
+                                (latest+timedelta(days=1)).isoformat()])
     fig.add_layout_image(source=CURATED_LOGO,xref="paper",yref="paper",x=.5,y=.53,
         xanchor="center",yanchor="middle",sizex=.75,sizey=.90,sizing="contain",opacity=.15,layer="below")
     labels=[("Kaynak: TCMB / EVDS",-109),
@@ -854,7 +857,10 @@ function applyRange(){if(!currentFigure)return;const dates=currentFigure.data.fl
 const start=new Date(end+'T12:00:00Z');start.setUTCMonth(start.getUTCMonth()-Math.round(currentYears*12));const begin=currentYears===0?dates[0]:start.toISOString().slice(0,10);
 const values=[];for(const t of currentFigure.data){for(let i=0;i<t.x.length;i++){if(t.x[i]>=begin&&t.x[i]<=end&&typeof t.y[i]==='number'&&Number.isFinite(t.y[i]))values.push(t.y[i]);}
 if(t.type==='bar'||t.fill==='tozeroy')values.push(0);}
-const update={'xaxis.autorange':false,'xaxis.range':[begin,end],'xaxis.dtick':currentYears<=1?'M1':currentYears===3?'M3':'M6'};
+const hasBars=currentFigure.data.some(t=>t.type==='bar');
+const padded=(day,offset)=>new Date(new Date(day+'T00:00:00Z').getTime()+offset*86400000).toISOString().slice(0,10);
+const axisRange=hasBars?[padded(begin,-1),padded(end,1)]:[begin,end];
+const update={'xaxis.autorange':false,'xaxis.range':axisRange,'xaxis.dtick':currentYears<=1?'M1':currentYears===3?'M3':'M6'};
 if(values.length){const low=Math.min(...values),high=Math.max(...values),pad=(high-low||Math.abs(high)||1)*.08;update['yaxis.autorange']=false;update['yaxis.range']=[low-pad,high+pad];}
 Plotly.relayout(graph,update);}
 document.querySelectorAll('[data-years]').forEach(b=>b.addEventListener('click',()=>{currentYears=Number(b.dataset.years);
