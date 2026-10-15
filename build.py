@@ -1137,14 +1137,18 @@ def demo_with_fx(today):
 
 
 # Daily analytical balance sheet definitions; independent of swap availability.
+CURATED_SPECS['TP.AB.N06']={'id':'TP.AB.N06','code':'TP.AB.N06',
+    'name':'2A Net Uluslararası Rezervler (1+2+3)','group_code':'bie_abstc2',
+    'group':'Merkez Bankası Bilançosu - Stand By (Cari)','unit':'Bin TL',
+    'frequency':'HAFTALIK(CUMA)','source':'TCMB / EVDS','provider':'evds3'}
 CURATED_SPECS.pop('TP.AB.N15',None)
 CURATED_SPECS.pop('TP.AB.N05',None)
 CURATED_SPECS['TP.AB.A15']={**CURATED_SPECS['TP.AB.A02'],'id':'TP.AB.A15','code':'TP.AB.A15','name':'Merkez Bankası Parası'}
-CURATED_CHARTS.insert(0,{'id':'netfx-bilanco','name':'Net Rezerv — Swap Dahil (Günlük)',
-    'title':'TCMB Net Rezervi (Swap Dahil)','unit':'Milyar ABD doları',
+CURATED_CHARTS.insert(0,{'id':'netfx-bilanco','name':'Net Uluslararası Rezervler (Haftalık)',
+    'title':'TCMB Net Uluslararası Rezervleri (Haftalık)','unit':'Milyar ABD doları',
     'area':True,'default_years':3,
-    'note':'Net dış varlıklar / USD alış kuru. Swap hariç tahmin ayrı göstergedir.',
-    'lines':[line('BFRC.DAILY.NETFX','Swap dahil net rezerv',.001,color='#432454')]})
+    'note':'Stand By (Cari) bilançosundaki net uluslararası rezervler; aynı günün USD alış kuruyla çevrilir.',
+    'lines':[line('BFRC.WEEKLY.NIR','Net uluslararası rezervler',.001,color='#432454')]})
 CURATED_CHARTS.insert(2,{'id':'netfx-hazine-haric','name':'Swap ve Hazine Hariç Net Döviz Pozisyonu',
     'title':'TCMB Swap ve Hazine Hariç Net Döviz Pozisyonu','unit':'Milyar ABD doları',
     'area':True,'default_years':3,'note':'Hazine döviz mevduatı hariçtir. Geçmiş seri BFRC arşivinden; yeni günler API verilerinden hesaplanır.',
@@ -1181,7 +1185,9 @@ def attach_analytic_daily(records,errors):
             'observations':rows,'fallback':any(records[c].get('fallback',False) for c in inputs)}
     calculate('BFRC.DAILY.NDV',['TP.AB.A02','TP.AB.A10'],lambda a,l:a-l,'Bin TL')
     calculate('BFRC.DAILY.NIV',['TP.AB.A15','BFRC.DAILY.NDV'],lambda m,n:m-n,'Bin TL')
-    calculate('BFRC.DAILY.NETFX',['BFRC.DAILY.NDV','TP.DK.USD.A.YTL'],lambda n,u:n/(1000*u) if u>0 else None,'Milyon ABD doları')
+    calculate('BFRC.WEEKLY.NIR',['TP.AB.N06','TP.DK.USD.A.YTL'],lambda n,u:n/(1000*u) if u>0 else None,'Milyon ABD doları')
+    if 'BFRC.WEEKLY.NIR' in records:
+        records['BFRC.WEEKLY.NIR'].update(frequency='HAFTALIK(CUMA)',source='TCMB / EVDS — Stand By (Cari) Net Uluslararası Rezervler')
 
 
 if __name__ == "__main__":
