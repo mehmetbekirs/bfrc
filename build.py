@@ -955,12 +955,12 @@ FX_RAW=['TP.AB.A02','TP.AB.A10','TP.AB.A13','TP.DK.USD.A.YTL',
         'TP.SWAPTEKTAR.TOTALSTOKALIMYONLU','TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU']
 CURATED_SPECS.update(FX_SPECS)
 CURATED_CHARTS[:0]=[
- {'id':'netfx-gunluk','name':'Swap Hariç Net Döviz Pozisyonu — Hazine Dahil (Günlük)',
-  'title':'TCMB Swap Hariç Net Döviz Pozisyonu (Hazine Dahil)','unit':'Milyar ABD doları',
+ {'id':'netfx-gunluk','name':'Swap Hariç Net Döviz Pozisyonu',
+  'title':'TCMB Swap Hariç Net Döviz Pozisyonu','unit':'Milyar ABD doları',
   'note':'Hazine döviz mevduatı dahildir. Geçmiş seri BFRC arşivinden; yeni günler API verilerinden hesaplanır.',
   'default_years':3,'area':True,'lines':[line(FX_LEVEL_CODE,'Swap hariç net döviz pozisyonu',.001,color='#432454')]},
- {'id':'netfx-degisim','name':'Swap Hariç Net Döviz Pozisyonu Günlük Değişimi — Hazine Hariç',
-  'title':'TCMB Swap Hariç Net Döviz Pozisyonu Günlük Değişimi (Hazine Hariç)','unit':'Milyon ABD doları',
+ {'id':'netfx-degisim','name':'Swap ve Hazine Hariç Net Döviz Pozisyonu Günlük Değişimi',
+  'title':'TCMB Swap ve Hazine Hariç Net Döviz Pozisyonu Günlük Değişimi','unit':'Milyon ABD doları',
   'note':'Hazine hariç pozisyonun önceki iş gününe göre değişimi. Kur ve değerleme etkilerini içerir.',
   'default_years':.5,'daily_bars':True,'lines':[line('BFRC.NETFX.TREASURYEX.CHANGE','Günlük değişim',color='#432454')]}
 ]
@@ -1146,13 +1146,13 @@ CURATED_CHARTS.insert(0,{'id':'netfx-bilanco','name':'Net Rezerv — Swap Dahil 
     'area':True,'default_years':3,
     'note':'Net dış varlıklar / USD alış kuru. Swap hariç tahmin ayrı göstergedir.',
     'lines':[line('BFRC.DAILY.NETFX','Swap dahil net rezerv',.001,color='#432454')]})
-CURATED_CHARTS.insert(2,{'id':'netfx-hazine-haric','name':'Swap Hariç Net Döviz Pozisyonu — Hazine Hariç (Günlük)',
-    'title':'TCMB Swap Hariç Net Döviz Pozisyonu (Hazine Hariç)','unit':'Milyar ABD doları',
+CURATED_CHARTS.insert(2,{'id':'netfx-hazine-haric','name':'Swap ve Hazine Hariç Net Döviz Pozisyonu',
+    'title':'TCMB Swap ve Hazine Hariç Net Döviz Pozisyonu','unit':'Milyar ABD doları',
     'area':True,'default_years':3,'note':'Hazine döviz mevduatı hariçtir. Geçmiş seri BFRC arşivinden; yeni günler API verilerinden hesaplanır.',
     'lines':[line('BFRC.NETFX.TREASURYEX','Hazine ve swap hariç net döviz pozisyonu',.001,color='#432454')]})
 CURATED_CHARTS.append({'id':'netfx-degisim-hazine-dahil',
-    'name':'Swap Hariç Net Döviz Pozisyonu Günlük Değişimi — Hazine Dahil',
-    'title':'TCMB Swap Hariç Net Döviz Pozisyonu Günlük Değişimi (Hazine Dahil)',
+    'name':'Swap Hariç Net Döviz Pozisyonu Günlük Değişimi',
+    'title':'TCMB Swap Hariç Net Döviz Pozisyonu Günlük Değişimi',
     'unit':'Milyon ABD doları','daily_bars':True,'default_years':.5,
     'note':'Hazine dahil pozisyonun önceki iş gününe göre değişimi. Kur ve değerleme etkilerini içerir.',
     'lines':[line(FX_CHANGE_CODE,'Günlük değişim',color='#432454')]})
