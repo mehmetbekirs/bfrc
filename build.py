@@ -763,6 +763,11 @@ def period_intersects(day,start,end,frequency):
     return first<=end and last>=start
 
 
+def is_daily_spec(spec):
+    text=unicodedata.normalize('NFKD',spec.get('frequency','').lower().replace('ı','i')).encode('ascii','ignore').decode()
+    return 'gun' in text or text in ('daily','business daily','d')
+
+
 def reusable_after_release(record,spec,now):
     """Reuse today's fetch only until an intraday publication checkpoint is crossed."""
     if not record or record.get('provider')!='evds3' or record.get('code')!=spec['code']:
@@ -906,7 +911,7 @@ def build_curated(demo=False):
     for code,spec in CURATED_SPECS.items():groups.setdefault(spec['group_code'],[]).append(spec)
     def load(items):
         prior=[previous.get(s['code']) for s in items]
-        if all(reusable_after_release(r,s,datetime.now(TR)) for r,s in zip(prior,items)):
+        if not any(is_daily_spec(s) for s in items) and all(reusable_after_release(r,s,datetime.now(TR)) for r,s in zip(prior,items)):
             return {s['code']:{**r,**s} for r,s in zip(prior,items)}
         return fetch_curated_group(items,today)
     with ThreadPoolExecutor(max_workers=2) as executor:
@@ -954,10 +959,10 @@ CURATED_CHARTS[:0]=[
   'title':'TCMB Swap Hariç Net Döviz Pozisyonu (Hazine Dahil)','unit':'Milyar ABD doları',
   'note':'Hazine döviz mevduatı dahildir. Geçmiş seri BFRC arşivinden; yeni günler API verilerinden hesaplanır.',
   'default_years':3,'area':True,'lines':[line(FX_LEVEL_CODE,'Swap hariç net döviz pozisyonu',.001,color='#432454')]},
- {'id':'netfx-degisim','name':'Net Döviz Pozisyonu Günlük Değişim',
-  'title':'TCMB Swap Hariç Net Döviz Pozisyonu Günlük Değişimi','unit':'Milyon ABD doları',
-  'note':'Hazine dahil pozisyonun önceki iş gününe göre değişimi. Kur ve değerleme etkilerini içerir.',
-  'default_years':.5,'daily_bars':True,'lines':[line(FX_CHANGE_CODE,'Günlük değişim',color='#432454')]}
+ {'id':'netfx-degisim','name':'Swap Hariç Net Döviz Pozisyonu Günlük Değişimi — Hazine Hariç',
+  'title':'TCMB Swap Hariç Net Döviz Pozisyonu Günlük Değişimi (Hazine Hariç)','unit':'Milyon ABD doları',
+  'note':'Hazine hariç pozisyonun önceki iş gününe göre değişimi. Kur ve değerleme etkilerini içerir.',
+  'default_years':.5,'daily_bars':True,'lines':[line('BFRC.NETFX.TREASURYEX.CHANGE','Günlük değişim',color='#432454')]}
 ]
 
 
@@ -1072,12 +1077,22 @@ def daily_fx_records(records,weekly,now):
         last_value=u;last_date=d
     while level and level[-1]['value'] is None:level.pop()
     if not level or not change:raise DataError('Günlük net döviz hesabında yeterli ortak gözlem yok')
+    t_changes=[]
+    level_dates={r['date'] for r in change}
+    by_day={r['date']:r for r in details}
+    previous_detail=None
+    for row in details:
+        if previous_detail is not None and row['date'] in level_dates:
+            t_changes.append({'date':row['date'],'value':row['T']-previous_detail['T']})
+        previous_detail=row
     fetched=min(records[c]['fetched_at'] for c in FX_RAW)
     base={'provider':'derived','source':'TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC',
           'fetched_at':fetched,'frequency':'Günlük tahmin','group':'Günlük net döviz pozisyonu',
           'weekly_anchor':details[-1]['anchor_date'],'estimated':True}
     if any(records[c].get('fallback') for c in FX_RAW):base['fallback']=True
     return {
+        'BFRC.NETFX.TREASURYEX.CHANGE':{**base,'id':'BFRC.NETFX.TREASURYEX.CHANGE','code':'BFRC.NETFX.TREASURYEX.CHANGE',
+                       'name':'Hazine ve swap hariç pozisyon günlük değişimi','unit':'Milyon ABD doları','observations':t_changes},
         'BFRC.NETFX.TREASURYEX':{**base,'id':'BFRC.NETFX.TREASURYEX','code':'BFRC.NETFX.TREASURYEX',
                        'name':'Swap ve Hazine hariç net döviz pozisyonu','unit':'Milyon ABD doları',
                        'observations':[{'date':r['date'],'value':r['T']} for r in details]},
@@ -1135,11 +1150,18 @@ CURATED_CHARTS.insert(2,{'id':'netfx-hazine-haric','name':'Swap Hariç Net Dövi
     'title':'TCMB Swap Hariç Net Döviz Pozisyonu (Hazine Hariç)','unit':'Milyar ABD doları',
     'area':True,'default_years':3,'note':'Hazine döviz mevduatı hariçtir. Geçmiş seri BFRC arşivinden; yeni günler API verilerinden hesaplanır.',
     'lines':[line('BFRC.NETFX.TREASURYEX','Hazine ve swap hariç net döviz pozisyonu',.001,color='#432454')]})
-CURATED_CHARTS.sort(key=lambda c: {'netfx-gunluk':0,'netfx-degisim':1,'netfx-hazine-haric':2,'netfx-bilanco':3}.get(c['id'],4))
+CURATED_CHARTS.append({'id':'netfx-degisim-hazine-dahil',
+    'name':'Swap Hariç Net Döviz Pozisyonu Günlük Değişimi — Hazine Dahil',
+    'title':'TCMB Swap Hariç Net Döviz Pozisyonu Günlük Değişimi (Hazine Dahil)',
+    'unit':'Milyon ABD doları','daily_bars':True,'default_years':.5,
+    'note':'Hazine dahil pozisyonun önceki iş gününe göre değişimi. Kur ve değerleme etkilerini içerir.',
+    'lines':[line(FX_CHANGE_CODE,'Günlük değişim',color='#432454')]})
+CURATED_CHARTS.sort(key=lambda c: {'netfx-hazine-haric':0,'netfx-degisim':1,'netfx-gunluk':2,'netfx-degisim-hazine-dahil':3,'netfx-bilanco':4}.get(c['id'],5))
 for chart in CURATED_CHARTS:
     if chart['id'] in ('net-ic','net-dis'):
         chart['name']+=' (Günlük Analitik Bilanço)'
         chart['area']=True
+        chart['default_years']=.5
         chart['note']=('Net dış varlıklar = dış varlıklar − toplam döviz yükümlülükleri.' if chart['id']=='net-dis' else
                        'Net iç varlıklar = merkez bankası parası − net dış varlıklar; değerleme dahil.')
 
