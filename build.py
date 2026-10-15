@@ -720,15 +720,8 @@ def curated_figure(chart,records,demo=False):
                "tickformat":",.1f","showline":False,"fixedrange":False})
     fig.add_layout_image(source=CURATED_LOGO,xref="paper",yref="paper",x=.5,y=.53,
         xanchor="center",yanchor="middle",sizex=.75,sizey=.90,sizing="contain",opacity=.15,layer="below")
-    sources=list(dict.fromkeys(records[c]["source"] for c in requested))
-    fetched=min(records[c]["fetched_at"] for c in requested)
-    labels=[("Kaynak: "+"; ".join(sources),-109),
-            ("Grafik: Mehmet Faruk Bekir",-129),
-            (f"Son veri: {last} · API kontrolü: {fetched[:16].replace('T',' ')}",-149)]
-    if chart.get("note"):
-        labels.append((chart["note"],-169))
-    anchors=[records[c].get("weekly_anchor") for c in requested if records[c].get("weekly_anchor")]
-    if anchors:labels.append(("Haftalık swap düzeltmesi referansı: "+min(anchors),-189))
+    labels=[("Kaynak: TCMB / EVDS",-109),
+            ("Grafik: Mehmet Faruk Bekir",-129)]
     footer_shift=-105
     for text,_ in labels:
         wrapped=textwrap.wrap(text,width=62) or [text]
@@ -737,7 +730,7 @@ def curated_figure(chart,records,demo=False):
             xanchor="left",yanchor="top",align="left",showarrow=False,
             font={"family":"Courier New, monospace","size":14,"color":"#172b3b"})
         footer_shift-=len(wrapped)*18+10
-    fig.update_layout(margin={"b":max(210,abs(footer_shift)+12)})
+    fig.update_layout(margin={"b":175})
     warnings=[]
     if demo:warnings.append("DEMO — SENTETİK VERİ")
     if any(records[c].get("fallback") for c in requested):warnings.append("SON BAŞARILI VERİ — API YENİLEMESİ BAŞARISIZ")
