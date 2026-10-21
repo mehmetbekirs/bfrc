@@ -822,7 +822,7 @@ def write_curated(output,records,errors,stamp,demo=False):
     (output/"plotly.min.js").write_text(get_plotlyjs(),encoding="utf-8")
     choices=[];available=0
     for chart in CURATED_CHARTS:
-        item={"default_years":chart.get("default_years",5),"id":chart["id"],"name":chart["name"],"unit":chart["unit"],"file":"charts/"+chart["id"]+".json"}
+        item={"method":chart.get("method",""),"default_years":chart.get("default_years",5),"id":chart["id"],"name":chart["name"],"unit":chart["unit"],"file":"charts/"+chart["id"]+".json"}
         try:
             fig=curated_figure(chart,records,demo)
             (output/item["file"]).write_text(pio.to_json(fig),encoding="utf-8");available+=1
@@ -848,6 +848,7 @@ button{background:#eff6fa;border:1px solid #cbd7df;border-radius:4px;padding:7px
 </style></head><body><main><header><img src="LOGO" alt="BFRC"><div><h1>Güncel Grafikler</h1><p>Bahçeşehir Üniversitesi Finansal Araştırma ve Uygulama Merkezi</p></div></header>WARNING
 <label for="series">GÖSTERGE</label><select id="series" disabled><option>Yükleniyor…</option></select>
 <div class="toolbar"><button data-years="0.5">6 ay</button><button data-years="1">1 yıl</button><button data-years="3">3 yıl</button><button data-years="5" class="active">5 yıl</button><button data-years="0">Tümü</button></div>
+<p id="method" class="notice" hidden></p>
 <p id="stale" class="notice" hidden>Panel 24 saattir yenilenmemiş. Son veri tarihlerini kontrol edin.</p>
 <div id="wrap"><div id="message" role="status">Grafik yükleniyor…</div><div id="chart"></div></div><footer>Panel güncellemesi: STAMP</footer></main><script>
 const built=STAMP_JSON,select=document.getElementById('series'),msg=document.getElementById('message'),graph=document.getElementById('chart');
@@ -868,6 +869,7 @@ document.querySelectorAll('[data-years]').forEach(x=>x.classList.toggle('active'
 fetch('panel-data.json?v='+encodeURIComponent(built)).then(r=>{if(!r.ok)throw Error();return r.json()}).then(panel=>{
 select.replaceChildren();for(const c of panel.choices){const o=document.createElement('option');o.value=c.id;o.textContent=c.name;select.append(o);}
 async function draw(){const token=++generation,id=select.value,c=panel.choices.find(x=>x.id===id);currentFigure=null;
+const method=document.getElementById('method');method.textContent=c.method||'';method.hidden=!c.method;
 msg.hidden=false;msg.textContent='Grafik yükleniyor…';graph.hidden=true;
 if(c.error){msg.textContent='Bu gösterge şu an hazır değil: '+c.error;return;}
 try{const reply=await fetch(c.file+'?v='+encodeURIComponent(built));if(!reply.ok)throw Error();const fig=await reply.json();if(token!==generation)return;
@@ -929,6 +931,7 @@ def build_curated(demo=False):
     if not records:raise DataError('EVDS verisi alınamadı. '+'; '.join(errors[:4]))
     attach_daily_fx(records,cache,errors,datetime.now(TR))
     attach_analytic_daily(records,errors)
+    attach_gold(records,errors,today)
     output=ROOT/'dist';count=write_curated(output,records,errors,stamp)
     if not count:raise DataError('Seçili göstergeler için grafik üretilemedi')
     cache['_panel']={k:{a:v for a,v in r.items() if a!='fallback'} for k,r in records.items()}
@@ -1133,6 +1136,7 @@ def demo_with_fx(today):
     for c in FX_RAW:records[c]['observations']=rows[c]
     derived,_=daily_fx_records(records,weekly,datetime.now(TR));records.update(derived)
     attach_analytic_daily(records,[])
+    demo_gold(records,today)
     return records
 
 
@@ -1188,6 +1192,130 @@ def attach_analytic_daily(records,errors):
     calculate('BFRC.WEEKLY.NIR',['TP.AB.N06','TP.DK.USD.A.YTL'],lambda n,u:n/(1000*u) if u>0 else None,'Milyon ABD doları')
     if 'BFRC.WEEKLY.NIR' in records:
         records['BFRC.WEEKLY.NIR'].update(frequency='HAFTALIK(CUMA)',source='TCMB / EVDS — Stand By (Cari) Net Uluslararası Rezervler')
+
+
+# Gold: native weekly physical stock plus daily EVDS/BIST price proxy.
+# Never present carried weekly quantities as observed daily transactions.
+GOLD_GRAMS='TP.BL0021'
+GOLD_PRICE='TP.ALTINPIYASA.KAP03'
+TROY_OUNCE_GRAMS=31.1034768
+GOLD_METHOD=('Son yayımlanan haftalık safi gram stoku ara günlerde sabit varsayılır; '
+    'fiyat TCMB/EVDS üzerinden BİST USD/ons kapanışıdır. Günlük stok/alım-satım gözlemi değildir.')
+GOLD_NDP_METHOD=(GOLD_METHOD+' Net pozisyon senaryosu brüt altın fiyat duyarlılığına göre hesaplanır; '
+    'altın yükümlülükleri ve swapların altın duyarlılığı ayrıca ayrıştırılmamıştır. '
+    'İlk ortak gözlemden birikimli fiyat etkisi çıkarılır; döviz alım/satımı olarak yorumlanamaz.')
+CURATED_SPECS.update({
+ GOLD_GRAMS:{'id':GOLD_GRAMS,'code':GOLD_GRAMS,'name':'A11.Uluslararası Standartta Olan (Safi Gram)',
+    'group_code':'bie_mbblnch','group':'Merkez Bankası Haftalık Vaziyeti (Yeni)',
+    'unit':'Safi Gram','frequency':'HAFTALIK(CUMA)','source':'TCMB / EVDS','provider':'evds3'},
+ GOLD_PRICE:{'id':GOLD_PRICE,'code':GOLD_PRICE,'name':'Altın - Kapanış Fiyatı - USD/ons',
+    'group_code':'bie_altinbistbul','group':'Altın Piyasası (BİST)',
+    'unit':'ABD doları / ons','frequency':'İŞ GÜNÜ','source':'BİST / TCMB EVDS','provider':'evds3'}
+})
+for ident,title,unit,code,factor,bars in [
+ ('altin-ton','TCMB Altın Stoku (Haftalık)','Ton','BFRC.GOLD.TON',1,False),
+ ('altin-gunluk','TCMB Altın Varlığı (Günlük Tahmin)','Milyar ABD doları','BFRC.GOLD.EST.VALUE',.001,False),
+ ('altin-degisim','TCMB Altın Varlığı Günlük Değişimi (Tahmini)','Milyon ABD doları','BFRC.GOLD.EST.CHANGE',1,True),
+ ('altin-fiyat-etkisi','Brüt Altın Stokunun Günlük Fiyat Etkisi (Tahmini)','Milyon ABD doları','BFRC.GOLD.PRICE.EFFECT',1,True),
+ ('netfx-altin-senaryo','Swap ve Hazine Hariç Net Döviz Pozisyonu — Altın Fiyat Etkisi Senaryosu (Tahmini)',
+    'Milyar ABD doları','BFRC.NETFX.GOLD.SCENARIO',.001,False),
+ ('netfx-altin-senaryo-degisim','Swap ve Hazine Hariç Net Döviz Pozisyonu Günlük Değişimi — Altın Senaryosu (Tahmini)',
+    'Milyon ABD doları','BFRC.NETFX.GOLD.SCENARIO.CHANGE',1,True)]:
+    CURATED_CHARTS.append({'id':ident,'name':title,'title':title,'unit':unit,
+        'daily_bars':bars,'area':not bars,'default_years':.5,
+        'method':('TCMB haftalık vaziyetindeki uluslararası standartta altın: safi gram / 1.000.000. '
+                  'Bu stok, yalnızca TCMB mülkiyetindeki altın anlamına gelmez.' if ident=='altin-ton'
+                  else GOLD_NDP_METHOD if ident.startswith('netfx-') else GOLD_METHOD),
+        'lines':[line(code,title,factor,color='#432454')]})
+
+
+def gold_records(records,today):
+    if not all(c in records for c in (GOLD_GRAMS,GOLD_PRICE)):
+        raise DataError('Altın için haftalık miktar veya günlük ons fiyatı eksik')
+    def clean(code):
+        return {r['date']:float(r['value']) for r in records[code]['observations']
+            if isinstance(r.get('value'),(int,float)) and math.isfinite(r['value']) and r['value']>0
+            and r['date']<=today.isoformat()}
+    grams=clean(GOLD_GRAMS);prices=clean(GOLD_PRICE)
+    # Reference Fridays are normally released the following Thursday; no retrospective look-ahead.
+    anchors=sorted(( (date.fromisoformat(d)+timedelta(days=6)).isoformat(),d,g/TROY_OUNCE_GRAMS)
+        for d,g in grams.items() if date.fromisoformat(d).weekday()==4
+        and date.fromisoformat(d)+timedelta(days=6)<=today)
+    if not anchors or not prices:raise DataError('Altın için kullanılabilir haftalık referans/fiyat yok')
+    output={c:[] for c in ['BFRC.GOLD.TON','BFRC.GOLD.EST.VALUE','BFRC.GOLD.EST.CHANGE',
+        'BFRC.GOLD.PRICE.EFFECT','BFRC.NETFX.GOLD.SCENARIO','BFRC.NETFX.GOLD.SCENARIO.CHANGE']}
+    for _,ref,q in anchors:output['BFRC.GOLD.TON'].append({'date':ref,'value':q*TROY_OUNCE_GRAMS/1e6})
+    ndp={r['date']:r['value'] for r in records.get('BFRC.NETFX.TREASURYEX',{}).get('observations',[])
+        if r.get('value') is not None}
+    index=-1;previous=None;cumulative=0.;base=None;last_adjusted=None;last_anchor=None;last_day=None
+    for day,price in sorted(prices.items()):
+        while index+1<len(anchors) and anchors[index+1][0]<=day:index+=1
+        if index<0:continue
+        available,ref,q=anchors[index]
+        stale=(date.fromisoformat(day)-date.fromisoformat(ref)).days>21
+        gap=previous is not None and (date.fromisoformat(day)-date.fromisoformat(previous['date'])).days>5
+        if stale or gap:
+            for code in output:
+                if code!='BFRC.GOLD.TON':output[code].append({'date':day,'value':None})
+            previous=None;base=None;last_adjusted=None;cumulative=0.
+            if stale:continue
+        value=q*price/1e6
+        output['BFRC.GOLD.EST.VALUE'].append({'date':day,'value':value})
+        effect=None
+        if previous is not None:
+            # Lagged exposure isolates price effect; newly published stock changes go to quantity residual.
+            effect=previous['q']*(price-previous['price'])/1e6
+            output['BFRC.GOLD.PRICE.EFFECT'].append({'date':day,'value':effect})
+            output['BFRC.GOLD.EST.CHANGE'].append({'date':day,'value':value-previous['value']})
+            cumulative+=effect
+        if day in ndp:
+            if base is None:base=cumulative
+            adjusted=ndp[day]-(cumulative-base)
+            output['BFRC.NETFX.GOLD.SCENARIO'].append({'date':day,'value':adjusted})
+            if last_adjusted is not None:
+                output['BFRC.NETFX.GOLD.SCENARIO.CHANGE'].append({'date':day,'value':adjusted-last_adjusted})
+            last_adjusted=adjusted
+        elif last_adjusted is not None:
+            # Missing NDP input: do not label the next multi-day move as a daily change.
+            last_adjusted=None
+        previous={'date':day,'price':price,'q':q,'value':value};last_anchor=ref;last_day=day
+    base_record={'provider':'derived','source':'TCMB / EVDS; BİST altın fiyatı',
+        'frequency':'Günlük tahmin','estimated':True,'gold_stock_reference':last_anchor,
+        'gold_method':GOLD_METHOD,'fetched_at':min(records[c]['fetched_at'] for c in (GOLD_GRAMS,GOLD_PRICE))}
+    if any(records[c].get('fallback') for c in (GOLD_GRAMS,GOLD_PRICE)):base_record['fallback']=True
+    result={}
+    for code,rows in output.items():
+        while rows and rows[-1]['value'] is None:rows.pop()
+        if not any(r['value'] is not None for r in rows):continue
+        record={**base_record,'id':code,'code':code,'name':code,'unit':'Milyon ABD doları','observations':rows}
+        if code=='BFRC.GOLD.TON':record.update(unit='Ton',frequency='HAFTALIK(CUMA)',estimated=False)
+        if code.startswith('BFRC.NETFX.'):
+            record['gold_method']=GOLD_NDP_METHOD
+            if 'BFRC.NETFX.TREASURYEX' in records:
+                original=records['BFRC.NETFX.TREASURYEX']
+                record['fetched_at']=min(record['fetched_at'],original['fetched_at'])
+                record['fallback']=bool(record.get('fallback') or original.get('fallback'))
+        result[code]=record
+    if 'BFRC.GOLD.EST.VALUE' not in result:raise DataError('Altın hesabında ortak gün yok')
+    return result
+
+
+def attach_gold(records,errors,today):
+    try:records.update(gold_records(records,today))
+    except DataError as error:errors.append('Altın tahmini: '+str(error))
+
+
+def demo_gold(records,today):
+    stamp=datetime.now(TR).isoformat(timespec='seconds')
+    prices=[];grams=[]
+    for i in range(1100):
+        d=today-timedelta(days=1099-i)
+        if d.weekday()>4:continue
+        prices.append({'date':d.isoformat(),'value':2500+i*.8+30*math.sin(i/10)})
+        if d.weekday()==4:grams.append({'date':d.isoformat(),'value':600e6+100000*math.sin(i/100)})
+    for code,rows in [(GOLD_GRAMS,grams),(GOLD_PRICE,prices)]:
+        records[code]={**CURATED_SPECS[code],'observations':rows,'fetched_at':stamp}
+    attach_gold(records,[],today)
 
 
 if __name__ == "__main__":
