@@ -80635,8 +80635,8 @@
       "name": "A.1 DIŞ VARLIKLAR",
       "group_code": "bie_abanlbil",
       "group": "Merkez Bankası Analitik Bilanço",
-      "frequency": "İŞ GÜNÜ",
       "unit": "Bin TL",
+      "frequency": "İŞ GÜNÜ",
       "source": "TCMB / EVDS",
       "provider": "evds3",
       "observations": [
@@ -90518,7 +90518,7 @@
         "2026-10-22": "22-10-2026",
         "2026-10-23": "23-10-2026"
       },
-      "fetched_at": "2026-10-26T22:41:06+03:00"
+      "fetched_at": "2026-10-26T22:53:42+03:00"
     },
     "TP.AB.A03": {
       "id": "TP.AB.A03",
@@ -179545,8 +179545,8 @@
       "name": "P.1 TOPLAM DÖVİZ YÜKÜMLÜLÜKLERİ",
       "group_code": "bie_abanlbil",
       "group": "Merkez Bankası Analitik Bilanço",
-      "frequency": "İŞ GÜNÜ",
       "unit": "Bin TL",
+      "frequency": "İŞ GÜNÜ",
       "source": "TCMB / EVDS",
       "provider": "evds3",
       "observations": [
@@ -189428,7 +189428,7 @@
         "2026-10-22": "22-10-2026",
         "2026-10-23": "23-10-2026"
       },
-      "fetched_at": "2026-10-26T22:41:06+03:00"
+      "fetched_at": "2026-10-26T22:53:42+03:00"
     },
     "TP.AB.A11": {
       "id": "TP.AB.A11",
@@ -209218,8 +209218,8 @@
       "name": "P.1ba Kamu ve Diğer Döviz Mevduatı",
       "group_code": "bie_abanlbil",
       "group": "Merkez Bankası Analitik Bilanço",
-      "frequency": "İŞ GÜNÜ",
       "unit": "Bin TL",
+      "frequency": "İŞ GÜNÜ",
       "source": "TCMB / EVDS",
       "provider": "evds3",
       "observations": [
@@ -219101,7 +219101,7 @@
         "2026-10-22": "22-10-2026",
         "2026-10-23": "23-10-2026"
       },
-      "fetched_at": "2026-10-26T22:41:06+03:00"
+      "fetched_at": "2026-10-26T22:53:42+03:00"
     },
     "TP.AB.A14": {
       "id": "TP.AB.A14",
@@ -228997,11 +228997,11 @@
     "TP.AB.A15": {
       "id": "TP.AB.A15",
       "code": "TP.AB.A15",
-      "name": "P.2 MERKEZ BANKASI PARASI",
+      "name": "Merkez Bankası Parası",
       "group_code": "bie_abanlbil",
       "group": "Merkez Bankası Analitik Bilanço",
-      "frequency": "İŞ GÜNÜ",
       "unit": "Bin TL",
+      "frequency": "İŞ GÜNÜ",
       "source": "TCMB / EVDS",
       "provider": "evds3",
       "observations": [
@@ -238883,7 +238883,7 @@
         "2026-10-22": "22-10-2026",
         "2026-10-23": "23-10-2026"
       },
-      "fetched_at": "2026-10-26T22:41:06+03:00"
+      "fetched_at": "2026-10-26T22:53:42+03:00"
     },
     "TP.AB.A16": {
       "id": "TP.AB.A16",
@@ -972815,7 +972815,7 @@
         "2026-10-25": "25-10-2026",
         "2026-10-26": "26-10-2026"
       },
-      "fetched_at": "2026-10-26T22:41:00+03:00"
+      "fetched_at": "2026-10-26T22:53:40+03:00"
     },
     "TP.DK.USD.S.YTL": {
       "id": "TP.DK.USD.S.YTL",
@@ -1431621,7 +1431621,7 @@
         "2026-10-23": "23-10-2026",
         "2026-10-26": "26-10-2026"
       },
-      "fetched_at": "2026-10-26T22:41:07+03:00"
+      "fetched_at": "2026-10-26T22:53:47+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU",
@@ -1439513,12 +1439513,12 @@
         "2026-10-23": "23-10-2026",
         "2026-10-26": "26-10-2026"
       },
-      "fetched_at": "2026-10-26T22:41:07+03:00"
+      "fetched_at": "2026-10-26T22:53:47+03:00"
     },
     "BFRC.NETFX.SWAPEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-10-26T22:41:00+03:00",
+      "fetched_at": "2026-10-26T22:53:40+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-09",
@@ -1447369,7 +1447369,7 @@
     "BFRC.NETFX.SWAPEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-10-26T22:41:00+03:00",
+      "fetched_at": "2026-10-26T22:53:40+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-09",
@@ -1450204,7 +1450204,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-10-26T22:41:06+03:00",
+      "fetched_at": "2026-10-26T22:53:42+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1458051,7 +1458051,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-10-26T22:41:06+03:00",
+      "fetched_at": "2026-10-26T22:53:42+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1473713,7 +1473713,7 @@
     "BFRC.NETFX.TREASURYEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-10-26T22:41:00+03:00",
+      "fetched_at": "2026-10-26T22:53:40+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-09",
@@ -1476548,7 +1476548,7 @@
     "BFRC.NETFX.TREASURYEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-10-26T22:41:00+03:00",
+      "fetched_at": "2026-10-26T22:53:40+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-09",
