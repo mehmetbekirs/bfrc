@@ -822,7 +822,7 @@ def write_curated(output,records,errors,stamp,demo=False):
     (output/"plotly.min.js").write_text(get_plotlyjs(),encoding="utf-8")
     choices=[];available=0
     for chart in CURATED_CHARTS:
-        item={"method":chart.get("method",""),"default_years":chart.get("default_years",5),"id":chart["id"],"name":chart["name"],"unit":chart["unit"],"file":"charts/"+chart["id"]+".json"}
+        item={"default_years":chart.get("default_years",5),"id":chart["id"],"name":chart["name"],"unit":chart["unit"],"file":"charts/"+chart["id"]+".json"}
         try:
             fig=curated_figure(chart,records,demo)
             (output/item["file"]).write_text(pio.to_json(fig),encoding="utf-8");available+=1
@@ -848,7 +848,6 @@ button{background:#eff6fa;border:1px solid #cbd7df;border-radius:4px;padding:7px
 </style></head><body><main><header><img src="LOGO" alt="BFRC"><div><h1>Güncel Grafikler</h1><p>Bahçeşehir Üniversitesi Finansal Araştırma ve Uygulama Merkezi</p></div></header>WARNING
 <label for="series">GÖSTERGE</label><select id="series" disabled><option>Yükleniyor…</option></select>
 <div class="toolbar"><button data-years="0.5">6 ay</button><button data-years="1">1 yıl</button><button data-years="3">3 yıl</button><button data-years="5" class="active">5 yıl</button><button data-years="0">Tümü</button></div>
-<p id="method" class="notice" hidden></p>
 <p id="stale" class="notice" hidden>Panel 24 saattir yenilenmemiş. Son veri tarihlerini kontrol edin.</p>
 <div id="wrap"><div id="message" role="status">Grafik yükleniyor…</div><div id="chart"></div></div><footer>Panel güncellemesi: STAMP</footer></main><script>
 const built=STAMP_JSON,select=document.getElementById('series'),msg=document.getElementById('message'),graph=document.getElementById('chart');
@@ -869,7 +868,6 @@ document.querySelectorAll('[data-years]').forEach(x=>x.classList.toggle('active'
 fetch('panel-data.json?v='+encodeURIComponent(built)).then(r=>{if(!r.ok)throw Error();return r.json()}).then(panel=>{
 select.replaceChildren();for(const c of panel.choices){const o=document.createElement('option');o.value=c.id;o.textContent=c.name;select.append(o);}
 async function draw(){const token=++generation,id=select.value,c=panel.choices.find(x=>x.id===id);currentFigure=null;
-const method=document.getElementById('method');method.textContent=c.method||'';method.hidden=!c.method;
 msg.hidden=false;msg.textContent='Grafik yükleniyor…';graph.hidden=true;
 if(c.error){msg.textContent='Bu gösterge şu an hazır değil: '+c.error;return;}
 try{const reply=await fetch(c.file+'?v='+encodeURIComponent(built));if(!reply.ok)throw Error();const fig=await reply.json();if(token!==generation)return;
@@ -881,7 +879,6 @@ select.disabled=false;select.addEventListener('change',draw);draw();
 </script></body></html>'''
     html=html.replace('LOGO',CURATED_LOGO).replace('WARNING',warning).replace('STAMP_JSON',json.dumps(stamp)).replace('STAMP',escape(stamp))
     (output/'index.html').write_text(html,encoding='utf-8')
-    (output/'gold-reconciliation.json').write_text(json.dumps(net_gold_audit(records),ensure_ascii=False,indent=2),encoding='utf-8')
     return available
 
 
@@ -932,7 +929,6 @@ def build_curated(demo=False):
     if not records:raise DataError('EVDS verisi alınamadı. '+'; '.join(errors[:4]))
     attach_daily_fx(records,cache,errors,datetime.now(TR))
     attach_analytic_daily(records,errors)
-    attach_gold(records,errors,today)
     output=ROOT/'dist';count=write_curated(output,records,errors,stamp)
     if not count:raise DataError('Seçili göstergeler için grafik üretilemedi')
     cache['_panel']={k:{a:v for a,v in r.items() if a!='fallback'} for k,r in records.items()}
@@ -1137,7 +1133,6 @@ def demo_with_fx(today):
     for c in FX_RAW:records[c]['observations']=rows[c]
     derived,_=daily_fx_records(records,weekly,datetime.now(TR));records.update(derived)
     attach_analytic_daily(records,[])
-    demo_gold(records,today)
     return records
 
 
@@ -1193,176 +1188,6 @@ def attach_analytic_daily(records,errors):
     calculate('BFRC.WEEKLY.NIR',['TP.AB.N06','TP.DK.USD.A.YTL'],lambda n,u:n/(1000*u) if u>0 else None,'Milyon ABD doları')
     if 'BFRC.WEEKLY.NIR' in records:
         records['BFRC.WEEKLY.NIR'].update(frequency='HAFTALIK(CUMA)',source='TCMB / EVDS — Stand By (Cari) Net Uluslararası Rezervler')
-
-
-# Gold: native weekly physical stock plus daily EVDS/BIST price proxy.
-# Never present carried weekly quantities as observed daily transactions.
-GOLD_GRAMS='TP.BL0021'
-GOLD_PRICE='TP.ALTINPIYASA.KAP03'
-TROY_OUNCE_GRAMS=31.1034768
-GOLD_METHOD=('Son yayımlanan haftalık safi gram stoku ara günlerde sabit varsayılır; '
-    'fiyat TCMB/EVDS üzerinden BİST USD/ons kapanışıdır. Günlük stok/alım-satım gözlemi değildir.')
-GOLD_NDP_METHOD=(GOLD_METHOD+' Net pozisyon senaryosu brüt altın fiyat duyarlılığına göre hesaplanır; '
-    'altın yükümlülükleri ve swapların altın duyarlılığı ayrıca ayrıştırılmamıştır. '
-    'İlk ortak gözlemden birikimli fiyat etkisi çıkarılır; döviz alım/satımı olarak yorumlanamaz.')
-CURATED_SPECS.update({
- GOLD_GRAMS:{'id':GOLD_GRAMS,'code':GOLD_GRAMS,'name':'A11.Uluslararası Standartta Olan (Safi Gram)',
-    'group_code':'bie_mbblnch','group':'Merkez Bankası Haftalık Vaziyeti (Yeni)',
-    'unit':'Safi Gram','frequency':'HAFTALIK(CUMA)','source':'TCMB / EVDS','provider':'evds3'},
- GOLD_PRICE:{'id':GOLD_PRICE,'code':GOLD_PRICE,'name':'Altın - Kapanış Fiyatı - USD/ons',
-    'group_code':'bie_altinbistbul','group':'Altın Piyasası (BİST)',
-    'unit':'ABD doları / ons','frequency':'İŞ GÜNÜ','source':'BİST / TCMB EVDS','provider':'evds3'}
-})
-for ident,title,unit,code,factor,bars in [
- ('altin-ton','TCMB Altın Stoku (Haftalık)','Ton','BFRC.GOLD.TON',1,False),
- ('altin-gunluk','TCMB Altın Varlığı (Günlük Tahmin)','Milyar ABD doları','BFRC.GOLD.EST.VALUE',.001,False),
- ('altin-degisim','TCMB Altın Varlığı Günlük Değişimi (Tahmini)','Milyon ABD doları','BFRC.GOLD.EST.CHANGE',1,True),
- ('altin-fiyat-etkisi','Brüt Altın Stokunun Günlük Fiyat Etkisi (Tahmini)','Milyon ABD doları','BFRC.GOLD.PRICE.EFFECT',1,True),
- ('netfx-altin-senaryo','Swap ve Hazine Hariç Net Döviz Pozisyonu — Altın Fiyat Etkisi Senaryosu (Tahmini)',
-    'Milyar ABD doları','BFRC.NETFX.GOLD.SCENARIO',.001,False),
- ('netfx-altin-senaryo-degisim','Swap ve Hazine Hariç Net Döviz Pozisyonu Günlük Değişimi — Altın Senaryosu (Tahmini)',
-    'Milyon ABD doları','BFRC.NETFX.GOLD.SCENARIO.CHANGE',1,True)]:
-    CURATED_CHARTS.append({'id':ident,'name':title,'title':title,'unit':unit,
-        'daily_bars':bars,'area':not bars,'default_years':.5,
-        'method':('TCMB haftalık vaziyetindeki uluslararası standartta altın: safi gram / 1.000.000. '
-                  'Bu stok, yalnızca TCMB mülkiyetindeki altın anlamına gelmez.' if ident=='altin-ton'
-                  else GOLD_NDP_METHOD if ident.startswith('netfx-') else GOLD_METHOD),
-        'lines':[line(code,title,factor,color='#432454')]})
-
-
-def gold_records(records,today):
-    if not all(c in records for c in (GOLD_GRAMS,GOLD_PRICE)):
-        raise DataError('Altın için haftalık miktar veya günlük ons fiyatı eksik')
-    def clean(code):
-        return {r['date']:float(r['value']) for r in records[code]['observations']
-            if isinstance(r.get('value'),(int,float)) and math.isfinite(r['value']) and r['value']>0
-            and r['date']<=today.isoformat()}
-    grams=clean(GOLD_GRAMS);prices=clean(GOLD_PRICE)
-    # Reference Fridays are normally released the following Thursday; no retrospective look-ahead.
-    anchors=sorted(( (date.fromisoformat(d)+timedelta(days=6)).isoformat(),d,g/TROY_OUNCE_GRAMS)
-        for d,g in grams.items() if date.fromisoformat(d).weekday()==4
-        and date.fromisoformat(d)+timedelta(days=6)<=today)
-    if not anchors or not prices:raise DataError('Altın için kullanılabilir haftalık referans/fiyat yok')
-    output={c:[] for c in ['BFRC.GOLD.TON','BFRC.GOLD.EST.VALUE','BFRC.GOLD.EST.CHANGE',
-        'BFRC.GOLD.PRICE.EFFECT','BFRC.NETFX.GOLD.SCENARIO','BFRC.NETFX.GOLD.SCENARIO.CHANGE']}
-    for _,ref,q in anchors:output['BFRC.GOLD.TON'].append({'date':ref,'value':q*TROY_OUNCE_GRAMS/1e6})
-    ndp={r['date']:r['value'] for r in records.get('BFRC.NETFX.TREASURYEX',{}).get('observations',[])
-        if r.get('value') is not None}
-    index=-1;previous=None;cumulative=0.;base=None;last_adjusted=None;last_anchor=None;last_day=None
-    for day,price in sorted(prices.items()):
-        while index+1<len(anchors) and anchors[index+1][0]<=day:index+=1
-        if index<0:continue
-        available,ref,q=anchors[index]
-        stale=(date.fromisoformat(day)-date.fromisoformat(ref)).days>21
-        gap=previous is not None and (date.fromisoformat(day)-date.fromisoformat(previous['date'])).days>5
-        if stale or gap:
-            for code in output:
-                if code!='BFRC.GOLD.TON':output[code].append({'date':day,'value':None})
-            previous=None;base=None;last_adjusted=None;cumulative=0.
-            if stale:continue
-        value=q*price/1e6
-        output['BFRC.GOLD.EST.VALUE'].append({'date':day,'value':value})
-        effect=None
-        if previous is not None:
-            # Lagged exposure isolates price effect; newly published stock changes go to quantity residual.
-            effect=previous['q']*(price-previous['price'])/1e6
-            output['BFRC.GOLD.PRICE.EFFECT'].append({'date':day,'value':effect})
-            output['BFRC.GOLD.EST.CHANGE'].append({'date':day,'value':value-previous['value']})
-            cumulative+=effect
-        if day in ndp:
-            if base is None:base=cumulative
-            adjusted=ndp[day]-(cumulative-base)
-            output['BFRC.NETFX.GOLD.SCENARIO'].append({'date':day,'value':adjusted})
-            if last_adjusted is not None:
-                output['BFRC.NETFX.GOLD.SCENARIO.CHANGE'].append({'date':day,'value':adjusted-last_adjusted})
-            last_adjusted=adjusted
-        elif last_adjusted is not None:
-            # Missing NDP input: do not label the next multi-day move as a daily change.
-            last_adjusted=None
-        previous={'date':day,'price':price,'q':q,'value':value};last_anchor=ref;last_day=day
-    base_record={'provider':'derived','source':'TCMB / EVDS; BİST altın fiyatı',
-        'frequency':'Günlük tahmin','estimated':True,'gold_stock_reference':last_anchor,
-        'gold_method':GOLD_METHOD,'fetched_at':min(records[c]['fetched_at'] for c in (GOLD_GRAMS,GOLD_PRICE))}
-    if any(records[c].get('fallback') for c in (GOLD_GRAMS,GOLD_PRICE)):base_record['fallback']=True
-    result={}
-    for code,rows in output.items():
-        while rows and rows[-1]['value'] is None:rows.pop()
-        if not any(r['value'] is not None for r in rows):continue
-        record={**base_record,'id':code,'code':code,'name':code,'unit':'Milyon ABD doları','observations':rows}
-        if code=='BFRC.GOLD.TON':record.update(unit='Ton',frequency='HAFTALIK(CUMA)',estimated=False)
-        if code.startswith('BFRC.NETFX.'):
-            record['gold_method']=GOLD_NDP_METHOD
-            if 'BFRC.NETFX.TREASURYEX' in records:
-                original=records['BFRC.NETFX.TREASURYEX']
-                record['fetched_at']=min(record['fetched_at'],original['fetched_at'])
-                record['fallback']=bool(record.get('fallback') or original.get('fallback'))
-        result[code]=record
-    if 'BFRC.GOLD.EST.VALUE' not in result:raise DataError('Altın hesabında ortak gün yok')
-    return result
-
-
-def attach_gold(records,errors,today):
-    try:records.update(gold_records(records,today))
-    except DataError as error:errors.append('Altın tahmini: '+str(error))
-
-
-def demo_gold(records,today):
-    stamp=datetime.now(TR).isoformat(timespec='seconds')
-    prices=[];grams=[]
-    for i in range(1100):
-        d=today-timedelta(days=1099-i)
-        if d.weekday()>4:continue
-        prices.append({'date':d.isoformat(),'value':2500+i*.8+30*math.sin(i/10)})
-        if d.weekday()==4:grams.append({'date':d.isoformat(),'value':600e6+100000*math.sin(i/100)})
-    for code,rows in [(GOLD_GRAMS,grams),(GOLD_PRICE,prices)]:
-        records[code]={**CURATED_SPECS[code],'observations':rows,'fetched_at':stamp}
-    attach_gold(records,[],today)
-
-
-# Additional public inputs used only for the net-gold reconciliation audit.
-GOLD_AUDIT_SPECS={'TP.BL001': {'id': 'TP.BL001', 'code': 'TP.BL001', 'name': 'A1.Altın', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL002': {'id': 'TP.BL002', 'code': 'TP.BL002', 'name': 'A11.Uluslararası Standartta Olan YP', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL0021': {'id': 'TP.BL0021', 'code': 'TP.BL0021', 'name': 'A11.Uluslararası Standartta Olan (Safi Gram)', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Safi Gram', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL045': {'id': 'TP.BL045', 'code': 'TP.BL045', 'name': 'A161.Uluslararası Standartta Olmayan Altın TL', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL0451': {'id': 'TP.BL0451', 'code': 'TP.BL0451', 'name': 'A161.Uluslararası Standartta Olmayan Altın (Safi Gram)', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Safi Gram', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL0662': {'id': 'TP.BL0662', 'code': 'TP.BL0662', 'name': 'P3112.Altın TL', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL127': {'id': 'TP.BL127', 'code': 'TP.BL127', 'name': 'P32122.Altın TL', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL128': {'id': 'TP.BL128', 'code': 'TP.BL128', 'name': 'P32122.Altın (Safi Gram)', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Safi Gram', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL135': {'id': 'TP.BL135', 'code': 'TP.BL135', 'name': 'P3213.Altın TL', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL137': {'id': 'TP.BL137', 'code': 'TP.BL137', 'name': 'P3213.Altın (Safi Gram)', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Safi Gram', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL073': {'id': 'TP.BL073', 'code': 'TP.BL073', 'name': 'P3232.Altın TL', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL0822': {'id': 'TP.BL0822', 'code': 'TP.BL0822', 'name': 'P3112.Altın YP', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL0823': {'id': 'TP.BL0823', 'code': 'TP.BL0823', 'name': 'P3112.Altın (Safi Gram)', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Safi Gram', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL132': {'id': 'TP.BL132', 'code': 'TP.BL132', 'name': 'P32122.Altın YP', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL136': {'id': 'TP.BL136', 'code': 'TP.BL136', 'name': 'P3213.Altın YP', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL089': {'id': 'TP.BL089', 'code': 'TP.BL089', 'name': 'P3232.Altın YP', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL0891': {'id': 'TP.BL0891', 'code': 'TP.BL0891', 'name': 'P3232.Altın (Safi Gram)', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Safi Gram', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL139': {'id': 'TP.BL139', 'code': 'TP.BL139', 'name': 'P4.2.Altın TL', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL141': {'id': 'TP.BL141', 'code': 'TP.BL141', 'name': 'P4.2.Altın YP', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL142': {'id': 'TP.BL142', 'code': 'TP.BL142', 'name': 'P4.2.Altın (Safi Gram)', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Safi Gram', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL111': {'id': 'TP.BL111', 'code': 'TP.BL111', 'name': 'P121.Uluslararası Standartta Olmayan Hazine Altınları TL', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL1111': {'id': 'TP.BL1111', 'code': 'TP.BL1111', 'name': 'P121.Uluslararası Standartta Olmayan Hazine Altınları (Safi Gram)', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Safi Gram', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.BL1161': {'id': 'TP.BL1161', 'code': 'TP.BL1161', 'name': 'P121.Uluslararası Standartta Olmayan Hazine Altınları YP', 'group_code': 'bie_mbblnch', 'group': 'Merkez Bankası Haftalık Vaziyeti (Yeni)', 'frequency': 'HAFTALIK(CUMA)', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A01': {'id': 'TP.AB.A01', 'code': 'TP.AB.A01', 'name': 'A.AKTİF', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A02': {'id': 'TP.AB.A02', 'code': 'TP.AB.A02', 'name': 'A.1 DIŞ VARLIKLAR', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A03': {'id': 'TP.AB.A03', 'code': 'TP.AB.A03', 'name': 'A.2 İÇ VARLIKLAR', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A04': {'id': 'TP.AB.A04', 'code': 'TP.AB.A04', 'name': 'A.2A Nakit İşlemler', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A05': {'id': 'TP.AB.A05', 'code': 'TP.AB.A05', 'name': 'A.2Aa Hazine Borçları', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A051': {'id': 'TP.AB.A051', 'code': 'TP.AB.A051', 'name': 'A.2Aa1 Menkul Kıymetler', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A052': {'id': 'TP.AB.A052', 'code': 'TP.AB.A052', 'name': 'A.2Aa1a 5 Kasım 2001 Öncesi DİBS', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A053': {'id': 'TP.AB.A053', 'code': 'TP.AB.A053', 'name': 'A.2Aa1b İkincil Piyasadan Alınan DİBS', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A054': {'id': 'TP.AB.A054', 'code': 'TP.AB.A054', 'name': 'A.2Aa2 Diğer', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A06': {'id': 'TP.AB.A06', 'code': 'TP.AB.A06', 'name': 'A.2Ab Bankacılık Sektörüne Açılan Nakit Krediler', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A061': {'id': 'TP.AB.A061', 'code': 'TP.AB.A061', 'name': "A.2Ac TMSF'ye Kullandırılan Krediler", 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A07': {'id': 'TP.AB.A07', 'code': 'TP.AB.A07', 'name': 'A.2Ad Diğer Kalemler', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A08': {'id': 'TP.AB.A08', 'code': 'TP.AB.A08', 'name': 'A.3 DEĞERLEME HESABI', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A081': {'id': 'TP.AB.A081', 'code': 'TP.AB.A081', 'name': 'A.2B IMF Acil Yardım Takip Hesabı (Hazine)', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A09': {'id': 'TP.AB.A09', 'code': 'TP.AB.A09', 'name': 'P.PASİF', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A10': {'id': 'TP.AB.A10', 'code': 'TP.AB.A10', 'name': 'P.1 TOPLAM DÖVİZ YÜKÜMLÜLÜKLERİ', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A11': {'id': 'TP.AB.A11', 'code': 'TP.AB.A11', 'name': 'P.1a Dış Yükümlülükler', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A12': {'id': 'TP.AB.A12', 'code': 'TP.AB.A12', 'name': 'P.1b İç Yükümlülükler', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A13': {'id': 'TP.AB.A13', 'code': 'TP.AB.A13', 'name': 'P.1ba Kamu ve Diğer Döviz Mevduatı', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A14': {'id': 'TP.AB.A14', 'code': 'TP.AB.A14', 'name': 'P.1bb Bankalar Döviz Mevduatı', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A15': {'id': 'TP.AB.A15', 'code': 'TP.AB.A15', 'name': 'P.2 MERKEZ BANKASI PARASI', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A16': {'id': 'TP.AB.A16', 'code': 'TP.AB.A16', 'name': 'P.2A Rezerv Para', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A17': {'id': 'TP.AB.A17', 'code': 'TP.AB.A17', 'name': 'P.2Aa Emisyon', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A18': {'id': 'TP.AB.A18', 'code': 'TP.AB.A18', 'name': 'P.2Ab Bankalar Mevduatı', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A19': {'id': 'TP.AB.A19', 'code': 'TP.AB.A19', 'name': 'P.2Aba Zorunlu Karşılıklar Bloke Hesabı', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A20': {'id': 'TP.AB.A20', 'code': 'TP.AB.A20', 'name': 'P.2Abb Serbest Mevduat', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A21': {'id': 'TP.AB.A21', 'code': 'TP.AB.A21', 'name': 'P.2Ac Fon hesapları', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A22': {'id': 'TP.AB.A22', 'code': 'TP.AB.A22', 'name': 'P.2Ad Banka Dışı Kesim Mevduatı', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A23': {'id': 'TP.AB.A23', 'code': 'TP.AB.A23', 'name': 'P.2B Diğer Merkez Bankası Parası', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A24': {'id': 'TP.AB.A24', 'code': 'TP.AB.A24', 'name': 'P.2Ba Açık Piyasa İşlemleri', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.AB.A25': {'id': 'TP.AB.A25', 'code': 'TP.AB.A25', 'name': 'P.2Bb Kamu Mevduatı', 'group_code': 'bie_abanlbil', 'group': 'Merkez Bankası Analitik Bilanço', 'frequency': 'İŞ GÜNÜ', 'unit': 'Bin TL', 'source': 'TCMB / EVDS', 'provider': 'evds3'}, 'TP.SWAPTEKTAR.SWAPDSTOKUSDTUTAR': {'id': 'TP.SWAPTEKTAR.SWAPDSTOKUSDTUTAR', 'code': 'TP.SWAPTEKTAR.SWAPDSTOKUSDTUTAR', 'name': 'Döviz Karşılığı Altın Swap Piyasası – Stok (Net Alım)', 'group_code': 'bie_swaptektarf', 'group': 'TCMB Taraflı Swap İşlemleri', 'frequency': 'İŞ GÜNÜ', 'unit': 'Milyon ABD doları', 'source': 'TCMB / EVDS', 'provider': 'evds3'}}
-CURATED_SPECS.update(GOLD_AUDIT_SPECS)
-
-GOLD_REFERENCE_SCREENSHOT={
- '2026-10-05':61525.98,'2026-10-06':61497.25,'2026-10-07':60747.58,
- '2026-10-08':61295.53,'2026-10-09':62062.23,'2026-10-12':61833.32,
- '2026-10-13':61766.48,'2026-10-14':60932.57}
-
-
-def net_gold_audit(records):
-    maps={c:{r['date']:r['value'] for r in value.get('observations',[])} for c,value in records.items()}
-    dates=list(GOLD_REFERENCE_SCREENSHOT)
-    fields=list(GOLD_AUDIT_SPECS)+['TP.DK.USD.A.YTL','TP.AB.C1',GOLD_PRICE]
-    missing=[c for c in fields if c not in maps]
-    rows=[]
-    liability_codes=['TP.BL0823','TP.BL128','TP.BL137','TP.BL0891','TP.BL142']
-    for day,reference in GOLD_REFERENCE_SCREENSHOT.items():
-        raw={c:maps.get(c,{}).get(day) for c in fields}
-        row={'date':day,'reference_net_gold_million_usd':reference,'raw_inputs':raw,'candidates':{}}
-        price=raw.get(GOLD_PRICE)
-        if price and price>0:
-            row['candidates']['reference_implied_tonnes_at_bist_price']=reference*31.1034768/price
-        # Do not carry weekly inputs across dates here: only same-date accounting checks.
-        asset=raw.get('TP.BL0021');gross=raw.get('TP.AB.C1')
-        liabilities=[raw.get(c) for c in liability_codes]
-        if asset is not None and asset>0 and gross is not None and all(v is not None for v in liabilities):
-            net_grams=asset-sum(liabilities)
-            implied_valuation_price=gross*1e6/(asset/31.1034768)
-            candidate=gross*net_grams/asset
-            swap=raw.get('TP.SWAPTEKTAR.SWAPDSTOKUSDTUTAR')
-            row['candidates'].update(
-                net_grams_candidate=net_grams,
-                valuation_price_implied_by_gross_gold=implied_valuation_price,
-                assets_minus_identified_gram_liabilities_million_usd=candidate,
-                residual_to_reference_million_usd=candidate-reference)
-            if swap is not None:
-                row['candidates']['less_fx_gold_swap_candidate']=candidate-swap
-                row['candidates']['plus_fx_gold_swap_candidate']=candidate+swap
-        rows.append(row)
-    return {'purpose':'Reconcile screenshot net gold with public accounting inputs. Candidates are NOT verified formulas.',
-        'units':'Reference and candidates: million USD; raw balances: thousand TL; physical gold: fine grams.',
-        'missing_series':missing,'liability_gram_codes':liability_codes,'rows':rows,
-        'series_metadata':{c:{k:r.get(k) for k in ['name','unit','frequency','fetched_at']} for c,r in records.items() if c in fields}}
 
 
 if __name__ == "__main__":
