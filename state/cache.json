@@ -90528,7 +90528,7 @@
         "2026-10-26": "26-10-2026",
         "2026-10-27": "27-10-2026"
       },
-      "fetched_at": "2026-10-28T22:23:54+03:00"
+      "fetched_at": "2026-10-28T22:41:15+03:00"
     },
     "TP.AB.A03": {
       "id": "TP.AB.A03",
@@ -189448,7 +189448,7 @@
         "2026-10-26": "26-10-2026",
         "2026-10-27": "27-10-2026"
       },
-      "fetched_at": "2026-10-28T22:23:54+03:00"
+      "fetched_at": "2026-10-28T22:41:15+03:00"
     },
     "TP.AB.A11": {
       "id": "TP.AB.A11",
@@ -219131,7 +219131,7 @@
         "2026-10-26": "26-10-2026",
         "2026-10-27": "27-10-2026"
       },
-      "fetched_at": "2026-10-28T22:23:54+03:00"
+      "fetched_at": "2026-10-28T22:41:15+03:00"
     },
     "TP.AB.A14": {
       "id": "TP.AB.A14",
@@ -238923,7 +238923,7 @@
         "2026-10-26": "26-10-2026",
         "2026-10-27": "27-10-2026"
       },
-      "fetched_at": "2026-10-28T22:23:54+03:00"
+      "fetched_at": "2026-10-28T22:41:15+03:00"
     },
     "TP.AB.A16": {
       "id": "TP.AB.A16",
@@ -972865,7 +972865,7 @@
         "2026-10-27": "27-10-2026",
         "2026-10-28": "28-10-2026"
       },
-      "fetched_at": "2026-10-28T22:23:54+03:00"
+      "fetched_at": "2026-10-28T22:41:15+03:00"
     },
     "TP.DK.USD.S.YTL": {
       "id": "TP.DK.USD.S.YTL",
@@ -1431691,7 +1431691,7 @@
         "2026-10-27": "27-10-2026",
         "2026-10-28": "28-10-2026"
       },
-      "fetched_at": "2026-10-28T22:24:01+03:00"
+      "fetched_at": "2026-10-28T22:41:19+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU",
@@ -1439593,15 +1439593,15 @@
         "2026-10-27": "27-10-2026",
         "2026-10-28": "28-10-2026"
       },
-      "fetched_at": "2026-10-28T22:24:01+03:00"
+      "fetched_at": "2026-10-28T22:41:19+03:00"
     },
     "BFRC.NETFX.SWAPEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-10-28T22:23:54+03:00",
+      "fetched_at": "2026-10-28T22:41:15+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-09",
+      "weekly_anchor": "2026-10-16",
       "estimated": true,
       "id": "BFRC.NETFX.SWAPEX",
       "code": "BFRC.NETFX.SWAPEX",
@@ -1447422,37 +1447422,45 @@
         },
         {
           "date": "2026-10-16",
-          "value": 41066.96238513516
+          "value": 41080.065455135154
         },
         {
           "date": "2026-10-19",
-          "value": 39485.65252955737
+          "value": 39498.755599557364
         },
         {
           "date": "2026-10-20",
-          "value": 38873.01803963788
+          "value": 38886.121109637876
         },
         {
           "date": "2026-10-21",
-          "value": 38595.96885994971
+          "value": 38609.07192994971
         },
         {
           "date": "2026-10-22",
-          "value": 36521.3085230246
+          "value": 36534.4115930246
         },
         {
           "date": "2026-10-23",
-          "value": 32454.517725427453
+          "value": 32467.62079542745
+        },
+        {
+          "date": "2026-10-26",
+          "value": 29654.20447739435
+        },
+        {
+          "date": "2026-10-27",
+          "value": 29452.542484020596
         }
       ]
     },
     "BFRC.NETFX.SWAPEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-10-28T22:23:54+03:00",
+      "fetched_at": "2026-10-28T22:41:15+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-09",
+      "weekly_anchor": "2026-10-16",
       "estimated": true,
       "id": "BFRC.NETFX.SWAPEX.CHANGE",
       "code": "BFRC.NETFX.SWAPEX.CHANGE",
@@ -1450253,7 +1450261,7 @@
         },
         {
           "date": "2026-10-16",
-          "value": -65.80636809847056
+          "value": -52.70329809847317
         },
         {
           "date": "2026-10-19",
@@ -1450274,6 +1450282,14 @@
         {
           "date": "2026-10-23",
           "value": -4066.7907975971466
+        },
+        {
+          "date": "2026-10-26",
+          "value": -2813.4163180331016
+        },
+        {
+          "date": "2026-10-27",
+          "value": -201.66199337375292
         }
       ]
     },
@@ -1450284,7 +1450300,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-10-28T22:23:54+03:00",
+      "fetched_at": "2026-10-28T22:41:15+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1458139,7 +1458155,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-10-28T22:23:54+03:00",
+      "fetched_at": "2026-10-28T22:41:15+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1473809,10 +1473825,10 @@
     "BFRC.NETFX.TREASURYEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-10-28T22:23:54+03:00",
+      "fetched_at": "2026-10-28T22:41:15+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-09",
+      "weekly_anchor": "2026-10-16",
       "estimated": true,
       "id": "BFRC.NETFX.TREASURYEX",
       "code": "BFRC.NETFX.TREASURYEX",
@@ -1476617,37 +1476633,45 @@
         },
         {
           "date": "2026-10-16",
-          "value": 33912.8747535002
+          "value": 33925.977823500194
         },
         {
           "date": "2026-10-19",
-          "value": 32370.17113166891
+          "value": 32383.274201668908
         },
         {
           "date": "2026-10-20",
-          "value": 31811.085107680385
+          "value": 31824.188177680382
         },
         {
           "date": "2026-10-21",
-          "value": 31497.778356624724
+          "value": 31510.88142662472
         },
         {
           "date": "2026-10-22",
-          "value": 29694.040793591714
+          "value": 29707.14386359171
         },
         {
           "date": "2026-10-23",
-          "value": 25680.934198138795
+          "value": 25694.037268138793
+        },
+        {
+          "date": "2026-10-26",
+          "value": 22893.44375454119
+        },
+        {
+          "date": "2026-10-27",
+          "value": 22731.50284896588
         }
       ]
     },
     "BFRC.NETFX.TREASURYEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-10-28T22:23:54+03:00",
+      "fetched_at": "2026-10-28T22:41:15+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-09",
+      "weekly_anchor": "2026-10-16",
       "estimated": true,
       "id": "BFRC.NETFX.TREASURYEX.CHANGE",
       "code": "BFRC.NETFX.TREASURYEX.CHANGE",
@@ -1479448,7 +1479472,7 @@
         },
         {
           "date": "2026-10-16",
-          "value": -121.70784482947784
+          "value": -108.60477482948045
         },
         {
           "date": "2026-10-19",
@@ -1479469,6 +1479493,14 @@
         {
           "date": "2026-10-23",
           "value": -4013.1065954529186
+        },
+        {
+          "date": "2026-10-26",
+          "value": -2800.5935135976033
+        },
+        {
+          "date": "2026-10-27",
+          "value": -161.94090557530944
         }
       ]
     },
@@ -1570360,7 +1570392,8 @@
     }
   },
   "_fx_weekly": {
-    "fetched_at": "2026-10-28T00:43:15+03:00",
+    "fetched_at": "2026-10-28T22:41:19+03:00",
+    "date_parser_version": 2,
     "rows": [
       {
         "date": "2023-12-29",
@@ -1571088,17 +1571121,22 @@
         "date": "2026-10-09",
         "total": -13519.0,
         "source": "TCMB haftalık rezerv/likidite tablosu"
+      },
+      {
+        "date": "2026-10-16",
+        "total": -12170.0,
+        "source": "TCMB haftalık rezerv/likidite tablosu"
       }
     ]
   },
   "_fx_calculation_last": {
-    "date": "2026-10-23",
-    "T": 25680.934198138795,
-    "U": 32454.517725427453,
-    "F": 37727.768178138795,
-    "H": 6773.583527288656,
-    "R": -12046.83398,
-    "Q": -16499.977319999998,
-    "anchor_date": "2026-10-09"
+    "date": "2026-10-27",
+    "T": 22731.50284896588,
+    "U": 29452.542484020596,
+    "F": 35460.35173896588,
+    "H": 6721.039635054717,
+    "R": -12728.848890000001,
+    "Q": -16486.87425,
+    "anchor_date": "2026-10-16"
   }
 }
