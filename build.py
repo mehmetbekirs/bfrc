@@ -1005,9 +1005,22 @@ def parse_weekly_liquidity(raw,today):
     for row in rows[:12]:
         if not any('milyon abd' in norm(v) for v in row.values() if isinstance(v,str)):continue
         for col,v in row.items():
+            d=None
             if isinstance(v,(int,float)) and 36000<v<70000 and v==int(v):
                 d=date(1899,12,30)+timedelta(days=int(v))
-                if d<=today:dates[col]=d.isoformat()
+            elif isinstance(v,str):
+                # The newest TCMB column can be text while older dates are serials.
+                # Match complete dates only; a monthly label is not a weekly date.
+                text=v.strip()
+                for pattern,fmt in [(r'\d{1,2}\.\d{1,2}\.\d{4}','%d.%m.%Y'),
+                                    (r'\d{1,2}/\d{1,2}/\d{4}','%d/%m/%Y'),
+                                    (r'\d{4}-\d{2}-\d{2}','%Y-%m-%d')]:
+                    if re.fullmatch(pattern,text):
+                        try:d=datetime.strptime(text,fmt).date()
+                        except ValueError:pass
+                        break
+            if d is not None and date(1998,1,1)<=d<=today:
+                dates[col]=d.isoformat()
     result=[]
     for col,d in dates.items():
         a,b=forward.get(col),other.get(col)
@@ -1107,18 +1120,26 @@ def attach_daily_fx(records,cache,errors,now):
     by_date.update({r['date']:r for r in previous.get('rows',[])})
     pseudo={'provider':'evds3','code':'weekly-liquidity','fetched_at':previous.get('fetched_at','')}
     spec={'code':'weekly-liquidity','group_code':'weekly-liquidity','frequency':'HAFTALIK'}
-    if not reusable_after_release(pseudo,spec,now):
+    if previous.get('date_parser_version')!=2 or not reusable_after_release(pseudo,spec,now):
         try:
             fetched=fetch_weekly_liquidity(now.date())
             for r in fetched:
                 by_date[r['date']]={**by_date.get(r['date'],{}),**r}
-            cache['_fx_weekly']={'fetched_at':now.isoformat(timespec='seconds'),'rows':list(by_date.values())}
+            cache['_fx_weekly']={'fetched_at':now.isoformat(timespec='seconds'),
+                                 'date_parser_version':2,'rows':list(by_date.values())}
         except (DataError,ValueError,zipfile.BadZipFile,ET.ParseError) as error:
             errors.append('Haftalık swap düzeltmesi: '+str(error))
     try:
         derived,details=daily_fx_records(records,list(by_date.values()),now)
         records.update(derived)
         cache['_fx_calculation_last']=details[-1]
+        latest_input=max(r['date'] for r in records[FX_RAW[0]]['observations']
+                         if r.get('value') is not None)
+        if details[-1]['date']<latest_input:
+            errors.append('Net döviz pozisyonu '+details[-1]['date']+' tarihinde kaldı; '
+                          'günlük bilanço '+latest_input+' tarihine kadar mevcut. '
+                          'Swap referansı: '+details[-1]['anchor_date']+
+                          '. Eksik günlük girdileri veya haftalık swap güncelliğini kontrol edin.')
     except DataError as error:errors.append('Net döviz pozisyonu: '+str(error))
 
 
