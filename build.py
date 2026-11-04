@@ -1234,14 +1234,14 @@ GOLD_ADJUSTMENT_METHOD=('Tahmini: son yayımlanmış haftalık brüt altın reze
     'Günlük pozisyon değişiminden bu miktar × AM fiyat farkı çıkarılır. Altın yükümlülüklerinin fiyat duyarlılığı ayrıca ayrıştırılmamıştır; '
     'tam net altın düzeltmesi veya döviz alım/satımı göstergesi değildir.')
 CURATED_CHARTS.insert(0,{'id':'netfx-altin-haric-degisim','name':GOLD_CHART_TITLE,
-    'title':GOLD_CHART_TITLE,'unit':'Milyon ABD doları · Brüt stokla tahmini düzeltme','daily_bars':True,'default_years':.5,
-    'method':'Brüt altın stokuyla tahmini düzeltme.',
+    'title':GOLD_CHART_TITLE,'unit':'Milyon ABD doları','daily_bars':True,'default_years':.5,
+    'method':'',
     'lines':[line(GOLD_ADJUSTED_CODE,'Altın fiyat etkisi çıkarılmış günlük değişim (tahmini)',color='#432454')]})
 
 CURATED_CHARTS.insert(0,{'id':'netfx-altin-haric','name':'Swap ve Hazine Hariç Net Döviz Pozisyonu (Altın etkisi dışlanmış)',
     'title':'Swap ve Hazine Hariç Net Döviz Pozisyonu (Altın etkisi dışlanmış)',
-    'unit':'Milyar ABD doları · Brüt stokla tahmini · İlk ortak güne göre',
-    'area':True,'default_years':.5,'method':'Brüt altın stokuyla tahmini düzeltme.',
+    'unit':'Milyar ABD doları',
+    'area':True,'default_years':.5,'method':'',
     'lines':[line(GOLD_LEVEL_CODE,'Altın fiyat etkisi çıkarılmış pozisyon',.001,color='#432454')]})
 
 def attach_gold_level(records):
