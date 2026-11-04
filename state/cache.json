@@ -90554,7 +90554,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-04T20:50:27+03:00"
+      "fetched_at": "2026-11-04T21:00:20+03:00"
     },
     "TP.AB.A03": {
       "id": "TP.AB.A03",
@@ -189495,7 +189495,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-04T20:50:27+03:00"
+      "fetched_at": "2026-11-04T21:00:20+03:00"
     },
     "TP.AB.A11": {
       "id": "TP.AB.A11",
@@ -219199,7 +219199,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-04T20:50:27+03:00"
+      "fetched_at": "2026-11-04T21:00:20+03:00"
     },
     "TP.AB.A14": {
       "id": "TP.AB.A14",
@@ -239012,7 +239012,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-04T20:50:27+03:00"
+      "fetched_at": "2026-11-04T21:00:20+03:00"
     },
     "TP.AB.A16": {
       "id": "TP.AB.A16",
@@ -973017,7 +973017,7 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-04T20:50:27+03:00"
+      "fetched_at": "2026-11-04T21:00:21+03:00"
     },
     "TP.DK.USD.S.YTL": {
       "id": "TP.DK.USD.S.YTL",
@@ -1431904,7 +1431904,7 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-04T20:50:35+03:00"
+      "fetched_at": "2026-11-04T21:00:27+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU",
@@ -1439827,12 +1439827,12 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-04T20:50:35+03:00"
+      "fetched_at": "2026-11-04T21:00:27+03:00"
     },
     "BFRC.NETFX.SWAPEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-04T20:50:27+03:00",
+      "fetched_at": "2026-11-04T21:00:20+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1447707,7 +1447707,7 @@
     "BFRC.NETFX.SWAPEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-04T20:50:27+03:00",
+      "fetched_at": "2026-11-04T21:00:20+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1450566,7 +1450566,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-04T20:50:27+03:00",
+      "fetched_at": "2026-11-04T21:00:20+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1458437,7 +1458437,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-04T20:50:27+03:00",
+      "fetched_at": "2026-11-04T21:00:20+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1474123,7 +1474123,7 @@
     "BFRC.NETFX.TREASURYEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-04T20:50:27+03:00",
+      "fetched_at": "2026-11-04T21:00:20+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1476982,7 +1476982,7 @@
     "BFRC.NETFX.TREASURYEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-04T20:50:27+03:00",
+      "fetched_at": "2026-11-04T21:00:20+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1571585,7 +1571585,7 @@
           "manual": true
         }
       ],
-      "fetched_at": "2026-11-04T20:50:37+03:00"
+      "fetched_at": "2026-11-04T21:00:28+03:00"
     },
     "BFRC.NETFX.GOLD.ADJUSTED.CHANGE": {
       "id": "BFRC.NETFX.GOLD.ADJUSTED.CHANGE",
@@ -1574657,7 +1574657,3112 @@
           "adjusted_change_million_usd": 3242.521104240311
         }
       ],
-      "fetched_at": "2026-11-04T20:50:37+03:00"
+      "fetched_at": "2026-11-04T21:00:28+03:00"
+    },
+    "BFRC.NETFX.GOLD.ADJUSTED.LEVEL": {
+      "id": "BFRC.NETFX.GOLD.ADJUSTED.LEVEL",
+      "code": "BFRC.NETFX.GOLD.ADJUSTED.LEVEL",
+      "provider": "derived",
+      "name": "Altın fiyat etkisi çıkarılmış pozisyon (ilk ortak güne göre)",
+      "unit": "Milyon ABD doları",
+      "frequency": "İŞ GÜNÜ",
+      "source": "TCMB / EVDS; London AM — Westmetall",
+      "estimated": true,
+      "method": "Tahmini: son yayımlanmış haftalık brüt altın rezervi ve referans gününün LBMA AM fiyatından bulunan ons miktarı sabit tutulur. Günlük pozisyon değişiminden bu miktar × AM fiyat farkı çıkarılır. Altın yükümlülüklerinin fiyat duyarlılığı ayrıca ayrıştırılmamıştır; tam net altın düzeltmesi veya döviz alım/satımı göstergesi değildir.",
+      "observations": [
+        {
+          "date": "2026-01-09",
+          "value": 60212.75100931479
+        },
+        {
+          "date": "2026-01-12",
+          "value": 53183.014661302936
+        },
+        {
+          "date": "2026-01-13",
+          "value": 54753.18072724941
+        },
+        {
+          "date": "2026-01-14",
+          "value": 52561.4636332808
+        },
+        {
+          "date": "2026-01-15",
+          "value": 54032.965610934014
+        },
+        {
+          "date": "2026-01-16",
+          "value": 54725.813196992254
+        },
+        {
+          "date": "2026-01-19",
+          "value": 54765.35466943469
+        },
+        {
+          "date": "2026-01-20",
+          "value": 53314.83011504913
+        },
+        {
+          "date": "2026-01-21",
+          "value": 52573.525608574215
+        },
+        {
+          "date": "2026-01-22",
+          "value": 53220.714243134884
+        },
+        {
+          "date": "2026-01-23",
+          "value": 52952.69515650281
+        },
+        {
+          "date": "2026-01-26",
+          "value": 51967.37575042408
+        },
+        {
+          "date": "2026-01-27",
+          "value": 52481.82601615585
+        },
+        {
+          "date": "2026-01-28",
+          "value": 51009.18564531367
+        },
+        {
+          "date": "2026-01-29",
+          "value": 47684.16520473665
+        },
+        {
+          "date": "2026-01-30",
+          "value": 49371.4744768928
+        },
+        {
+          "date": "2026-02-02",
+          "value": 50337.96640017382
+        },
+        {
+          "date": "2026-02-03",
+          "value": 48701.60067736698
+        },
+        {
+          "date": "2026-02-04",
+          "value": 48042.817076078005
+        },
+        {
+          "date": "2026-02-05",
+          "value": 50302.67037499245
+        },
+        {
+          "date": "2026-02-06",
+          "value": 49124.28270098707
+        },
+        {
+          "date": "2026-02-09",
+          "value": 46305.40926947794
+        },
+        {
+          "date": "2026-02-10",
+          "value": 46508.76440108775
+        },
+        {
+          "date": "2026-02-11",
+          "value": 46167.431450213604
+        },
+        {
+          "date": "2026-02-12",
+          "value": 46395.2651055287
+        },
+        {
+          "date": "2026-02-13",
+          "value": 47927.444951285775
+        },
+        {
+          "date": "2026-02-16",
+          "value": 48199.42772612801
+        },
+        {
+          "date": "2026-02-17",
+          "value": 47232.15717511746
+        },
+        {
+          "date": "2026-02-18",
+          "value": 47864.04828070826
+        },
+        {
+          "date": "2026-02-19",
+          "value": 47324.07993816385
+        },
+        {
+          "date": "2026-02-20",
+          "value": 44246.51941334417
+        },
+        {
+          "date": "2026-02-23",
+          "value": 40687.23650648634
+        },
+        {
+          "date": "2026-02-24",
+          "value": 41391.40352285209
+        },
+        {
+          "date": "2026-02-25",
+          "value": 42175.421805374135
+        },
+        {
+          "date": "2026-02-26",
+          "value": 42761.415728587956
+        },
+        {
+          "date": "2026-02-27",
+          "value": 44034.37464896464
+        },
+        {
+          "date": "2026-03-02",
+          "value": 38594.430000105895
+        },
+        {
+          "date": "2026-03-03",
+          "value": 33178.33969459274
+        },
+        {
+          "date": "2026-03-04",
+          "value": 29999.600853146767
+        },
+        {
+          "date": "2026-03-05",
+          "value": 31027.75269601307
+        },
+        {
+          "date": "2026-03-06",
+          "value": 31687.80795348531
+        },
+        {
+          "date": "2026-03-09",
+          "value": 23572.381838200363
+        },
+        {
+          "date": "2026-03-10",
+          "value": 18513.910417011553
+        },
+        {
+          "date": "2026-03-11",
+          "value": 21229.073843960134
+        },
+        {
+          "date": "2026-03-12",
+          "value": 23599.093553046958
+        },
+        {
+          "date": "2026-03-13",
+          "value": 21894.262550485942
+        },
+        {
+          "date": "2026-03-16",
+          "value": 17439.283889003775
+        },
+        {
+          "date": "2026-03-17",
+          "value": 18661.953632220826
+        },
+        {
+          "date": "2026-03-18",
+          "value": 20761.77581591442
+        },
+        {
+          "date": "2026-03-19",
+          "value": 26425.207282740477
+        },
+        {
+          "date": "2026-03-23",
+          "value": 22912.764346106458
+        },
+        {
+          "date": "2026-03-24",
+          "value": 18863.877371996867
+        },
+        {
+          "date": "2026-03-25",
+          "value": 12009.985344087609
+        },
+        {
+          "date": "2026-03-26",
+          "value": 11294.776694138822
+        },
+        {
+          "date": "2026-03-27",
+          "value": 5865.910922711767
+        },
+        {
+          "date": "2026-03-30",
+          "value": -271.03528893693147
+        },
+        {
+          "date": "2026-03-31",
+          "value": -1250.3186077391165
+        },
+        {
+          "date": "2026-04-01",
+          "value": -4347.4306289235155
+        },
+        {
+          "date": "2026-04-02",
+          "value": -1635.999582055585
+        },
+        {
+          "date": "2026-04-07",
+          "value": null
+        },
+        {
+          "date": "2026-04-08",
+          "value": 10896.150347488308
+        },
+        {
+          "date": "2026-04-09",
+          "value": 20475.840911392028
+        },
+        {
+          "date": "2026-04-10",
+          "value": 22800.50192158826
+        },
+        {
+          "date": "2026-04-13",
+          "value": 26193.081056063653
+        },
+        {
+          "date": "2026-04-14",
+          "value": 28489.358294801375
+        },
+        {
+          "date": "2026-04-15",
+          "value": 30491.925596453977
+        },
+        {
+          "date": "2026-04-16",
+          "value": 32803.16438116485
+        },
+        {
+          "date": "2026-04-17",
+          "value": 31265.10911304556
+        },
+        {
+          "date": "2026-04-20",
+          "value": 31398.471947252412
+        },
+        {
+          "date": "2026-04-21",
+          "value": 32411.146219859893
+        },
+        {
+          "date": "2026-04-22",
+          "value": 33145.29844881094
+        },
+        {
+          "date": "2026-04-24",
+          "value": 28972.549516451832
+        },
+        {
+          "date": "2026-04-27",
+          "value": 27202.083201447487
+        },
+        {
+          "date": "2026-04-28",
+          "value": 29364.36360426707
+        },
+        {
+          "date": "2026-04-29",
+          "value": 31245.621697838917
+        },
+        {
+          "date": "2026-04-30",
+          "value": 30203.295680860563
+        },
+        {
+          "date": "2026-05-05",
+          "value": null
+        },
+        {
+          "date": "2026-05-06",
+          "value": 23990.056959407324
+        },
+        {
+          "date": "2026-05-07",
+          "value": 25836.70028247546
+        },
+        {
+          "date": "2026-05-08",
+          "value": 27443.99478483398
+        },
+        {
+          "date": "2026-05-11",
+          "value": 27465.217061977703
+        },
+        {
+          "date": "2026-05-12",
+          "value": 29542.80029212052
+        },
+        {
+          "date": "2026-05-13",
+          "value": 29247.563583377447
+        },
+        {
+          "date": "2026-05-15",
+          "value": null
+        },
+        {
+          "date": "2026-05-18",
+          "value": 29084.6566781931
+        },
+        {
+          "date": "2026-05-20",
+          "value": 30527.561227153583
+        },
+        {
+          "date": "2026-05-21",
+          "value": 30105.53996503719
+        },
+        {
+          "date": "2026-05-22",
+          "value": 23563.55659530364
+        },
+        {
+          "date": "2026-06-01",
+          "value": null
+        },
+        {
+          "date": "2026-06-02",
+          "value": 19952.757770171662
+        },
+        {
+          "date": "2026-06-03",
+          "value": 22724.982307328144
+        },
+        {
+          "date": "2026-06-04",
+          "value": 23230.803309634877
+        },
+        {
+          "date": "2026-06-05",
+          "value": 24421.12301328105
+        },
+        {
+          "date": "2026-06-08",
+          "value": 27073.71913272306
+        },
+        {
+          "date": "2026-06-09",
+          "value": 27733.559275849515
+        },
+        {
+          "date": "2026-06-10",
+          "value": 30605.873069539302
+        },
+        {
+          "date": "2026-06-11",
+          "value": 31519.42420269417
+        },
+        {
+          "date": "2026-06-12",
+          "value": 28870.487489880918
+        },
+        {
+          "date": "2026-06-15",
+          "value": 28430.387133565793
+        },
+        {
+          "date": "2026-06-16",
+          "value": 30364.74833459799
+        },
+        {
+          "date": "2026-06-17",
+          "value": 36036.11141740029
+        },
+        {
+          "date": "2026-06-18",
+          "value": 36748.91856990941
+        },
+        {
+          "date": "2026-06-19",
+          "value": 38421.835956838644
+        },
+        {
+          "date": "2026-06-22",
+          "value": 36483.06351891937
+        },
+        {
+          "date": "2026-06-23",
+          "value": 38406.588060326394
+        },
+        {
+          "date": "2026-06-24",
+          "value": 38950.69807529678
+        },
+        {
+          "date": "2026-06-25",
+          "value": 39053.56785025899
+        },
+        {
+          "date": "2026-06-26",
+          "value": 37013.13579129116
+        },
+        {
+          "date": "2026-06-29",
+          "value": 38227.07277368056
+        },
+        {
+          "date": "2026-06-30",
+          "value": 37959.422060750454
+        },
+        {
+          "date": "2026-07-01",
+          "value": 38874.84315747527
+        },
+        {
+          "date": "2026-07-02",
+          "value": 42281.913977956734
+        },
+        {
+          "date": "2026-07-03",
+          "value": 41100.45024484109
+        },
+        {
+          "date": "2026-07-06",
+          "value": 43378.92285675318
+        },
+        {
+          "date": "2026-07-07",
+          "value": 45064.28611126541
+        },
+        {
+          "date": "2026-07-08",
+          "value": 46430.280539546395
+        },
+        {
+          "date": "2026-07-09",
+          "value": 45657.03593241115
+        },
+        {
+          "date": "2026-07-10",
+          "value": 45337.6083643375
+        },
+        {
+          "date": "2026-07-13",
+          "value": 46330.39701107314
+        },
+        {
+          "date": "2026-07-14",
+          "value": 49196.00827025131
+        },
+        {
+          "date": "2026-07-16",
+          "value": 48613.77439137408
+        },
+        {
+          "date": "2026-07-17",
+          "value": 45043.46227389573
+        },
+        {
+          "date": "2026-07-20",
+          "value": 47291.05746595524
+        },
+        {
+          "date": "2026-07-21",
+          "value": 48254.067342043934
+        },
+        {
+          "date": "2026-07-22",
+          "value": 46560.59511073207
+        },
+        {
+          "date": "2026-07-23",
+          "value": 46424.8485270738
+        },
+        {
+          "date": "2026-07-24",
+          "value": 44740.40098081014
+        },
+        {
+          "date": "2026-07-27",
+          "value": 43709.43975257016
+        },
+        {
+          "date": "2026-07-28",
+          "value": 47949.66932133113
+        },
+        {
+          "date": "2026-07-29",
+          "value": 50579.81104824038
+        },
+        {
+          "date": "2026-07-30",
+          "value": 48912.35727257011
+        },
+        {
+          "date": "2026-07-31",
+          "value": 46864.294197346004
+        },
+        {
+          "date": "2026-08-03",
+          "value": 45303.1040220616
+        },
+        {
+          "date": "2026-08-04",
+          "value": 48874.17001801955
+        },
+        {
+          "date": "2026-08-05",
+          "value": 50550.16506600124
+        },
+        {
+          "date": "2026-08-06",
+          "value": 51014.65566287738
+        },
+        {
+          "date": "2026-08-07",
+          "value": 50283.45452418467
+        },
+        {
+          "date": "2026-08-10",
+          "value": 51035.63644491913
+        },
+        {
+          "date": "2026-08-11",
+          "value": 53420.815680468615
+        },
+        {
+          "date": "2026-08-12",
+          "value": 53264.87914188318
+        },
+        {
+          "date": "2026-08-13",
+          "value": 53020.33927021232
+        },
+        {
+          "date": "2026-08-14",
+          "value": 52425.56896636912
+        },
+        {
+          "date": "2026-08-17",
+          "value": 52417.62671627864
+        },
+        {
+          "date": "2026-08-18",
+          "value": 54757.42971703248
+        },
+        {
+          "date": "2026-08-19",
+          "value": 54023.59504901563
+        },
+        {
+          "date": "2026-08-20",
+          "value": 53077.525611280886
+        },
+        {
+          "date": "2026-08-21",
+          "value": 49161.412907994956
+        },
+        {
+          "date": "2026-08-24",
+          "value": 47381.71906990652
+        },
+        {
+          "date": "2026-08-25",
+          "value": 48782.97616233939
+        },
+        {
+          "date": "2026-08-26",
+          "value": 50126.518232037364
+        },
+        {
+          "date": "2026-08-27",
+          "value": 50609.98206867435
+        },
+        {
+          "date": "2026-08-28",
+          "value": 48986.10964527905
+        },
+        {
+          "date": "2026-09-01",
+          "value": null
+        },
+        {
+          "date": "2026-09-02",
+          "value": 49773.59869661706
+        },
+        {
+          "date": "2026-09-03",
+          "value": 47793.13724777137
+        },
+        {
+          "date": "2026-09-04",
+          "value": 47130.05063430899
+        },
+        {
+          "date": "2026-09-07",
+          "value": 48261.71206650618
+        },
+        {
+          "date": "2026-09-08",
+          "value": 47274.28477775671
+        },
+        {
+          "date": "2026-09-09",
+          "value": 47922.77659523982
+        },
+        {
+          "date": "2026-09-10",
+          "value": 47674.42551193597
+        },
+        {
+          "date": "2026-09-11",
+          "value": 46856.05889674995
+        },
+        {
+          "date": "2026-09-14",
+          "value": 47539.562193175996
+        },
+        {
+          "date": "2026-09-15",
+          "value": 47010.89907893661
+        },
+        {
+          "date": "2026-09-16",
+          "value": 47003.98858272659
+        },
+        {
+          "date": "2026-09-17",
+          "value": 42203.82604575956
+        },
+        {
+          "date": "2026-09-18",
+          "value": 39414.228899087255
+        },
+        {
+          "date": "2026-09-21",
+          "value": 39760.704118600246
+        },
+        {
+          "date": "2026-09-22",
+          "value": 42276.400731066504
+        },
+        {
+          "date": "2026-09-23",
+          "value": 43108.44443774704
+        },
+        {
+          "date": "2026-09-24",
+          "value": 43642.84409116806
+        },
+        {
+          "date": "2026-09-25",
+          "value": 38626.13498954827
+        },
+        {
+          "date": "2026-09-28",
+          "value": 39913.56249301437
+        },
+        {
+          "date": "2026-09-29",
+          "value": 40639.66802438849
+        },
+        {
+          "date": "2026-09-30",
+          "value": 39275.37803001164
+        },
+        {
+          "date": "2026-10-01",
+          "value": 37367.77888379746
+        },
+        {
+          "date": "2026-10-02",
+          "value": 37610.00094660328
+        },
+        {
+          "date": "2026-10-05",
+          "value": 38381.832179979785
+        },
+        {
+          "date": "2026-10-06",
+          "value": 42414.09503132424
+        },
+        {
+          "date": "2026-10-07",
+          "value": 42848.51317327092
+        },
+        {
+          "date": "2026-10-08",
+          "value": 44259.73330220563
+        },
+        {
+          "date": "2026-10-09",
+          "value": 43406.80976448333
+        },
+        {
+          "date": "2026-10-12",
+          "value": 43933.05151464805
+        },
+        {
+          "date": "2026-10-13",
+          "value": 43801.99316650546
+        },
+        {
+          "date": "2026-10-14",
+          "value": 39970.80844945821
+        },
+        {
+          "date": "2026-10-15",
+          "value": 39400.97657046232
+        },
+        {
+          "date": "2026-10-16",
+          "value": 38686.30247962421
+        },
+        {
+          "date": "2026-10-19",
+          "value": 37495.01922341519
+        },
+        {
+          "date": "2026-10-20",
+          "value": 38151.20871836039
+        },
+        {
+          "date": "2026-10-21",
+          "value": 37770.173678657535
+        },
+        {
+          "date": "2026-10-22",
+          "value": 36973.41519966215
+        },
+        {
+          "date": "2026-10-23",
+          "value": 34347.670342959245
+        },
+        {
+          "date": "2026-10-26",
+          "value": 31829.672000553473
+        },
+        {
+          "date": "2026-10-27",
+          "value": 32212.462058452023
+        },
+        {
+          "date": "2026-10-28",
+          "value": 31155.661568628006
+        },
+        {
+          "date": "2026-10-30",
+          "value": 29146.108397650845
+        },
+        {
+          "date": "2026-11-02",
+          "value": 28569.996627556327
+        },
+        {
+          "date": "2026-11-03",
+          "value": 31812.517731796637
+        }
+      ],
+      "audit": [
+        {
+          "date": "2026-01-12",
+          "previous_date": "2026-01-09",
+          "weekly_gold_reference": "2026-01-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 82.58001812611315,
+          "am_previous": 4471.2,
+          "am_current": 4587.7,
+          "raw_change_million_usd": 2590.8357636803266,
+          "gold_effect_million_usd": 9620.572111692181,
+          "adjusted_change_million_usd": -7029.736348011855
+        },
+        {
+          "date": "2026-01-13",
+          "previous_date": "2026-01-12",
+          "weekly_gold_reference": "2026-01-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 82.58001812611315,
+          "am_previous": 4587.7,
+          "am_current": 4582.8,
+          "raw_change_million_usd": 1165.523977128556,
+          "gold_effect_million_usd": -404.6420888179244,
+          "adjusted_change_million_usd": 1570.1660659464803
+        },
+        {
+          "date": "2026-01-14",
+          "previous_date": "2026-01-13",
+          "weekly_gold_reference": "2026-01-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 82.58001812611315,
+          "am_previous": 4582.8,
+          "am_current": 4633.0,
+          "raw_change_million_usd": 1953.7998159622512,
+          "gold_effect_million_usd": 4145.516909930865,
+          "adjusted_change_million_usd": -2191.717093968614
+        },
+        {
+          "date": "2026-01-15",
+          "previous_date": "2026-01-14",
+          "weekly_gold_reference": "2026-01-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 82.58001812611315,
+          "am_previous": 4633.0,
+          "am_current": 4611.1,
+          "raw_change_million_usd": -337.0004193086352,
+          "gold_effect_million_usd": -1808.5023969618478,
+          "adjusted_change_million_usd": 1471.5019776532126
+        },
+        {
+          "date": "2026-01-16",
+          "previous_date": "2026-01-15",
+          "weekly_gold_reference": "2026-01-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 82.58001812611315,
+          "am_previous": 4611.1,
+          "am_current": 4607.25,
+          "raw_change_million_usd": 374.91451627267816,
+          "gold_effect_million_usd": -317.93306978556564,
+          "adjusted_change_million_usd": 692.8475860582438
+        },
+        {
+          "date": "2026-01-19",
+          "previous_date": "2026-01-16",
+          "weekly_gold_reference": "2026-01-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.106682256888533,
+          "am_previous": 4607.25,
+          "am_current": 4664.95,
+          "raw_change_million_usd": 1545.8970386649016,
+          "gold_effect_million_usd": 1506.3555662224635,
+          "adjusted_change_million_usd": 39.541472442438135
+        },
+        {
+          "date": "2026-01-20",
+          "previous_date": "2026-01-19",
+          "weekly_gold_reference": "2026-01-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.106682256888533,
+          "am_previous": 4664.95,
+          "am_current": 4723.95,
+          "raw_change_million_usd": 89.7696987708623,
+          "gold_effect_million_usd": 1540.2942531564233,
+          "adjusted_change_million_usd": -1450.524554385561
+        },
+        {
+          "date": "2026-01-21",
+          "previous_date": "2026-01-20",
+          "weekly_gold_reference": "2026-01-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.106682256888533,
+          "am_previous": 4723.95,
+          "am_current": 4860.75,
+          "raw_change_million_usd": 2830.089626267436,
+          "gold_effect_million_usd": 3571.394132742356,
+          "adjusted_change_million_usd": -741.3045064749199
+        },
+        {
+          "date": "2026-01-22",
+          "previous_date": "2026-01-21",
+          "weekly_gold_reference": "2026-01-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.106682256888533,
+          "am_previous": 4860.75,
+          "am_current": 4825.55,
+          "raw_change_million_usd": -271.7665808817983,
+          "gold_effect_million_usd": -918.9552154424716,
+          "adjusted_change_million_usd": 647.1886345606733
+        },
+        {
+          "date": "2026-01-23",
+          "previous_date": "2026-01-22",
+          "weekly_gold_reference": "2026-01-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.106682256888533,
+          "am_previous": 4825.55,
+          "am_current": 4926.2,
+          "raw_change_million_usd": 2359.6184825237433,
+          "gold_effect_million_usd": 2627.6375691558214,
+          "adjusted_change_million_usd": -268.01908663207814
+        },
+        {
+          "date": "2026-01-26",
+          "previous_date": "2026-01-23",
+          "weekly_gold_reference": "2026-01-16",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.267802250648437,
+          "am_previous": 4926.2,
+          "am_current": 5093.55,
+          "raw_change_million_usd": 3410.5973005673004,
+          "gold_effect_million_usd": 4395.916706646026,
+          "adjusted_change_million_usd": -985.3194060787255
+        },
+        {
+          "date": "2026-01-27",
+          "previous_date": "2026-01-26",
+          "weekly_gold_reference": "2026-01-16",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.267802250648437,
+          "am_previous": 5093.55,
+          "am_current": 5088.1,
+          "raw_change_million_usd": 371.29074346573907,
+          "gold_effect_million_usd": -143.1595222660292,
+          "adjusted_change_million_usd": 514.4502657317682
+        },
+        {
+          "date": "2026-01-28",
+          "previous_date": "2026-01-27",
+          "weekly_gold_reference": "2026-01-16",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.267802250648437,
+          "am_previous": 5088.1,
+          "am_current": 5277.8,
+          "raw_change_million_usd": 3510.361716105821,
+          "gold_effect_million_usd": 4983.002086948004,
+          "adjusted_change_million_usd": -1472.640370842183
+        },
+        {
+          "date": "2026-01-29",
+          "previous_date": "2026-01-28",
+          "weekly_gold_reference": "2026-01-16",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.267802250648437,
+          "am_previous": 5277.8,
+          "am_current": 5501.7,
+          "raw_change_million_usd": 2556.340483343156,
+          "gold_effect_million_usd": 5881.360923920175,
+          "adjusted_change_million_usd": -3325.020440577019
+        },
+        {
+          "date": "2026-01-30",
+          "previous_date": "2026-01-29",
+          "weekly_gold_reference": "2026-01-16",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.267802250648437,
+          "am_previous": 5501.7,
+          "am_current": 5063.45,
+          "raw_change_million_usd": -9824.555064190528,
+          "gold_effect_million_usd": -11511.864336346678,
+          "adjusted_change_million_usd": 1687.3092721561497
+        },
+        {
+          "date": "2026-02-02",
+          "previous_date": "2026-01-30",
+          "weekly_gold_reference": "2026-01-23",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.2700671182859,
+          "am_previous": 5063.45,
+          "am_current": 4685.45,
+          "raw_change_million_usd": -8963.593447431049,
+          "gold_effect_million_usd": -9930.085370712071,
+          "adjusted_change_million_usd": 966.4919232810225
+        },
+        {
+          "date": "2026-02-03",
+          "previous_date": "2026-02-02",
+          "weekly_gold_reference": "2026-01-23",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.2700671182859,
+          "am_previous": 4685.45,
+          "am_current": 4923.65,
+          "raw_change_million_usd": 4621.164264768857,
+          "gold_effect_million_usd": 6257.529987575697,
+          "adjusted_change_million_usd": -1636.3657228068405
+        },
+        {
+          "date": "2026-02-04",
+          "previous_date": "2026-02-03",
+          "weekly_gold_reference": "2026-01-23",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.2700671182859,
+          "am_previous": 4923.65,
+          "am_current": 5051.75,
+          "raw_change_million_usd": 2706.41199656346,
+          "gold_effect_million_usd": 3365.1955978524334,
+          "adjusted_change_million_usd": -658.7836012889734
+        },
+        {
+          "date": "2026-02-05",
+          "previous_date": "2026-02-04",
+          "weekly_gold_reference": "2026-01-23",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.2700671182859,
+          "am_previous": 5051.75,
+          "am_current": 4859.1,
+          "raw_change_million_usd": -2801.0751314233203,
+          "gold_effect_million_usd": -5060.928430337769,
+          "adjusted_change_million_usd": 2259.8532989144487
+        },
+        {
+          "date": "2026-02-06",
+          "previous_date": "2026-02-05",
+          "weekly_gold_reference": "2026-01-23",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.2700671182859,
+          "am_previous": 4859.1,
+          "am_current": 4870.1,
+          "raw_change_million_usd": -889.416935704241,
+          "gold_effect_million_usd": 288.97073830114493,
+          "adjusted_change_million_usd": -1178.387674005386
+        },
+        {
+          "date": "2026-02-09",
+          "previous_date": "2026-02-06",
+          "weekly_gold_reference": "2026-01-30",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.415334510185744,
+          "am_previous": 4870.1,
+          "am_current": 4992.5,
+          "raw_change_million_usd": 414.3635125376022,
+          "gold_effect_million_usd": 3233.2369440467255,
+          "adjusted_change_million_usd": -2818.8734315091233
+        },
+        {
+          "date": "2026-02-10",
+          "previous_date": "2026-02-09",
+          "weekly_gold_reference": "2026-01-30",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.415334510185744,
+          "am_previous": 4992.5,
+          "am_current": 5047.95,
+          "raw_change_million_usd": 1668.0854301996005,
+          "gold_effect_million_usd": 1464.7302985897948,
+          "adjusted_change_million_usd": 203.35513160980577
+        },
+        {
+          "date": "2026-02-11",
+          "previous_date": "2026-02-10",
+          "weekly_gold_reference": "2026-01-30",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.415334510185744,
+          "am_previous": 5047.95,
+          "am_current": 5070.3,
+          "raw_change_million_usd": 249.04977542851702,
+          "gold_effect_million_usd": 590.382726302661,
+          "adjusted_change_million_usd": -341.332950874144
+        },
+        {
+          "date": "2026-02-12",
+          "previous_date": "2026-02-11",
+          "weekly_gold_reference": "2026-01-30",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.415334510185744,
+          "am_previous": 5070.3,
+          "am_current": 5063.25,
+          "raw_change_million_usd": 41.60554701827641,
+          "gold_effect_million_usd": -186.2281082968143,
+          "adjusted_change_million_usd": 227.8336553150907
+        },
+        {
+          "date": "2026-02-13",
+          "previous_date": "2026-02-12",
+          "weekly_gold_reference": "2026-01-30",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.415334510185744,
+          "am_previous": 5063.25,
+          "am_current": 4969.3,
+          "raw_change_million_usd": -949.5408314748638,
+          "gold_effect_million_usd": -2481.720677231946,
+          "adjusted_change_million_usd": 1532.1798457570821
+        },
+        {
+          "date": "2026-02-16",
+          "previous_date": "2026-02-13",
+          "weekly_gold_reference": "2026-02-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.40818445849161,
+          "am_previous": 4969.3,
+          "am_current": 5005.4,
+          "raw_change_million_usd": 1225.3182337937615,
+          "gold_effect_million_usd": 953.3354589515327,
+          "adjusted_change_million_usd": 271.98277484222876
+        },
+        {
+          "date": "2026-02-17",
+          "previous_date": "2026-02-16",
+          "weekly_gold_reference": "2026-02-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.40818445849161,
+          "am_previous": 5005.4,
+          "am_current": 4922.3,
+          "raw_change_million_usd": -3161.7906795111776,
+          "gold_effect_million_usd": -2194.5201285006383,
+          "adjusted_change_million_usd": -967.2705510105393
+        },
+        {
+          "date": "2026-02-18",
+          "previous_date": "2026-02-17",
+          "weekly_gold_reference": "2026-02-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.40818445849161,
+          "am_previous": 4922.3,
+          "am_current": 4916.85,
+          "raw_change_million_usd": 487.96650029202283,
+          "gold_effect_million_usd": -143.92460529877448,
+          "adjusted_change_million_usd": 631.8911055907973
+        },
+        {
+          "date": "2026-02-19",
+          "previous_date": "2026-02-18",
+          "weekly_gold_reference": "2026-02-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.40818445849161,
+          "am_previous": 4916.85,
+          "am_current": 4991.05,
+          "raw_change_million_usd": 1419.5189442756673,
+          "gold_effect_million_usd": 1959.4872868200728,
+          "adjusted_change_million_usd": -539.9683425444055
+        },
+        {
+          "date": "2026-02-20",
+          "previous_date": "2026-02-19",
+          "weekly_gold_reference": "2026-02-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.40818445849161,
+          "am_previous": 4991.05,
+          "am_current": 5032.3,
+          "raw_change_million_usd": -1988.2229159069102,
+          "gold_effect_million_usd": 1089.337608912779,
+          "adjusted_change_million_usd": -3077.560524819689
+        },
+        {
+          "date": "2026-02-23",
+          "previous_date": "2026-02-20",
+          "weekly_gold_reference": "2026-02-13",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.603051306481795,
+          "am_previous": 5032.3,
+          "am_current": 5147.55,
+          "raw_change_million_usd": -493.2812437857938,
+          "gold_effect_million_usd": 3066.001663072027,
+          "adjusted_change_million_usd": -3559.2829068578208
+        },
+        {
+          "date": "2026-02-24",
+          "previous_date": "2026-02-23",
+          "weekly_gold_reference": "2026-02-13",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.603051306481795,
+          "am_previous": 5147.55,
+          "am_current": 5167.25,
+          "raw_change_million_usd": 1228.24712710343,
+          "gold_effect_million_usd": 524.0801107376865,
+          "adjusted_change_million_usd": 704.1670163657436
+        },
+        {
+          "date": "2026-02-25",
+          "previous_date": "2026-02-24",
+          "weekly_gold_reference": "2026-02-13",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.603051306481795,
+          "am_previous": 5167.25,
+          "am_current": 5171.75,
+          "raw_change_million_usd": 903.7320134012116,
+          "gold_effect_million_usd": 119.71373087916808,
+          "adjusted_change_million_usd": 784.0182825220435
+        },
+        {
+          "date": "2026-02-26",
+          "previous_date": "2026-02-25",
+          "weekly_gold_reference": "2026-02-13",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.603051306481795,
+          "am_previous": 5171.75,
+          "am_current": 5174.75,
+          "raw_change_million_usd": 665.8030771332706,
+          "gold_effect_million_usd": 79.80915391944538,
+          "adjusted_change_million_usd": 585.9939232138252
+        },
+        {
+          "date": "2026-02-27",
+          "previous_date": "2026-02-26",
+          "weekly_gold_reference": "2026-02-13",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.603051306481795,
+          "am_previous": 5174.75,
+          "am_current": 5174.1,
+          "raw_change_million_usd": 1255.6669370274758,
+          "gold_effect_million_usd": -17.291983349203488,
+          "adjusted_change_million_usd": 1272.9589203766793
+        },
+        {
+          "date": "2026-03-02",
+          "previous_date": "2026-02-27",
+          "weekly_gold_reference": "2026-02-20",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.31657261653717,
+          "am_previous": 5174.1,
+          "am_current": 5390.45,
+          "raw_change_million_usd": 253.64583672906156,
+          "gold_effect_million_usd": 5693.5904855878025,
+          "adjusted_change_million_usd": -5439.944648858741
+        },
+        {
+          "date": "2026-03-03",
+          "previous_date": "2026-03-02",
+          "weekly_gold_reference": "2026-02-20",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.31657261653717,
+          "am_previous": 5390.45,
+          "am_current": 5267.6,
+          "raw_change_million_usd": -8649.081251454729,
+          "gold_effect_million_usd": -3232.9909459415767,
+          "adjusted_change_million_usd": -5416.090305513152
+        },
+        {
+          "date": "2026-03-04",
+          "previous_date": "2026-03-03",
+          "weekly_gold_reference": "2026-02-20",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.31657261653717,
+          "am_previous": 5267.6,
+          "am_current": 5183.7,
+          "raw_change_million_usd": -5386.699283973459,
+          "gold_effect_million_usd": -2207.960442527483,
+          "adjusted_change_million_usd": -3178.7388414459765
+        },
+        {
+          "date": "2026-03-05",
+          "previous_date": "2026-03-04",
+          "weekly_gold_reference": "2026-02-20",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.31657261653717,
+          "am_previous": 5183.7,
+          "am_current": 5153.75,
+          "raw_change_million_usd": 239.97049300101935,
+          "gold_effect_million_usd": -788.1813498652834,
+          "adjusted_change_million_usd": 1028.1518428663028
+        },
+        {
+          "date": "2026-03-06",
+          "previous_date": "2026-03-05",
+          "weekly_gold_reference": "2026-02-20",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.31657261653717,
+          "am_previous": 5153.75,
+          "am_current": 5087.75,
+          "raw_change_million_usd": -1076.8385352192126,
+          "gold_effect_million_usd": -1736.8937926914532,
+          "adjusted_change_million_usd": 660.0552574722406
+        },
+        {
+          "date": "2026-03-09",
+          "previous_date": "2026-03-06",
+          "weekly_gold_reference": "2026-02-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.444652267776036,
+          "am_previous": 5087.75,
+          "am_current": 5094.55,
+          "raw_change_million_usd": -7935.602479864065,
+          "gold_effect_million_usd": 179.82363542088186,
+          "adjusted_change_million_usd": -8115.426115284947
+        },
+        {
+          "date": "2026-03-10",
+          "previous_date": "2026-03-09",
+          "weekly_gold_reference": "2026-02-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.444652267776036,
+          "am_previous": 5094.55,
+          "am_current": 5173.95,
+          "raw_change_million_usd": -2958.766031127401,
+          "gold_effect_million_usd": 2099.705390061408,
+          "adjusted_change_million_usd": -5058.4714211888095
+        },
+        {
+          "date": "2026-03-11",
+          "previous_date": "2026-03-10",
+          "weekly_gold_reference": "2026-02-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.444652267776036,
+          "am_previous": 5173.95,
+          "am_current": 5183.6,
+          "raw_change_million_usd": 2970.354321332634,
+          "gold_effect_million_usd": 255.19089438405317,
+          "adjusted_change_million_usd": 2715.1634269485808
+        },
+        {
+          "date": "2026-03-12",
+          "previous_date": "2026-03-11",
+          "weekly_gold_reference": "2026-02-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.444652267776036,
+          "am_previous": 5183.6,
+          "am_current": 5181.65,
+          "raw_change_million_usd": 2318.4526371646425,
+          "gold_effect_million_usd": -51.567071922182514,
+          "adjusted_change_million_usd": 2370.019709086825
+        },
+        {
+          "date": "2026-03-13",
+          "previous_date": "2026-03-12",
+          "weekly_gold_reference": "2026-02-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.444652267776036,
+          "am_previous": 5181.65,
+          "am_current": 5082.85,
+          "raw_change_million_usd": -4317.562646617269,
+          "gold_effect_million_usd": -2612.731644056253,
+          "adjusted_change_million_usd": -1704.8310025610158
+        },
+        {
+          "date": "2026-03-16",
+          "previous_date": "2026-03-13",
+          "weekly_gold_reference": "2026-03-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.47676475728957,
+          "am_previous": 5082.85,
+          "am_current": 4986.9,
+          "raw_change_million_usd": -6995.424239944121,
+          "gold_effect_million_usd": -2540.4455784619536,
+          "adjusted_change_million_usd": -4454.978661482168
+        },
+        {
+          "date": "2026-03-17",
+          "previous_date": "2026-03-16",
+          "weekly_gold_reference": "2026-03-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.47676475728957,
+          "am_previous": 4986.9,
+          "am_current": 5005.85,
+          "raw_change_million_usd": 1724.404435367709,
+          "gold_effect_million_usd": 501.7346921506566,
+          "adjusted_change_million_usd": 1222.6697432170524
+        },
+        {
+          "date": "2026-03-18",
+          "previous_date": "2026-03-17",
+          "weekly_gold_reference": "2026-03-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.47676475728957,
+          "am_previous": 5005.85,
+          "am_current": 4983.25,
+          "raw_change_million_usd": 1501.4473001788429,
+          "gold_effect_million_usd": -598.374883514754,
+          "adjusted_change_million_usd": 2099.822183693597
+        },
+        {
+          "date": "2026-03-19",
+          "previous_date": "2026-03-18",
+          "weekly_gold_reference": "2026-03-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.47676475728957,
+          "am_previous": 4983.25,
+          "am_current": 4682.85,
+          "raw_change_million_usd": -2290.188666263719,
+          "gold_effect_million_usd": -7953.620133089777,
+          "adjusted_change_million_usd": 5663.431466826058
+        },
+        {
+          "date": "2026-03-23",
+          "previous_date": "2026-03-19",
+          "weekly_gold_reference": "2026-03-06",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.47676475728957,
+          "am_previous": 4682.85,
+          "am_current": 4263.55,
+          "raw_change_million_usd": -14614.150399365542,
+          "gold_effect_million_usd": -11101.707462731521,
+          "adjusted_change_million_usd": -3512.442936634021
+        },
+        {
+          "date": "2026-03-24",
+          "previous_date": "2026-03-23",
+          "weekly_gold_reference": "2026-03-13",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.39060702609756,
+          "am_previous": 4263.55,
+          "am_current": 4419.4,
+          "raw_change_million_usd": 64.08913090769784,
+          "gold_effect_million_usd": 4112.97610501729,
+          "adjusted_change_million_usd": -4048.8869741095923
+        },
+        {
+          "date": "2026-03-25",
+          "previous_date": "2026-03-24",
+          "weekly_gold_reference": "2026-03-13",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.39060702609756,
+          "am_previous": 4419.4,
+          "am_current": 4555.75,
+          "raw_change_million_usd": -3255.532759900845,
+          "gold_effect_million_usd": 3598.3592680084116,
+          "adjusted_change_million_usd": -6853.892027909256
+        },
+        {
+          "date": "2026-03-26",
+          "previous_date": "2026-03-25",
+          "weekly_gold_reference": "2026-03-13",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.39060702609756,
+          "am_previous": 4555.75,
+          "am_current": 4442.8,
+          "raw_change_million_usd": -3696.0277135465003,
+          "gold_effect_million_usd": -2980.8190635977144,
+          "adjusted_change_million_usd": -715.2086499487859
+        },
+        {
+          "date": "2026-03-27",
+          "previous_date": "2026-03-26",
+          "weekly_gold_reference": "2026-03-13",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 26.39060702609756,
+          "am_previous": 4442.8,
+          "am_current": 4429.85,
+          "raw_change_million_usd": -5770.624132415014,
+          "gold_effect_million_usd": -341.7583609879586,
+          "adjusted_change_million_usd": -5428.865771427056
+        },
+        {
+          "date": "2026-03-30",
+          "previous_date": "2026-03-27",
+          "weekly_gold_reference": "2026-03-20",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.97823952912465,
+          "am_previous": 4429.85,
+          "am_current": 4528.05,
+          "raw_change_million_usd": -3684.0830898886634,
+          "gold_effect_million_usd": 2452.863121760036,
+          "adjusted_change_million_usd": -6136.946211648699
+        },
+        {
+          "date": "2026-03-31",
+          "previous_date": "2026-03-30",
+          "weekly_gold_reference": "2026-03-20",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.97823952912465,
+          "am_previous": 4528.05,
+          "am_current": 4553.95,
+          "raw_change_million_usd": -332.3469149978664,
+          "gold_effect_million_usd": 646.9364038043193,
+          "adjusted_change_million_usd": -979.2833188021857
+        },
+        {
+          "date": "2026-04-01",
+          "previous_date": "2026-03-31",
+          "weekly_gold_reference": "2026-03-20",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.97823952912465,
+          "am_previous": 4553.95,
+          "am_current": 4719.7,
+          "raw_change_million_usd": 1043.0311807680118,
+          "gold_effect_million_usd": 4140.143201952411,
+          "adjusted_change_million_usd": -3097.112021184399
+        },
+        {
+          "date": "2026-04-02",
+          "previous_date": "2026-04-01",
+          "weekly_gold_reference": "2026-03-20",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.97823952912465,
+          "am_previous": 4719.7,
+          "am_current": 4625.65,
+          "raw_change_million_usd": 362.22761915375304,
+          "gold_effect_million_usd": -2349.203427714178,
+          "adjusted_change_million_usd": 2711.431046867931
+        },
+        {
+          "date": "2026-04-08",
+          "previous_date": "2026-04-07",
+          "weekly_gold_reference": "2026-03-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.58516901342032,
+          "am_previous": 4682.5,
+          "am_current": 4798.05,
+          "raw_change_million_usd": 1656.131138262157,
+          "gold_effect_million_usd": 2609.716279500722,
+          "adjusted_change_million_usd": -953.585141238565
+        },
+        {
+          "date": "2026-04-09",
+          "previous_date": "2026-04-08",
+          "weekly_gold_reference": "2026-03-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.58516901342032,
+          "am_previous": 4798.05,
+          "am_current": 4729.05,
+          "raw_change_million_usd": 8021.313901977715,
+          "gold_effect_million_usd": -1558.376661926002,
+          "adjusted_change_million_usd": 9579.690563903718
+        },
+        {
+          "date": "2026-04-10",
+          "previous_date": "2026-04-09",
+          "weekly_gold_reference": "2026-03-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.58516901342032,
+          "am_previous": 4729.05,
+          "am_current": 4748.35,
+          "raw_change_million_usd": 2760.5547721552502,
+          "gold_effect_million_usd": 435.8937619590163,
+          "adjusted_change_million_usd": 2324.661010196234
+        },
+        {
+          "date": "2026-04-13",
+          "previous_date": "2026-04-10",
+          "weekly_gold_reference": "2026-03-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.58516901342032,
+          "am_previous": 4748.35,
+          "am_current": 4716.75,
+          "raw_change_million_usd": 2678.8877936513018,
+          "gold_effect_million_usd": -713.6913408240903,
+          "adjusted_change_million_usd": 3392.579134475392
+        },
+        {
+          "date": "2026-04-14",
+          "previous_date": "2026-04-13",
+          "weekly_gold_reference": "2026-03-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.58516901342032,
+          "am_previous": 4716.75,
+          "am_current": 4771.85,
+          "raw_change_million_usd": 3540.7200513771895,
+          "gold_effect_million_usd": 1244.4428126394678,
+          "adjusted_change_million_usd": 2296.2772387377217
+        },
+        {
+          "date": "2026-04-15",
+          "previous_date": "2026-04-14",
+          "weekly_gold_reference": "2026-03-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.58516901342032,
+          "am_previous": 4771.85,
+          "am_current": 4798.15,
+          "raw_change_million_usd": 2596.557246705539,
+          "gold_effect_million_usd": 593.989945052938,
+          "adjusted_change_million_usd": 2002.5673016526011
+        },
+        {
+          "date": "2026-04-16",
+          "previous_date": "2026-04-15",
+          "weekly_gold_reference": "2026-03-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.58516901342032,
+          "am_previous": 4798.15,
+          "am_current": 4812.95,
+          "raw_change_million_usd": 2645.4992861094943,
+          "gold_effect_million_usd": 334.26050139862485,
+          "adjusted_change_million_usd": 2311.2387847108694
+        },
+        {
+          "date": "2026-04-17",
+          "previous_date": "2026-04-16",
+          "weekly_gold_reference": "2026-03-27",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.58516901342032,
+          "am_previous": 4812.95,
+          "am_current": 4795.85,
+          "raw_change_million_usd": -1924.2616582487608,
+          "gold_effect_million_usd": -386.20639012947515,
+          "adjusted_change_million_usd": -1538.0552681192858
+        },
+        {
+          "date": "2026-04-20",
+          "previous_date": "2026-04-17",
+          "weekly_gold_reference": "2026-04-10",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.502002546295028,
+          "am_previous": 4795.85,
+          "am_current": 4787.1,
+          "raw_change_million_usd": -63.52968807322759,
+          "gold_effect_million_usd": -196.8925222800815,
+          "adjusted_change_million_usd": 133.3628342068539
+        },
+        {
+          "date": "2026-04-21",
+          "previous_date": "2026-04-20",
+          "weekly_gold_reference": "2026-04-10",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.502002546295028,
+          "am_previous": 4787.1,
+          "am_current": 4782.9,
+          "raw_change_million_usd": 918.1658619130249,
+          "gold_effect_million_usd": -94.50841069445549,
+          "adjusted_change_million_usd": 1012.6742726074804
+        },
+        {
+          "date": "2026-04-22",
+          "previous_date": "2026-04-21",
+          "weekly_gold_reference": "2026-04-10",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.502002546295028,
+          "am_previous": 4782.9,
+          "am_current": 4756.15,
+          "raw_change_million_usd": 132.2236608376552,
+          "gold_effect_million_usd": -601.928568113392,
+          "adjusted_change_million_usd": 734.1522289510472
+        },
+        {
+          "date": "2026-04-24",
+          "previous_date": "2026-04-22",
+          "weekly_gold_reference": "2026-04-10",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 22.502002546295028,
+          "am_previous": 4756.15,
+          "am_current": 4679.8,
+          "raw_change_million_usd": -5890.776826768721,
+          "gold_effect_million_usd": -1718.027894409613,
+          "adjusted_change_million_usd": -4172.748932359107
+        },
+        {
+          "date": "2026-04-27",
+          "previous_date": "2026-04-24",
+          "weekly_gold_reference": "2026-04-17",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.488393735625593,
+          "am_previous": 4679.8,
+          "am_current": 4701.6,
+          "raw_change_million_usd": -1258.419331567704,
+          "gold_effect_million_usd": 512.0469834366422,
+          "adjusted_change_million_usd": -1770.4663150043461
+        },
+        {
+          "date": "2026-04-28",
+          "previous_date": "2026-04-27",
+          "weekly_gold_reference": "2026-04-17",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.488393735625593,
+          "am_previous": 4701.6,
+          "am_current": 4610.75,
+          "raw_change_million_usd": 28.35983193798893,
+          "gold_effect_million_usd": -2133.9205708815934,
+          "adjusted_change_million_usd": 2162.2804028195824
+        },
+        {
+          "date": "2026-04-29",
+          "previous_date": "2026-04-28",
+          "weekly_gold_reference": "2026-04-17",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.488393735625593,
+          "am_previous": 4610.75,
+          "am_current": 4565.3,
+          "raw_change_million_usd": 813.7105982876674,
+          "gold_effect_million_usd": -1067.547495284179,
+          "adjusted_change_million_usd": 1881.2580935718463
+        },
+        {
+          "date": "2026-04-30",
+          "previous_date": "2026-04-29",
+          "weekly_gold_reference": "2026-04-17",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.488393735625593,
+          "am_previous": 4565.3,
+          "am_current": 4625.8,
+          "raw_change_million_usd": 378.7218040269945,
+          "gold_effect_million_usd": 1421.0478210053484,
+          "adjusted_change_million_usd": -1042.326016978354
+        },
+        {
+          "date": "2026-05-06",
+          "previous_date": "2026-05-05",
+          "weekly_gold_reference": "2026-04-24",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.526832021475276,
+          "am_previous": 4554.15,
+          "am_current": 4699.3,
+          "raw_change_million_usd": 1705.4870255153219,
+          "gold_effect_million_usd": 3414.919667917149,
+          "adjusted_change_million_usd": -1709.4326424018273
+        },
+        {
+          "date": "2026-05-07",
+          "previous_date": "2026-05-06",
+          "weekly_gold_reference": "2026-04-24",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.526832021475276,
+          "am_previous": 4699.3,
+          "am_current": 4734.15,
+          "raw_change_million_usd": 2666.5534190165345,
+          "gold_effect_million_usd": 819.9100959484006,
+          "adjusted_change_million_usd": 1846.643323068134
+        },
+        {
+          "date": "2026-05-08",
+          "previous_date": "2026-05-07",
+          "weekly_gold_reference": "2026-04-24",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.526832021475276,
+          "am_previous": 4734.15,
+          "am_current": 4710.1,
+          "raw_change_million_usd": 1041.474192242058,
+          "gold_effect_million_usd": -565.8203101164632,
+          "adjusted_change_million_usd": 1607.2945023585212
+        },
+        {
+          "date": "2026-05-11",
+          "previous_date": "2026-05-08",
+          "weekly_gold_reference": "2026-05-01",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.834426772803887,
+          "am_previous": 4710.1,
+          "am_current": 4651.65,
+          "raw_change_million_usd": -1371.8999677266838,
+          "gold_effect_million_usd": -1393.1222448704045,
+          "adjusted_change_million_usd": 21.222277143720703
+        },
+        {
+          "date": "2026-05-12",
+          "previous_date": "2026-05-11",
+          "weekly_gold_reference": "2026-05-01",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.834426772803887,
+          "am_previous": 4651.65,
+          "am_current": 4698.65,
+          "raw_change_million_usd": 3197.8012884646014,
+          "gold_effect_million_usd": 1120.2180583217828,
+          "adjusted_change_million_usd": 2077.5832301428186
+        },
+        {
+          "date": "2026-05-13",
+          "previous_date": "2026-05-12",
+          "weekly_gold_reference": "2026-05-01",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.834426772803887,
+          "am_previous": 4698.65,
+          "am_current": 4686.75,
+          "raw_change_million_usd": -578.8663873394325,
+          "gold_effect_million_usd": -283.62967859635756,
+          "adjusted_change_million_usd": -295.236708743075
+        },
+        {
+          "date": "2026-05-18",
+          "previous_date": "2026-05-15",
+          "weekly_gold_reference": "2026-05-08",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.558936678372007,
+          "am_previous": 4553.35,
+          "am_current": 4541.4,
+          "raw_change_million_usd": -1317.5183041983546,
+          "gold_effect_million_usd": -281.52929330656264,
+          "adjusted_change_million_usd": -1035.989010891792
+        },
+        {
+          "date": "2026-05-20",
+          "previous_date": "2026-05-18",
+          "weekly_gold_reference": "2026-05-08",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.558936678372007,
+          "am_previous": 4541.4,
+          "am_current": 4474.3,
+          "raw_change_million_usd": -137.90010215826624,
+          "gold_effect_million_usd": -1580.8046511187488,
+          "adjusted_change_million_usd": 1442.9045489604825
+        },
+        {
+          "date": "2026-05-21",
+          "previous_date": "2026-05-20",
+          "weekly_gold_reference": "2026-05-08",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.558936678372007,
+          "am_previous": 4474.3,
+          "am_current": 4537.7,
+          "raw_change_million_usd": 1071.6153232923825,
+          "gold_effect_million_usd": 1493.6365854087767,
+          "adjusted_change_million_usd": -422.02126211639415
+        },
+        {
+          "date": "2026-05-22",
+          "previous_date": "2026-05-21",
+          "weekly_gold_reference": "2026-05-08",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.558936678372007,
+          "am_previous": 4537.7,
+          "am_current": 4515.1,
+          "raw_change_million_usd": -7074.415338664745,
+          "gold_effect_million_usd": -532.4319689311945,
+          "adjusted_change_million_usd": -6541.983369733551
+        },
+        {
+          "date": "2026-06-02",
+          "previous_date": "2026-06-01",
+          "weekly_gold_reference": "2026-05-22",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.465902232353656,
+          "am_previous": 4490.4,
+          "am_current": 4523.8,
+          "raw_change_million_usd": 4151.680726712857,
+          "gold_effect_million_usd": 783.7611345606249,
+          "adjusted_change_million_usd": 3367.9195921522323
+        },
+        {
+          "date": "2026-06-03",
+          "previous_date": "2026-06-02",
+          "weekly_gold_reference": "2026-05-22",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.465902232353656,
+          "am_previous": 4523.8,
+          "am_current": 4441.25,
+          "raw_change_million_usd": 835.1143078756832,
+          "gold_effect_million_usd": -1937.1102292807986,
+          "adjusted_change_million_usd": 2772.224537156482
+        },
+        {
+          "date": "2026-06-04",
+          "previous_date": "2026-06-03",
+          "weekly_gold_reference": "2026-05-22",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.465902232353656,
+          "am_previous": 4441.25,
+          "am_current": 4464.95,
+          "raw_change_million_usd": 1061.9628852135138,
+          "gold_effect_million_usd": 556.1418829067774,
+          "adjusted_change_million_usd": 505.82100230673643
+        },
+        {
+          "date": "2026-06-05",
+          "previous_date": "2026-06-04",
+          "weekly_gold_reference": "2026-05-22",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.465902232353656,
+          "am_previous": 4464.95,
+          "am_current": 4463.1,
+          "raw_change_million_usd": 1146.9077845163301,
+          "gold_effect_million_usd": -43.41191912984146,
+          "adjusted_change_million_usd": 1190.3197036461715
+        },
+        {
+          "date": "2026-06-08",
+          "previous_date": "2026-06-05",
+          "weekly_gold_reference": "2026-05-29",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.41975594736784,
+          "am_previous": 4463.1,
+          "am_current": 4280.6,
+          "raw_change_million_usd": -1621.5093409526198,
+          "gold_effect_million_usd": -4274.10546039463,
+          "adjusted_change_million_usd": 2652.5961194420106
+        },
+        {
+          "date": "2026-06-09",
+          "previous_date": "2026-06-08",
+          "weekly_gold_reference": "2026-05-29",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.41975594736784,
+          "am_previous": 4280.6,
+          "am_current": 4326.75,
+          "raw_change_million_usd": 1740.661880097472,
+          "gold_effect_million_usd": 1080.8217369710173,
+          "adjusted_change_million_usd": 659.8401431264547
+        },
+        {
+          "date": "2026-06-10",
+          "previous_date": "2026-06-09",
+          "weekly_gold_reference": "2026-05-29",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.41975594736784,
+          "am_previous": 4326.75,
+          "am_current": 4166.4,
+          "raw_change_million_usd": -883.0440724706568,
+          "gold_effect_million_usd": -3755.3578661604415,
+          "adjusted_change_million_usd": 2872.3137936897847
+        },
+        {
+          "date": "2026-06-11",
+          "previous_date": "2026-06-10",
+          "weekly_gold_reference": "2026-05-29",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.41975594736784,
+          "am_previous": 4166.4,
+          "am_current": 4079.85,
+          "raw_change_million_usd": -1113.4287440898115,
+          "gold_effect_million_usd": -2026.9798772446802,
+          "adjusted_change_million_usd": 913.5511331548687
+        },
+        {
+          "date": "2026-06-12",
+          "previous_date": "2026-06-11",
+          "weekly_gold_reference": "2026-05-29",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.41975594736784,
+          "am_previous": 4079.85,
+          "am_current": 4223.5,
+          "raw_change_million_usd": 715.3112290261415,
+          "gold_effect_million_usd": 3364.2479418393923,
+          "adjusted_change_million_usd": -2648.936712813251
+        },
+        {
+          "date": "2026-06-15",
+          "previous_date": "2026-06-12",
+          "weekly_gold_reference": "2026-06-05",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.564315582846003,
+          "am_previous": 4223.5,
+          "am_current": 4337.55,
+          "raw_change_million_usd": 2247.4098359084674,
+          "gold_effect_million_usd": 2687.510192223591,
+          "adjusted_change_million_usd": -440.10035631512346
+        },
+        {
+          "date": "2026-06-16",
+          "previous_date": "2026-06-15",
+          "weekly_gold_reference": "2026-06-05",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.564315582846003,
+          "am_previous": 4337.55,
+          "am_current": 4343.3,
+          "raw_change_million_usd": 2069.856015633559,
+          "gold_effect_million_usd": 135.4948146013645,
+          "adjusted_change_million_usd": 1934.3612010321945
+        },
+        {
+          "date": "2026-06-17",
+          "previous_date": "2026-06-16",
+          "weekly_gold_reference": "2026-06-05",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.564315582846003,
+          "am_previous": 4343.3,
+          "am_current": 4331.85,
+          "raw_change_million_usd": 5401.551669378714,
+          "gold_effect_million_usd": -269.81141342358245,
+          "adjusted_change_million_usd": 5671.363082802296
+        },
+        {
+          "date": "2026-06-18",
+          "previous_date": "2026-06-17",
+          "weekly_gold_reference": "2026-06-05",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.564315582846003,
+          "am_previous": 4331.85,
+          "am_current": 4264.9,
+          "raw_change_million_usd": -864.8237757624374,
+          "gold_effect_million_usd": -1577.630928271557,
+          "adjusted_change_million_usd": 712.8071525091195
+        },
+        {
+          "date": "2026-06-19",
+          "previous_date": "2026-06-18",
+          "weekly_gold_reference": "2026-06-05",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.564315582846003,
+          "am_previous": 4264.9,
+          "am_current": 4164.55,
+          "raw_change_million_usd": -691.7616818093447,
+          "gold_effect_million_usd": -2364.6790687385837,
+          "adjusted_change_million_usd": 1672.917386929239
+        },
+        {
+          "date": "2026-06-22",
+          "previous_date": "2026-06-19",
+          "weekly_gold_reference": "2026-06-12",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.430154464306852,
+          "am_previous": 4164.55,
+          "am_current": 4207.75,
+          "raw_change_million_usd": -926.5897650612242,
+          "gold_effect_million_usd": 1012.1826728580518,
+          "adjusted_change_million_usd": -1938.772437919276
+        },
+        {
+          "date": "2026-06-23",
+          "previous_date": "2026-06-22",
+          "weekly_gold_reference": "2026-06-12",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.430154464306852,
+          "am_previous": 4207.75,
+          "am_current": 4112.75,
+          "raw_change_million_usd": -302.34013270212745,
+          "gold_effect_million_usd": -2225.864674109151,
+          "adjusted_change_million_usd": 1923.5245414070237
+        },
+        {
+          "date": "2026-06-24",
+          "previous_date": "2026-06-23",
+          "weekly_gold_reference": "2026-06-12",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.430154464306852,
+          "am_previous": 4112.75,
+          "am_current": 4069.55,
+          "raw_change_million_usd": -468.07265788766745,
+          "gold_effect_million_usd": -1012.1826728580518,
+          "adjusted_change_million_usd": 544.1100149703843
+        },
+        {
+          "date": "2026-06-25",
+          "previous_date": "2026-06-24",
+          "weekly_gold_reference": "2026-06-12",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.430154464306852,
+          "am_previous": 4069.55,
+          "am_current": 3994.5,
+          "raw_change_million_usd": -1655.563317584023,
+          "gold_effect_million_usd": -1758.4330925462336,
+          "adjusted_change_million_usd": 102.86977496221061
+        },
+        {
+          "date": "2026-06-26",
+          "previous_date": "2026-06-25",
+          "weekly_gold_reference": "2026-06-12",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.430154464306852,
+          "am_previous": 3994.5,
+          "am_current": 4047.95,
+          "raw_change_million_usd": -788.0903028506291,
+          "gold_effect_million_usd": 1252.341756117197,
+          "adjusted_change_million_usd": -2040.4320589678262
+        },
+        {
+          "date": "2026-06-29",
+          "previous_date": "2026-06-26",
+          "weekly_gold_reference": "2026-06-19",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.456423885653912,
+          "am_previous": 4047.95,
+          "am_current": 4042.85,
+          "raw_change_million_usd": 1094.3092205725625,
+          "gold_effect_million_usd": -119.62776181683282,
+          "adjusted_change_million_usd": 1213.9369823893953
+        },
+        {
+          "date": "2026-06-30",
+          "previous_date": "2026-06-29",
+          "weekly_gold_reference": "2026-06-19",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.456423885653912,
+          "am_previous": 4042.85,
+          "am_current": 4016.7,
+          "raw_change_million_usd": -881.0361975399501,
+          "gold_effect_million_usd": -613.3854846098519,
+          "adjusted_change_million_usd": -267.65071293009817
+        },
+        {
+          "date": "2026-07-01",
+          "previous_date": "2026-06-30",
+          "weekly_gold_reference": "2026-06-19",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.456423885653912,
+          "am_previous": 4016.7,
+          "am_current": 3978.55,
+          "raw_change_million_usd": 20.558525487122097,
+          "gold_effect_million_usd": -894.8625712376883,
+          "adjusted_change_million_usd": 915.4210967248104
+        },
+        {
+          "date": "2026-07-02",
+          "previous_date": "2026-07-01",
+          "weekly_gold_reference": "2026-06-19",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.456423885653912,
+          "am_previous": 3978.55,
+          "am_current": 4064.2,
+          "raw_change_million_usd": 5416.113526287718,
+          "gold_effect_million_usd": 2009.042705806249,
+          "adjusted_change_million_usd": 3407.070820481469
+        },
+        {
+          "date": "2026-07-03",
+          "previous_date": "2026-07-02",
+          "weekly_gold_reference": "2026-06-19",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.456423885653912,
+          "am_previous": 4064.2,
+          "am_current": 4171.25,
+          "raw_change_million_usd": 1329.5464438436102,
+          "gold_effect_million_usd": 2511.0101769592557,
+          "adjusted_change_million_usd": -1181.4637331156455
+        },
+        {
+          "date": "2026-07-06",
+          "previous_date": "2026-07-03",
+          "weekly_gold_reference": "2026-06-26",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.457255627169307,
+          "am_previous": 4171.25,
+          "am_current": 4137.55,
+          "raw_change_million_usd": 1487.9630972764935,
+          "gold_effect_million_usd": -790.5095146356014,
+          "adjusted_change_million_usd": 2278.472611912095
+        },
+        {
+          "date": "2026-07-07",
+          "previous_date": "2026-07-06",
+          "weekly_gold_reference": "2026-06-26",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.457255627169307,
+          "am_previous": 4137.55,
+          "am_current": 4124.15,
+          "raw_change_million_usd": 1371.0360291081452,
+          "gold_effect_million_usd": -314.3272254040815,
+          "adjusted_change_million_usd": 1685.3632545122266
+        },
+        {
+          "date": "2026-07-08",
+          "previous_date": "2026-07-07",
+          "weekly_gold_reference": "2026-06-26",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.457255627169307,
+          "am_previous": 4124.15,
+          "am_current": 4055.4,
+          "raw_change_million_usd": -246.69189608690067,
+          "gold_effect_million_usd": -1612.6863243678793,
+          "adjusted_change_million_usd": 1365.9944282809786
+        },
+        {
+          "date": "2026-07-09",
+          "previous_date": "2026-07-08",
+          "weekly_gold_reference": "2026-06-26",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.457255627169307,
+          "am_previous": 4055.4,
+          "am_current": 4107.05,
+          "raw_change_million_usd": 438.322646008055,
+          "gold_effect_million_usd": 1211.5672531432967,
+          "adjusted_change_million_usd": -773.2446071352417
+        },
+        {
+          "date": "2026-07-10",
+          "previous_date": "2026-07-09",
+          "weekly_gold_reference": "2026-06-26",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.457255627169307,
+          "am_previous": 4107.05,
+          "am_current": 4102.2,
+          "raw_change_million_usd": -433.1952578654236,
+          "gold_effect_million_usd": -113.76768979177967,
+          "adjusted_change_million_usd": -319.42756807364395
+        },
+        {
+          "date": "2026-07-13",
+          "previous_date": "2026-07-10",
+          "weekly_gold_reference": "2026-07-03",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.432329036403956,
+          "am_previous": 4102.2,
+          "am_current": 4070.95,
+          "raw_change_million_usd": 260.528364348007,
+          "gold_effect_million_usd": -732.2602823876236,
+          "adjusted_change_million_usd": 992.7886467356307
+        },
+        {
+          "date": "2026-07-14",
+          "previous_date": "2026-07-13",
+          "weekly_gold_reference": "2026-07-03",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.432329036403956,
+          "am_previous": 4070.95,
+          "am_current": 4015.9,
+          "raw_change_million_usd": 1575.6615457241423,
+          "gold_effect_million_usd": -1289.9497134540313,
+          "adjusted_change_million_usd": 2865.611259178174
+        },
+        {
+          "date": "2026-07-16",
+          "previous_date": "2026-07-14",
+          "weekly_gold_reference": "2026-07-03",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.432329036403956,
+          "am_previous": 4015.9,
+          "am_current": 4030.95,
+          "raw_change_million_usd": -229.5773268793564,
+          "gold_effect_million_usd": 352.6565519978731,
+          "adjusted_change_million_usd": -582.2338788772295
+        },
+        {
+          "date": "2026-07-17",
+          "previous_date": "2026-07-16",
+          "weekly_gold_reference": "2026-07-03",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.432329036403956,
+          "am_previous": 4030.95,
+          "am_current": 3998.8,
+          "raw_change_million_usd": -4323.661495998727,
+          "gold_effect_million_usd": -753.3493785203787,
+          "adjusted_change_million_usd": -3570.3121174783487
+        },
+        {
+          "date": "2026-07-20",
+          "previous_date": "2026-07-17",
+          "weekly_gold_reference": "2026-07-10",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.44563686743699,
+          "am_previous": 3998.8,
+          "am_current": 4014.8,
+          "raw_change_million_usd": 2622.7253819385005,
+          "gold_effect_million_usd": 375.1301898789918,
+          "adjusted_change_million_usd": 2247.595192059509
+        },
+        {
+          "date": "2026-07-21",
+          "previous_date": "2026-07-20",
+          "weekly_gold_reference": "2026-07-10",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.44563686743699,
+          "am_previous": 4014.8,
+          "am_current": 4063.2,
+          "raw_change_million_usd": 2097.7787004726342,
+          "gold_effect_million_usd": 1134.7688243839418,
+          "adjusted_change_million_usd": 963.0098760886924
+        },
+        {
+          "date": "2026-07-22",
+          "previous_date": "2026-07-21",
+          "weekly_gold_reference": "2026-07-10",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.44563686743699,
+          "am_previous": 4063.2,
+          "am_current": 4118.65,
+          "raw_change_million_usd": -393.41166701248585,
+          "gold_effect_million_usd": 1300.0605642993767,
+          "adjusted_change_million_usd": -1693.4722313118625
+        },
+        {
+          "date": "2026-07-23",
+          "previous_date": "2026-07-22",
+          "weekly_gold_reference": "2026-07-10",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.44563686743699,
+          "am_previous": 4118.65,
+          "am_current": 4090.1,
+          "raw_change_million_usd": -805.119516223589,
+          "gold_effect_million_usd": -669.3729325653196,
+          "adjusted_change_million_usd": -135.7465836582694
+        },
+        {
+          "date": "2026-07-24",
+          "previous_date": "2026-07-23",
+          "weekly_gold_reference": "2026-07-10",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.44563686743699,
+          "am_previous": 4090.1,
+          "am_current": 4051.85,
+          "raw_change_million_usd": -2581.2431564431245,
+          "gold_effect_million_usd": -896.7956101794648,
+          "adjusted_change_million_usd": -1684.4475462636597
+        },
+        {
+          "date": "2026-07-27",
+          "previous_date": "2026-07-24",
+          "weekly_gold_reference": "2026-07-17",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.772780481069322,
+          "am_previous": 4051.85,
+          "am_current": 4091.1,
+          "raw_change_million_usd": -97.87959435801167,
+          "gold_effect_million_usd": 933.0816338819709,
+          "adjusted_change_million_usd": -1030.9612282399826
+        },
+        {
+          "date": "2026-07-28",
+          "previous_date": "2026-07-27",
+          "weekly_gold_reference": "2026-07-17",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.772780481069322,
+          "am_previous": 4091.1,
+          "am_current": 4037.7,
+          "raw_change_million_usd": 2970.7630910718653,
+          "gold_effect_million_usd": -1269.466477689104,
+          "adjusted_change_million_usd": 4240.229568760969
+        },
+        {
+          "date": "2026-07-29",
+          "previous_date": "2026-07-28",
+          "weekly_gold_reference": "2026-07-17",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.772780481069322,
+          "am_previous": 4037.7,
+          "am_current": 4031.6,
+          "raw_change_million_usd": 2485.1277659747284,
+          "gold_effect_million_usd": -145.0139609345207,
+          "adjusted_change_million_usd": 2630.141726909249
+        },
+        {
+          "date": "2026-07-30",
+          "previous_date": "2026-07-29",
+          "weekly_gold_reference": "2026-07-17",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.772780481069322,
+          "am_previous": 4031.6,
+          "am_current": 4061.5,
+          "raw_change_million_usd": -956.6476392862969,
+          "gold_effect_million_usd": 710.806136383975,
+          "adjusted_change_million_usd": -1667.4537756702719
+        },
+        {
+          "date": "2026-07-31",
+          "previous_date": "2026-07-30",
+          "weekly_gold_reference": "2026-07-17",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 23.772780481069322,
+          "am_previous": 4061.5,
+          "am_current": 4052.2,
+          "raw_change_million_usd": -2269.1499336980487,
+          "gold_effect_million_usd": -221.086858473949,
+          "adjusted_change_million_usd": -2048.0630752240995
+        },
+        {
+          "date": "2026-08-03",
+          "previous_date": "2026-07-31",
+          "weekly_gold_reference": "2026-07-24",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.731843238495998,
+          "am_previous": 4052.2,
+          "am_current": 4045.65,
+          "raw_change_million_usd": -1723.1837484965508,
+          "gold_effect_million_usd": -161.99357321214202,
+          "adjusted_change_million_usd": -1561.1901752844087
+        },
+        {
+          "date": "2026-08-04",
+          "previous_date": "2026-08-03",
+          "weekly_gold_reference": "2026-07-24",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.731843238495998,
+          "am_previous": 4045.65,
+          "am_current": 4049.2,
+          "raw_change_million_usd": 3658.864039454609,
+          "gold_effect_million_usd": 87.79804349665405,
+          "adjusted_change_million_usd": 3571.0659959579552
+        },
+        {
+          "date": "2026-08-05",
+          "previous_date": "2026-08-04",
+          "weekly_gold_reference": "2026-07-24",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.731843238495998,
+          "am_previous": 4049.2,
+          "am_current": 4156.45,
+          "raw_change_million_usd": 4328.485235310385,
+          "gold_effect_million_usd": 2652.490187328696,
+          "adjusted_change_million_usd": 1675.9950479816894
+        },
+        {
+          "date": "2026-08-06",
+          "previous_date": "2026-08-05",
+          "weekly_gold_reference": "2026-07-24",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.731843238495998,
+          "am_previous": 4156.45,
+          "am_current": 4281.1,
+          "raw_change_million_usd": 3547.31485655468,
+          "gold_effect_million_usd": 3082.8242596785394,
+          "adjusted_change_million_usd": 464.49059687614044
+        },
+        {
+          "date": "2026-08-07",
+          "previous_date": "2026-08-06",
+          "weekly_gold_reference": "2026-07-24",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.731843238495998,
+          "am_previous": 4281.1,
+          "am_current": 4301.85,
+          "raw_change_million_usd": -218.01539149391465,
+          "gold_effect_million_usd": 513.185747198792,
+          "adjusted_change_million_usd": -731.2011386927066
+        },
+        {
+          "date": "2026-08-10",
+          "previous_date": "2026-08-07",
+          "weekly_gold_reference": "2026-07-31",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.835072916317063,
+          "am_previous": 4301.85,
+          "am_current": 4340.5,
+          "raw_change_million_usd": 1712.0574889501004,
+          "gold_effect_million_usd": 959.8755682156454,
+          "adjusted_change_million_usd": 752.1819207344549
+        },
+        {
+          "date": "2026-08-11",
+          "previous_date": "2026-08-10",
+          "weekly_gold_reference": "2026-07-31",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.835072916317063,
+          "am_previous": 4340.5,
+          "am_current": 4372.2,
+          "raw_change_million_usd": 3172.4510469967354,
+          "gold_effect_million_usd": 787.2718114472464,
+          "adjusted_change_million_usd": 2385.179235549489
+        },
+        {
+          "date": "2026-08-12",
+          "previous_date": "2026-08-11",
+          "weekly_gold_reference": "2026-07-31",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.835072916317063,
+          "am_previous": 4372.2,
+          "am_current": 4413.2,
+          "raw_change_million_usd": 862.301450983563,
+          "gold_effect_million_usd": 1018.2379895689996,
+          "adjusted_change_million_usd": -155.93653858543667
+        },
+        {
+          "date": "2026-08-13",
+          "previous_date": "2026-08-12",
+          "weekly_gold_reference": "2026-07-31",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.835072916317063,
+          "am_previous": 4413.2,
+          "am_current": 4380.45,
+          "raw_change_million_usd": -1057.8885096802478,
+          "gold_effect_million_usd": -813.3486380093839,
+          "adjusted_change_million_usd": -244.53987167086393
+        },
+        {
+          "date": "2026-08-14",
+          "previous_date": "2026-08-13",
+          "weekly_gold_reference": "2026-07-31",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.835072916317063,
+          "am_previous": 4380.45,
+          "am_current": 4349.9,
+          "raw_change_million_usd": -1353.4817814366834,
+          "gold_effect_million_usd": -758.7114775934908,
+          "adjusted_change_million_usd": -594.7703038431926
+        },
+        {
+          "date": "2026-08-17",
+          "previous_date": "2026-08-14",
+          "weekly_gold_reference": "2026-08-07",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.95311590134477,
+          "am_previous": 4349.9,
+          "am_current": 4393.6,
+          "raw_change_million_usd": 1082.5089147983017,
+          "gold_effect_million_usd": 1090.4511648887847,
+          "adjusted_change_million_usd": -7.942250090482958
+        },
+        {
+          "date": "2026-08-18",
+          "previous_date": "2026-08-17",
+          "weekly_gold_reference": "2026-08-07",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.95311590134477,
+          "am_previous": 4393.6,
+          "am_current": 4388.75,
+          "raw_change_million_usd": 2218.780388632309,
+          "gold_effect_million_usd": -121.02261212153121,
+          "adjusted_change_million_usd": 2339.80300075384
+        },
+        {
+          "date": "2026-08-19",
+          "previous_date": "2026-08-18",
+          "weekly_gold_reference": "2026-08-07",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.95311590134477,
+          "am_previous": 4388.75,
+          "am_current": 4355.75,
+          "raw_change_million_usd": -1557.2874927612283,
+          "gold_effect_million_usd": -823.4528247443774,
+          "adjusted_change_million_usd": -733.834668016851
+        },
+        {
+          "date": "2026-08-20",
+          "previous_date": "2026-08-19",
+          "weekly_gold_reference": "2026-08-07",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.95311590134477,
+          "am_previous": 4355.75,
+          "am_current": 4487.6,
+          "raw_change_million_usd": 2343.99889385757,
+          "gold_effect_million_usd": 3290.068331592317,
+          "adjusted_change_million_usd": -946.0694377347472
+        },
+        {
+          "date": "2026-08-21",
+          "previous_date": "2026-08-20",
+          "weekly_gold_reference": "2026-08-07",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.95311590134477,
+          "am_previous": 4487.6,
+          "am_current": 4581.95,
+          "raw_change_million_usd": -1561.786217994064,
+          "gold_effect_million_usd": 2354.3264852918655,
+          "adjusted_change_million_usd": -3916.1127032859295
+        },
+        {
+          "date": "2026-08-24",
+          "previous_date": "2026-08-21",
+          "weekly_gold_reference": "2026-08-14",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.905083755787494,
+          "am_previous": 4581.95,
+          "am_current": 4634.2,
+          "raw_change_million_usd": -478.4032118485411,
+          "gold_effect_million_usd": 1301.2906262398965,
+          "adjusted_change_million_usd": -1779.6938380884376
+        },
+        {
+          "date": "2026-08-25",
+          "previous_date": "2026-08-24",
+          "weekly_gold_reference": "2026-08-14",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.905083755787494,
+          "am_previous": 4634.2,
+          "am_current": 4625.65,
+          "raw_change_million_usd": 1188.3186263208918,
+          "gold_effect_million_usd": -212.9384661119876,
+          "adjusted_change_million_usd": 1401.2570924328793
+        },
+        {
+          "date": "2026-08-26",
+          "previous_date": "2026-08-25",
+          "weekly_gold_reference": "2026-08-14",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.905083755787494,
+          "am_previous": 4625.65,
+          "am_current": 4621.05,
+          "raw_change_million_usd": 1228.9786844213595,
+          "gold_effect_million_usd": -114.56338527660888,
+          "adjusted_change_million_usd": 1343.5420696979684
+        },
+        {
+          "date": "2026-08-27",
+          "previous_date": "2026-08-26",
+          "weekly_gold_reference": "2026-08-14",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.905083755787494,
+          "am_previous": 4621.05,
+          "am_current": 4594.95,
+          "raw_change_million_usd": -166.55884938908275,
+          "gold_effect_million_usd": -650.0226860260626,
+          "adjusted_change_million_usd": 483.46383663697986
+        },
+        {
+          "date": "2026-08-28",
+          "previous_date": "2026-08-27",
+          "weekly_gold_reference": "2026-08-14",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.905083755787494,
+          "am_previous": 4594.95,
+          "am_current": 4602.0,
+          "raw_change_million_usd": -1448.291582916987,
+          "gold_effect_million_usd": 175.58084047830636,
+          "adjusted_change_million_usd": -1623.8724233952933
+        },
+        {
+          "date": "2026-09-02",
+          "previous_date": "2026-09-01",
+          "weekly_gold_reference": "2026-08-21",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.928532402754286,
+          "am_previous": 4367.25,
+          "am_current": 4308.7,
+          "raw_change_million_usd": -296.4233469973333,
+          "gold_effect_million_usd": -1459.565572181268,
+          "adjusted_change_million_usd": 1163.1422251839347
+        },
+        {
+          "date": "2026-09-03",
+          "previous_date": "2026-09-02",
+          "weekly_gold_reference": "2026-08-21",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.928532402754286,
+          "am_previous": 4308.7,
+          "am_current": 4434.25,
+          "raw_change_million_usd": 1149.3157943201077,
+          "gold_effect_million_usd": 3129.777243165805,
+          "adjusted_change_million_usd": -1980.4614488456973
+        },
+        {
+          "date": "2026-09-04",
+          "previous_date": "2026-09-03",
+          "weekly_gold_reference": "2026-08-21",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 24.928532402754286,
+          "am_previous": 4434.25,
+          "am_current": 4466.25,
+          "raw_change_million_usd": 134.62642342576146,
+          "gold_effect_million_usd": 797.7130368881371,
+          "adjusted_change_million_usd": -663.0866134623757
+        },
+        {
+          "date": "2026-09-07",
+          "previous_date": "2026-09-04",
+          "weekly_gold_reference": "2026-08-28",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.443175189504565,
+          "am_previous": 4466.25,
+          "am_current": 4404.15,
+          "raw_change_million_usd": -448.35974707105197,
+          "gold_effect_million_usd": -1580.0211792682428,
+          "adjusted_change_million_usd": 1131.6614321971908
+        },
+        {
+          "date": "2026-09-08",
+          "previous_date": "2026-09-07",
+          "weekly_gold_reference": "2026-08-28",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.443175189504565,
+          "am_previous": 4404.15,
+          "am_current": 4394.65,
+          "raw_change_million_usd": -1229.1374530497633,
+          "gold_effect_million_usd": -241.71016430029337,
+          "adjusted_change_million_usd": -987.4272887494699
+        },
+        {
+          "date": "2026-09-09",
+          "previous_date": "2026-09-08",
+          "weekly_gold_reference": "2026-08-28",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.443175189504565,
+          "am_previous": 4394.65,
+          "am_current": 4396.5,
+          "raw_change_million_usd": 695.5616915837018,
+          "gold_effect_million_usd": 47.0698741005927,
+          "adjusted_change_million_usd": 648.4918174831091
+        },
+        {
+          "date": "2026-09-10",
+          "previous_date": "2026-09-09",
+          "weekly_gold_reference": "2026-08-28",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.443175189504565,
+          "am_previous": 4396.5,
+          "am_current": 4390.35,
+          "raw_change_million_usd": -404.82661071929033,
+          "gold_effect_million_usd": -156.47552741544382,
+          "adjusted_change_million_usd": -248.3510833038465
+        },
+        {
+          "date": "2026-09-11",
+          "previous_date": "2026-09-10",
+          "weekly_gold_reference": "2026-08-28",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.443175189504565,
+          "am_previous": 4390.35,
+          "am_current": 4342.45,
+          "raw_change_million_usd": -2037.0947067633097,
+          "gold_effect_million_usd": -1218.7280915772826,
+          "adjusted_change_million_usd": -818.366615186027
+        },
+        {
+          "date": "2026-09-14",
+          "previous_date": "2026-09-11",
+          "weekly_gold_reference": "2026-09-04",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.489080796395186,
+          "am_previous": 4342.45,
+          "am_current": 4286.65,
+          "raw_change_million_usd": -738.7874120128035,
+          "gold_effect_million_usd": -1422.290708438856,
+          "adjusted_change_million_usd": 683.5032964260524
+        },
+        {
+          "date": "2026-09-15",
+          "previous_date": "2026-09-14",
+          "weekly_gold_reference": "2026-09-04",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.489080796395186,
+          "am_previous": 4286.65,
+          "am_current": 4265.5,
+          "raw_change_million_usd": -1067.7571730831405,
+          "gold_effect_million_usd": -539.0940588437489,
+          "adjusted_change_million_usd": -528.6631142393916
+        },
+        {
+          "date": "2026-09-16",
+          "previous_date": "2026-09-15",
+          "weekly_gold_reference": "2026-09-04",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.489080796395186,
+          "am_previous": 4265.5,
+          "am_current": 4332.55,
+          "raw_change_million_usd": 1702.132371188287,
+          "gold_effect_million_usd": 1709.042867398302,
+          "adjusted_change_million_usd": -6.910496210015026
+        },
+        {
+          "date": "2026-09-17",
+          "previous_date": "2026-09-16",
+          "weekly_gold_reference": "2026-09-04",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.489080796395186,
+          "am_previous": 4332.55,
+          "am_current": 4307.25,
+          "raw_change_million_usd": -5445.036281115834,
+          "gold_effect_million_usd": -644.8737441488029,
+          "adjusted_change_million_usd": -4800.162536967031
+        },
+        {
+          "date": "2026-09-18",
+          "previous_date": "2026-09-17",
+          "weekly_gold_reference": "2026-09-04",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.489080796395186,
+          "am_previous": 4307.25,
+          "am_current": 4387.0,
+          "raw_change_million_usd": -756.8429531597867,
+          "gold_effect_million_usd": 2032.7541935125162,
+          "adjusted_change_million_usd": -2789.597146672303
+        },
+        {
+          "date": "2026-09-21",
+          "previous_date": "2026-09-18",
+          "weekly_gold_reference": "2026-09-11",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.395765206715105,
+          "am_previous": 4387.0,
+          "am_current": 4343.15,
+          "raw_change_million_usd": -767.129084801476,
+          "gold_effect_million_usd": -1113.6043043144666,
+          "adjusted_change_million_usd": 346.47521951299063
+        },
+        {
+          "date": "2026-09-22",
+          "previous_date": "2026-09-21",
+          "weekly_gold_reference": "2026-09-11",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.395765206715105,
+          "am_previous": 4343.15,
+          "am_current": 4313.15,
+          "raw_change_million_usd": 1753.8236562648017,
+          "gold_effect_million_usd": -761.8729562014531,
+          "adjusted_change_million_usd": 2515.696612466255
+        },
+        {
+          "date": "2026-09-23",
+          "previous_date": "2026-09-22",
+          "weekly_gold_reference": "2026-09-11",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.395765206715105,
+          "am_previous": 4313.15,
+          "am_current": 4316.4,
+          "raw_change_million_usd": 914.5799436023663,
+          "gold_effect_million_usd": 82.53623692182408,
+          "adjusted_change_million_usd": 832.0437066805422
+        },
+        {
+          "date": "2026-09-24",
+          "previous_date": "2026-09-23",
+          "weekly_gold_reference": "2026-09-11",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.395765206715105,
+          "am_previous": 4316.4,
+          "am_current": 4255.55,
+          "raw_change_million_usd": -1010.9326594075901,
+          "gold_effect_million_usd": -1545.3323128286002,
+          "adjusted_change_million_usd": 534.39965342101
+        },
+        {
+          "date": "2026-09-25",
+          "previous_date": "2026-09-24",
+          "weekly_gold_reference": "2026-09-11",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.395765206715105,
+          "am_previous": 4255.55,
+          "am_current": 4290.75,
+          "raw_change_million_usd": -4122.778166343414,
+          "gold_effect_million_usd": 893.9309352763671,
+          "adjusted_change_million_usd": -5016.709101619781
+        },
+        {
+          "date": "2026-09-28",
+          "previous_date": "2026-09-25",
+          "weekly_gold_reference": "2026-09-18",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.4381519148393,
+          "am_previous": 4290.75,
+          "am_current": 4144.4,
+          "raw_change_million_usd": -2435.44602927065,
+          "gold_effect_million_usd": -3722.873532736741,
+          "adjusted_change_million_usd": 1287.427503466091
+        },
+        {
+          "date": "2026-09-29",
+          "previous_date": "2026-09-28",
+          "weekly_gold_reference": "2026-09-18",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.4381519148393,
+          "am_previous": 4144.4,
+          "am_current": 4139.0,
+          "raw_change_million_usd": 588.7395110340003,
+          "gold_effect_million_usd": -137.36602034012296,
+          "adjusted_change_million_usd": 726.1055313741233
+        },
+        {
+          "date": "2026-09-30",
+          "previous_date": "2026-09-29",
+          "weekly_gold_reference": "2026-09-18",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.4381519148393,
+          "am_previous": 4139.0,
+          "am_current": 4188.75,
+          "raw_change_million_usd": -98.74193661359459,
+          "gold_effect_million_usd": 1265.5480577632552,
+          "adjusted_change_million_usd": -1364.2899943768498
+        },
+        {
+          "date": "2026-10-01",
+          "previous_date": "2026-09-30",
+          "weekly_gold_reference": "2026-09-18",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.4381519148393,
+          "am_previous": 4188.75,
+          "am_current": 4159.85,
+          "raw_change_million_usd": -2642.7617365530277,
+          "gold_effect_million_usd": -735.1625903388465,
+          "adjusted_change_million_usd": -1907.5991462141812
+        },
+        {
+          "date": "2026-10-02",
+          "previous_date": "2026-10-01",
+          "weekly_gold_reference": "2026-09-18",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.4381519148393,
+          "am_previous": 4159.85,
+          "am_current": 4186.6,
+          "raw_change_million_usd": 922.6926265277689,
+          "gold_effect_million_usd": 680.4705637219513,
+          "adjusted_change_million_usd": 242.2220628058176
+        },
+        {
+          "date": "2026-10-05",
+          "previous_date": "2026-10-02",
+          "weekly_gold_reference": "2026-09-25",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.55274319251879,
+          "am_previous": 4186.6,
+          "am_current": 4163.45,
+          "raw_change_million_usd": 180.28522846968553,
+          "gold_effect_million_usd": -591.5460049068239,
+          "adjusted_change_million_usd": 771.8312333765094
+        },
+        {
+          "date": "2026-10-06",
+          "previous_date": "2026-10-05",
+          "weekly_gold_reference": "2026-09-25",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.55274319251879,
+          "am_previous": 4163.45,
+          "am_current": 4156.9,
+          "raw_change_million_usd": 3864.8923834334564,
+          "gold_effect_million_usd": -167.37046791100272,
+          "adjusted_change_million_usd": 4032.2628513444592
+        },
+        {
+          "date": "2026-10-07",
+          "previous_date": "2026-10-06",
+          "weekly_gold_reference": "2026-09-25",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.55274319251879,
+          "am_previous": 4156.9,
+          "am_current": 4119.1,
+          "raw_change_million_usd": -531.4755507305163,
+          "gold_effect_million_usd": -965.8936926771917,
+          "adjusted_change_million_usd": 434.4181419466754
+        },
+        {
+          "date": "2026-10-08",
+          "previous_date": "2026-10-07",
+          "weekly_gold_reference": "2026-09-25",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.55274319251879,
+          "am_previous": 4119.1,
+          "am_current": 4120.35,
+          "raw_change_million_usd": 1443.1610579253538,
+          "gold_effect_million_usd": 31.940928990648487,
+          "adjusted_change_million_usd": 1411.2201289347054
+        },
+        {
+          "date": "2026-10-09",
+          "previous_date": "2026-10-08",
+          "weekly_gold_reference": "2026-09-25",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.55274319251879,
+          "am_previous": 4120.35,
+          "am_current": 4186.9,
+          "raw_change_million_usd": 847.611521739811,
+          "gold_effect_million_usd": 1700.5350594621068,
+          "adjusted_change_million_usd": -852.9235377222958
+        },
+        {
+          "date": "2026-10-12",
+          "previous_date": "2026-10-09",
+          "weekly_gold_reference": "2026-10-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.572544979267185,
+          "am_previous": 4186.9,
+          "am_current": 4173.85,
+          "raw_change_million_usd": 192.5200381852992,
+          "gold_effect_million_usd": -333.72171197941816,
+          "adjusted_change_million_usd": 526.2417501647174
+        },
+        {
+          "date": "2026-10-13",
+          "previous_date": "2026-10-12",
+          "weekly_gold_reference": "2026-10-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.572544979267185,
+          "am_previous": 4173.85,
+          "am_current": 4182.45,
+          "raw_change_million_usd": 88.8655386790997,
+          "gold_effect_million_usd": 219.92388682168385,
+          "adjusted_change_million_usd": -131.05834814258415
+        },
+        {
+          "date": "2026-10-14",
+          "previous_date": "2026-10-13",
+          "weekly_gold_reference": "2026-10-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.572544979267185,
+          "am_previous": 4182.45,
+          "am_current": 4142.1,
+          "raw_change_million_usd": -4863.036906960675,
+          "gold_effect_million_usd": -1031.852189913417,
+          "adjusted_change_million_usd": -3831.184717047258
+        },
+        {
+          "date": "2026-10-15",
+          "previous_date": "2026-10-14",
+          "weekly_gold_reference": "2026-10-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.572544979267185,
+          "am_previous": 4142.1,
+          "am_current": 4158.2,
+          "raw_change_million_usd": -158.11390482969728,
+          "gold_effect_million_usd": 411.71797416618773,
+          "adjusted_change_million_usd": -569.8318789958851
+        },
+        {
+          "date": "2026-10-16",
+          "previous_date": "2026-10-15",
+          "weekly_gold_reference": "2026-10-02",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.572544979267185,
+          "am_previous": 4158.2,
+          "am_current": 4181.9,
+          "raw_change_million_usd": -108.60477482948045,
+          "gold_effect_million_usd": 606.0693160086277,
+          "adjusted_change_million_usd": -714.6740908381081
+        },
+        {
+          "date": "2026-10-19",
+          "previous_date": "2026-10-16",
+          "weekly_gold_reference": "2026-10-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.557844772528604,
+          "am_previous": 4181.9,
+          "am_current": 4168.15,
+          "raw_change_million_usd": -1542.703621831286,
+          "gold_effect_million_usd": -351.4203656222683,
+          "adjusted_change_million_usd": -1191.2832562090177
+        },
+        {
+          "date": "2026-10-20",
+          "previous_date": "2026-10-19",
+          "weekly_gold_reference": "2026-10-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.557844772528604,
+          "am_previous": 4168.15,
+          "am_current": 4120.6,
+          "raw_change_million_usd": -559.086023988526,
+          "gold_effect_million_usd": -1215.2755189337165,
+          "adjusted_change_million_usd": 656.1894949451905
+        },
+        {
+          "date": "2026-10-21",
+          "previous_date": "2026-10-20",
+          "weekly_gold_reference": "2026-10-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.557844772528604,
+          "am_previous": 4120.6,
+          "am_current": 4123.25,
+          "raw_change_million_usd": -313.30675105566115,
+          "gold_effect_million_usd": 67.7282886471915,
+          "adjusted_change_million_usd": -381.03503970285266
+        },
+        {
+          "date": "2026-10-22",
+          "previous_date": "2026-10-21",
+          "weekly_gold_reference": "2026-10-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.557844772528604,
+          "am_previous": 4123.25,
+          "am_current": 4083.85,
+          "raw_change_million_usd": -1803.7375630330098,
+          "gold_effect_million_usd": -1006.9790840376294,
+          "adjusted_change_million_usd": -796.7584789953804
+        },
+        {
+          "date": "2026-10-23",
+          "previous_date": "2026-10-22",
+          "weekly_gold_reference": "2026-10-09",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.557844772528604,
+          "am_previous": 4083.85,
+          "am_current": 4026.7,
+          "raw_change_million_usd": -4086.3756854529165,
+          "gold_effect_million_usd": -1460.6308287500121,
+          "adjusted_change_million_usd": -2625.744856702904
+        },
+        {
+          "date": "2026-10-26",
+          "previous_date": "2026-10-23",
+          "weekly_gold_reference": "2026-10-16",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.57422363727014,
+          "am_previous": 4026.7,
+          "am_current": 4015.65,
+          "raw_change_million_usd": -2800.5935135976033,
+          "gold_effect_million_usd": -282.59517119182806,
+          "adjusted_change_million_usd": -2517.9983424057755
+        },
+        {
+          "date": "2026-10-27",
+          "previous_date": "2026-10-26",
+          "weekly_gold_reference": "2026-10-16",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.57422363727014,
+          "am_previous": 4015.65,
+          "am_current": 3994.35,
+          "raw_change_million_usd": -161.94090557530944,
+          "gold_effect_million_usd": -544.7309634738587,
+          "adjusted_change_million_usd": 382.7900578985492
+        },
+        {
+          "date": "2026-10-28",
+          "previous_date": "2026-10-27",
+          "weekly_gold_reference": "2026-10-16",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.57422363727014,
+          "am_previous": 3994.35,
+          "am_current": 4046.65,
+          "raw_change_million_usd": 280.7314064052189,
+          "gold_effect_million_usd": 1337.531896229233,
+          "adjusted_change_million_usd": -1056.8004898240142
+        },
+        {
+          "date": "2026-10-30",
+          "previous_date": "2026-10-28",
+          "weekly_gold_reference": "2026-10-16",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.57422363727014,
+          "am_previous": 4046.65,
+          "am_current": 3981.1,
+          "raw_change_million_usd": -3685.9435304002254,
+          "gold_effect_million_usd": -1676.3903594230624,
+          "adjusted_change_million_usd": -2009.553170977163
+        },
+        {
+          "date": "2026-11-02",
+          "previous_date": "2026-10-30",
+          "weekly_gold_reference": "2026-10-23",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.615530778279982,
+          "am_previous": 3981.1,
+          "am_current": 3896.85,
+          "raw_change_million_usd": -2734.2202381646057,
+          "gold_effect_million_usd": -2158.1084680700883,
+          "adjusted_change_million_usd": -576.1117700945174
+        },
+        {
+          "date": "2026-11-03",
+          "previous_date": "2026-11-02",
+          "weekly_gold_reference": "2026-10-23",
+          "stock_basis": "gross gold, estimated price sensitivity; gold liabilities not adjusted",
+          "gold_million_ounces": 25.615530778279982,
+          "am_previous": 3896.85,
+          "am_current": 3902.75,
+          "raw_change_million_usd": 3393.6527358321655,
+          "gold_effect_million_usd": 151.13163159185422,
+          "adjusted_change_million_usd": 3242.521104240311
+        }
+      ],
+      "fetched_at": "2026-11-04T21:00:28+03:00",
+      "baseline_dates": [
+        "2026-01-09",
+        "2026-04-07",
+        "2026-05-05",
+        "2026-05-15",
+        "2026-06-01",
+        "2026-09-01"
+      ],
+      "level_method": "Each uninterrupted segment begins at its first comparison raw position. Cumulative estimated gross-gold price effects are subtracted; missing inputs break the segment."
     }
   },
   "_fx_weekly": {
@@ -1575415,7 +1578520,7 @@
   },
   "_lbma_am": {
     "source": "Westmetall London Fixing (AM, cross-checked with LBMA AM archive)",
-    "fetched_at": "2026-11-04T20:50:37+03:00",
+    "fetched_at": "2026-11-04T21:00:28+03:00",
     "observations": [
       {
         "date": "2026-01-02",
