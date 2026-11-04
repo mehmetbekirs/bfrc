@@ -702,22 +702,22 @@ def curated_figure(chart,records,demo=False):
             name="Dış ticaret açığı",marker_color="#ffbc00",opacity=.95,
             hovertemplate="%{x|%Y-%m}<br>Açık: %{y:,.2f} milyar ABD doları<extra></extra>"))
     title=chart.get("title",chart["name"])
-    title="<br>".join(escape(x) for x in textwrap.wrap(title,70))
+    title="<br>".join(escape(x) for x in textwrap.wrap(title,62))
     last=min(latest_dates);latest=date.fromisoformat(last)
     earliest=(latest-timedelta(days=365*5)).isoformat()
     fig.update_layout(template="none",height=760,paper_bgcolor="#eff6fa",plot_bgcolor="#eff6fa",
-        font={"family":"Arial, sans-serif","size":14,"color":"#172b3b"},
-        title={"text":"<b>"+title+"</b><br><span style='font-size:16px'>"+escape(chart["unit"])+" · Son gözlem: "+latest.strftime("%d.%m.%Y")+"</span>",
-               "font":{"family":"Courier New, monospace","size":23},"x":.025,"y":.97,"xanchor":"left"},
+        font={"family":"Arial, sans-serif","size":16,"color":"#102536"},
+        title={"text":"<b>"+title+"</b><br><span style='font-size:18px;font-weight:700'>"+escape(chart["unit"])+" · Son gözlem: "+latest.strftime("%d.%m.%Y")+"</span>",
+               "font":{"family":"Courier New, monospace","size":27},"x":.025,"y":.97,"xanchor":"left"},
         margin={"l":30,"r":85,"t":110,"b":190},hovermode="x unified",bargap=.32,
         legend={"orientation":"h","x":.5,"xanchor":"center","y":-.17,
-                "font":{"size":14}},
+                "font":{"size":16,"family":"Arial Black, Arial, sans-serif"}},
         xaxis={"type":"date","range":[earliest,last],"showgrid":False,"showline":True,
                "linecolor":"#344654","linewidth":1,"tickformat":"%Y-%m","dtick":"M6",
-               "tickangle":-45,"ticks":"outside","fixedrange":False},
+               "tickangle":-45,"ticks":"outside","tickfont":{"size":16,"family":"Arial Black, Arial, sans-serif"},"fixedrange":False},
         yaxis={"side":"right","showgrid":True,"gridcolor":"rgba(44,66,83,0.35)",
                "griddash":"dot","zeroline":True,"zerolinecolor":"#7d8f9b",
-               "tickformat":",.1f","showline":False,"fixedrange":False})
+               "tickformat":",.1f","tickfont":{"size":17,"family":"Arial Black, Arial, sans-serif"},"showline":False,"fixedrange":False})
     if chart.get("daily_bars"):
         fig.update_xaxes(range=[(date.fromisoformat(earliest)-timedelta(days=1)).isoformat(),
                                 (latest+timedelta(days=1)).isoformat()])
@@ -731,9 +731,9 @@ def curated_figure(chart,records,demo=False):
         fig.add_annotation(text="<b>"+"<br>".join(escape(part) for part in wrapped)+"</b>",
             x=0,y=0,xref="paper",yref="paper",yshift=footer_shift,
             xanchor="left",yanchor="top",align="left",showarrow=False,
-            font={"family":"Courier New, monospace","size":14,"color":"#172b3b"})
-        footer_shift-=len(wrapped)*18+10
-    fig.update_layout(margin={"b":175})
+            font={"family":"Courier New, monospace","size":20 if text.startswith("Grafik:") else 17,"color":"#102536"})
+        footer_shift-=len(wrapped)*26+10
+    fig.update_layout(margin={"b":210})
     warnings=[]
     if demo:warnings.append("DEMO — SENTETİK VERİ")
     if any(records[c].get("fallback") for c in requested):warnings.append("SON BAŞARILI VERİ — API YENİLEMESİ BAŞARISIZ")
