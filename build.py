@@ -723,7 +723,7 @@ def curated_figure(chart,records,demo=False):
                                 (latest+timedelta(days=1)).isoformat()])
     fig.add_layout_image(source=CURATED_LOGO,xref="paper",yref="paper",x=.5,y=.53,
         xanchor="center",yanchor="middle",sizex=.75,sizey=.90,sizing="contain",opacity=.15,layer="below")
-    labels=[("Kaynak: TCMB / EVDS",-109),
+    labels=[("Kaynak: TCMB / EVDS"+(" / LBMA AM (Westmetall)" if chart["id"]=="netfx-altin-haric-degisim" else ""),-109),
             ("Grafik: Mehmet Faruk Bekir",-129)]
     footer_shift=-105
     for text,_ in labels:
@@ -822,7 +822,7 @@ def write_curated(output,records,errors,stamp,demo=False):
     (output/"plotly.min.js").write_text(get_plotlyjs(),encoding="utf-8")
     choices=[];available=0
     for chart in CURATED_CHARTS:
-        item={"default_years":chart.get("default_years",5),"id":chart["id"],"name":chart["name"],"unit":chart["unit"],"file":"charts/"+chart["id"]+".json"}
+        item={"method":chart.get("method",""),"default_years":chart.get("default_years",5),"id":chart["id"],"name":chart["name"],"unit":chart["unit"],"file":"charts/"+chart["id"]+".json"}
         try:
             fig=curated_figure(chart,records,demo)
             (output/item["file"]).write_text(pio.to_json(fig),encoding="utf-8");available+=1
@@ -868,6 +868,7 @@ document.querySelectorAll('[data-years]').forEach(x=>x.classList.toggle('active'
 fetch('panel-data.json?v='+encodeURIComponent(built)).then(r=>{if(!r.ok)throw Error();return r.json()}).then(panel=>{
 select.replaceChildren();for(const c of panel.choices){const o=document.createElement('option');o.value=c.id;o.textContent=c.name;select.append(o);}
 async function draw(){const token=++generation,id=select.value,c=panel.choices.find(x=>x.id===id);currentFigure=null;
+let note=document.getElementById('gold-method');if(!note){note=document.createElement('p');note.id='gold-method';note.style.cssText='font:13px Arial;line-height:1.5;color:#354c5e';graph.parentNode.insertBefore(note,graph);}note.textContent=c.method||'';note.hidden=!c.method;
 msg.hidden=false;msg.textContent='Grafik yükleniyor…';graph.hidden=true;
 if(c.error){msg.textContent='Bu gösterge şu an hazır değil: '+c.error;return;}
 try{const reply=await fetch(c.file+'?v='+encodeURIComponent(built));if(!reply.ok)throw Error();const fig=await reply.json();if(token!==generation)return;
@@ -879,6 +880,8 @@ select.disabled=false;select.addEventListener('change',draw);draw();
 </script></body></html>'''
     html=html.replace('LOGO',CURATED_LOGO).replace('WARNING',warning).replace('STAMP_JSON',json.dumps(stamp)).replace('STAMP',escape(stamp))
     (output/'index.html').write_text(html,encoding='utf-8')
+    if GOLD_ADJUSTED_CODE in records:
+        (output/"gold-adjustment-audit.json").write_text(json.dumps(records[GOLD_ADJUSTED_CODE]["audit"],ensure_ascii=False,indent=2),encoding="utf-8")
     return available
 
 
@@ -929,6 +932,7 @@ def build_curated(demo=False):
     if not records:raise DataError('EVDS verisi alınamadı. '+'; '.join(errors[:4]))
     attach_daily_fx(records,cache,errors,datetime.now(TR))
     attach_analytic_daily(records,errors)
+    attach_gold_adjustment(records,cache,errors,today)
     output=ROOT/'dist';count=write_curated(output,records,errors,stamp)
     if not count:raise DataError('Seçili göstergeler için grafik üretilemedi')
     cache['_panel']={k:{a:v for a,v in r.items() if a!='fallback'} for k,r in records.items()}
@@ -1154,6 +1158,14 @@ def demo_with_fx(today):
     for c in FX_RAW:records[c]['observations']=rows[c]
     derived,_=daily_fx_records(records,weekly,datetime.now(TR));records.update(derived)
     attach_analytic_daily(records,[])
+    prices=[];stocks=[]
+    for k in range(1100):
+        d=today-timedelta(days=1099-k)
+        if d.weekday()<5:
+            prices.append({'date':d.isoformat(),'value':2500+k*.5})
+            if d.weekday()==4:stocks.append({'date':d.isoformat(),'value':80000.})
+    records['TP.AB.C1']['observations']=stocks
+    records[GOLD_ADJUSTED_CODE]=gold_adjustment_records(records,prices,today)
     return records
 
 
@@ -1210,6 +1222,118 @@ def attach_analytic_daily(records,errors):
     if 'BFRC.WEEKLY.NIR' in records:
         records['BFRC.WEEKLY.NIR'].update(frequency='HAFTALIK(CUMA)',source='TCMB / EVDS — Stand By (Cari) Net Uluslararası Rezervler')
 
+
+from html.parser import HTMLParser
+
+LBMA_CODE='BFRC.LBMA.AM'
+GOLD_ADJUSTED_CODE='BFRC.NETFX.GOLD.ADJUSTED.CHANGE'
+GOLD_CHART_TITLE='Swap ve Hazine Hariç Net Döviz Pozisyonu - Değişimi (Altın etkisi dışlanmış)'
+GOLD_ADJUSTMENT_METHOD=('Tahmini: son yayımlanmış haftalık brüt altın rezervi ve referans gününün LBMA AM fiyatından bulunan ons miktarı sabit tutulur. '
+    'Günlük pozisyon değişiminden bu miktar × AM fiyat farkı çıkarılır. Altın yükümlülüklerinin fiyat duyarlılığı ayrıca ayrıştırılmamıştır; '
+    'tam net altın düzeltmesi veya döviz alım/satımı göstergesi değildir.')
+CURATED_CHARTS.insert(0,{'id':'netfx-altin-haric-degisim','name':GOLD_CHART_TITLE,
+    'title':GOLD_CHART_TITLE,'unit':'Milyon ABD doları · Brüt stokla tahmini düzeltme','daily_bars':True,'default_years':.5,
+    'method':GOLD_ADJUSTMENT_METHOD,
+    'lines':[line(GOLD_ADJUSTED_CODE,'Altın fiyat etkisi çıkarılmış günlük değişim (tahmini)',color='#432454')]})
+
+class FixingTableParser(HTMLParser):
+    def __init__(self):
+        super().__init__();self.rows=[];self.row=None;self.cell=None
+    def handle_starttag(self,tag,attrs):
+        if tag=='tr':self.row=[]
+        elif tag in ('td','th') and self.row is not None:self.cell=[]
+    def handle_data(self,data):
+        if self.cell is not None:self.cell.append(data)
+    def handle_endtag(self,tag):
+        if tag in ('td','th') and self.cell is not None:
+            self.row.append(' '.join(''.join(self.cell).split()));self.cell=None
+        elif tag=='tr' and self.row is not None:
+            self.rows.append(self.row);self.row=None;self.cell=None
+
+def parse_lbma_am_table(html,today):
+    parser=FixingTableParser();parser.feed(html);points={}
+    for row in parser.rows:
+        if len(row)!=2:continue
+        try:
+            d=datetime.strptime(row[0],'%d. %B %Y').date()
+            value=float(row[1].replace(',',''))
+        except (ValueError,TypeError):continue
+        if date(2019,1,1)<=d<=today and math.isfinite(value) and value>0:
+            points[d.isoformat()]=value
+    if not points:raise DataError('London AM fiyat tablosunda geçerli tarih/fiyat bulunamadı')
+    return [{'date':d,'value':points[d]} for d in sorted(points)]
+
+def fetch_lbma_am(today,client=None):
+    client=client or session()
+    # Public alternative feed. Do not retry GoldSilver's access-denied endpoint.
+    url='https://www.westmetall.com/en/markdaten.php?action=table&field=USD_ozt_London'
+    try:
+        reply=client.get(url,timeout=(10,30),allow_redirects=False)
+        if reply.status_code!=200:raise DataError('London AM fiyat kaynağı HTTP '+str(reply.status_code))
+        if len(reply.content)>3_000_000:raise DataError('London AM fiyat tablosu beklenenden büyük')
+        return parse_lbma_am_table(reply.text,today)
+    except requests.RequestException:raise DataError('London AM fiyat kaynağına erişilemedi') from None
+
+def gold_adjustment_records(records,prices,today):
+    def points(code):
+        return {r['date']:float(r['value']) for r in records.get(code,{}).get('observations',[])
+                if isinstance(r.get('value'),(int,float)) and math.isfinite(r['value']) and r['date']<=today.isoformat()}
+    levels=points('BFRC.NETFX.TREASURYEX');stock=points('TP.AB.C1')
+    am={r['date']:r['value'] for r in prices if r['date']<=today.isoformat() and r['value']>0}
+    # Conservatively use each Friday's stock from the following Friday onward.
+    anchors=sorted((date.fromisoformat(d)+timedelta(days=7),d,v/am[d])
+        for d,v in stock.items() if d in am and v>0 and date.fromisoformat(d).weekday()==4)
+    output=[];audit=[];days=sorted(levels)
+    for prior,day in zip(days,days[1:]):
+        if prior not in am or day not in am:continue
+        if (date.fromisoformat(day)-date.fromisoformat(prior)).days>5:continue
+        eligible=[a for a in anchors if a[0]<=date.fromisoformat(prior)
+                  and (date.fromisoformat(prior)-date.fromisoformat(a[1])).days<=28]
+        if not eligible:continue
+        _,ref,million_ounces=eligible[-1]
+        effect=million_ounces*(am[day]-am[prior])
+        change=levels[day]-levels[prior];adjusted=change-effect
+        output.append({'date':day,'value':adjusted})
+        audit.append({'date':day,'previous_date':prior,'weekly_gold_reference':ref,
+            'stock_basis':'gross gold, estimated price sensitivity; gold liabilities not adjusted',
+            'gold_million_ounces':million_ounces,'am_previous':am[prior],'am_current':am[day],
+            'raw_change_million_usd':change,'gold_effect_million_usd':effect,'adjusted_change_million_usd':adjusted})
+    if not output:raise DataError('Altın düzeltmesi için yayımlanmış haftalık stok ve iki günün AM fiyatları eşleşmedi')
+    return {'id':GOLD_ADJUSTED_CODE,'code':GOLD_ADJUSTED_CODE,'provider':'derived',
+        'name':GOLD_CHART_TITLE,'unit':'Milyon ABD doları','frequency':'İŞ GÜNÜ',
+        'source':'TCMB / EVDS; London AM — Westmetall','estimated':True,
+        'method':GOLD_ADJUSTMENT_METHOD,'observations':output,'audit':audit,
+        'fetched_at':datetime.now(TR).isoformat(timespec='seconds')}
+
+def attach_gold_adjustment(records,cache,errors,today):
+    saved=cache.get('_lbma_am',{})
+    prices={r['date']:r for r in saved.get('observations',[]) if isinstance(r.get('value'),(int,float)) and r['value']>0}
+    failed=False
+    try:
+        fresh=fetch_lbma_am(today);prices.update({r['date']:r for r in fresh})
+        # Explicit user-supplied AM value takes precedence over the conflicting feed.
+        overrides={'2026-11-04':4022.85}
+        for day,value in overrides.items():
+            if day>today.isoformat():continue
+            incoming=prices.get(day,{}).get('value')
+            if incoming is not None and abs(incoming-value)>.01:
+                errors.append('LBMA AM '+day+': kaynak '+str(incoming)+', kullanıcı kaydı '+str(value)+'. Kullanıcı kaydı esas alındı; fiyat uyuşmazlığı doğrulanmalı.')
+            prices[day]={'date':day,'value':value,'source':'user supplied LBMA AM; external conflict awaiting verification','manual':True}
+        cache['_lbma_am']={'source':'Westmetall London Fixing (AM, cross-checked with LBMA AM archive)',
+            'fetched_at':datetime.now(TR).isoformat(timespec='seconds'),
+            'observations':[prices[d] for d in sorted(prices)]}
+    except DataError as error:errors.append('Altın fiyatı: '+str(error));failed=True
+    ordered=[prices[d] for d in sorted(prices)]
+    records[LBMA_CODE]={'id':LBMA_CODE,'code':LBMA_CODE,'provider':'public-table',
+        'source':'Westmetall London Fixing','observations':ordered,'fallback':failed,
+        'fetched_at':cache.get('_lbma_am',{}).get('fetched_at','')}
+    try:
+        records[GOLD_ADJUSTED_CODE]=gold_adjustment_records(records,ordered,today)
+        levels=records['BFRC.NETFX.TREASURYEX']['observations']
+        latest=max(r['date'] for r in levels if r.get('value') is not None)
+        last=records[GOLD_ADJUSTED_CODE]['observations'][-1]['date']
+        if last<latest:errors.append('Altın düzeltmesi '+last+' tarihinde: '+latest+' veya önceki karşılaştırma gününün LBMA AM fiyatı/stok girdisi eksik. Yayımlanınca otomatik tamamlanır.')
+    except DataError as error:errors.append('Altın düzeltmesi: '+str(error))
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
