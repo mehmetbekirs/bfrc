@@ -723,7 +723,7 @@ def curated_figure(chart,records,demo=False):
                                 (latest+timedelta(days=1)).isoformat()])
     fig.add_layout_image(source=CURATED_LOGO,xref="paper",yref="paper",x=.5,y=.53,
         xanchor="center",yanchor="middle",sizex=.75,sizey=.90,sizing="contain",opacity=.15,layer="below")
-    labels=[("Kaynak: TCMB / EVDS"+(" / LBMA AM (Westmetall)" if chart["id"]=="netfx-altin-haric-degisim" else ""),-109),
+    labels=[("Kaynak: TCMB / EVDS"+(" / LBMA AM (Westmetall)" if chart["id"] in ("netfx-altin-haric-degisim","netfx-altin-haric") else ""),-109),
             ("Grafik: Mehmet Faruk Bekir",-129)]
     footer_shift=-105
     for text,_ in labels:
@@ -1166,6 +1166,7 @@ def demo_with_fx(today):
             if d.weekday()==4:stocks.append({'date':d.isoformat(),'value':80000.})
     records['TP.AB.C1']['observations']=stocks
     records[GOLD_ADJUSTED_CODE]=gold_adjustment_records(records,prices,today)
+    attach_gold_level(records)
     return records
 
 
@@ -1227,14 +1228,38 @@ from html.parser import HTMLParser
 
 LBMA_CODE='BFRC.LBMA.AM'
 GOLD_ADJUSTED_CODE='BFRC.NETFX.GOLD.ADJUSTED.CHANGE'
+GOLD_LEVEL_CODE='BFRC.NETFX.GOLD.ADJUSTED.LEVEL'
 GOLD_CHART_TITLE='Swap ve Hazine Hariç Net Döviz Pozisyonu - Değişimi (Altın etkisi dışlanmış)'
 GOLD_ADJUSTMENT_METHOD=('Tahmini: son yayımlanmış haftalık brüt altın rezervi ve referans gününün LBMA AM fiyatından bulunan ons miktarı sabit tutulur. '
     'Günlük pozisyon değişiminden bu miktar × AM fiyat farkı çıkarılır. Altın yükümlülüklerinin fiyat duyarlılığı ayrıca ayrıştırılmamıştır; '
     'tam net altın düzeltmesi veya döviz alım/satımı göstergesi değildir.')
 CURATED_CHARTS.insert(0,{'id':'netfx-altin-haric-degisim','name':GOLD_CHART_TITLE,
     'title':GOLD_CHART_TITLE,'unit':'Milyon ABD doları · Brüt stokla tahmini düzeltme','daily_bars':True,'default_years':.5,
-    'method':GOLD_ADJUSTMENT_METHOD,
+    'method':'Brüt altın stokuyla tahmini düzeltme.',
     'lines':[line(GOLD_ADJUSTED_CODE,'Altın fiyat etkisi çıkarılmış günlük değişim (tahmini)',color='#432454')]})
+
+CURATED_CHARTS.insert(0,{'id':'netfx-altin-haric','name':'Swap ve Hazine Hariç Net Döviz Pozisyonu (Altın etkisi dışlanmış)',
+    'title':'Swap ve Hazine Hariç Net Döviz Pozisyonu (Altın etkisi dışlanmış)',
+    'unit':'Milyar ABD doları · Brüt stokla tahmini · İlk ortak güne göre',
+    'area':True,'default_years':.5,'method':'Brüt altın stokuyla tahmini düzeltme.',
+    'lines':[line(GOLD_LEVEL_CODE,'Altın fiyat etkisi çıkarılmış pozisyon',.001,color='#432454')]})
+
+def attach_gold_level(records):
+    adjusted=records[GOLD_ADJUSTED_CODE]
+    levels={r['date']:r['value'] for r in records['BFRC.NETFX.TREASURYEX']['observations'] if r.get('value') is not None}
+    output=[];last_day=None;cumulative_effect=0.;segments=[]
+    for row in adjusted['audit']:
+        prior=row['previous_date'];day=row['date']
+        if prior!=last_day:
+            cumulative_effect=0.;segments.append(prior)
+            output.append({'date':prior,'value':None if output else levels[prior]})
+        cumulative_effect+=row['gold_effect_million_usd']
+        output.append({'date':day,'value':levels[day]-cumulative_effect})
+        last_day=day
+    records[GOLD_LEVEL_CODE]={**adjusted,'id':GOLD_LEVEL_CODE,'code':GOLD_LEVEL_CODE,
+        'name':'Altın fiyat etkisi çıkarılmış pozisyon (ilk ortak güne göre)',
+        'observations':output,'baseline_dates':segments,
+        'level_method':'Each uninterrupted segment begins at its first comparison raw position. Cumulative estimated gross-gold price effects are subtracted; missing inputs break the segment.'}
 
 class FixingTableParser(HTMLParser):
     def __init__(self):
@@ -1329,6 +1354,7 @@ def attach_gold_adjustment(records,cache,errors,today):
         'fetched_at':cache.get('_lbma_am',{}).get('fetched_at','')}
     try:
         records[GOLD_ADJUSTED_CODE]=gold_adjustment_records(records,ordered,today)
+        attach_gold_level(records)
         levels=records['BFRC.NETFX.TREASURYEX']['observations']
         latest=max(r['date'] for r in levels if r.get('value') is not None)
         last=records[GOLD_ADJUSTED_CODE]['observations'][-1]['date']
