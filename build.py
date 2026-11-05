@@ -723,7 +723,7 @@ def curated_figure(chart,records,demo=False):
                                 (latest+timedelta(days=1)).isoformat()])
     fig.add_layout_image(source=CURATED_LOGO,xref="paper",yref="paper",x=.5,y=.53,
         xanchor="center",yanchor="middle",sizex=.75,sizey=.90,sizing="contain",opacity=.15,layer="below")
-    labels=[("Kaynak: TCMB / EVDS"+(" / London Fix" if chart["id"] in ("net-altin-degisim","net-altin") else ""),-109),
+    labels=[("Kaynak: TCMB / EVDS"+(" / LBMA AM (Westmetall)" if chart["id"] in ("netfx-altin-haric-degisim","netfx-altin-haric") else ""),-109),
             ("Grafik: Mehmet Faruk Bekir",-129)]
     footer_shift=-105
     for text,_ in labels:
@@ -880,6 +880,8 @@ select.disabled=false;select.addEventListener('change',draw);draw();
 </script></body></html>'''
     html=html.replace('LOGO',CURATED_LOGO).replace('WARNING',warning).replace('STAMP_JSON',json.dumps(stamp)).replace('STAMP',escape(stamp))
     (output/'index.html').write_text(html,encoding='utf-8')
+    if NET_GOLD_CODE in records:
+        (output/'gold-net-stock-audit.json').write_text(json.dumps(records[NET_GOLD_CODE]['audit'],ensure_ascii=False,indent=2),encoding='utf-8')
     if GOLD_ADJUSTED_CODE in records:
         (output/"gold-adjustment-audit.json").write_text(json.dumps(records[GOLD_ADJUSTED_CODE]["audit"],ensure_ascii=False,indent=2),encoding="utf-8")
     return available
@@ -1165,10 +1167,9 @@ def demo_with_fx(today):
             prices.append({'date':d.isoformat(),'value':2500+k*.5})
             if d.weekday()==4:stocks.append({'date':d.isoformat(),'value':80000.})
     records['TP.AB.C1']['observations']=stocks
-    for code,grams in [(NET_GOLD_ASSET,800e6),*[(c,500e6) for c in WORKBOOK_LIABILITY_CODES]]:
+    for code,grams in [(NET_GOLD_ASSET,800e6),*[(c,60e6) for c in NET_GOLD_LIABILITIES]]:
         records[code]={**CURATED_SPECS[code],'observations':[{'date':r['date'],'value':grams} for r in stocks],
             'fetched_at':datetime.now(TR).isoformat(timespec='seconds')}
-    records['BFRC.GOLD.SWAP.USD']={'observations':[{'date':r['date'],'value':2500.} for r in prices]}
     records[GOLD_ADJUSTED_CODE]=gold_adjustment_records(records,prices,today)
     attach_gold_level(records)
     return records
@@ -1231,45 +1232,79 @@ def attach_analytic_daily(records,errors):
 from html.parser import HTMLParser
 
 LBMA_CODE='BFRC.LBMA.AM'
-GOLD_ADJUSTED_CODE='BFRC.GOLD.NET.CHANGE'
-GOLD_LEVEL_CODE='BFRC.GOLD.NET.USD'
-FX_EX_GOLD_CODE='BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE'
-FX_EX_GOLD_TITLE='Swap ve Hazine Hariç Net Döviz Pozisyonu – Günlük Değişim (Net Altın Değişimi Hariç)'
-GOLD_CHART_TITLE='Net Altın Varlığı - Günlük Değişim'
+GOLD_ADJUSTED_CODE='BFRC.NETFX.GOLD.ADJUSTED.CHANGE'
+GOLD_LEVEL_CODE='BFRC.NETFX.GOLD.ADJUSTED.LEVEL'
+GOLD_CHART_TITLE='Swap ve Hazine Hariç Net Döviz Pozisyonu - Değişimi (Altın etkisi dışlanmış)'
+# Mutually separate physical-gold liability accounts; do not also subtract their parents.
 NET_GOLD_ASSET='TP.BL0021'
-WORKBOOK_LIABILITY_CODES=('TP.BL0822','TP.BL132','TP.BL136','TP.BL089','TP.BL141')
-for code in (NET_GOLD_ASSET,*WORKBOOK_LIABILITY_CODES):
-    CURATED_SPECS[code]={'id':code,'code':code,'name':code,
-        'unit':'Safi Gram' if code==NET_GOLD_ASSET else 'Bin TL',
+NET_GOLD_LIABILITIES={
+ 'TP.BL0823':'P3112.Altın — Hazine (Safi Gram)',
+ 'TP.BL128':'P32122.Altın — Bankalar teminat (Safi Gram)',
+ 'TP.BL137':'P3213.Altın — Bankalar (Safi Gram)',
+ 'TP.BL0891':'P3232.Altın — Zorunlu karşılık (Safi Gram)',
+ 'TP.BL142':'P4.2.Altın — Yurt dışı bankalar (Safi Gram)'}
+NET_GOLD_CODE='BFRC.GOLD.NET.GRAMS'
+for code,name in {NET_GOLD_ASSET:'A11.Uluslararası Standartta Olan Altın (Safi Gram)',**NET_GOLD_LIABILITIES}.items():
+    CURATED_SPECS[code]={'id':code,'code':code,'name':name,'unit':'Safi Gram',
         'frequency':'HAFTALIK(CUMA)','group_code':'bie_mbblnch',
         'group':'Merkez Bankası Haftalık Vaziyeti (Yeni)','provider':'evds3','source':'TCMB / EVDS'}
-GOLD_ADJUSTMENT_METHOD='Net altın = günlük değerlenmiş altın varlığı − günlük değerlenmiş altın pasifleri − altın swap stoku.'
-CURATED_CHARTS[:0]=[
-    {'id':'netfx-degisim-altin-haric','name':FX_EX_GOLD_TITLE,'unit':'Milyon ABD doları',
-     'daily_bars':True,'default_years':.5,'lines':[line(FX_EX_GOLD_CODE,'Düzeltilmiş günlük değişim',color='#432454')]},
-    {'id':'net-altin','name':'Net Altın Varlığı','unit':'Milyar ABD doları','area':True,
-     'default_years':.5,'lines':[line(GOLD_LEVEL_CODE,'Net altın',.001,color='#432454')]},
-    {'id':'net-altin-degisim','name':GOLD_CHART_TITLE,'unit':'Milyon ABD doları','daily_bars':True,
-     'default_years':.5,'lines':[line(GOLD_ADJUSTED_CODE,'Günlük net altın değişimi',color='#432454')]}]
+GOLD_ADJUSTMENT_METHOD=('Haftalık uluslararası standartta altın varlığından aynı günün ayrı altın yükümlülükleri '
+    '(Hazine, bankalar teminat/diğer hesaplar, zorunlu karşılıklar ve yurt dışı bankalar) safi gram olarak çıkarılır. '
+    'Net gram / 31.1034768 ile ons hesaplanır. Günlük AM fiyat farkı ile çarpılarak tahmini fiyat etkisi bulunur. '
+    'Bilanço dışı altın swap duyarlılığı bu net bilanço miktarından ayrıca ayrıştırılmamıştır.')
+
+def net_gold_stock(records,today):
+    codes=[NET_GOLD_ASSET,*NET_GOLD_LIABILITIES]
+    maps={c:{r['date']:float(r['value']) for r in records.get(c,{}).get('observations',[])
+        if isinstance(r.get('value'),(int,float)) and math.isfinite(r['value'])
+        and r['date']<=today.isoformat()} for c in codes}
+    missing=[c for c in codes if not maps[c]]
+    if missing:raise DataError('Net altın miktarı için eksik seri: '+', '.join(missing))
+    dates=sorted(set.intersection(*(set(maps[c]) for c in codes)))
+    rows=[];audit=[]
+    for d in dates:
+        if date.fromisoformat(d).weekday()!=4:continue
+        asset=maps[NET_GOLD_ASSET][d]
+        liabilities={c:maps[c][d] for c in NET_GOLD_LIABILITIES}
+        if asset<=0 or any(v<0 for v in liabilities.values()):
+            raise DataError('Net altın kaynak kalemlerinde geçersiz işaret: '+d)
+        net=asset-sum(liabilities.values())
+        # A net short position is a valid exposure; do not clip it to zero.
+        rows.append({'date':d,'value':net})
+        audit.append({'date':d,'asset_fine_grams':asset,'liabilities_fine_grams':liabilities,
+            'net_fine_grams':net,'net_tonnes':net/1e6,'net_ounces':net/31.1034768})
+    if not rows:raise DataError('Net altın varlık/yükümlülüklerinde aynı tarihli haftalık gözlem yok')
+    return {'id':NET_GOLD_CODE,'code':NET_GOLD_CODE,'provider':'derived','unit':'Safi Gram',
+        'name':'Net bilanço altını','frequency':'HAFTALIK(CUMA)','source':'TCMB / EVDS',
+        'fetched_at':datetime.now(TR).isoformat(timespec='seconds'),'observations':rows,'audit':audit}
+
+CURATED_CHARTS.insert(0,{'id':'netfx-altin-haric-degisim','name':GOLD_CHART_TITLE,
+    'title':GOLD_CHART_TITLE,'unit':'Milyon ABD doları','daily_bars':True,'default_years':.5,
+    'method':'',
+    'lines':[line(GOLD_ADJUSTED_CODE,'Altın fiyat etkisi çıkarılmış günlük değişim (tahmini)',color='#432454')]})
+
+CURATED_CHARTS.insert(0,{'id':'netfx-altin-haric','name':'Swap ve Hazine Hariç Net Döviz Pozisyonu (Altın etkisi dışlanmış)',
+    'title':'Swap ve Hazine Hariç Net Döviz Pozisyonu (Altın etkisi dışlanmış)',
+    'unit':'Milyar ABD doları',
+    'area':True,'default_years':.5,'method':'',
+    'lines':[line(GOLD_LEVEL_CODE,'Altın fiyat etkisi çıkarılmış pozisyon',.001,color='#432454')]})
 
 def attach_gold_level(records):
     adjusted=records[GOLD_ADJUSTED_CODE]
+    levels={r['date']:r['value'] for r in records['BFRC.NETFX.TREASURYEX']['observations'] if r.get('value') is not None}
+    output=[];last_day=None;cumulative_effect=0.;segments=[]
+    for row in adjusted['audit']:
+        prior=row['previous_date'];day=row['date']
+        if prior!=last_day:
+            cumulative_effect=0.;segments.append(prior)
+            output.append({'date':prior,'value':None if output else levels[prior]})
+        cumulative_effect+=row['gold_effect_million_usd']
+        output.append({'date':day,'value':levels[day]-cumulative_effect})
+        last_day=day
     records[GOLD_LEVEL_CODE]={**adjusted,'id':GOLD_LEVEL_CODE,'code':GOLD_LEVEL_CODE,
-        'name':'Net Altın Varlığı',
-        'observations':[{'date':r['date'],'value':r['net_gold_million_usd']} for r in adjusted['level_audit']]}
-
-    fx=records.get('BFRC.NETFX.TREASURYEX.CHANGE',{})
-    levels=[r['date'] for r in records.get('BFRC.NETFX.TREASURYEX',{}).get('observations',[])
-            if r['value'] is not None]
-    previous=dict(zip(levels[1:],levels))
-    fx_changes={r['date']:r['value'] for r in fx.get('observations',[]) if r['value'] is not None}
-    points=[{'date':r['date'],'value':fx_changes[r['date']]-r['net_gold_change_million_usd']}
-            for r in adjusted['audit']
-            if r['date'] in fx_changes and previous.get(r['date'])==r['previous_date']]
-    if points:
-        records[FX_EX_GOLD_CODE]={**fx,'id':FX_EX_GOLD_CODE,'code':FX_EX_GOLD_CODE,
-            'name':FX_EX_GOLD_TITLE,'source':fx['source']+'; '+adjusted['source'],
-            'observations':points}
+        'name':'Altın fiyat etkisi çıkarılmış pozisyon (ilk ortak güne göre)',
+        'observations':output,'baseline_dates':segments,
+        'level_method':'Each uninterrupted segment begins at its first comparison raw position. Cumulative estimated net-balance-sheet-gold price effects are subtracted; missing inputs break the segment.'}
 
 class FixingTableParser(HTMLParser):
     def __init__(self):
@@ -1313,71 +1348,36 @@ def gold_adjustment_records(records,prices,today):
     def points(code):
         return {r['date']:float(r['value']) for r in records.get(code,{}).get('observations',[])
                 if isinstance(r.get('value'),(int,float)) and math.isfinite(r['value']) and r['date']<=today.isoformat()}
-    days=points('TP.AB.A02')
+    levels=points('BFRC.NETFX.TREASURYEX')
+    net_stock=net_gold_stock(records,today)
+    stock={r['date']:r['value'] for r in net_stock['observations']}
+    stock_audit={r['date']:r for r in net_stock['audit']}
     am={r['date']:r['value'] for r in prices if r['date']<=today.isoformat() and r['value']>0}
-    grams=points(NET_GOLD_ASSET)
-    liabilities=[points(c) for c in WORKBOOK_LIABILITY_CODES]
-    usd=points('TP.DK.USD.A.YTL')
-    swaps=points('BFRC.GOLD.SWAP.USD')
-    # Workbook liabilities are negative USD values; freeze the ounce amount at the weekly AM.
-    anchors=[]
-    for d,asset in sorted(grams.items()):
-        if d not in am or usd.get(d,0)<=0 or any(d not in m or m[d]<0 for m in liabilities):continue
-        ounces=round(asset/31.1034768/1e6,3)
-        passive_ounces=-sum(m[d] for m in liabilities)/(1000*usd[d]*am[d])
-        anchors.append((date.fromisoformat(d)+timedelta(days=7),d,ounces,passive_ounces))
-    output=[];audit=[];level_audit=[];previous=None
-    for d in sorted(days):
-        eligible=[a for a in anchors if a[0]<=date.fromisoformat(d) and (date.fromisoformat(d)-date.fromisoformat(a[1])).days<=28]
-        if not eligible or d not in am or d not in swaps:
-            previous=None
-            if level_audit:level_audit.append({'date':d,'net_gold_million_usd':None})
-            continue
-        _,ref,ounces,passive_ounces=eligible[-1]
-        price=am[d];swap=swaps[d];gross=ounces*price;basis='EVDS'
-        passive=passive_ounces*price
-        net_gold=gross+passive-swap
-        row={'date':d,'weekly_gold_reference':ref,'source':basis,'gold_million_ounces':ounces,
-             'gold_price_usd':price,'gross_gold_million_usd':gross,
-             'passive_million_ounces':passive_ounces,'gold_liabilities_signed_million_usd':passive,
-             'gold_swap_million_usd':swap,'net_gold_million_usd':net_gold}
-        level_audit.append(row)
-        if previous and (date.fromisoformat(d)-date.fromisoformat(previous['date'])).days<=5:
-            gold_change=net_gold-previous['net_gold_million_usd']
-            output.append({'date':d,'value':gold_change})
-            audit.append({**row,'previous_date':previous['date'],'net_gold_change_million_usd':gold_change})
-        previous=row
-    if not any(r.get('net_gold_million_usd') is not None for r in level_audit):raise DataError('Net altın için ortak gözlem bulunamadı')
+    # Conservatively use each Friday's stock from the following Friday onward.
+    anchors=sorted((date.fromisoformat(d)+timedelta(days=7),d,v/(31.1034768*1e6))
+        for d,v in stock.items() if date.fromisoformat(d).weekday()==4)
+    output=[];audit=[];days=sorted(levels)
+    for prior,day in zip(days,days[1:]):
+        if prior not in am or day not in am:continue
+        if (date.fromisoformat(day)-date.fromisoformat(prior)).days>5:continue
+        eligible=[a for a in anchors if a[0]<=date.fromisoformat(prior)
+                  and (date.fromisoformat(prior)-date.fromisoformat(a[1])).days<=28]
+        if not eligible:continue
+        _,ref,million_ounces=eligible[-1]
+        effect=million_ounces*(am[day]-am[prior])
+        change=levels[day]-levels[prior];adjusted=change-effect
+        output.append({'date':day,'value':adjusted})
+        audit.append({'date':day,'previous_date':prior,'weekly_gold_reference':ref,
+            'stock_basis':'net balance-sheet gold; off-balance-sheet gold swaps not separately adjusted',
+            'net_gold_inputs':stock_audit[ref],
+            'gold_million_ounces':million_ounces,'am_previous':am[prior],'am_current':am[day],
+            'raw_change_million_usd':change,'gold_effect_million_usd':effect,'adjusted_change_million_usd':adjusted})
+    if not output:raise DataError('Altın düzeltmesi için yayımlanmış haftalık stok ve iki günün AM fiyatları eşleşmedi')
     return {'id':GOLD_ADJUSTED_CODE,'code':GOLD_ADJUSTED_CODE,'provider':'derived',
         'name':GOLD_CHART_TITLE,'unit':'Milyon ABD doları','frequency':'İŞ GÜNÜ',
         'source':'TCMB / EVDS; London AM — Westmetall','estimated':True,
-        'method':GOLD_ADJUSTMENT_METHOD,'observations':output,'audit':audit,'level_audit':level_audit,
-        'fetched_at':datetime.now(TR).isoformat(timespec='seconds')}
-
-def attach_gold_swap_series(records,today):
-    # Find a dedicated gold-swap sell stock in millions of USD. Never substitute total FX swaps.
-    with session() as client:
-        meta=evds3_json(client,'serieList/',{'type':'json','code':'bie_swaptektarf'})
-        if not isinstance(meta,list):raise DataError('Altın swap seri listesi doğrulanamadı')
-        choices=[]
-        for item in meta:
-            if not isinstance(item,dict):continue
-            r={k.upper():v for k,v in item.items()}
-            name=unicodedata.normalize('NFKD',str(r.get('SERIE_NAME','')).upper()).encode('ascii','ignore').decode()
-            unit=unicodedata.normalize('NFKD',str(r.get('BIRIMI','')).upper()).encode('ascii','ignore').decode()
-            if all(x in name for x in ('ALTIN','STOK','SATIM')) and 'NET ALIM' not in name and 'ALIM YONLU' not in name and 'MILYON' in (unit+' '+name) and any(x in (unit+' '+name) for x in ('USD','ABD DOLARI')):
-                if r.get('SERIE_CODE'):choices.append(r['SERIE_CODE'])
-        preferred=os.environ.get('EVDS_GOLD_SWAP_SERIES')
-        if preferred:
-            if preferred not in choices:raise DataError('EVDS_GOLD_SWAP_SERIES altın swap satım stoku ve milyon USD birimiyle eşleşmedi')
-            choices=[preferred]
-        if len(set(choices))!=1:raise DataError('Milyon USD cinsinden tekil altın swap satım stok serisi doğrulanamadı; Net altın hesabı bekliyor')
-        code=choices[0]
-        raw=evds3_json(client,'',{'series':code,'type':'json',
-            'startDate':(today-timedelta(days=45)).strftime('%d-%m-%Y'),'endDate':today.strftime('%d-%m-%Y')})
-        if not isinstance(raw,dict) or not isinstance(raw.get('items'),list):raise DataError('Altın swap verisi doğrulanamadı')
-        values=validate([{'date':period_date(r['Tarih']),'value':r.get(code.replace('.','_'))} for r in raw['items']],today)
-    records['BFRC.GOLD.SWAP.USD']={'observations':values,'source':code,
+        'stock_basis':'net balance-sheet gold','stock_audit':net_stock['audit'],
+        'method':GOLD_ADJUSTMENT_METHOD,'observations':output,'audit':audit,
         'fetched_at':datetime.now(TR).isoformat(timespec='seconds')}
 
 def attach_gold_adjustment(records,cache,errors,today):
@@ -1386,28 +1386,35 @@ def attach_gold_adjustment(records,cache,errors,today):
     failed=False
     try:
         fresh=fetch_lbma_am(today);prices.update({r['date']:r for r in fresh})
+        # Explicit user-supplied AM value takes precedence over the conflicting feed.
+        overrides={'2026-11-04':4022.85}
+        for day,value in overrides.items():
+            if day>today.isoformat():continue
+            incoming=prices.get(day,{}).get('value')
+            if incoming is not None and abs(incoming-value)>.01:
+                errors.append('LBMA AM '+day+': kaynak '+str(incoming)+', kullanıcı kaydı '+str(value)+'. Kullanıcı kaydı esas alındı; fiyat uyuşmazlığı doğrulanmalı.')
+            prices[day]={'date':day,'value':value,'source':'user supplied LBMA AM; external conflict awaiting verification','manual':True}
         cache['_lbma_am']={'source':'Westmetall London Fixing (AM, cross-checked with LBMA AM archive)',
             'fetched_at':datetime.now(TR).isoformat(timespec='seconds'),
             'observations':[prices[d] for d in sorted(prices)]}
     except DataError as error:errors.append('Altın fiyatı: '+str(error));failed=True
-    if today>=date(2026,11,4):
-        prices['2026-11-04']={'date':'2026-11-04','value':4043.65,'source':'Westmetall London Fixing AM'}
-        if not failed:
-            cache['_lbma_am']['observations']=[prices[d] for d in sorted(prices)]
     ordered=[prices[d] for d in sorted(prices)]
     records[LBMA_CODE]={'id':LBMA_CODE,'code':LBMA_CODE,'provider':'public-table',
         'source':'Westmetall London Fixing','observations':ordered,'fallback':failed,
         'fetched_at':cache.get('_lbma_am',{}).get('fetched_at','')}
-    try:attach_gold_swap_series(records,today)
-    except (DataError,KeyError,TypeError) as error:errors.append('Altın swap: '+str(error))
     try:
+        records[NET_GOLD_CODE]=net_gold_stock(records,today)
+        asset_dates=[r['date'] for r in records[NET_GOLD_ASSET]['observations'] if r.get('value') is not None]
+        last_joint=records[NET_GOLD_CODE]['observations'][-1]['date']
+        if asset_dates and last_joint<max(asset_dates):
+            errors.append('Net altın: varlık/yükümlülüklerin son ortak tarihi '+last_joint+'. Yeni haftanın bazı yükümlülükleri eksik; farklı tarihler birleştirilmedi.')
         records[GOLD_ADJUSTED_CODE]=gold_adjustment_records(records,ordered,today)
         attach_gold_level(records)
-        levels=records['TP.AB.A02']['observations']
+        levels=records['BFRC.NETFX.TREASURYEX']['observations']
         latest=max(r['date'] for r in levels if r.get('value') is not None)
-        last=max(r['date'] for r in records[GOLD_LEVEL_CODE]['observations'] if r['value'] is not None)
-        if last<latest:errors.append('Net altın '+last+' tarihinde: '+latest+' veya önceki karşılaştırma gününün LBMA AM fiyatı/stok girdisi eksik. Yayımlanınca otomatik tamamlanır.')
-    except DataError as error:errors.append('Net altın: '+str(error))
+        last=records[GOLD_ADJUSTED_CODE]['observations'][-1]['date']
+        if last<latest:errors.append('Altın düzeltmesi '+last+' tarihinde: '+latest+' veya önceki karşılaştırma gününün LBMA AM fiyatı/stok girdisi eksik. Yayımlanınca otomatik tamamlanır.')
+    except DataError as error:errors.append('Altın düzeltmesi: '+str(error))
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
