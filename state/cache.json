@@ -90554,7 +90554,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-05T04:13:29+03:00"
+      "fetched_at": "2026-11-05T10:26:41+03:00"
     },
     "TP.AB.A03": {
       "id": "TP.AB.A03",
@@ -189495,7 +189495,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-05T04:13:29+03:00"
+      "fetched_at": "2026-11-05T10:26:41+03:00"
     },
     "TP.AB.A11": {
       "id": "TP.AB.A11",
@@ -219199,7 +219199,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-05T04:13:29+03:00"
+      "fetched_at": "2026-11-05T10:26:41+03:00"
     },
     "TP.AB.A14": {
       "id": "TP.AB.A14",
@@ -239012,7 +239012,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-05T04:13:29+03:00"
+      "fetched_at": "2026-11-05T10:26:41+03:00"
     },
     "TP.AB.A16": {
       "id": "TP.AB.A16",
@@ -973022,7 +973022,7 @@
         "2026-11-04": "04-11-2026",
         "2026-11-05": "05-11-2026"
       },
-      "fetched_at": "2026-11-05T04:13:28+03:00"
+      "fetched_at": "2026-11-05T10:26:40+03:00"
     },
     "TP.DK.USD.S.YTL": {
       "id": "TP.DK.USD.S.YTL",
@@ -1101896,7 +1101896,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:43+03:00"
+      "fetched_at": "2026-11-05T10:26:21+03:00"
     },
     "TP.TUKFIY2025.01": {
       "id": "TP.TUKFIY2025.01",
@@ -1244294,7 +1244294,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:58+03:00"
+      "fetched_at": "2026-11-05T10:26:34+03:00"
     },
     "TP.RK.T1.Y": {
       "id": "TP.RK.T1.Y",
@@ -1244780,7 +1244780,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:55+03:00"
+      "fetched_at": "2026-11-05T10:26:32+03:00"
     },
     "TP.RK.T2.Y": {
       "id": "TP.RK.T2.Y",
@@ -1411218,7 +1411218,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:40+03:00"
+      "fetched_at": "2026-11-05T10:26:19+03:00"
     },
     "TP.FHGE.S01": {
       "id": "TP.FHGE.S01",
@@ -1411704,7 +1411704,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:40+03:00"
+      "fetched_at": "2026-11-05T10:26:21+03:00"
     },
     "TP.GY1.N2": {
       "id": "TP.GY1.N2",
@@ -1412190,7 +1412190,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:42+03:00"
+      "fetched_at": "2026-11-05T10:26:23+03:00"
     },
     "TP.GY1.N2.MA": {
       "id": "TP.GY1.N2.MA",
@@ -1412676,7 +1412676,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:44+03:00"
+      "fetched_at": "2026-11-05T10:26:23+03:00"
     },
     "TP.IHRISICREV4.TT": {
       "id": "TP.IHRISICREV4.TT",
@@ -1413157,7 +1413157,7 @@
         "2026-08-01": "2026-8",
         "2026-09-01": "2026-9"
       },
-      "fetched_at": "2026-11-05T00:54:46+03:00"
+      "fetched_at": "2026-11-05T10:26:25+03:00"
     },
     "TP.ITHISICREV4.TT": {
       "id": "TP.ITHISICREV4.TT",
@@ -1413638,7 +1413638,7 @@
         "2026-08-01": "2026-8",
         "2026-09-01": "2026-9"
       },
-      "fetched_at": "2026-11-05T00:54:48+03:00"
+      "fetched_at": "2026-11-05T10:26:25+03:00"
     },
     "TP.KFE.TR": {
       "id": "TP.KFE.TR",
@@ -1414119,7 +1414119,7 @@
         "2026-08-01": "2026-8",
         "2026-09-01": "2026-9"
       },
-      "fetched_at": "2026-11-05T00:54:48+03:00"
+      "fetched_at": "2026-11-05T10:26:28+03:00"
     },
     "TP.KKO.MA": {
       "id": "TP.KKO.MA",
@@ -1414605,7 +1414605,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:50+03:00"
+      "fetched_at": "2026-11-05T10:26:28+03:00"
     },
     "TP.KKO2.IS.TOP": {
       "id": "TP.KKO2.IS.TOP",
@@ -1415091,7 +1415091,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:50+03:00"
+      "fetched_at": "2026-11-05T10:26:30+03:00"
     },
     "TP.KREHACBS.A1": {
       "id": "TP.KREHACBS.A1",
@@ -1415572,7 +1415572,7 @@
         "2026-08-01": "2026-8",
         "2026-09-01": "2026-9"
       },
-      "fetched_at": "2026-11-05T00:54:52+03:00"
+      "fetched_at": "2026-11-05T10:26:30+03:00"
     },
     "TP.KTF17": {
       "id": "TP.KTF17",
@@ -1420160,7 +1420160,7 @@
         "2026-07-01": "2026-7",
         "2026-08-01": "2026-8"
       },
-      "fetched_at": "2026-11-05T00:54:53+03:00"
+      "fetched_at": "2026-11-05T10:26:31+03:00"
     },
     "TP.KVDB12": {
       "id": "TP.KVDB12",
@@ -1420636,7 +1420636,7 @@
         "2026-07-01": "2026-7",
         "2026-08-01": "2026-8"
       },
-      "fetched_at": "2026-11-05T00:54:53+03:00"
+      "fetched_at": "2026-11-05T10:26:31+03:00"
     },
     "TP.KVDB19": {
       "id": "TP.KVDB19",
@@ -1421112,7 +1421112,7 @@
         "2026-07-01": "2026-7",
         "2026-08-01": "2026-8"
       },
-      "fetched_at": "2026-11-05T00:54:53+03:00"
+      "fetched_at": "2026-11-05T10:26:31+03:00"
     },
     "TP.TRY.MT06": {
       "id": "TP.TRY.MT06",
@@ -1423654,7 +1423654,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-05T00:54:57+03:00"
+      "fetched_at": "2026-11-05T10:26:33+03:00"
     },
     "TP.BRUTDBORCOZEL.G15": {
       "id": "TP.BRUTDBORCOZEL.G15",
@@ -1423820,7 +1423820,7 @@
         "2026-01-01": "2026-Q1",
         "2026-04-01": "2026-Q2"
       },
-      "fetched_at": "2026-11-05T00:54:38+03:00"
+      "fetched_at": "2026-11-05T10:26:19+03:00"
     },
     "TP.BRUTDBORCOZEL.G28": {
       "id": "TP.BRUTDBORCOZEL.G28",
@@ -1423986,7 +1423986,7 @@
         "2026-01-01": "2026-Q1",
         "2026-04-01": "2026-Q2"
       },
-      "fetched_at": "2026-11-05T00:54:38+03:00"
+      "fetched_at": "2026-11-05T10:26:19+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKALIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKALIMYONLU",
@@ -1431909,7 +1431909,7 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-05T04:13:34+03:00"
+      "fetched_at": "2026-11-05T10:26:44+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU",
@@ -1439832,12 +1439832,12 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-05T04:13:34+03:00"
+      "fetched_at": "2026-11-05T10:26:44+03:00"
     },
     "BFRC.NETFX.SWAPEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T04:13:28+03:00",
+      "fetched_at": "2026-11-05T10:26:40+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1447712,7 +1447712,7 @@
     "BFRC.NETFX.SWAPEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T04:13:28+03:00",
+      "fetched_at": "2026-11-05T10:26:40+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1450571,7 +1450571,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-05T04:13:29+03:00",
+      "fetched_at": "2026-11-05T10:26:41+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1458442,7 +1458442,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-05T04:13:29+03:00",
+      "fetched_at": "2026-11-05T10:26:41+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1474128,7 +1474128,7 @@
     "BFRC.NETFX.TREASURYEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T04:13:28+03:00",
+      "fetched_at": "2026-11-05T10:26:40+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1476987,7 +1476987,7 @@
     "BFRC.NETFX.TREASURYEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T04:13:28+03:00",
+      "fetched_at": "2026-11-05T10:26:40+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1571620,7 +1571620,7 @@
           "manual": true
         }
       ],
-      "fetched_at": "2026-11-05T04:13:35+03:00"
+      "fetched_at": "2026-11-05T10:26:46+03:00"
     },
     "BFRC.NETFX.GOLD.ADJUSTED.CHANGE": {
       "id": "BFRC.NETFX.GOLD.ADJUSTED.CHANGE",
@@ -1579395,7 +1579395,7 @@
           "adjusted_change_million_usd": 3303.861563113492
         }
       ],
-      "fetched_at": "2026-11-05T04:13:35+03:00"
+      "fetched_at": "2026-11-05T10:26:46+03:00"
     },
     "BFRC.NETFX.GOLD.ADJUSTED.LEVEL": {
       "id": "BFRC.NETFX.GOLD.ADJUSTED.LEVEL",
@@ -1587194,7 +1587194,7 @@
           "adjusted_change_million_usd": 3303.861563113492
         }
       ],
-      "fetched_at": "2026-11-05T04:13:35+03:00",
+      "fetched_at": "2026-11-05T10:26:46+03:00",
       "baseline_dates": [
         "2026-01-02",
         "2026-04-07",
@@ -1587213,7 +1587213,7 @@
       "name": "Net bilanço altını",
       "frequency": "HAFTALIK(CUMA)",
       "source": "TCMB / EVDS",
-      "fetched_at": "2026-11-05T04:13:35+03:00",
+      "fetched_at": "2026-11-05T10:26:46+03:00",
       "observations": [
         {
           "date": "2024-04-05",
@@ -1590387,7 +1590387,7 @@
   },
   "_lbma_am": {
     "source": "Westmetall London Fixing (AM, cross-checked with LBMA AM archive)",
-    "fetched_at": "2026-11-05T04:13:35+03:00",
+    "fetched_at": "2026-11-05T10:26:46+03:00",
     "observations": [
       {
         "date": "2026-01-02",
