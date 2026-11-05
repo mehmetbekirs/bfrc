@@ -1234,6 +1234,8 @@ LBMA_CODE='BFRC.LBMA.AM'
 GOLD_ADJUSTED_CODE='BFRC.GOLD.NET.CHANGE'
 GOLD_LEVEL_CODE='BFRC.GOLD.NET.USD'
 FX_EX_GOLD_CODE='BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE'
+FX_EX_GOLD_LEVEL='BFRC.NETFX.TREASURYEX.GOLDNETEX.LEVEL'
+FX_EX_GOLD_LEVEL_TITLE='Swap, Hazine ve Net Altın Hariç Net Döviz Pozisyonu'
 FX_EX_GOLD_TITLE='Swap ve Hazine Hariç Net Döviz Pozisyonu – Günlük Değişim (Net Altın Değişimi Hariç)'
 GOLD_CHART_TITLE='Net Altın Varlığı - Günlük Değişim'
 NET_GOLD_ASSET='BFRC.TCMB.RESERVES.GOLD.MILLION.OZT'
@@ -1245,6 +1247,8 @@ for code in WORKBOOK_LIABILITY_CODES:
         'group':'Merkez Bankası Haftalık Vaziyeti (Yeni)','provider':'evds3','source':'TCMB / EVDS'}
 GOLD_ADJUSTMENT_METHOD='Net altın = günlük değerlenmiş altın varlığı − günlük değerlenmiş altın pasifleri − altın swap stoku.'
 CURATED_CHARTS[:0]=[
+    {'id':'netfx-seviye-altin-haric','name':FX_EX_GOLD_LEVEL_TITLE,'unit':'Milyar ABD doları',
+     'area':True,'default_years':3,'lines':[line(FX_EX_GOLD_LEVEL,'Net döviz pozisyonu',.001,color='#432454')]},
     {'id':'netfx-degisim-altin-haric','name':FX_EX_GOLD_TITLE,'unit':'Milyon ABD doları',
      'daily_bars':True,'default_years':.5,'lines':[line(FX_EX_GOLD_CODE,'Düzeltilmiş günlük değişim',color='#432454')]},
     {'id':'net-altin','name':'Net Altın Varlığı','unit':'Milyar ABD doları','area':True,
@@ -1257,6 +1261,16 @@ def attach_gold_level(records):
     records[GOLD_LEVEL_CODE]={**adjusted,'id':GOLD_LEVEL_CODE,'code':GOLD_LEVEL_CODE,
         'name':'Net Altın Varlığı',
         'observations':[{'date':r['date'],'value':r['net_gold_million_usd']} for r in adjusted['level_audit']]}
+
+    fx_level=records.get('BFRC.NETFX.TREASURYEX',{})
+    gold={r['date']:r['value'] for r in records[GOLD_LEVEL_CODE]['observations'] if r['value'] is not None}
+    level_points=[{'date':r['date'],'value':r['value']-gold[r['date']]
+                   if r['date'] in gold and r['value'] is not None else None}
+                  for r in fx_level.get('observations',[])]
+    if any(r['value'] is not None for r in level_points):
+        records[FX_EX_GOLD_LEVEL]={**fx_level,'id':FX_EX_GOLD_LEVEL,'code':FX_EX_GOLD_LEVEL,
+            'name':FX_EX_GOLD_LEVEL_TITLE,'source':fx_level['source']+'; '+adjusted['source'],
+            'observations':level_points}
 
     fx=records.get('BFRC.NETFX.TREASURYEX.CHANGE',{})
     levels=[r['date'] for r in records.get('BFRC.NETFX.TREASURYEX',{}).get('observations',[])
@@ -1355,13 +1369,10 @@ def gold_adjustment_records(records,prices,today):
 
 def attach_gold_swap_series(records,today):
     code='TP.SWAPTEKTAR.SWAPXSATIMSTOKUSDTUTAR'
-    with session() as client:
-        raw=evds3_json(client,'',{'series':code,'type':'json',
-            'startDate':(today-timedelta(days=45)).strftime('%d-%m-%Y'),'endDate':today.strftime('%d-%m-%Y')})
-        if not isinstance(raw,dict) or not isinstance(raw.get('items'),list):raise DataError('Altın swap verisi doğrulanamadı')
-        values=validate([{'date':period_date(r['Tarih']),'value':r.get(code.replace('.','_'))} for r in raw['items']],today)
-    records['BFRC.GOLD.SWAP.USD']={'observations':values,'source':code,
-        'fetched_at':datetime.now(TR).isoformat(timespec='seconds')}
+    spec={'id':code,'code':code,'group':'TCMB Taraflı Swap İşlemleri',
+          'frequency':'İŞ GÜNÜ','provider':'evds3','source':'TCMB / EVDS'}
+    result=fetch_curated_group([spec],today)
+    records['BFRC.GOLD.SWAP.USD']=result[code]
 
 def attach_gold_adjustment(records,cache,errors,today):
     saved=cache.get('_lbma_am',{})
