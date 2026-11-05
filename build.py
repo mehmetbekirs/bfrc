@@ -1344,11 +1344,25 @@ def gold_adjustment_records(records,prices,today):
     usd=points('TP.DK.USD.A.YTL')
     swaps=points('BFRC.GOLD.SWAP.USD')
     # Workbook liabilities are negative USD values; freeze the ounce amount at the weekly AM.
+    # Verified weekly workbook inputs only. Never seed daily fixing prices or swap values.
+    reference_inputs={
+        '2026-10-02':(25.573,-41820.33195359841),
+        '2026-10-09':(25.558,-41965.58430813124),
+        '2026-10-16':(25.574,-43268.12736500203),
+        '2026-10-23':(25.616,-41922.69630078836),
+    }
     anchors=[]
-    for d,ounces in sorted(gold_stock.items()):
-        if d not in am or usd.get(d,0)<=0 or any(d not in m or m[d]<0 for m in liabilities):continue
-        passive_ounces=-sum(m[d] for m in liabilities)/(1000*usd[d]*am[d])
-        anchors.append((date.fromisoformat(d),d,ounces,passive_ounces))
+    for d in sorted(gold_stock.keys() | reference_inputs.keys()):
+        if d not in am:continue
+        if d in gold_stock and usd.get(d,0)>0 and all(d in m and m[d]>=0 for m in liabilities):
+            ounces=gold_stock[d]
+            passive_usd=-sum(m[d] for m in liabilities)/(1000*usd[d])
+            reference_source='TCMB / EVDS'
+        elif d in reference_inputs:
+            ounces,passive_usd=reference_inputs[d]
+            reference_source='Excel haftalık referans'
+        else:continue
+        anchors.append((date.fromisoformat(d),d,ounces,passive_usd/am[d],reference_source))
     output=[];audit=[];level_audit=[];previous=None
     for d in sorted(days):
         eligible=[a for a in anchors if a[0]<=date.fromisoformat(d) and (date.fromisoformat(d)-date.fromisoformat(a[1])).days<=28]
@@ -1360,11 +1374,11 @@ def gold_adjustment_records(records,prices,today):
                 if d not in swaps:missing.append('altın swap stoku')
                 level_audit.append({'date':d,'net_gold_million_usd':None,'missing_inputs':missing})
             continue
-        _,ref,ounces,passive_ounces=eligible[-1]
+        _,ref,ounces,passive_ounces,reference_source=eligible[-1]
         price=am[d];swap=swaps[d];gross=ounces*price;basis='EVDS'
         passive=passive_ounces*price
         net_gold=gross+passive-swap
-        row={'date':d,'weekly_gold_reference':ref,'source':basis,'gold_million_ounces':ounces,
+        row={'date':d,'weekly_gold_reference':ref,'weekly_gold_reference_source':reference_source,'source':basis,'gold_million_ounces':ounces,
              'gold_price_usd':price,'gross_gold_million_usd':gross,
              'passive_million_ounces':passive_ounces,'gold_liabilities_signed_million_usd':passive,
              'gold_swap_million_usd':swap,'net_gold_million_usd':net_gold}
@@ -1413,7 +1427,10 @@ def attach_gold_adjustment(records,cache,errors,today):
         levels=records['TP.AB.A02']['observations']
         latest=max(r['date'] for r in levels if r.get('value') is not None)
         last=max(r['date'] for r in records[GOLD_LEVEL_CODE]['observations'] if r['value'] is not None)
-        if last<latest:errors.append('Net altın '+last+' tarihinde: '+latest+' veya önceki karşılaştırma gününün LBMA AM fiyatı/stok girdisi eksik. Yayımlanınca otomatik tamamlanır.')
+        if last<latest:
+            missing=next((r.get('missing_inputs',[]) for r in records[GOLD_ADJUSTED_CODE]['level_audit']
+                          if r['date']==latest),[])
+            errors.append('Net altın '+last+' tarihinde kaldı; '+latest+' eksik: '+(', '.join(missing) or 'günlük girdiler'))
     except DataError as error:errors.append('Net altın: '+str(error))
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
