@@ -90554,7 +90554,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-05T11:52:41+03:00"
+      "fetched_at": "2026-11-05T12:06:49+03:00"
     },
     "TP.AB.A03": {
       "id": "TP.AB.A03",
@@ -189495,7 +189495,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-05T11:52:41+03:00"
+      "fetched_at": "2026-11-05T12:06:49+03:00"
     },
     "TP.AB.A11": {
       "id": "TP.AB.A11",
@@ -219199,7 +219199,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-05T11:52:41+03:00"
+      "fetched_at": "2026-11-05T12:06:49+03:00"
     },
     "TP.AB.A14": {
       "id": "TP.AB.A14",
@@ -239012,7 +239012,7 @@
         "2026-11-02": "02-11-2026",
         "2026-11-03": "03-11-2026"
       },
-      "fetched_at": "2026-11-05T11:52:41+03:00"
+      "fetched_at": "2026-11-05T12:06:49+03:00"
     },
     "TP.AB.A16": {
       "id": "TP.AB.A16",
@@ -973022,7 +973022,7 @@
         "2026-11-04": "04-11-2026",
         "2026-11-05": "05-11-2026"
       },
-      "fetched_at": "2026-11-05T11:52:41+03:00"
+      "fetched_at": "2026-11-05T12:06:49+03:00"
     },
     "TP.DK.USD.S.YTL": {
       "id": "TP.DK.USD.S.YTL",
@@ -1431909,7 +1431909,7 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-05T11:52:45+03:00"
+      "fetched_at": "2026-11-05T12:06:53+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU",
@@ -1439832,12 +1439832,12 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-05T11:52:45+03:00"
+      "fetched_at": "2026-11-05T12:06:53+03:00"
     },
     "BFRC.NETFX.SWAPEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T11:52:41+03:00",
+      "fetched_at": "2026-11-05T12:06:49+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1447712,7 +1447712,7 @@
     "BFRC.NETFX.SWAPEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T11:52:41+03:00",
+      "fetched_at": "2026-11-05T12:06:49+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1450571,7 +1450571,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-05T11:52:41+03:00",
+      "fetched_at": "2026-11-05T12:06:49+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1458442,7 +1458442,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-05T11:52:41+03:00",
+      "fetched_at": "2026-11-05T12:06:49+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1474128,7 +1474128,7 @@
     "BFRC.NETFX.TREASURYEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T11:52:41+03:00",
+      "fetched_at": "2026-11-05T12:06:49+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1476987,7 +1476987,7 @@
     "BFRC.NETFX.TREASURYEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T11:52:41+03:00",
+      "fetched_at": "2026-11-05T12:06:49+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-23",
@@ -1571640,12 +1571640,11 @@
         },
         {
           "date": "2026-11-04",
-          "value": 4022.85,
-          "source": "user supplied LBMA AM; external conflict awaiting verification",
-          "manual": true
+          "value": 4043.65,
+          "source": "Westmetall London Fixing AM"
         }
       ],
-      "fetched_at": "2026-11-05T11:52:47+03:00"
+      "fetched_at": "2026-11-05T12:06:54+03:00"
     },
     "BFRC.NETFX.GOLD.ADJUSTED.CHANGE": {
       "id": "BFRC.NETFX.GOLD.ADJUSTED.CHANGE",
@@ -1661420,6 +1661419,2139 @@
           "net_ounces": 15218842.83367318
         }
       ]
+    },
+    "BFRC.GOLD.SWAP.USD": {
+      "observations": [
+        {
+          "date": "2026-09-21",
+          "value": 3776.09026
+        },
+        {
+          "date": "2026-09-22",
+          "value": 3888.79842
+        },
+        {
+          "date": "2026-09-23",
+          "value": 3823.92091
+        },
+        {
+          "date": "2026-09-24",
+          "value": 3880.586
+        },
+        {
+          "date": "2026-09-25",
+          "value": 3814.106
+        },
+        {
+          "date": "2026-09-28",
+          "value": 3668.77401
+        },
+        {
+          "date": "2026-09-29",
+          "value": 3850.41883
+        },
+        {
+          "date": "2026-09-30",
+          "value": 3649.3933
+        },
+        {
+          "date": "2026-10-01",
+          "value": 3514.13924
+        },
+        {
+          "date": "2026-10-02",
+          "value": 3449.49993
+        },
+        {
+          "date": "2026-10-05",
+          "value": 3317.21272
+        },
+        {
+          "date": "2026-10-06",
+          "value": 3243.9289
+        },
+        {
+          "date": "2026-10-07",
+          "value": 3404.88527
+        },
+        {
+          "date": "2026-10-08",
+          "value": 2876.40475
+        },
+        {
+          "date": "2026-10-09",
+          "value": 2980.97732
+        },
+        {
+          "date": "2026-10-12",
+          "value": 3007.15854
+        },
+        {
+          "date": "2026-10-13",
+          "value": 3207.59145
+        },
+        {
+          "date": "2026-10-14",
+          "value": 3414.665
+        },
+        {
+          "date": "2026-10-15",
+          "value": 3982.79398
+        },
+        {
+          "date": "2026-10-16",
+          "value": 4316.87425
+        },
+        {
+          "date": "2026-10-19",
+          "value": 4254.80446
+        },
+        {
+          "date": "2026-10-20",
+          "value": 4467.34245
+        },
+        {
+          "date": "2026-10-21",
+          "value": 4366.26217
+        },
+        {
+          "date": "2026-10-22",
+          "value": 4423.52769
+        },
+        {
+          "date": "2026-10-23",
+          "value": 4453.14334
+        },
+        {
+          "date": "2026-10-26",
+          "value": 4771.19389
+        },
+        {
+          "date": "2026-10-27",
+          "value": 3758.02536
+        },
+        {
+          "date": "2026-10-28",
+          "value": 3758.02536
+        },
+        {
+          "date": "2026-10-30",
+          "value": 2830.8448
+        },
+        {
+          "date": "2026-11-02",
+          "value": 2883.93213
+        },
+        {
+          "date": "2026-11-03",
+          "value": 2942.99703
+        },
+        {
+          "date": "2026-11-04",
+          "value": 3434.1577
+        }
+      ],
+      "source": "TP.SWAPTEKTAR.SWAPXSATIMSTOKUSDTUTAR",
+      "fetched_at": "2026-11-05T12:06:55+03:00"
+    },
+    "BFRC.GOLD.NET.CHANGE": {
+      "id": "BFRC.GOLD.NET.CHANGE",
+      "code": "BFRC.GOLD.NET.CHANGE",
+      "provider": "derived",
+      "name": "Net Altın Varlığı - Günlük Değişim",
+      "unit": "Milyon ABD doları",
+      "frequency": "İŞ GÜNÜ",
+      "source": "TCMB / EVDS; London AM — Westmetall",
+      "estimated": true,
+      "method": "Net altın = günlük değerlenmiş altın varlığı − günlük değerlenmiş altın pasifleri − altın swap stoku.",
+      "observations": [
+        {
+          "date": "2026-09-22",
+          "value": -574.375190157014
+        },
+        {
+          "date": "2026-09-23",
+          "value": 114.89143826702639
+        },
+        {
+          "date": "2026-09-24",
+          "value": -993.0797161684532
+        },
+        {
+          "date": "2026-09-25",
+          "value": 1075.5307504214506
+        },
+        {
+          "date": "2026-09-28",
+          "value": -2122.7745556485606
+        },
+        {
+          "date": "2026-09-29",
+          "value": -265.3330697198544
+        },
+        {
+          "date": "2026-09-30",
+          "value": 972.0422751043152
+        },
+        {
+          "date": "2026-10-01",
+          "value": -312.6330542414871
+        },
+        {
+          "date": "2026-10-02",
+          "value": 497.6584015349654
+        },
+        {
+          "date": "2026-10-05",
+          "value": -226.58944896164758
+        },
+        {
+          "date": "2026-10-06",
+          "value": -28.255796250487037
+        },
+        {
+          "date": "2026-10-07",
+          "value": -746.9407202699585
+        },
+        {
+          "date": "2026-10-08",
+          "value": 547.858309360774
+        },
+        {
+          "date": "2026-10-09",
+          "value": 1269.0729346950902
+        },
+        {
+          "date": "2026-10-12",
+          "value": -229.55122131264216
+        },
+        {
+          "date": "2026-10-13",
+          "value": -66.41129993956565
+        },
+        {
+          "date": "2026-10-14",
+          "value": -835.8842437138228
+        },
+        {
+          "date": "2026-10-15",
+          "value": -317.2280588403373
+        },
+        {
+          "date": "2026-10-16",
+          "value": -121.17879592657846
+        },
+        {
+          "date": "2026-10-19",
+          "value": -151.69458493132697
+        },
+        {
+          "date": "2026-10-20",
+          "value": -951.7740647625033
+        },
+        {
+          "date": "2026-10-21",
+          "value": 142.2785049867598
+        },
+        {
+          "date": "2026-10-22",
+          "value": -669.7976198031974
+        },
+        {
+          "date": "2026-10-23",
+          "value": -2142.326248153142
+        },
+        {
+          "date": "2026-10-26",
+          "value": -486.47986945296725
+        },
+        {
+          "date": "2026-10-27",
+          "value": 688.5038689730136
+        },
+        {
+          "date": "2026-10-28",
+          "value": 797.1813038362161
+        },
+        {
+          "date": "2026-10-30",
+          "value": -164.21219764621492
+        },
+        {
+          "date": "2026-11-02",
+          "value": -1335.3134130309336
+        },
+        {
+          "date": "2026-11-03",
+          "value": 30.728974063888018
+        }
+      ],
+      "audit": [
+        {
+          "date": "2026-09-22",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4313.15,
+          "gross_gold_million_usd": 109536.75739999999,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43162.1190292776,
+          "gold_swap_million_usd": 3888.79842,
+          "net_gold_million_usd": 62485.83995072239,
+          "previous_date": "2026-09-21",
+          "net_gold_change_million_usd": -574.375190157014
+        },
+        {
+          "date": "2026-09-23",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4316.4,
+          "gross_gold_million_usd": 109619.2944,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43194.64210101059,
+          "gold_swap_million_usd": 3823.92091,
+          "net_gold_million_usd": 62600.731388989414,
+          "previous_date": "2026-09-22",
+          "net_gold_change_million_usd": 114.89143826702639
+        },
+        {
+          "date": "2026-09-24",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4255.55,
+          "gross_gold_million_usd": 108073.94780000001,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -42585.710127179045,
+          "gold_swap_million_usd": 3880.586,
+          "net_gold_million_usd": 61607.65167282096,
+          "previous_date": "2026-09-23",
+          "net_gold_change_million_usd": -993.0797161684532
+        },
+        {
+          "date": "2026-09-25",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4290.75,
+          "gross_gold_million_usd": 109148.0985,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -42650.81007675758,
+          "gold_swap_million_usd": 3814.106,
+          "net_gold_million_usd": 62683.18242324241,
+          "previous_date": "2026-09-24",
+          "net_gold_change_million_usd": 1075.5307504214506
+        },
+        {
+          "date": "2026-09-28",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4144.4,
+          "gross_gold_million_usd": 105425.24719999998,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41196.06532240613,
+          "gold_swap_million_usd": 3668.77401,
+          "net_gold_million_usd": 60560.40786759385,
+          "previous_date": "2026-09-25",
+          "net_gold_change_million_usd": -2122.7745556485606
+        },
+        {
+          "date": "2026-09-29",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4139.0,
+          "gross_gold_million_usd": 105287.882,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41142.388372126,
+          "gold_swap_million_usd": 3850.41883,
+          "net_gold_million_usd": 60295.074797874,
+          "previous_date": "2026-09-28",
+          "net_gold_change_million_usd": -265.3330697198544
+        },
+        {
+          "date": "2026-09-30",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4188.75,
+          "gross_gold_million_usd": 106553.4225,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41636.912127021686,
+          "gold_swap_million_usd": 3649.3933,
+          "net_gold_million_usd": 61267.11707297831,
+          "previous_date": "2026-09-29",
+          "net_gold_change_million_usd": 972.0422751043152
+        },
+        {
+          "date": "2026-10-01",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4159.85,
+          "gross_gold_million_usd": 105818.26430000001,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41349.64104126319,
+          "gold_swap_million_usd": 3514.13924,
+          "net_gold_million_usd": 60954.484018736825,
+          "previous_date": "2026-09-30",
+          "net_gold_change_million_usd": -312.6330542414871
+        },
+        {
+          "date": "2026-10-02",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4186.6,
+          "gross_gold_million_usd": 106980.18980000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -42078.54744972822,
+          "gold_swap_million_usd": 3449.49993,
+          "net_gold_million_usd": 61452.14242027179,
+          "previous_date": "2026-10-01",
+          "net_gold_change_million_usd": 497.6584015349654
+        },
+        {
+          "date": "2026-10-05",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4163.45,
+          "gross_gold_million_usd": 106388.63785,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41845.872158689854,
+          "gold_swap_million_usd": 3317.21272,
+          "net_gold_million_usd": 61225.55297131014,
+          "previous_date": "2026-10-02",
+          "net_gold_change_million_usd": -226.58944896164758
+        },
+        {
+          "date": "2026-10-06",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4156.9,
+          "gross_gold_million_usd": 106221.26569999999,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41780.039624940335,
+          "gold_swap_million_usd": 3243.9289,
+          "net_gold_million_usd": 61197.297175059655,
+          "previous_date": "2026-10-05",
+          "net_gold_change_million_usd": -28.255796250487037
+        },
+        {
+          "date": "2026-10-07",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4119.1,
+          "gross_gold_million_usd": 105255.36230000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41400.12057521031,
+          "gold_swap_million_usd": 3404.88527,
+          "net_gold_million_usd": 60450.3564547897,
+          "previous_date": "2026-10-06",
+          "net_gold_change_million_usd": -746.9407202699585
+        },
+        {
+          "date": "2026-10-08",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4120.35,
+          "gross_gold_million_usd": 105287.30355000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41412.68403584954,
+          "gold_swap_million_usd": 2876.40475,
+          "net_gold_million_usd": 60998.21476415047,
+          "previous_date": "2026-10-07",
+          "net_gold_change_million_usd": 547.858309360774
+        },
+        {
+          "date": "2026-10-09",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4186.9,
+          "gross_gold_million_usd": 107071.5937,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41823.32868115444,
+          "gold_swap_million_usd": 2980.97732,
+          "net_gold_million_usd": 62267.28769884556,
+          "previous_date": "2026-10-08",
+          "net_gold_change_million_usd": 1269.0729346950902
+        },
+        {
+          "date": "2026-10-12",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4173.85,
+          "gross_gold_million_usd": 106737.86605000001,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41692.971032467096,
+          "gold_swap_million_usd": 3007.15854,
+          "net_gold_million_usd": 62037.73647753292,
+          "previous_date": "2026-10-09",
+          "net_gold_change_million_usd": -229.55122131264216
+        },
+        {
+          "date": "2026-10-13",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4182.45,
+          "gross_gold_million_usd": 106957.79385,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41778.87722240665,
+          "gold_swap_million_usd": 3207.59145,
+          "net_gold_million_usd": 61971.32517759335,
+          "previous_date": "2026-10-12",
+          "net_gold_change_million_usd": -66.41129993956565
+        },
+        {
+          "date": "2026-10-14",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4142.1,
+          "gross_gold_million_usd": 105925.92330000001,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41375.81736612048,
+          "gold_swap_million_usd": 3414.665,
+          "net_gold_million_usd": 61135.44093387953,
+          "previous_date": "2026-10-13",
+          "net_gold_change_million_usd": -835.8842437138228
+        },
+        {
+          "date": "2026-10-15",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4158.2,
+          "gross_gold_million_usd": 106337.6486,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41536.641744960805,
+          "gold_swap_million_usd": 3982.79398,
+          "net_gold_million_usd": 60818.21287503919,
+          "previous_date": "2026-10-14",
+          "net_gold_change_million_usd": -317.2280588403373
+        },
+        {
+          "date": "2026-10-16",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4181.9,
+          "gross_gold_million_usd": 106881.0002,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41867.09187088738,
+          "gold_swap_million_usd": 4316.87425,
+          "net_gold_million_usd": 60697.034079112615,
+          "previous_date": "2026-10-15",
+          "net_gold_change_million_usd": -121.17879592657846
+        },
+        {
+          "date": "2026-10-19",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4168.15,
+          "gross_gold_million_usd": 106529.5777,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41729.43374581871,
+          "gold_swap_million_usd": 4254.80446,
+          "net_gold_million_usd": 60545.33949418129,
+          "previous_date": "2026-10-16",
+          "net_gold_change_million_usd": -151.69458493132697
+        },
+        {
+          "date": "2026-10-20",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4120.6,
+          "gross_gold_million_usd": 105314.2948,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41253.386920581215,
+          "gold_swap_million_usd": 4467.34245,
+          "net_gold_million_usd": 59593.565429418784,
+          "previous_date": "2026-10-19",
+          "net_gold_change_million_usd": -951.7740647625033
+        },
+        {
+          "date": "2026-10-21",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4123.25,
+          "gross_gold_million_usd": 105382.0235,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41279.91739559445,
+          "gold_swap_million_usd": 4366.26217,
+          "net_gold_million_usd": 59735.843934405544,
+          "previous_date": "2026-10-20",
+          "net_gold_change_million_usd": 142.2785049867598
+        },
+        {
+          "date": "2026-10-22",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4083.85,
+          "gross_gold_million_usd": 104375.0383,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -40885.46429539765,
+          "gold_swap_million_usd": 4423.52769,
+          "net_gold_million_usd": 59066.04631460235,
+          "previous_date": "2026-10-21",
+          "net_gold_change_million_usd": -669.7976198031974
+        },
+        {
+          "date": "2026-10-23",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4026.7,
+          "gross_gold_million_usd": 102978.8258,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41601.9623935508,
+          "gold_swap_million_usd": 4453.14334,
+          "net_gold_million_usd": 56923.720066449205,
+          "previous_date": "2026-10-22",
+          "net_gold_change_million_usd": -2142.326248153142
+        },
+        {
+          "date": "2026-10-26",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4015.65,
+          "gross_gold_million_usd": 102696.23310000001,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41487.79901300377,
+          "gold_swap_million_usd": 4771.19389,
+          "net_gold_million_usd": 56437.24019699624,
+          "previous_date": "2026-10-23",
+          "net_gold_change_million_usd": -486.47986945296725
+        },
+        {
+          "date": "2026-10-27",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 3994.35,
+          "gross_gold_million_usd": 102151.50690000001,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41267.73747403076,
+          "gold_swap_million_usd": 3758.02536,
+          "net_gold_million_usd": 57125.74406596925,
+          "previous_date": "2026-10-26",
+          "net_gold_change_million_usd": 688.5038689730136
+        },
+        {
+          "date": "2026-10-28",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4046.65,
+          "gross_gold_million_usd": 103489.0271,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41808.07637019454,
+          "gold_swap_million_usd": 3758.02536,
+          "net_gold_million_usd": 57922.92536980547,
+          "previous_date": "2026-10-27",
+          "net_gold_change_million_usd": 797.1813038362161
+        },
+        {
+          "date": "2026-10-30",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3981.1,
+          "gross_gold_million_usd": 101979.8576,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -41390.29962784075,
+          "gold_swap_million_usd": 2830.8448,
+          "net_gold_million_usd": 57758.71317215925,
+          "previous_date": "2026-10-28",
+          "net_gold_change_million_usd": -164.21219764621492
+        },
+        {
+          "date": "2026-11-02",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3896.85,
+          "gross_gold_million_usd": 99821.7096,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -40514.37771087168,
+          "gold_swap_million_usd": 2883.93213,
+          "net_gold_million_usd": 56423.39975912832,
+          "previous_date": "2026-10-30",
+          "net_gold_change_million_usd": -1335.3134130309336
+        },
+        {
+          "date": "2026-11-03",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3902.75,
+          "gross_gold_million_usd": 99972.844,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -40575.71823680779,
+          "gold_swap_million_usd": 2942.99703,
+          "net_gold_million_usd": 56454.12873319221,
+          "previous_date": "2026-11-02",
+          "net_gold_change_million_usd": 30.728974063888018
+        }
+      ],
+      "level_audit": [
+        {
+          "date": "2026-09-21",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4343.15,
+          "gross_gold_million_usd": 110298.63739999999,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43462.33199912059,
+          "gold_swap_million_usd": 3776.09026,
+          "net_gold_million_usd": 63060.2151408794
+        },
+        {
+          "date": "2026-09-22",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4313.15,
+          "gross_gold_million_usd": 109536.75739999999,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43162.1190292776,
+          "gold_swap_million_usd": 3888.79842,
+          "net_gold_million_usd": 62485.83995072239
+        },
+        {
+          "date": "2026-09-23",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4316.4,
+          "gross_gold_million_usd": 109619.2944,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43194.64210101059,
+          "gold_swap_million_usd": 3823.92091,
+          "net_gold_million_usd": 62600.731388989414
+        },
+        {
+          "date": "2026-09-24",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4255.55,
+          "gross_gold_million_usd": 108073.94780000001,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -42585.710127179045,
+          "gold_swap_million_usd": 3880.586,
+          "net_gold_million_usd": 61607.65167282096
+        },
+        {
+          "date": "2026-09-25",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4290.75,
+          "gross_gold_million_usd": 109148.0985,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -42650.81007675758,
+          "gold_swap_million_usd": 3814.106,
+          "net_gold_million_usd": 62683.18242324241
+        },
+        {
+          "date": "2026-09-28",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4144.4,
+          "gross_gold_million_usd": 105425.24719999998,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41196.06532240613,
+          "gold_swap_million_usd": 3668.77401,
+          "net_gold_million_usd": 60560.40786759385
+        },
+        {
+          "date": "2026-09-29",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4139.0,
+          "gross_gold_million_usd": 105287.882,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41142.388372126,
+          "gold_swap_million_usd": 3850.41883,
+          "net_gold_million_usd": 60295.074797874
+        },
+        {
+          "date": "2026-09-30",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4188.75,
+          "gross_gold_million_usd": 106553.4225,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41636.912127021686,
+          "gold_swap_million_usd": 3649.3933,
+          "net_gold_million_usd": 61267.11707297831
+        },
+        {
+          "date": "2026-10-01",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4159.85,
+          "gross_gold_million_usd": 105818.26430000001,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41349.64104126319,
+          "gold_swap_million_usd": 3514.13924,
+          "net_gold_million_usd": 60954.484018736825
+        },
+        {
+          "date": "2026-10-02",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4186.6,
+          "gross_gold_million_usd": 106980.18980000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -42078.54744972822,
+          "gold_swap_million_usd": 3449.49993,
+          "net_gold_million_usd": 61452.14242027179
+        },
+        {
+          "date": "2026-10-05",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4163.45,
+          "gross_gold_million_usd": 106388.63785,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41845.872158689854,
+          "gold_swap_million_usd": 3317.21272,
+          "net_gold_million_usd": 61225.55297131014
+        },
+        {
+          "date": "2026-10-06",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4156.9,
+          "gross_gold_million_usd": 106221.26569999999,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41780.039624940335,
+          "gold_swap_million_usd": 3243.9289,
+          "net_gold_million_usd": 61197.297175059655
+        },
+        {
+          "date": "2026-10-07",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4119.1,
+          "gross_gold_million_usd": 105255.36230000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41400.12057521031,
+          "gold_swap_million_usd": 3404.88527,
+          "net_gold_million_usd": 60450.3564547897
+        },
+        {
+          "date": "2026-10-08",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4120.35,
+          "gross_gold_million_usd": 105287.30355000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41412.68403584954,
+          "gold_swap_million_usd": 2876.40475,
+          "net_gold_million_usd": 60998.21476415047
+        },
+        {
+          "date": "2026-10-09",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4186.9,
+          "gross_gold_million_usd": 107071.5937,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41823.32868115444,
+          "gold_swap_million_usd": 2980.97732,
+          "net_gold_million_usd": 62267.28769884556
+        },
+        {
+          "date": "2026-10-12",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4173.85,
+          "gross_gold_million_usd": 106737.86605000001,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41692.971032467096,
+          "gold_swap_million_usd": 3007.15854,
+          "net_gold_million_usd": 62037.73647753292
+        },
+        {
+          "date": "2026-10-13",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4182.45,
+          "gross_gold_million_usd": 106957.79385,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41778.87722240665,
+          "gold_swap_million_usd": 3207.59145,
+          "net_gold_million_usd": 61971.32517759335
+        },
+        {
+          "date": "2026-10-14",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4142.1,
+          "gross_gold_million_usd": 105925.92330000001,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41375.81736612048,
+          "gold_swap_million_usd": 3414.665,
+          "net_gold_million_usd": 61135.44093387953
+        },
+        {
+          "date": "2026-10-15",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4158.2,
+          "gross_gold_million_usd": 106337.6486,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41536.641744960805,
+          "gold_swap_million_usd": 3982.79398,
+          "net_gold_million_usd": 60818.21287503919
+        },
+        {
+          "date": "2026-10-16",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4181.9,
+          "gross_gold_million_usd": 106881.0002,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41867.09187088738,
+          "gold_swap_million_usd": 4316.87425,
+          "net_gold_million_usd": 60697.034079112615
+        },
+        {
+          "date": "2026-10-19",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4168.15,
+          "gross_gold_million_usd": 106529.5777,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41729.43374581871,
+          "gold_swap_million_usd": 4254.80446,
+          "net_gold_million_usd": 60545.33949418129
+        },
+        {
+          "date": "2026-10-20",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4120.6,
+          "gross_gold_million_usd": 105314.2948,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41253.386920581215,
+          "gold_swap_million_usd": 4467.34245,
+          "net_gold_million_usd": 59593.565429418784
+        },
+        {
+          "date": "2026-10-21",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4123.25,
+          "gross_gold_million_usd": 105382.0235,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41279.91739559445,
+          "gold_swap_million_usd": 4366.26217,
+          "net_gold_million_usd": 59735.843934405544
+        },
+        {
+          "date": "2026-10-22",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4083.85,
+          "gross_gold_million_usd": 104375.0383,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -40885.46429539765,
+          "gold_swap_million_usd": 4423.52769,
+          "net_gold_million_usd": 59066.04631460235
+        },
+        {
+          "date": "2026-10-23",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4026.7,
+          "gross_gold_million_usd": 102978.8258,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41601.9623935508,
+          "gold_swap_million_usd": 4453.14334,
+          "net_gold_million_usd": 56923.720066449205
+        },
+        {
+          "date": "2026-10-26",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4015.65,
+          "gross_gold_million_usd": 102696.23310000001,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41487.79901300377,
+          "gold_swap_million_usd": 4771.19389,
+          "net_gold_million_usd": 56437.24019699624
+        },
+        {
+          "date": "2026-10-27",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 3994.35,
+          "gross_gold_million_usd": 102151.50690000001,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41267.73747403076,
+          "gold_swap_million_usd": 3758.02536,
+          "net_gold_million_usd": 57125.74406596925
+        },
+        {
+          "date": "2026-10-28",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4046.65,
+          "gross_gold_million_usd": 103489.0271,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41808.07637019454,
+          "gold_swap_million_usd": 3758.02536,
+          "net_gold_million_usd": 57922.92536980547
+        },
+        {
+          "date": "2026-10-30",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3981.1,
+          "gross_gold_million_usd": 101979.8576,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -41390.29962784075,
+          "gold_swap_million_usd": 2830.8448,
+          "net_gold_million_usd": 57758.71317215925
+        },
+        {
+          "date": "2026-11-02",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3896.85,
+          "gross_gold_million_usd": 99821.7096,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -40514.37771087168,
+          "gold_swap_million_usd": 2883.93213,
+          "net_gold_million_usd": 56423.39975912832
+        },
+        {
+          "date": "2026-11-03",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3902.75,
+          "gross_gold_million_usd": 99972.844,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -40575.71823680779,
+          "gold_swap_million_usd": 2942.99703,
+          "net_gold_million_usd": 56454.12873319221
+        }
+      ],
+      "fetched_at": "2026-11-05T12:06:55+03:00"
+    },
+    "BFRC.GOLD.NET.USD": {
+      "id": "BFRC.GOLD.NET.USD",
+      "code": "BFRC.GOLD.NET.USD",
+      "provider": "derived",
+      "name": "Net Altın Varlığı",
+      "unit": "Milyon ABD doları",
+      "frequency": "İŞ GÜNÜ",
+      "source": "TCMB / EVDS; London AM — Westmetall",
+      "estimated": true,
+      "method": "Net altın = günlük değerlenmiş altın varlığı − günlük değerlenmiş altın pasifleri − altın swap stoku.",
+      "observations": [
+        {
+          "date": "2026-09-21",
+          "value": 63060.2151408794
+        },
+        {
+          "date": "2026-09-22",
+          "value": 62485.83995072239
+        },
+        {
+          "date": "2026-09-23",
+          "value": 62600.731388989414
+        },
+        {
+          "date": "2026-09-24",
+          "value": 61607.65167282096
+        },
+        {
+          "date": "2026-09-25",
+          "value": 62683.18242324241
+        },
+        {
+          "date": "2026-09-28",
+          "value": 60560.40786759385
+        },
+        {
+          "date": "2026-09-29",
+          "value": 60295.074797874
+        },
+        {
+          "date": "2026-09-30",
+          "value": 61267.11707297831
+        },
+        {
+          "date": "2026-10-01",
+          "value": 60954.484018736825
+        },
+        {
+          "date": "2026-10-02",
+          "value": 61452.14242027179
+        },
+        {
+          "date": "2026-10-05",
+          "value": 61225.55297131014
+        },
+        {
+          "date": "2026-10-06",
+          "value": 61197.297175059655
+        },
+        {
+          "date": "2026-10-07",
+          "value": 60450.3564547897
+        },
+        {
+          "date": "2026-10-08",
+          "value": 60998.21476415047
+        },
+        {
+          "date": "2026-10-09",
+          "value": 62267.28769884556
+        },
+        {
+          "date": "2026-10-12",
+          "value": 62037.73647753292
+        },
+        {
+          "date": "2026-10-13",
+          "value": 61971.32517759335
+        },
+        {
+          "date": "2026-10-14",
+          "value": 61135.44093387953
+        },
+        {
+          "date": "2026-10-15",
+          "value": 60818.21287503919
+        },
+        {
+          "date": "2026-10-16",
+          "value": 60697.034079112615
+        },
+        {
+          "date": "2026-10-19",
+          "value": 60545.33949418129
+        },
+        {
+          "date": "2026-10-20",
+          "value": 59593.565429418784
+        },
+        {
+          "date": "2026-10-21",
+          "value": 59735.843934405544
+        },
+        {
+          "date": "2026-10-22",
+          "value": 59066.04631460235
+        },
+        {
+          "date": "2026-10-23",
+          "value": 56923.720066449205
+        },
+        {
+          "date": "2026-10-26",
+          "value": 56437.24019699624
+        },
+        {
+          "date": "2026-10-27",
+          "value": 57125.74406596925
+        },
+        {
+          "date": "2026-10-28",
+          "value": 57922.92536980547
+        },
+        {
+          "date": "2026-10-30",
+          "value": 57758.71317215925
+        },
+        {
+          "date": "2026-11-02",
+          "value": 56423.39975912832
+        },
+        {
+          "date": "2026-11-03",
+          "value": 56454.12873319221
+        }
+      ],
+      "audit": [
+        {
+          "date": "2026-09-22",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4313.15,
+          "gross_gold_million_usd": 109536.75739999999,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43162.1190292776,
+          "gold_swap_million_usd": 3888.79842,
+          "net_gold_million_usd": 62485.83995072239,
+          "previous_date": "2026-09-21",
+          "net_gold_change_million_usd": -574.375190157014
+        },
+        {
+          "date": "2026-09-23",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4316.4,
+          "gross_gold_million_usd": 109619.2944,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43194.64210101059,
+          "gold_swap_million_usd": 3823.92091,
+          "net_gold_million_usd": 62600.731388989414,
+          "previous_date": "2026-09-22",
+          "net_gold_change_million_usd": 114.89143826702639
+        },
+        {
+          "date": "2026-09-24",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4255.55,
+          "gross_gold_million_usd": 108073.94780000001,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -42585.710127179045,
+          "gold_swap_million_usd": 3880.586,
+          "net_gold_million_usd": 61607.65167282096,
+          "previous_date": "2026-09-23",
+          "net_gold_change_million_usd": -993.0797161684532
+        },
+        {
+          "date": "2026-09-25",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4290.75,
+          "gross_gold_million_usd": 109148.0985,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -42650.81007675758,
+          "gold_swap_million_usd": 3814.106,
+          "net_gold_million_usd": 62683.18242324241,
+          "previous_date": "2026-09-24",
+          "net_gold_change_million_usd": 1075.5307504214506
+        },
+        {
+          "date": "2026-09-28",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4144.4,
+          "gross_gold_million_usd": 105425.24719999998,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41196.06532240613,
+          "gold_swap_million_usd": 3668.77401,
+          "net_gold_million_usd": 60560.40786759385,
+          "previous_date": "2026-09-25",
+          "net_gold_change_million_usd": -2122.7745556485606
+        },
+        {
+          "date": "2026-09-29",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4139.0,
+          "gross_gold_million_usd": 105287.882,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41142.388372126,
+          "gold_swap_million_usd": 3850.41883,
+          "net_gold_million_usd": 60295.074797874,
+          "previous_date": "2026-09-28",
+          "net_gold_change_million_usd": -265.3330697198544
+        },
+        {
+          "date": "2026-09-30",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4188.75,
+          "gross_gold_million_usd": 106553.4225,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41636.912127021686,
+          "gold_swap_million_usd": 3649.3933,
+          "net_gold_million_usd": 61267.11707297831,
+          "previous_date": "2026-09-29",
+          "net_gold_change_million_usd": 972.0422751043152
+        },
+        {
+          "date": "2026-10-01",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4159.85,
+          "gross_gold_million_usd": 105818.26430000001,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41349.64104126319,
+          "gold_swap_million_usd": 3514.13924,
+          "net_gold_million_usd": 60954.484018736825,
+          "previous_date": "2026-09-30",
+          "net_gold_change_million_usd": -312.6330542414871
+        },
+        {
+          "date": "2026-10-02",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4186.6,
+          "gross_gold_million_usd": 106980.18980000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -42078.54744972822,
+          "gold_swap_million_usd": 3449.49993,
+          "net_gold_million_usd": 61452.14242027179,
+          "previous_date": "2026-10-01",
+          "net_gold_change_million_usd": 497.6584015349654
+        },
+        {
+          "date": "2026-10-05",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4163.45,
+          "gross_gold_million_usd": 106388.63785,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41845.872158689854,
+          "gold_swap_million_usd": 3317.21272,
+          "net_gold_million_usd": 61225.55297131014,
+          "previous_date": "2026-10-02",
+          "net_gold_change_million_usd": -226.58944896164758
+        },
+        {
+          "date": "2026-10-06",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4156.9,
+          "gross_gold_million_usd": 106221.26569999999,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41780.039624940335,
+          "gold_swap_million_usd": 3243.9289,
+          "net_gold_million_usd": 61197.297175059655,
+          "previous_date": "2026-10-05",
+          "net_gold_change_million_usd": -28.255796250487037
+        },
+        {
+          "date": "2026-10-07",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4119.1,
+          "gross_gold_million_usd": 105255.36230000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41400.12057521031,
+          "gold_swap_million_usd": 3404.88527,
+          "net_gold_million_usd": 60450.3564547897,
+          "previous_date": "2026-10-06",
+          "net_gold_change_million_usd": -746.9407202699585
+        },
+        {
+          "date": "2026-10-08",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4120.35,
+          "gross_gold_million_usd": 105287.30355000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41412.68403584954,
+          "gold_swap_million_usd": 2876.40475,
+          "net_gold_million_usd": 60998.21476415047,
+          "previous_date": "2026-10-07",
+          "net_gold_change_million_usd": 547.858309360774
+        },
+        {
+          "date": "2026-10-09",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4186.9,
+          "gross_gold_million_usd": 107071.5937,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41823.32868115444,
+          "gold_swap_million_usd": 2980.97732,
+          "net_gold_million_usd": 62267.28769884556,
+          "previous_date": "2026-10-08",
+          "net_gold_change_million_usd": 1269.0729346950902
+        },
+        {
+          "date": "2026-10-12",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4173.85,
+          "gross_gold_million_usd": 106737.86605000001,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41692.971032467096,
+          "gold_swap_million_usd": 3007.15854,
+          "net_gold_million_usd": 62037.73647753292,
+          "previous_date": "2026-10-09",
+          "net_gold_change_million_usd": -229.55122131264216
+        },
+        {
+          "date": "2026-10-13",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4182.45,
+          "gross_gold_million_usd": 106957.79385,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41778.87722240665,
+          "gold_swap_million_usd": 3207.59145,
+          "net_gold_million_usd": 61971.32517759335,
+          "previous_date": "2026-10-12",
+          "net_gold_change_million_usd": -66.41129993956565
+        },
+        {
+          "date": "2026-10-14",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4142.1,
+          "gross_gold_million_usd": 105925.92330000001,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41375.81736612048,
+          "gold_swap_million_usd": 3414.665,
+          "net_gold_million_usd": 61135.44093387953,
+          "previous_date": "2026-10-13",
+          "net_gold_change_million_usd": -835.8842437138228
+        },
+        {
+          "date": "2026-10-15",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4158.2,
+          "gross_gold_million_usd": 106337.6486,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41536.641744960805,
+          "gold_swap_million_usd": 3982.79398,
+          "net_gold_million_usd": 60818.21287503919,
+          "previous_date": "2026-10-14",
+          "net_gold_change_million_usd": -317.2280588403373
+        },
+        {
+          "date": "2026-10-16",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4181.9,
+          "gross_gold_million_usd": 106881.0002,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41867.09187088738,
+          "gold_swap_million_usd": 4316.87425,
+          "net_gold_million_usd": 60697.034079112615,
+          "previous_date": "2026-10-15",
+          "net_gold_change_million_usd": -121.17879592657846
+        },
+        {
+          "date": "2026-10-19",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4168.15,
+          "gross_gold_million_usd": 106529.5777,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41729.43374581871,
+          "gold_swap_million_usd": 4254.80446,
+          "net_gold_million_usd": 60545.33949418129,
+          "previous_date": "2026-10-16",
+          "net_gold_change_million_usd": -151.69458493132697
+        },
+        {
+          "date": "2026-10-20",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4120.6,
+          "gross_gold_million_usd": 105314.2948,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41253.386920581215,
+          "gold_swap_million_usd": 4467.34245,
+          "net_gold_million_usd": 59593.565429418784,
+          "previous_date": "2026-10-19",
+          "net_gold_change_million_usd": -951.7740647625033
+        },
+        {
+          "date": "2026-10-21",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4123.25,
+          "gross_gold_million_usd": 105382.0235,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41279.91739559445,
+          "gold_swap_million_usd": 4366.26217,
+          "net_gold_million_usd": 59735.843934405544,
+          "previous_date": "2026-10-20",
+          "net_gold_change_million_usd": 142.2785049867598
+        },
+        {
+          "date": "2026-10-22",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4083.85,
+          "gross_gold_million_usd": 104375.0383,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -40885.46429539765,
+          "gold_swap_million_usd": 4423.52769,
+          "net_gold_million_usd": 59066.04631460235,
+          "previous_date": "2026-10-21",
+          "net_gold_change_million_usd": -669.7976198031974
+        },
+        {
+          "date": "2026-10-23",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4026.7,
+          "gross_gold_million_usd": 102978.8258,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41601.9623935508,
+          "gold_swap_million_usd": 4453.14334,
+          "net_gold_million_usd": 56923.720066449205,
+          "previous_date": "2026-10-22",
+          "net_gold_change_million_usd": -2142.326248153142
+        },
+        {
+          "date": "2026-10-26",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4015.65,
+          "gross_gold_million_usd": 102696.23310000001,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41487.79901300377,
+          "gold_swap_million_usd": 4771.19389,
+          "net_gold_million_usd": 56437.24019699624,
+          "previous_date": "2026-10-23",
+          "net_gold_change_million_usd": -486.47986945296725
+        },
+        {
+          "date": "2026-10-27",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 3994.35,
+          "gross_gold_million_usd": 102151.50690000001,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41267.73747403076,
+          "gold_swap_million_usd": 3758.02536,
+          "net_gold_million_usd": 57125.74406596925,
+          "previous_date": "2026-10-26",
+          "net_gold_change_million_usd": 688.5038689730136
+        },
+        {
+          "date": "2026-10-28",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4046.65,
+          "gross_gold_million_usd": 103489.0271,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41808.07637019454,
+          "gold_swap_million_usd": 3758.02536,
+          "net_gold_million_usd": 57922.92536980547,
+          "previous_date": "2026-10-27",
+          "net_gold_change_million_usd": 797.1813038362161
+        },
+        {
+          "date": "2026-10-30",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3981.1,
+          "gross_gold_million_usd": 101979.8576,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -41390.29962784075,
+          "gold_swap_million_usd": 2830.8448,
+          "net_gold_million_usd": 57758.71317215925,
+          "previous_date": "2026-10-28",
+          "net_gold_change_million_usd": -164.21219764621492
+        },
+        {
+          "date": "2026-11-02",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3896.85,
+          "gross_gold_million_usd": 99821.7096,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -40514.37771087168,
+          "gold_swap_million_usd": 2883.93213,
+          "net_gold_million_usd": 56423.39975912832,
+          "previous_date": "2026-10-30",
+          "net_gold_change_million_usd": -1335.3134130309336
+        },
+        {
+          "date": "2026-11-03",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3902.75,
+          "gross_gold_million_usd": 99972.844,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -40575.71823680779,
+          "gold_swap_million_usd": 2942.99703,
+          "net_gold_million_usd": 56454.12873319221,
+          "previous_date": "2026-11-02",
+          "net_gold_change_million_usd": 30.728974063888018
+        }
+      ],
+      "level_audit": [
+        {
+          "date": "2026-09-21",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4343.15,
+          "gross_gold_million_usd": 110298.63739999999,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43462.33199912059,
+          "gold_swap_million_usd": 3776.09026,
+          "net_gold_million_usd": 63060.2151408794
+        },
+        {
+          "date": "2026-09-22",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4313.15,
+          "gross_gold_million_usd": 109536.75739999999,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43162.1190292776,
+          "gold_swap_million_usd": 3888.79842,
+          "net_gold_million_usd": 62485.83995072239
+        },
+        {
+          "date": "2026-09-23",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4316.4,
+          "gross_gold_million_usd": 109619.2944,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -43194.64210101059,
+          "gold_swap_million_usd": 3823.92091,
+          "net_gold_million_usd": 62600.731388989414
+        },
+        {
+          "date": "2026-09-24",
+          "weekly_gold_reference": "2026-09-11",
+          "source": "EVDS",
+          "gold_million_ounces": 25.396,
+          "gold_price_usd": 4255.55,
+          "gross_gold_million_usd": 108073.94780000001,
+          "passive_million_ounces": -10.00709899476661,
+          "gold_liabilities_signed_million_usd": -42585.710127179045,
+          "gold_swap_million_usd": 3880.586,
+          "net_gold_million_usd": 61607.65167282096
+        },
+        {
+          "date": "2026-09-25",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4290.75,
+          "gross_gold_million_usd": 109148.0985,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -42650.81007675758,
+          "gold_swap_million_usd": 3814.106,
+          "net_gold_million_usd": 62683.18242324241
+        },
+        {
+          "date": "2026-09-28",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4144.4,
+          "gross_gold_million_usd": 105425.24719999998,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41196.06532240613,
+          "gold_swap_million_usd": 3668.77401,
+          "net_gold_million_usd": 60560.40786759385
+        },
+        {
+          "date": "2026-09-29",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4139.0,
+          "gross_gold_million_usd": 105287.882,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41142.388372126,
+          "gold_swap_million_usd": 3850.41883,
+          "net_gold_million_usd": 60295.074797874
+        },
+        {
+          "date": "2026-09-30",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4188.75,
+          "gross_gold_million_usd": 106553.4225,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41636.912127021686,
+          "gold_swap_million_usd": 3649.3933,
+          "net_gold_million_usd": 61267.11707297831
+        },
+        {
+          "date": "2026-10-01",
+          "weekly_gold_reference": "2026-09-18",
+          "source": "EVDS",
+          "gold_million_ounces": 25.438,
+          "gold_price_usd": 4159.85,
+          "gross_gold_million_usd": 105818.26430000001,
+          "passive_million_ounces": -9.94017597780285,
+          "gold_liabilities_signed_million_usd": -41349.64104126319,
+          "gold_swap_million_usd": 3514.13924,
+          "net_gold_million_usd": 60954.484018736825
+        },
+        {
+          "date": "2026-10-02",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4186.6,
+          "gross_gold_million_usd": 106980.18980000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -42078.54744972822,
+          "gold_swap_million_usd": 3449.49993,
+          "net_gold_million_usd": 61452.14242027179
+        },
+        {
+          "date": "2026-10-05",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4163.45,
+          "gross_gold_million_usd": 106388.63785,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41845.872158689854,
+          "gold_swap_million_usd": 3317.21272,
+          "net_gold_million_usd": 61225.55297131014
+        },
+        {
+          "date": "2026-10-06",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4156.9,
+          "gross_gold_million_usd": 106221.26569999999,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41780.039624940335,
+          "gold_swap_million_usd": 3243.9289,
+          "net_gold_million_usd": 61197.297175059655
+        },
+        {
+          "date": "2026-10-07",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4119.1,
+          "gross_gold_million_usd": 105255.36230000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41400.12057521031,
+          "gold_swap_million_usd": 3404.88527,
+          "net_gold_million_usd": 60450.3564547897
+        },
+        {
+          "date": "2026-10-08",
+          "weekly_gold_reference": "2026-09-25",
+          "source": "EVDS",
+          "gold_million_ounces": 25.553,
+          "gold_price_usd": 4120.35,
+          "gross_gold_million_usd": 105287.30355000001,
+          "passive_million_ounces": -10.050768511376347,
+          "gold_liabilities_signed_million_usd": -41412.68403584954,
+          "gold_swap_million_usd": 2876.40475,
+          "net_gold_million_usd": 60998.21476415047
+        },
+        {
+          "date": "2026-10-09",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4186.9,
+          "gross_gold_million_usd": 107071.5937,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41823.32868115444,
+          "gold_swap_million_usd": 2980.97732,
+          "net_gold_million_usd": 62267.28769884556
+        },
+        {
+          "date": "2026-10-12",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4173.85,
+          "gross_gold_million_usd": 106737.86605000001,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41692.971032467096,
+          "gold_swap_million_usd": 3007.15854,
+          "net_gold_million_usd": 62037.73647753292
+        },
+        {
+          "date": "2026-10-13",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4182.45,
+          "gross_gold_million_usd": 106957.79385,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41778.87722240665,
+          "gold_swap_million_usd": 3207.59145,
+          "net_gold_million_usd": 61971.32517759335
+        },
+        {
+          "date": "2026-10-14",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4142.1,
+          "gross_gold_million_usd": 105925.92330000001,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41375.81736612048,
+          "gold_swap_million_usd": 3414.665,
+          "net_gold_million_usd": 61135.44093387953
+        },
+        {
+          "date": "2026-10-15",
+          "weekly_gold_reference": "2026-10-02",
+          "source": "EVDS",
+          "gold_million_ounces": 25.573,
+          "gold_price_usd": 4158.2,
+          "gross_gold_million_usd": 106337.6486,
+          "passive_million_ounces": -9.989091853436777,
+          "gold_liabilities_signed_million_usd": -41536.641744960805,
+          "gold_swap_million_usd": 3982.79398,
+          "net_gold_million_usd": 60818.21287503919
+        },
+        {
+          "date": "2026-10-16",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4181.9,
+          "gross_gold_million_usd": 106881.0002,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41867.09187088738,
+          "gold_swap_million_usd": 4316.87425,
+          "net_gold_million_usd": 60697.034079112615
+        },
+        {
+          "date": "2026-10-19",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4168.15,
+          "gross_gold_million_usd": 106529.5777,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41729.43374581871,
+          "gold_swap_million_usd": 4254.80446,
+          "net_gold_million_usd": 60545.33949418129
+        },
+        {
+          "date": "2026-10-20",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4120.6,
+          "gross_gold_million_usd": 105314.2948,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41253.386920581215,
+          "gold_swap_million_usd": 4467.34245,
+          "net_gold_million_usd": 59593.565429418784
+        },
+        {
+          "date": "2026-10-21",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4123.25,
+          "gross_gold_million_usd": 105382.0235,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -41279.91739559445,
+          "gold_swap_million_usd": 4366.26217,
+          "net_gold_million_usd": 59735.843934405544
+        },
+        {
+          "date": "2026-10-22",
+          "weekly_gold_reference": "2026-10-09",
+          "source": "EVDS",
+          "gold_million_ounces": 25.558,
+          "gold_price_usd": 4083.85,
+          "gross_gold_million_usd": 104375.0383,
+          "passive_million_ounces": -10.011500004994712,
+          "gold_liabilities_signed_million_usd": -40885.46429539765,
+          "gold_swap_million_usd": 4423.52769,
+          "net_gold_million_usd": 59066.04631460235
+        },
+        {
+          "date": "2026-10-23",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4026.7,
+          "gross_gold_million_usd": 102978.8258,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41601.9623935508,
+          "gold_swap_million_usd": 4453.14334,
+          "net_gold_million_usd": 56923.720066449205
+        },
+        {
+          "date": "2026-10-26",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4015.65,
+          "gross_gold_million_usd": 102696.23310000001,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41487.79901300377,
+          "gold_swap_million_usd": 4771.19389,
+          "net_gold_million_usd": 56437.24019699624
+        },
+        {
+          "date": "2026-10-27",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 3994.35,
+          "gross_gold_million_usd": 102151.50690000001,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41267.73747403076,
+          "gold_swap_million_usd": 3758.02536,
+          "net_gold_million_usd": 57125.74406596925
+        },
+        {
+          "date": "2026-10-28",
+          "weekly_gold_reference": "2026-10-16",
+          "source": "EVDS",
+          "gold_million_ounces": 25.574,
+          "gold_price_usd": 4046.65,
+          "gross_gold_million_usd": 103489.0271,
+          "passive_million_ounces": -10.331527651315172,
+          "gold_liabilities_signed_million_usd": -41808.07637019454,
+          "gold_swap_million_usd": 3758.02536,
+          "net_gold_million_usd": 57922.92536980547
+        },
+        {
+          "date": "2026-10-30",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3981.1,
+          "gross_gold_million_usd": 101979.8576,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -41390.29962784075,
+          "gold_swap_million_usd": 2830.8448,
+          "net_gold_million_usd": 57758.71317215925
+        },
+        {
+          "date": "2026-11-02",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3896.85,
+          "gross_gold_million_usd": 99821.7096,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -40514.37771087168,
+          "gold_swap_million_usd": 2883.93213,
+          "net_gold_million_usd": 56423.39975912832
+        },
+        {
+          "date": "2026-11-03",
+          "weekly_gold_reference": "2026-10-23",
+          "source": "EVDS",
+          "gold_million_ounces": 25.616,
+          "gold_price_usd": 3902.75,
+          "gross_gold_million_usd": 99972.844,
+          "passive_million_ounces": -10.396699311205635,
+          "gold_liabilities_signed_million_usd": -40575.71823680779,
+          "gold_swap_million_usd": 2942.99703,
+          "net_gold_million_usd": 56454.12873319221
+        }
+      ],
+      "fetched_at": "2026-11-05T12:06:55+03:00"
+    },
+    "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE": {
+      "provider": "derived",
+      "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC; TCMB / EVDS; London AM — Westmetall",
+      "fetched_at": "2026-11-05T12:06:49+03:00",
+      "frequency": "Günlük tahmin",
+      "group": "Günlük net döviz pozisyonu",
+      "weekly_anchor": "2026-10-23",
+      "estimated": true,
+      "id": "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE",
+      "code": "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE",
+      "name": "Swap ve Hazine Hariç Net Döviz Pozisyonu – Günlük Değişim (Net Altın Değişimi Hariç)",
+      "unit": "Milyon ABD doları",
+      "observations": [
+        {
+          "date": "2026-09-22",
+          "value": 2328.1988464218157
+        },
+        {
+          "date": "2026-09-23",
+          "value": 799.6885053353399
+        },
+        {
+          "date": "2026-09-24",
+          "value": -17.85294323913695
+        },
+        {
+          "date": "2026-09-25",
+          "value": -5198.308916764865
+        },
+        {
+          "date": "2026-09-28",
+          "value": -312.67147362208925
+        },
+        {
+          "date": "2026-09-29",
+          "value": 854.0725807538547
+        },
+        {
+          "date": "2026-09-30",
+          "value": -1070.7842117179098
+        },
+        {
+          "date": "2026-10-01",
+          "value": -2330.1286823115406
+        },
+        {
+          "date": "2026-10-02",
+          "value": 425.0342249928035
+        },
+        {
+          "date": "2026-10-05",
+          "value": 406.8746774313331
+        },
+        {
+          "date": "2026-10-06",
+          "value": 3893.1481796839435
+        },
+        {
+          "date": "2026-10-07",
+          "value": 215.4651695394423
+        },
+        {
+          "date": "2026-10-08",
+          "value": 895.3027485645798
+        },
+        {
+          "date": "2026-10-09",
+          "value": -421.46141295527923
+        },
+        {
+          "date": "2026-10-12",
+          "value": 422.07125949794136
+        },
+        {
+          "date": "2026-10-13",
+          "value": 155.27683861866535
+        },
+        {
+          "date": "2026-10-14",
+          "value": -4027.152663246852
+        },
+        {
+          "date": "2026-10-15",
+          "value": 159.11415401064005
+        },
+        {
+          "date": "2026-10-16",
+          "value": 12.574021097098012
+        },
+        {
+          "date": "2026-10-19",
+          "value": -1391.009036899959
+        },
+        {
+          "date": "2026-10-20",
+          "value": 392.68804077397726
+        },
+        {
+          "date": "2026-10-21",
+          "value": -455.58525604242095
+        },
+        {
+          "date": "2026-10-22",
+          "value": -1133.9399432298123
+        },
+        {
+          "date": "2026-10-23",
+          "value": -1944.0494372997746
+        },
+        {
+          "date": "2026-10-26",
+          "value": -2314.113644144636
+        },
+        {
+          "date": "2026-10-27",
+          "value": -850.444774548323
+        },
+        {
+          "date": "2026-10-28",
+          "value": -516.4498974309972
+        },
+        {
+          "date": "2026-10-30",
+          "value": -3521.7313327540105
+        },
+        {
+          "date": "2026-11-02",
+          "value": -1398.906825133672
+        },
+        {
+          "date": "2026-11-03",
+          "value": 3362.9237617682775
+        }
+      ]
     }
   },
   "_fx_weekly": {
@@ -1662177,7 +1664309,7 @@
   },
   "_lbma_am": {
     "source": "Westmetall London Fixing (AM, cross-checked with LBMA AM archive)",
-    "fetched_at": "2026-11-05T11:52:47+03:00",
+    "fetched_at": "2026-11-05T12:06:54+03:00",
     "observations": [
       {
         "date": "2026-01-02",
@@ -1663029,9 +1665161,8 @@
       },
       {
         "date": "2026-11-04",
-        "value": 4022.85,
-        "source": "user supplied LBMA AM; external conflict awaiting verification",
-        "manual": true
+        "value": 4043.65,
+        "source": "Westmetall London Fixing AM"
       }
     ]
   }
