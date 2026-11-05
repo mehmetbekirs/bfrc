@@ -707,7 +707,7 @@ def curated_figure(chart,records,demo=False):
     title=chart.get("title",chart["name"])
     title="<br>".join(escape(x) for x in textwrap.wrap(title,62))
     last=min(latest_dates);latest=date.fromisoformat(last)
-    earliest=(latest-timedelta(days=365*5)).isoformat()
+    earliest=min(d for values in series for d,v in values.items() if v is not None)
     fig.update_layout(template="none",height=760,paper_bgcolor="#eff6fa",plot_bgcolor="#eff6fa",
         font={"family":"Arial, sans-serif","size":16,"color":"#102536"},
         title={"text":"<b>"+title+"</b><br><span style='font-size:18px;font-weight:700'>"+escape(chart["unit"])+" · Son gözlem: "+latest.strftime("%d.%m.%Y")+"</span>",
@@ -864,14 +864,14 @@ button{background:#eff6fa;border:1px solid #cbd7df;border-radius:4px;padding:7px
 const built=STAMP_JSON,select=document.getElementById('series'),msg=document.getElementById('message'),graph=document.getElementById('chart');
 let generation=0,currentFigure=null,currentYears=5;
 function age(){document.getElementById('stale').hidden=Date.now()-new Date(built).getTime()<86400000;}age();setInterval(age,60000);
-function applyRange(){if(!currentFigure)return;const dates=currentFigure.data.flatMap(t=>t.x).filter(Boolean).sort(),end=dates[dates.length-1];
+function applyRange(){if(!currentFigure)return;const dates=currentFigure.data.flatMap(t=>t.x.filter((d,i)=>d&&typeof t.y[i]==='number'&&Number.isFinite(t.y[i]))).sort();if(!dates.length)return;const end=dates[dates.length-1];
 const start=new Date(end+'T12:00:00Z');start.setUTCMonth(start.getUTCMonth()-Math.round(currentYears*12));const begin=currentYears===0?dates[0]:start.toISOString().slice(0,10);
 const values=[];for(const t of currentFigure.data){for(let i=0;i<t.x.length;i++){if(t.x[i]>=begin&&t.x[i]<=end&&typeof t.y[i]==='number'&&Number.isFinite(t.y[i]))values.push(t.y[i]);}
 if(t.type==='bar'||t.fill==='tozeroy')values.push(0);}
 const hasBars=currentFigure.data.some(t=>t.type==='bar');
 const padded=(day,offset)=>new Date(new Date(day+'T00:00:00Z').getTime()+offset*86400000).toISOString().slice(0,10);
 const axisRange=hasBars?[padded(begin,-1),padded(end,1)]:[begin,end];
-const update={'xaxis.autorange':false,'xaxis.range':axisRange,'xaxis.dtick':currentYears<=1?'M1':currentYears===3?'M3':'M6'};
+const update={'xaxis.autorange':false,'xaxis.range':axisRange,'xaxis.dtick':currentYears>0&&currentYears<=1?'M1':currentYears===3?'M3':'M6'};
 if(values.length){const low=Math.min(...values),high=Math.max(...values),pad=(high-low||Math.abs(high)||1)*.08;update['yaxis.autorange']=false;update['yaxis.range']=[low-pad,high+pad];}
 Plotly.relayout(graph,update);}
 document.querySelectorAll('[data-years]').forEach(b=>b.addEventListener('click',()=>{currentYears=Number(b.dataset.years);
@@ -1259,13 +1259,13 @@ for code in WORKBOOK_LIABILITY_CODES:
 GOLD_ADJUSTMENT_METHOD='Net altın = günlük değerlenmiş altın varlığı − günlük değerlenmiş altın pasifleri − altın swap stoku.'
 CURATED_CHARTS[:0]=[
     {'id':'netfx-seviye-altin-haric','observation_days_only':True,'name':FX_EX_GOLD_LEVEL_TITLE,'unit':'Milyar ABD doları',
-     'area':True,'default_years':5,'lines':[line(FX_EX_GOLD_LEVEL,'Net döviz pozisyonu',.001,color='#432454')]},
+     'area':True,'default_years':0,'lines':[line(FX_EX_GOLD_LEVEL,'Seviye: net pozisyon − net altın',.001,color='#432454')]},
     {'id':'netfx-degisim-altin-haric','observation_days_only':True,'name':FX_EX_GOLD_TITLE,'unit':'Milyon ABD doları',
-     'daily_bars':True,'default_years':5,'lines':[line(FX_EX_GOLD_CODE,'Düzeltilmiş günlük değişim',color='#432454')]},
+     'daily_bars':True,'default_years':0,'lines':[line(FX_EX_GOLD_CODE,'Günlük değişim: net pozisyon farkı − net altın farkı',color='#432454')]},
     {'id':'net-altin','observation_days_only':True,'name':'Net Altın Varlığı','unit':'Milyar ABD doları','area':True,
-     'default_years':5,'lines':[line(GOLD_LEVEL_CODE,'Net altın',.001,color='#432454')]},
+     'default_years':0,'lines':[line(GOLD_LEVEL_CODE,'Net altın',.001,color='#432454')]},
     {'id':'net-altin-degisim','observation_days_only':True,'name':GOLD_CHART_TITLE,'unit':'Milyon ABD doları','daily_bars':True,
-     'default_years':5,'lines':[line(GOLD_ADJUSTED_CODE,'Günlük net altın değişimi',color='#432454')]}]
+     'default_years':0,'lines':[line(GOLD_ADJUSTED_CODE,'Günlük net altın değişimi',color='#432454')]}]
 
 def attach_gold_level(records):
     adjusted=records[GOLD_ADJUSTED_CODE]
