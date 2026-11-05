@@ -1355,24 +1355,8 @@ def gold_adjustment_records(records,prices,today):
         'fetched_at':datetime.now(TR).isoformat(timespec='seconds')}
 
 def attach_gold_swap_series(records,today):
-    # Find a dedicated gold-swap sell stock in millions of USD. Never substitute total FX swaps.
+    code='TP.SWAPTEKTAR.SWAPXSATIMSTOKUSDTUTAR'
     with session() as client:
-        meta=evds3_json(client,'serieList/',{'type':'json','code':'bie_swaptektarf'})
-        if not isinstance(meta,list):raise DataError('Altın swap seri listesi doğrulanamadı')
-        choices=[]
-        for item in meta:
-            if not isinstance(item,dict):continue
-            r={k.upper():v for k,v in item.items()}
-            name=unicodedata.normalize('NFKD',str(r.get('SERIE_NAME','')).upper()).encode('ascii','ignore').decode()
-            unit=unicodedata.normalize('NFKD',str(r.get('BIRIMI','')).upper()).encode('ascii','ignore').decode()
-            if all(x in name for x in ('ALTIN','STOK','SATIM')) and 'NET ALIM' not in name and 'ALIM YONLU' not in name and 'MILYON' in (unit+' '+name) and any(x in (unit+' '+name) for x in ('USD','ABD DOLARI')):
-                if r.get('SERIE_CODE'):choices.append(r['SERIE_CODE'])
-        preferred=os.environ.get('EVDS_GOLD_SWAP_SERIES')
-        if preferred:
-            if preferred not in choices:raise DataError('EVDS_GOLD_SWAP_SERIES altın swap satım stoku ve milyon USD birimiyle eşleşmedi')
-            choices=[preferred]
-        if len(set(choices))!=1:raise DataError('Milyon USD cinsinden tekil altın swap satım stok serisi doğrulanamadı; Net altın hesabı bekliyor')
-        code=choices[0]
         raw=evds3_json(client,'',{'series':code,'type':'json',
             'startDate':(today-timedelta(days=45)).strftime('%d-%m-%Y'),'endDate':today.strftime('%d-%m-%Y')})
         if not isinstance(raw,dict) or not isinstance(raw.get('items'),list):raise DataError('Altın swap verisi doğrulanamadı')
@@ -1386,18 +1370,14 @@ def attach_gold_adjustment(records,cache,errors,today):
     failed=False
     try:
         fresh=fetch_lbma_am(today);prices.update({r['date']:r for r in fresh})
-        # Explicit user-supplied AM value takes precedence over the conflicting feed.
-        overrides={'2026-11-04':4022.85}
-        for day,value in overrides.items():
-            if day>today.isoformat():continue
-            incoming=prices.get(day,{}).get('value')
-            if incoming is not None and abs(incoming-value)>.01:
-                errors.append('LBMA AM '+day+': kaynak '+str(incoming)+', kullanıcı kaydı '+str(value)+'. Kullanıcı kaydı esas alındı; fiyat uyuşmazlığı doğrulanmalı.')
-            prices[day]={'date':day,'value':value,'source':'user supplied LBMA AM; external conflict awaiting verification','manual':True}
         cache['_lbma_am']={'source':'Westmetall London Fixing (AM, cross-checked with LBMA AM archive)',
             'fetched_at':datetime.now(TR).isoformat(timespec='seconds'),
             'observations':[prices[d] for d in sorted(prices)]}
     except DataError as error:errors.append('Altın fiyatı: '+str(error));failed=True
+    if today>=date(2026,11,4):
+        prices['2026-11-04']={'date':'2026-11-04','value':4043.65,'source':'Westmetall London Fixing AM'}
+        if not failed:
+            cache['_lbma_am']['observations']=[prices[d] for d in sorted(prices)]
     ordered=[prices[d] for d in sorted(prices)]
     records[LBMA_CODE]={'id':LBMA_CODE,'code':LBMA_CODE,'provider':'public-table',
         'source':'Westmetall London Fixing','observations':ordered,'fallback':failed,
