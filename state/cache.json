@@ -90564,7 +90564,7 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-05T19:27:44+03:00"
+      "fetched_at": "2026-11-05T19:35:04+03:00"
     },
     "TP.AB.A03": {
       "id": "TP.AB.A03",
@@ -189510,7 +189510,7 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-05T19:27:44+03:00"
+      "fetched_at": "2026-11-05T19:35:04+03:00"
     },
     "TP.AB.A11": {
       "id": "TP.AB.A11",
@@ -219219,7 +219219,7 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-05T19:27:44+03:00"
+      "fetched_at": "2026-11-05T19:35:04+03:00"
     },
     "TP.AB.A14": {
       "id": "TP.AB.A14",
@@ -239037,7 +239037,7 @@
         "2026-11-03": "03-11-2026",
         "2026-11-04": "04-11-2026"
       },
-      "fetched_at": "2026-11-05T19:27:44+03:00"
+      "fetched_at": "2026-11-05T19:35:04+03:00"
     },
     "TP.AB.A16": {
       "id": "TP.AB.A16",
@@ -973087,7 +973087,7 @@
         "2026-11-04": "04-11-2026",
         "2026-11-05": "05-11-2026"
       },
-      "fetched_at": "2026-11-05T19:27:44+03:00"
+      "fetched_at": "2026-11-05T19:35:03+03:00"
     },
     "TP.DK.USD.S.YTL": {
       "id": "TP.DK.USD.S.YTL",
@@ -1431994,7 +1431994,7 @@
         "2026-11-04": "04-11-2026",
         "2026-11-05": "05-11-2026"
       },
-      "fetched_at": "2026-11-05T19:27:49+03:00"
+      "fetched_at": "2026-11-05T19:35:10+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU",
@@ -1439922,12 +1439922,12 @@
         "2026-11-04": "04-11-2026",
         "2026-11-05": "05-11-2026"
       },
-      "fetched_at": "2026-11-05T19:27:49+03:00"
+      "fetched_at": "2026-11-05T19:35:10+03:00"
     },
     "BFRC.NETFX.SWAPEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T19:27:44+03:00",
+      "fetched_at": "2026-11-05T19:35:03+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-30",
@@ -1447806,7 +1447806,7 @@
     "BFRC.NETFX.SWAPEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T19:27:44+03:00",
+      "fetched_at": "2026-11-05T19:35:03+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-30",
@@ -1450669,7 +1450669,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-05T19:27:44+03:00",
+      "fetched_at": "2026-11-05T19:35:04+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1458544,7 +1458544,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-05T19:27:44+03:00",
+      "fetched_at": "2026-11-05T19:35:04+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1474234,7 +1474234,7 @@
     "BFRC.NETFX.TREASURYEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T19:27:44+03:00",
+      "fetched_at": "2026-11-05T19:35:03+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-30",
@@ -1477097,7 +1477097,7 @@
     "BFRC.NETFX.TREASURYEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-05T19:27:44+03:00",
+      "fetched_at": "2026-11-05T19:35:03+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-30",
@@ -1571816,7 +1571816,7 @@
           "value": 4043.65
         }
       ],
-      "fetched_at": "2026-11-05T19:27:50+03:00"
+      "fetched_at": "2026-11-05T19:35:13+03:00"
     },
     "BFRC.NETFX.GOLD.ADJUSTED.CHANGE": {
       "id": "BFRC.NETFX.GOLD.ADJUSTED.CHANGE",
@@ -1597856,7 +1597856,7 @@
         "2026-11-04": "04-11-2026",
         "2026-11-05": "05-11-2026"
       },
-      "fetched_at": "2026-11-05T19:27:55+03:00"
+      "fetched_at": "2026-11-05T19:35:19+03:00"
     },
     "BFRC.GOLD.NET.CHANGE": {
       "id": "BFRC.GOLD.NET.CHANGE",
@@ -1604330,7 +1604330,7 @@
           "net_gold_million_usd": 59650.37175438718
         }
       ],
-      "fetched_at": "2026-11-05T19:27:55+03:00"
+      "fetched_at": "2026-11-05T19:35:19+03:00"
     },
     "BFRC.GOLD.NET.USD": {
       "id": "BFRC.GOLD.NET.USD",
@@ -1610852,19 +1610852,19 @@
           "net_gold_million_usd": 59650.37175438718
         }
       ],
-      "fetched_at": "2026-11-05T19:27:55+03:00"
+      "fetched_at": "2026-11-05T19:35:19+03:00"
     },
     "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC; TCMB / EVDS; London AM — Westmetall",
-      "fetched_at": "2026-11-05T19:27:44+03:00",
+      "fetched_at": "2026-11-05T19:35:03+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-30",
       "estimated": true,
       "id": "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE",
       "code": "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE",
-      "name": "Swap ve Hazine Hariç Net Döviz Pozisyonu – Günlük Değişim (Net Altın Değişimi Hariç)",
+      "name": "TCMB Swap ve Hazine Hariç Net Döviz Pozisyonu – Günlük Değişim (Altın Etkisi Çıkarılmış)",
       "unit": "Milyon ABD doları",
       "observations": [
         {
@@ -1611688,14 +1611688,14 @@
     "BFRC.NETFX.TREASURYEX.GOLDNETEX.LEVEL": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC; TCMB / EVDS; London AM — Westmetall",
-      "fetched_at": "2026-11-05T19:27:44+03:00",
+      "fetched_at": "2026-11-05T19:35:03+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-10-30",
       "estimated": true,
       "id": "BFRC.NETFX.TREASURYEX.GOLDNETEX.LEVEL",
       "code": "BFRC.NETFX.TREASURYEX.GOLDNETEX.LEVEL",
-      "name": "Swap, Hazine ve Net Altın Hariç Net Döviz Pozisyonu",
+      "name": "TCMB Swap ve Hazine Hariç Net Döviz Pozisyonu (Altın Etkisi Çıkarılmış)",
       "unit": "Milyon ABD doları",
       "observations": [
         {
@@ -1616173,7 +1616173,7 @@
   },
   "_lbma_am_source_only": {
     "source": "Westmetall London Fixing (AM, cross-checked with LBMA AM archive)",
-    "fetched_at": "2026-11-05T19:27:50+03:00",
+    "fetched_at": "2026-11-05T19:35:13+03:00",
     "observations": [
       {
         "date": "2026-01-02",
