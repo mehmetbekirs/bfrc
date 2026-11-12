@@ -35439,6 +35439,10 @@
         {
           "date": "2026-10-30",
           "value": 1889016841.0
+        },
+        {
+          "date": "2026-11-06",
+          "value": 2057194087.0
         }
       ],
       "periods": {
@@ -35850,9 +35854,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:28+03:00"
+      "fetched_at": "2026-11-12T15:22:30+03:00"
     },
     "TP.AB.N07": {
       "id": "TP.AB.N07",
@@ -88529,6 +88534,10 @@
         {
           "date": "2026-11-10",
           "value": 8442082053.0
+        },
+        {
+          "date": "2026-11-11",
+          "value": 8417748749.0
         }
       ],
       "periods": {
@@ -90582,9 +90591,10 @@
         "2026-11-05": "05-11-2026",
         "2026-11-06": "06-11-2026",
         "2026-11-09": "09-11-2026",
-        "2026-11-10": "10-11-2026"
+        "2026-11-10": "10-11-2026",
+        "2026-11-11": "11-11-2026"
       },
-      "fetched_at": "2026-11-12T10:08:08+03:00"
+      "fetched_at": "2026-11-12T15:22:26+03:00"
     },
     "TP.AB.A03": {
       "id": "TP.AB.A03",
@@ -187495,6 +187505,10 @@
         {
           "date": "2026-11-10",
           "value": 6282359668.0
+        },
+        {
+          "date": "2026-11-11",
+          "value": 6279571851.0
         }
       ],
       "periods": {
@@ -189548,9 +189562,10 @@
         "2026-11-05": "05-11-2026",
         "2026-11-06": "06-11-2026",
         "2026-11-09": "09-11-2026",
-        "2026-11-10": "10-11-2026"
+        "2026-11-10": "10-11-2026",
+        "2026-11-11": "11-11-2026"
       },
-      "fetched_at": "2026-11-12T10:08:08+03:00"
+      "fetched_at": "2026-11-12T15:22:26+03:00"
     },
     "TP.AB.A11": {
       "id": "TP.AB.A11",
@@ -217224,6 +217239,10 @@
         {
           "date": "2026-11-10",
           "value": 334684406.0
+        },
+        {
+          "date": "2026-11-11",
+          "value": 333716476.0
         }
       ],
       "periods": {
@@ -219277,9 +219296,10 @@
         "2026-11-05": "05-11-2026",
         "2026-11-06": "06-11-2026",
         "2026-11-09": "09-11-2026",
-        "2026-11-10": "10-11-2026"
+        "2026-11-10": "10-11-2026",
+        "2026-11-11": "11-11-2026"
       },
-      "fetched_at": "2026-11-12T10:08:08+03:00"
+      "fetched_at": "2026-11-12T15:22:26+03:00"
     },
     "TP.AB.A14": {
       "id": "TP.AB.A14",
@@ -237062,6 +237082,10 @@
         {
           "date": "2026-11-10",
           "value": 6262905318.0
+        },
+        {
+          "date": "2026-11-11",
+          "value": 6260803652.0
         }
       ],
       "periods": {
@@ -239115,9 +239139,10 @@
         "2026-11-05": "05-11-2026",
         "2026-11-06": "06-11-2026",
         "2026-11-09": "09-11-2026",
-        "2026-11-10": "10-11-2026"
+        "2026-11-10": "10-11-2026",
+        "2026-11-11": "11-11-2026"
       },
-      "fetched_at": "2026-11-12T10:08:08+03:00"
+      "fetched_at": "2026-11-12T15:22:26+03:00"
     },
     "TP.AB.A16": {
       "id": "TP.AB.A16",
@@ -349566,6 +349591,10 @@
         {
           "date": "2026-10-30",
           "value": 102016.8329386
+        },
+        {
+          "date": "2026-11-06",
+          "value": 104040.6445698
         }
       ],
       "periods": {
@@ -349977,9 +350006,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:12:57+03:00"
+      "fetched_at": "2026-11-12T15:21:56+03:00"
     },
     "TP.AB.C2": {
       "id": "TP.AB.C2",
@@ -351627,6 +351657,10 @@
         {
           "date": "2026-10-30",
           "value": 56090.1998805
+        },
+        {
+          "date": "2026-11-06",
+          "value": 57022.8313474
         }
       ],
       "periods": {
@@ -352038,9 +352072,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:12:57+03:00"
+      "fetched_at": "2026-11-12T15:21:56+03:00"
     },
     "TP.AB.TOPLAM": {
       "id": "TP.AB.TOPLAM",
@@ -353688,6 +353723,10 @@
         {
           "date": "2026-10-30",
           "value": 158107.0328191
+        },
+        {
+          "date": "2026-11-06",
+          "value": 161063.4759172
         }
       ],
       "periods": {
@@ -354099,9 +354138,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:12:57+03:00"
+      "fetched_at": "2026-11-12T15:21:56+03:00"
     },
     "TP.HPBITABLO1.3": {
       "id": "TP.HPBITABLO1.3",
@@ -369044,23 +369084,27 @@
         },
         {
           "date": "2026-10-02",
-          "value": 11280188217.7319
+          "value": 11280302385.7319
         },
         {
           "date": "2026-10-09",
-          "value": 11198376737.08907
+          "value": 11198490905.08907
         },
         {
           "date": "2026-10-16",
-          "value": 11409724648.430313
+          "value": 11409838816.430313
         },
         {
           "date": "2026-10-23",
-          "value": 11353343080.634554
+          "value": 11353457248.634554
         },
         {
           "date": "2026-10-30",
-          "value": 11321405744.71618
+          "value": 11321519912.71618
+        },
+        {
+          "date": "2026-11-06",
+          "value": 11255535830.848673
         }
       ],
       "periods": {
@@ -369472,9 +369516,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:07+03:00"
+      "fetched_at": "2026-11-12T15:22:04+03:00"
     },
     "TP.HPBITABLO1.13": {
       "id": "TP.HPBITABLO1.13",
@@ -374684,6 +374729,10 @@
         {
           "date": "2026-10-30",
           "value": 15077761117.0
+        },
+        {
+          "date": "2026-11-06",
+          "value": 14912650645.0
         }
       ],
       "periods": {
@@ -375095,9 +375144,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:07+03:00"
+      "fetched_at": "2026-11-12T15:22:04+03:00"
     },
     "TP.HPBITABLO1.16": {
       "id": "TP.HPBITABLO1.16",
@@ -380307,6 +380357,10 @@
         {
           "date": "2026-10-30",
           "value": 3465523092.883793
+        },
+        {
+          "date": "2026-11-06",
+          "value": 3536872718.0524764
         }
       ],
       "periods": {
@@ -380718,9 +380772,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:07+03:00"
+      "fetched_at": "2026-11-12T15:22:04+03:00"
     },
     "TP.HPBITABLO1.11": {
       "id": "TP.HPBITABLO1.11",
@@ -382351,23 +382406,27 @@
         },
         {
           "date": "2026-10-02",
-          "value": 29384956193.691658
+          "value": 29385070361.691658
         },
         {
           "date": "2026-10-09",
-          "value": 29327178699.935055
+          "value": 29327292867.935055
         },
         {
           "date": "2026-10-16",
-          "value": 29842112543.53028
+          "value": 29842226711.53028
         },
         {
           "date": "2026-10-23",
-          "value": 29958707626.55603
+          "value": 29958821794.55603
         },
         {
           "date": "2026-10-30",
-          "value": 29864689954.59997
+          "value": 29864804122.59997
+        },
+        {
+          "date": "2026-11-06",
+          "value": 29705059193.90115
         }
       ],
       "periods": {
@@ -382779,9 +382838,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:07+03:00"
+      "fetched_at": "2026-11-12T15:22:04+03:00"
     },
     "TP.HPBITABLO1.19": {
       "id": "TP.HPBITABLO1.19",
@@ -389755,23 +389815,27 @@
         },
         {
           "date": "2026-10-02",
-          "value": 32341480757.971397
+          "value": 32341594925.971397
         },
         {
           "date": "2026-10-09",
-          "value": 32462338091.493103
+          "value": 32462452259.493103
         },
         {
           "date": "2026-10-16",
-          "value": 32992519141.62258
+          "value": 32992633309.62258
         },
         {
           "date": "2026-10-23",
-          "value": 33109163842.55081
+          "value": 33109278010.55081
         },
         {
           "date": "2026-10-30",
-          "value": 33043541633.695793
+          "value": 33043655801.695793
+        },
+        {
+          "date": "2026-11-06",
+          "value": 32968813317.69649
         }
       ],
       "periods": {
@@ -390183,9 +390247,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:07+03:00"
+      "fetched_at": "2026-11-12T15:22:04+03:00"
     },
     "TP.DK.AED.A.YTL": {
       "id": "TP.DK.AED.A.YTL",
@@ -973194,7 +973259,7 @@
         "2026-11-11": "11-11-2026",
         "2026-11-12": "12-11-2026"
       },
-      "fetched_at": "2026-11-12T10:08:08+03:00"
+      "fetched_at": "2026-11-12T15:22:25+03:00"
     },
     "TP.DK.USD.S.YTL": {
       "id": "TP.DK.USD.S.YTL",
@@ -1102068,7 +1102133,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:07:48+03:00"
+      "fetched_at": "2026-11-12T15:22:00+03:00"
     },
     "TP.TUKFIY2025.01": {
       "id": "TP.TUKFIY2025.01",
@@ -1244466,7 +1244531,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:08:01+03:00"
+      "fetched_at": "2026-11-12T15:22:19+03:00"
     },
     "TP.RK.T1.Y": {
       "id": "TP.RK.T1.Y",
@@ -1244952,7 +1245017,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:07:59+03:00"
+      "fetched_at": "2026-11-12T15:22:16+03:00"
     },
     "TP.RK.T2.Y": {
       "id": "TP.RK.T2.Y",
@@ -1411390,7 +1411455,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:07:43+03:00"
+      "fetched_at": "2026-11-12T15:21:57+03:00"
     },
     "TP.FHGE.S01": {
       "id": "TP.FHGE.S01",
@@ -1411876,7 +1411941,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:07:46+03:00"
+      "fetched_at": "2026-11-12T15:21:58+03:00"
     },
     "TP.GY1.N2": {
       "id": "TP.GY1.N2",
@@ -1412362,7 +1412427,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:07:48+03:00"
+      "fetched_at": "2026-11-12T15:22:00+03:00"
     },
     "TP.GY1.N2.MA": {
       "id": "TP.GY1.N2.MA",
@@ -1412848,7 +1412913,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:07:50+03:00"
+      "fetched_at": "2026-11-12T15:22:03+03:00"
     },
     "TP.IHRISICREV4.TT": {
       "id": "TP.IHRISICREV4.TT",
@@ -1413329,7 +1413394,7 @@
         "2026-08-01": "2026-8",
         "2026-09-01": "2026-9"
       },
-      "fetched_at": "2026-11-12T10:07:50+03:00"
+      "fetched_at": "2026-11-12T15:22:05+03:00"
     },
     "TP.ITHISICREV4.TT": {
       "id": "TP.ITHISICREV4.TT",
@@ -1413810,7 +1413875,7 @@
         "2026-08-01": "2026-8",
         "2026-09-01": "2026-9"
       },
-      "fetched_at": "2026-11-12T10:07:52+03:00"
+      "fetched_at": "2026-11-12T15:22:06+03:00"
     },
     "TP.KFE.TR": {
       "id": "TP.KFE.TR",
@@ -1414291,7 +1414356,7 @@
         "2026-08-01": "2026-8",
         "2026-09-01": "2026-9"
       },
-      "fetched_at": "2026-11-12T10:07:52+03:00"
+      "fetched_at": "2026-11-12T15:22:09+03:00"
     },
     "TP.KKO.MA": {
       "id": "TP.KKO.MA",
@@ -1414777,7 +1414842,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:07:55+03:00"
+      "fetched_at": "2026-11-12T15:22:08+03:00"
     },
     "TP.KKO2.IS.TOP": {
       "id": "TP.KKO2.IS.TOP",
@@ -1415263,7 +1415328,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:07:55+03:00"
+      "fetched_at": "2026-11-12T15:22:11+03:00"
     },
     "TP.KREHACBS.A1": {
       "id": "TP.KREHACBS.A1",
@@ -1415744,7 +1415809,7 @@
         "2026-08-01": "2026-8",
         "2026-09-01": "2026-9"
       },
-      "fetched_at": "2026-11-12T10:07:57+03:00"
+      "fetched_at": "2026-11-12T15:22:11+03:00"
     },
     "TP.KTF17": {
       "id": "TP.KTF17",
@@ -1417805,7 +1417870,7 @@
         "2026-10-23": "23-10-2026",
         "2026-10-30": "30-10-2026"
       },
-      "fetched_at": "2026-11-12T01:13:14+03:00"
+      "fetched_at": "2026-11-12T15:22:14+03:00"
     },
     "TP.KTFTUK": {
       "id": "TP.KTFTUK",
@@ -1419866,7 +1419931,7 @@
         "2026-10-23": "23-10-2026",
         "2026-10-30": "30-10-2026"
       },
-      "fetched_at": "2026-11-12T01:13:14+03:00"
+      "fetched_at": "2026-11-12T15:22:14+03:00"
     },
     "TP.KVDB07": {
       "id": "TP.KVDB07",
@@ -1420342,7 +1420407,7 @@
         "2026-07-01": "2026-7",
         "2026-08-01": "2026-8"
       },
-      "fetched_at": "2026-11-12T10:07:57+03:00"
+      "fetched_at": "2026-11-12T15:22:13+03:00"
     },
     "TP.KVDB12": {
       "id": "TP.KVDB12",
@@ -1420818,7 +1420883,7 @@
         "2026-07-01": "2026-7",
         "2026-08-01": "2026-8"
       },
-      "fetched_at": "2026-11-12T10:07:57+03:00"
+      "fetched_at": "2026-11-12T15:22:13+03:00"
     },
     "TP.KVDB19": {
       "id": "TP.KVDB19",
@@ -1421294,7 +1421359,7 @@
         "2026-07-01": "2026-7",
         "2026-08-01": "2026-8"
       },
-      "fetched_at": "2026-11-12T10:07:57+03:00"
+      "fetched_at": "2026-11-12T15:22:13+03:00"
     },
     "TP.TRY.MT06": {
       "id": "TP.TRY.MT06",
@@ -1423355,7 +1423420,7 @@
         "2026-10-23": "23-10-2026",
         "2026-10-30": "30-10-2026"
       },
-      "fetched_at": "2026-11-12T01:13:16+03:00"
+      "fetched_at": "2026-11-12T15:22:17+03:00"
     },
     "TP.TUFE1YI.T1": {
       "id": "TP.TUFE1YI.T1",
@@ -1423841,7 +1423906,7 @@
         "2026-09-01": "2026-9",
         "2026-10-01": "2026-10"
       },
-      "fetched_at": "2026-11-12T10:07:59+03:00"
+      "fetched_at": "2026-11-12T15:22:18+03:00"
     },
     "TP.BRUTDBORCOZEL.G15": {
       "id": "TP.BRUTDBORCOZEL.G15",
@@ -1424007,7 +1424072,7 @@
         "2026-01-01": "2026-Q1",
         "2026-04-01": "2026-Q2"
       },
-      "fetched_at": "2026-11-12T10:07:44+03:00"
+      "fetched_at": "2026-11-12T15:21:55+03:00"
     },
     "TP.BRUTDBORCOZEL.G28": {
       "id": "TP.BRUTDBORCOZEL.G28",
@@ -1424173,7 +1424238,7 @@
         "2026-01-01": "2026-Q1",
         "2026-04-01": "2026-Q2"
       },
-      "fetched_at": "2026-11-12T10:07:44+03:00"
+      "fetched_at": "2026-11-12T15:21:55+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKALIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKALIMYONLU",
@@ -1432121,7 +1432186,7 @@
         "2026-11-10": "10-11-2026",
         "2026-11-11": "11-11-2026"
       },
-      "fetched_at": "2026-11-12T10:08:14+03:00"
+      "fetched_at": "2026-11-12T15:22:32+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU",
@@ -1440069,15 +1440134,15 @@
         "2026-11-10": "10-11-2026",
         "2026-11-11": "11-11-2026"
       },
-      "fetched_at": "2026-11-12T10:08:14+03:00"
+      "fetched_at": "2026-11-12T15:22:32+03:00"
     },
     "BFRC.NETFX.SWAPEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-12T10:08:08+03:00",
+      "fetched_at": "2026-11-12T15:22:25+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-30",
+      "weekly_anchor": "2026-11-06",
       "estimated": true,
       "id": "BFRC.NETFX.SWAPEX",
       "code": "BFRC.NETFX.SWAPEX",
@@ -1447954,25 +1448019,29 @@
         },
         {
           "date": "2026-11-06",
-          "value": 30159.962331177783
+          "value": 30305.551311177784
         },
         {
           "date": "2026-11-09",
-          "value": 31063.66066172093
+          "value": 31209.24964172093
         },
         {
           "date": "2026-11-10",
-          "value": 36650.125925707616
+          "value": 36795.71490570762
+        },
+        {
+          "date": "2026-11-11",
+          "value": 36851.92566714117
         }
       ]
     },
     "BFRC.NETFX.SWAPEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-12T10:08:08+03:00",
+      "fetched_at": "2026-11-12T15:22:25+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-30",
+      "weekly_anchor": "2026-11-06",
       "estimated": true,
       "id": "BFRC.NETFX.SWAPEX.CHANGE",
       "code": "BFRC.NETFX.SWAPEX.CHANGE",
@@ -1450829,7 +1450898,7 @@
         },
         {
           "date": "2026-11-06",
-          "value": -3718.377938011581
+          "value": -3572.7889580115807
         },
         {
           "date": "2026-11-09",
@@ -1450838,6 +1450907,10 @@
         {
           "date": "2026-11-10",
           "value": 5586.465263986687
+        },
+        {
+          "date": "2026-11-11",
+          "value": 56.21076143355458
         }
       ]
     },
@@ -1450848,7 +1450921,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-12T10:08:08+03:00",
+      "fetched_at": "2026-11-12T15:22:26+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1458729,6 +1458802,10 @@
         {
           "date": "2026-11-10",
           "value": 2159722385.0
+        },
+        {
+          "date": "2026-11-11",
+          "value": 2138176898.0
         }
       ]
     },
@@ -1458739,7 +1458816,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-12T10:08:08+03:00",
+      "fetched_at": "2026-11-12T15:22:26+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1466620,6 +1466697,10 @@
         {
           "date": "2026-11-10",
           "value": 4103182933.0
+        },
+        {
+          "date": "2026-11-11",
+          "value": 4122626754.0
         }
       ]
     },
@@ -1474448,9 +1474529,9 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-12T10:08:08+03:00",
+      "fetched_at": "2026-11-12T15:22:25+03:00",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-30",
+      "weekly_anchor": "2026-11-06",
       "estimated": true,
       "id": "BFRC.NETFX.TREASURYEX",
       "code": "BFRC.NETFX.TREASURYEX",
@@ -1480306,15 +1480387,19 @@
         },
         {
           "date": "2026-11-06",
-          "value": 23418.246780995534
+          "value": 23563.835760995535
         },
         {
           "date": "2026-11-09",
-          "value": 24406.67314211403
+          "value": 24552.26212211403
         },
         {
           "date": "2026-11-10",
-          "value": 29968.171317998756
+          "value": 30113.760297998757
+        },
+        {
+          "date": "2026-11-11",
+          "value": 30191.955043805086
         }
       ]
     },
@@ -1480324,9 +1480409,9 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-12T10:08:08+03:00",
+      "fetched_at": "2026-11-12T15:22:25+03:00",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-30",
+      "weekly_anchor": "2026-11-06",
       "estimated": true,
       "id": "BFRC.NETFX.TREASURYEX.CHANGE",
       "code": "BFRC.NETFX.TREASURYEX.CHANGE",
@@ -1486178,7 +1486263,7 @@
         },
         {
           "date": "2026-11-06",
-          "value": -3690.4961035414744
+          "value": -3544.907123541474
         },
         {
           "date": "2026-11-09",
@@ -1486187,6 +1486272,10 @@
         {
           "date": "2026-11-10",
           "value": 5561.498175884728
+        },
+        {
+          "date": "2026-11-11",
+          "value": 78.19474580632959
         }
       ]
     },
@@ -1486197,7 +1486286,7 @@
       "source": "TCMB / EVDS — Stand By (Cari) Net Uluslararası Rezervler",
       "unit": "Milyon ABD doları",
       "frequency": "HAFTALIK(CUMA)",
-      "fetched_at": "2026-11-12T01:13:28+03:00",
+      "fetched_at": "2026-11-12T15:22:25+03:00",
       "observations": [
         {
           "date": "2019-01-04",
@@ -1487762,6 +1487851,10 @@
         {
           "date": "2026-10-30",
           "value": 38008.616571126186
+        },
+        {
+          "date": "2026-11-06",
+          "value": 41177.729833923484
         }
       ]
     },
@@ -1558352,6 +1558445,10 @@
         {
           "date": "2026-10-30",
           "value": 148041108.0
+        },
+        {
+          "date": "2026-11-06",
+          "value": 152149348.0
         }
       ],
       "periods": {
@@ -1558763,9 +1558860,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:30+03:00"
+      "fetched_at": "2026-11-12T15:22:33+03:00"
     },
     "TP.BL0823": {
       "id": "TP.BL0823",
@@ -1561850,6 +1561948,10 @@
         {
           "date": "2026-10-30",
           "value": 36141551.0
+        },
+        {
+          "date": "2026-11-06",
+          "value": 37144503.0
         }
       ],
       "periods": {
@@ -1562261,9 +1562363,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:30+03:00"
+      "fetched_at": "2026-11-12T15:22:33+03:00"
     },
     "TP.BL136": {
       "id": "TP.BL136",
@@ -1563619,6 +1563722,10 @@
         {
           "date": "2026-10-30",
           "value": 213958322.0
+        },
+        {
+          "date": "2026-11-06",
+          "value": 259134975.0
         }
       ],
       "periods": {
@@ -1564030,9 +1564137,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:30+03:00"
+      "fetched_at": "2026-11-12T15:22:33+03:00"
     },
     "TP.BL089": {
       "id": "TP.BL089",
@@ -1565680,6 +1565788,10 @@
         {
           "date": "2026-10-30",
           "value": 1394441810.0
+        },
+        {
+          "date": "2026-11-06",
+          "value": 1415862783.0
         }
       ],
       "periods": {
@@ -1566091,9 +1566203,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:30+03:00"
+      "fetched_at": "2026-11-12T15:22:33+03:00"
     },
     "TP.BL0891": {
       "id": "TP.BL0891",
@@ -1569661,6 +1569774,10 @@
         {
           "date": "2026-10-30",
           "value": 190839748.0
+        },
+        {
+          "date": "2026-11-06",
+          "value": 196135678.0
         }
       ],
       "periods": {
@@ -1570072,9 +1570189,10 @@
         "2026-10-09": "09-10-2026",
         "2026-10-16": "16-10-2026",
         "2026-10-23": "23-10-2026",
-        "2026-10-30": "30-10-2026"
+        "2026-10-30": "30-10-2026",
+        "2026-11-06": "06-11-2026"
       },
-      "fetched_at": "2026-11-12T01:13:30+03:00"
+      "fetched_at": "2026-11-12T15:22:33+03:00"
     },
     "TP.BL142": {
       "id": "TP.BL142",
@@ -1585101,7 +1585219,7 @@
           "value": 4050.25
         }
       ],
-      "fetched_at": "2026-11-12T10:08:16+03:00"
+      "fetched_at": "2026-11-12T15:22:35+03:00"
     },
     "BFRC.NETFX.GOLD.ADJUSTED.CHANGE": {
       "id": "BFRC.NETFX.GOLD.ADJUSTED.CHANGE",
@@ -1611161,7 +1611279,7 @@
         "2026-11-10": "10-11-2026",
         "2026-11-11": "11-11-2026"
       },
-      "fetched_at": "2026-11-12T10:08:22+03:00"
+      "fetched_at": "2026-11-12T15:22:41+03:00"
     },
     "BFRC.GOLD.NET.CHANGE": {
       "provider": "derived",
@@ -1628795,48 +1628913,63 @@
         },
         {
           "date": "2026-11-06",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4070.35,
-          "gross_gold_million_usd": 104303.88992357612,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -40802.81676821776,
+          "gross_gold_million_usd": 104040.64459959652,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41242.44703145986,
           "gold_swap_million_usd": 3564.25582,
-          "net_gold_million_usd": 59936.81733535836,
+          "net_gold_million_usd": 59233.94174813666,
           "previous_date": "2026-11-05",
-          "net_gold_change_million_usd": -849.2614931746866
+          "net_gold_change_million_usd": -1552.1370803963873
         },
         {
           "date": "2026-11-09",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4097.1,
-          "gross_gold_million_usd": 104989.36637043099,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -41070.96946971759,
+          "gross_gold_million_usd": 104724.39102018424,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41513.488946305406,
           "gold_swap_million_usd": 3386.0233,
-          "net_gold_million_usd": 60532.3736007134,
+          "net_gold_million_usd": 59824.87877387883,
           "previous_date": "2026-11-06",
-          "net_gold_change_million_usd": 595.5562653550369
+          "net_gold_change_million_usd": 590.9370257421688
         },
         {
           "date": "2026-11-10",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4073.7,
-          "gross_gold_million_usd": 104389.7346374813,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -40836.39850840558,
+          "gross_gold_million_usd": 104126.27265600656,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41276.390598365746,
           "gold_swap_million_usd": 3413.28491,
-          "net_gold_million_usd": 60140.05121907572,
+          "net_gold_million_usd": 59436.597147640816,
           "previous_date": "2026-11-09",
-          "net_gold_change_million_usd": -392.3223816376776
+          "net_gold_change_million_usd": -388.2816262380147
+        },
+        {
+          "date": "2026-11-11",
+          "weekly_gold_reference": "2026-11-06",
+          "weekly_gold_reference_source": "TCMB / EVDS",
+          "source": "EVDS",
+          "gold_million_ounces": 25.560613853746364,
+          "gold_price_usd": 4050.25,
+          "gross_gold_million_usd": 103526.87626113622,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41038.78563002452,
+          "gold_swap_million_usd": 3938.67274,
+          "net_gold_million_usd": 58549.4178911117,
+          "previous_date": "2026-11-10",
+          "net_gold_change_million_usd": -887.179256529118
         }
       ],
       "id": "BFRC.GOLD.NET.CHANGE",
@@ -1633720,15 +1633853,19 @@
         },
         {
           "date": "2026-11-06",
-          "value": -849.2614931746866
+          "value": -1552.1370803963873
         },
         {
           "date": "2026-11-09",
-          "value": 595.5562653550369
+          "value": 590.9370257421688
         },
         {
           "date": "2026-11-10",
-          "value": -392.3223816376776
+          "value": -388.2816262380147
+        },
+        {
+          "date": "2026-11-11",
+          "value": -887.179256529118
         }
       ],
       "level_audit": [
@@ -1649316,45 +1649453,58 @@
         },
         {
           "date": "2026-11-06",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4070.35,
-          "gross_gold_million_usd": 104303.88992357612,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -40802.81676821776,
+          "gross_gold_million_usd": 104040.64459959652,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41242.44703145986,
           "gold_swap_million_usd": 3564.25582,
-          "net_gold_million_usd": 59936.81733535836
+          "net_gold_million_usd": 59233.94174813666
         },
         {
           "date": "2026-11-09",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4097.1,
-          "gross_gold_million_usd": 104989.36637043099,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -41070.96946971759,
+          "gross_gold_million_usd": 104724.39102018424,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41513.488946305406,
           "gold_swap_million_usd": 3386.0233,
-          "net_gold_million_usd": 60532.3736007134
+          "net_gold_million_usd": 59824.87877387883
         },
         {
           "date": "2026-11-10",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4073.7,
-          "gross_gold_million_usd": 104389.7346374813,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -40836.39850840558,
+          "gross_gold_million_usd": 104126.27265600656,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41276.390598365746,
           "gold_swap_million_usd": 3413.28491,
-          "net_gold_million_usd": 60140.05121907572
+          "net_gold_million_usd": 59436.597147640816
+        },
+        {
+          "date": "2026-11-11",
+          "weekly_gold_reference": "2026-11-06",
+          "weekly_gold_reference_source": "TCMB / EVDS",
+          "source": "EVDS",
+          "gold_million_ounces": 25.560613853746364,
+          "gold_price_usd": 4050.25,
+          "gross_gold_million_usd": 103526.87626113622,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41038.78563002452,
+          "gold_swap_million_usd": 3938.67274,
+          "net_gold_million_usd": 58549.4178911117
         }
       ],
-      "fetched_at": "2026-11-12T10:08:23+03:00"
+      "fetched_at": "2026-11-12T15:22:41+03:00"
     },
     "BFRC.GOLD.NET.USD": {
       "provider": "derived",
@@ -1666988,48 +1667138,63 @@
         },
         {
           "date": "2026-11-06",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4070.35,
-          "gross_gold_million_usd": 104303.88992357612,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -40802.81676821776,
+          "gross_gold_million_usd": 104040.64459959652,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41242.44703145986,
           "gold_swap_million_usd": 3564.25582,
-          "net_gold_million_usd": 59936.81733535836,
+          "net_gold_million_usd": 59233.94174813666,
           "previous_date": "2026-11-05",
-          "net_gold_change_million_usd": -849.2614931746866
+          "net_gold_change_million_usd": -1552.1370803963873
         },
         {
           "date": "2026-11-09",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4097.1,
-          "gross_gold_million_usd": 104989.36637043099,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -41070.96946971759,
+          "gross_gold_million_usd": 104724.39102018424,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41513.488946305406,
           "gold_swap_million_usd": 3386.0233,
-          "net_gold_million_usd": 60532.3736007134,
+          "net_gold_million_usd": 59824.87877387883,
           "previous_date": "2026-11-06",
-          "net_gold_change_million_usd": 595.5562653550369
+          "net_gold_change_million_usd": 590.9370257421688
         },
         {
           "date": "2026-11-10",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4073.7,
-          "gross_gold_million_usd": 104389.7346374813,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -40836.39850840558,
+          "gross_gold_million_usd": 104126.27265600656,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41276.390598365746,
           "gold_swap_million_usd": 3413.28491,
-          "net_gold_million_usd": 60140.05121907572,
+          "net_gold_million_usd": 59436.597147640816,
           "previous_date": "2026-11-09",
-          "net_gold_change_million_usd": -392.3223816376776
+          "net_gold_change_million_usd": -388.2816262380147
+        },
+        {
+          "date": "2026-11-11",
+          "weekly_gold_reference": "2026-11-06",
+          "weekly_gold_reference_source": "TCMB / EVDS",
+          "source": "EVDS",
+          "gold_million_ounces": 25.560613853746364,
+          "gold_price_usd": 4050.25,
+          "gross_gold_million_usd": 103526.87626113622,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41038.78563002452,
+          "gold_swap_million_usd": 3938.67274,
+          "net_gold_million_usd": 58549.4178911117,
+          "previous_date": "2026-11-10",
+          "net_gold_change_million_usd": -887.179256529118
         }
       ],
       "id": "BFRC.GOLD.NET.USD",
@@ -1671913,15 +1672078,19 @@
         },
         {
           "date": "2026-11-06",
-          "value": 59936.81733535836
+          "value": 59233.94174813666
         },
         {
           "date": "2026-11-09",
-          "value": 60532.3736007134
+          "value": 59824.87877387883
         },
         {
           "date": "2026-11-10",
-          "value": 60140.05121907572
+          "value": 59436.597147640816
+        },
+        {
+          "date": "2026-11-11",
+          "value": 58549.4178911117
         }
       ],
       "level_audit": [
@@ -1687509,45 +1687678,58 @@
         },
         {
           "date": "2026-11-06",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4070.35,
-          "gross_gold_million_usd": 104303.88992357612,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -40802.81676821776,
+          "gross_gold_million_usd": 104040.64459959652,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41242.44703145986,
           "gold_swap_million_usd": 3564.25582,
-          "net_gold_million_usd": 59936.81733535836
+          "net_gold_million_usd": 59233.94174813666
         },
         {
           "date": "2026-11-09",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4097.1,
-          "gross_gold_million_usd": 104989.36637043099,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -41070.96946971759,
+          "gross_gold_million_usd": 104724.39102018424,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41513.488946305406,
           "gold_swap_million_usd": 3386.0233,
-          "net_gold_million_usd": 60532.3736007134
+          "net_gold_million_usd": 59824.87877387883
         },
         {
           "date": "2026-11-10",
-          "weekly_gold_reference": "2026-10-30",
+          "weekly_gold_reference": "2026-11-06",
           "weekly_gold_reference_source": "TCMB / EVDS",
           "source": "EVDS",
-          "gold_million_ounces": 25.625287732891795,
+          "gold_million_ounces": 25.560613853746364,
           "gold_price_usd": 4073.7,
-          "gross_gold_million_usd": 104389.7346374813,
-          "passive_million_ounces": -10.024400056068338,
-          "gold_liabilities_signed_million_usd": -40836.39850840558,
+          "gross_gold_million_usd": 104126.27265600656,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41276.390598365746,
           "gold_swap_million_usd": 3413.28491,
-          "net_gold_million_usd": 60140.05121907572
+          "net_gold_million_usd": 59436.597147640816
+        },
+        {
+          "date": "2026-11-11",
+          "weekly_gold_reference": "2026-11-06",
+          "weekly_gold_reference_source": "TCMB / EVDS",
+          "source": "EVDS",
+          "gold_million_ounces": 25.560613853746364,
+          "gold_price_usd": 4050.25,
+          "gross_gold_million_usd": 103526.87626113622,
+          "passive_million_ounces": -10.13240803160904,
+          "gold_liabilities_signed_million_usd": -41038.78563002452,
+          "gold_swap_million_usd": 3938.67274,
+          "net_gold_million_usd": 58549.4178911117
         }
       ],
-      "fetched_at": "2026-11-12T10:08:23+03:00"
+      "fetched_at": "2026-11-12T15:22:41+03:00"
     },
     "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE": {
       "provider": "derived",
@@ -1687555,9 +1687737,9 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-12T10:08:08+03:00",
+      "fetched_at": "2026-11-12T15:22:25+03:00",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-30",
+      "weekly_anchor": "2026-11-06",
       "estimated": true,
       "id": "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE",
       "code": "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE",
@@ -1693409,15 +1693591,19 @@
         },
         {
           "date": "2026-11-06",
-          "value": -2841.234610366788
+          "value": -1992.7700431450867
         },
         {
           "date": "2026-11-09",
-          "value": 392.87009576345736
+          "value": 397.48933537632547
         },
         {
           "date": "2026-11-10",
-          "value": 5953.820557522406
+          "value": 5949.779802122743
+        },
+        {
+          "date": "2026-11-11",
+          "value": 965.3740023354476
         }
       ]
     },
@@ -1693442,6 +1693628,10 @@
         {
           "date": "2026-10-30",
           "value": 25.625287732891795
+        },
+        {
+          "date": "2026-11-06",
+          "value": 25.560613853746364
         }
       ]
     },
@@ -1693451,9 +1693641,9 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-12T10:08:08+03:00",
+      "fetched_at": "2026-11-12T15:22:25+03:00",
       "group": "Günlük net döviz pozisyonu",
-      "weekly_anchor": "2026-10-30",
+      "weekly_anchor": "2026-11-06",
       "estimated": true,
       "id": "BFRC.NETFX.TREASURYEX.GOLDNETEX.LEVEL",
       "code": "BFRC.NETFX.TREASURYEX.GOLDNETEX.LEVEL",
@@ -1699309,21 +1699499,25 @@
         },
         {
           "date": "2026-11-06",
-          "value": -36518.57055436283
+          "value": -35670.10598714113
         },
         {
           "date": "2026-11-09",
-          "value": -36125.70045859937
+          "value": -35272.6166517648
         },
         {
           "date": "2026-11-10",
-          "value": -30171.879901076965
+          "value": -29322.83684964206
+        },
+        {
+          "date": "2026-11-11",
+          "value": -28357.46284730661
         }
       ]
     }
   },
   "_fx_weekly": {
-    "fetched_at": "2026-11-12T01:13:33+03:00",
+    "fetched_at": "2026-11-12T15:22:33+03:00",
     "date_parser_version": 3,
     "rows": [
       {
@@ -1700072,18 +1700266,24 @@
         "total": -13733.0,
         "source": "TCMB haftalık rezerv/likidite tablosu",
         "gold_million_ounces": 25.625287732891795
+      },
+      {
+        "date": "2026-11-06",
+        "total": -12854.0,
+        "gold_million_ounces": 25.560613853746364,
+        "source": "TCMB haftalık rezerv/likidite tablosu"
       }
     ]
   },
   "_fx_calculation_last": {
-    "date": "2026-11-10",
-    "T": 29968.171317998756,
-    "U": 36650.125925707616,
-    "F": 43118.73120799875,
-    "H": 6681.954607708863,
-    "R": -13150.559889999999,
-    "Q": -16563.8448,
-    "anchor_date": "2026-10-30"
+    "date": "2026-11-11",
+    "T": 30191.955043805086,
+    "U": 36851.92566714117,
+    "F": 42671.53812380508,
+    "H": 6659.970623336088,
+    "R": -12479.583079999999,
+    "Q": -16418.25582,
+    "anchor_date": "2026-11-06"
   },
   "_lbma_am": {
     "source": "Westmetall London Fixing (AM, cross-checked with LBMA AM archive)",
@@ -1700955,7 +1701155,7 @@
       2024,
       2025
     ],
-    "fetched_at": "2026-11-12T10:08:16+03:00",
+    "fetched_at": "2026-11-12T15:22:35+03:00",
     "observations": [
       {
         "date": "2019-01-02",
