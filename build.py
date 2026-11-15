@@ -691,7 +691,11 @@ def curated_figure(chart,records,demo=False):
         if chart.get('observation_days_only'):
             common.update(x=[d for d,v in valid],y=[v for d,v in valid])
         if chart.get('daily_bars'):
-            fig.add_trace(go.Bar(**common,marker_color=color))
+            if chart.get('monthly_bars'):
+                fig.add_trace(go.Bar(**common,width=20*86400000,
+                    marker_color=['#974b63' if v is not None and v<0 else '#468698' for v in common['y']]))
+            else:
+                fig.add_trace(go.Bar(**common,marker_color=color))
         else:
             extra={'fill':'tozeroy','fillcolor':'rgba(67,36,84,0.18)'} if chart.get('area') else {}
             fig.add_trace(go.Scatter(**common,mode='lines',connectgaps=False,
@@ -725,8 +729,9 @@ def curated_figure(chart,records,demo=False):
         fig.update_layout(showlegend=True,legend={'y':1.02,'yanchor':'bottom','x':0,'xanchor':'left'},
                           margin={'t':155})
     if chart.get("daily_bars"):
-        fig.update_xaxes(range=[(date.fromisoformat(earliest)-timedelta(days=1)).isoformat(),
-                                (latest+timedelta(days=1)).isoformat()])
+        padding=12 if chart.get("monthly_bars") else 1
+        fig.update_xaxes(range=[(date.fromisoformat(earliest)-timedelta(days=padding)).isoformat(),
+                                (latest+timedelta(days=padding)).isoformat()])
     if chart.get('observation_days_only'):
         observed={d for values in series for d,v in values.items() if v is not None}
         day=date.fromisoformat(min(observed))
@@ -873,7 +878,8 @@ const values=[];for(const t of currentFigure.data){for(let i=0;i<t.x.length;i++)
 if(t.type==='bar'||t.fill==='tozeroy')values.push(0);}
 const hasBars=currentFigure.data.some(t=>t.type==='bar');
 const padded=(day,offset)=>new Date(new Date(day+'T00:00:00Z').getTime()+offset*86400000).toISOString().slice(0,10);
-const axisRange=hasBars?[padded(begin,-1),padded(end,1)]:[begin,end];
+const padDays=currentFigure.data.some(t=>t.type==='bar'&&t.width>=20*86400000)?12:1;
+const axisRange=hasBars?[padded(begin,-padDays),padded(end,padDays)]:[begin,end];
 const update={'xaxis.autorange':false,'xaxis.range':axisRange,'xaxis.dtick':currentYears>0&&currentYears<=1?'M1':currentYears===3?'M3':'M6'};
 if(values.length){const low=Math.min(...values),high=Math.max(...values),pad=(high-low||Math.abs(high)||1)*.08;update['yaxis.autorange']=false;update['yaxis.range']=[low-pad,high+pad];}
 Plotly.relayout(graph,update);}
@@ -2646,13 +2652,31 @@ def apply_excel_gold_archive(records,today):
                 'source':'Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall' if tail else 'Excel arşivi',
                 'observations':points+tail}
 
+CURRENT_ACCOUNT_CODE='TP.ODANA6.Q01'
+CURATED_SPECS[CURRENT_ACCOUNT_CODE]={
+    'id':CURRENT_ACCOUNT_CODE,'code':CURRENT_ACCOUNT_CODE,'name':'Cari İşlemler Hesabı',
+    'group_code':'bie_odana6','group':'Ödemeler Dengesi - Analitik Sunum',
+    'unit':'Milyon ABD doları','frequency':'AYLIK','provider':'evds3','source':'TCMB / EVDS',
+}
+CURATED_CHARTS.extend([
+    {'id':'cari-denge-aylik-sutun','name':'Cari Açık / Fazla – Aylık (Sütun)',
+     'unit':'Milyar ABD doları','daily_bars':True,'monthly_bars':True,'default_years':3,
+     'lines':[line(CURRENT_ACCOUNT_CODE,'Aylık cari denge',.001,color='#432454')]},
+    {'id':'cari-denge-aylik-cizgi','name':'Cari Açık / Fazla – Aylık (Çizgi)',
+     'unit':'Milyar ABD doları','default_years':3,
+     'lines':[line(CURRENT_ACCOUNT_CODE,'Aylık cari denge',.001,color='#432454')]},
+    {'id':'cari-denge-12-ay','name':'Cari Açık / Fazla – 12 Aylık Kümülatif',
+     'unit':'Milyar ABD doları','default_years':5,
+     'lines':[line(CURRENT_ACCOUNT_CODE,'12 aylık cari denge',.001,'sum12','#432454')]},
+])
+
 CONSTRUCTION_SERIES=(
     ('BFRC.CONSTRUCTION.MOM','PCH_PRE','SCA'),
     ('BFRC.CONSTRUCTION.YOY','PCH_SM','CA'),
 )
 CURATED_CHARTS.append({
     'id':'insaat-uretimi-degisim','name':'İnşaat Üretimi Aylık-Yıllık Değişim',
-    'unit':'%','source_label':'Kaynak: TÜİK ','legend_top':True,
+    'unit':'%','source_label':'Kaynak: TÜİK / Eurostat','legend_top':True,
     'default_years':5,'lines':[line(CONSTRUCTION_SERIES[0][0],'Aylık değişim',color='#432454'),
                               line(CONSTRUCTION_SERIES[1][0],'Yıllık değişim',color='#468698')],
 })
