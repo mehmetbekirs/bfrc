@@ -90599,7 +90599,7 @@
         "2026-11-11": "11-11-2026",
         "2026-11-12": "12-11-2026"
       },
-      "fetched_at": "2026-11-15T22:17:35+03:00"
+      "fetched_at": "2026-11-15T22:21:15+03:00"
     },
     "TP.AB.A03": {
       "id": "TP.AB.A03",
@@ -189575,7 +189575,7 @@
         "2026-11-11": "11-11-2026",
         "2026-11-12": "12-11-2026"
       },
-      "fetched_at": "2026-11-15T22:17:35+03:00"
+      "fetched_at": "2026-11-15T22:21:15+03:00"
     },
     "TP.AB.A11": {
       "id": "TP.AB.A11",
@@ -219314,7 +219314,7 @@
         "2026-11-11": "11-11-2026",
         "2026-11-12": "12-11-2026"
       },
-      "fetched_at": "2026-11-15T22:17:35+03:00"
+      "fetched_at": "2026-11-15T22:21:15+03:00"
     },
     "TP.AB.A14": {
       "id": "TP.AB.A14",
@@ -239162,7 +239162,7 @@
         "2026-11-11": "11-11-2026",
         "2026-11-12": "12-11-2026"
       },
-      "fetched_at": "2026-11-15T22:17:35+03:00"
+      "fetched_at": "2026-11-15T22:21:15+03:00"
     },
     "TP.AB.A16": {
       "id": "TP.AB.A16",
@@ -973286,7 +973286,7 @@
         "2026-11-14": "14-11-2026",
         "2026-11-15": "15-11-2026"
       },
-      "fetched_at": "2026-11-15T22:17:35+03:00"
+      "fetched_at": "2026-11-15T22:21:15+03:00"
     },
     "TP.DK.USD.S.YTL": {
       "id": "TP.DK.USD.S.YTL",
@@ -1432238,7 +1432238,7 @@
         "2026-11-12": "12-11-2026",
         "2026-11-13": "13-11-2026"
       },
-      "fetched_at": "2026-11-15T22:17:43+03:00"
+      "fetched_at": "2026-11-15T22:21:20+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU",
@@ -1440196,12 +1440196,12 @@
         "2026-11-12": "12-11-2026",
         "2026-11-13": "13-11-2026"
       },
-      "fetched_at": "2026-11-15T22:17:43+03:00"
+      "fetched_at": "2026-11-15T22:21:20+03:00"
     },
     "BFRC.NETFX.SWAPEX": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-15T22:17:35+03:00",
+      "fetched_at": "2026-11-15T22:21:15+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-06",
@@ -1448104,7 +1448104,7 @@
     "BFRC.NETFX.SWAPEX.CHANGE": {
       "provider": "derived",
       "source": "TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC",
-      "fetched_at": "2026-11-15T22:17:35+03:00",
+      "fetched_at": "2026-11-15T22:21:15+03:00",
       "frequency": "Günlük tahmin",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-06",
@@ -1450991,7 +1450991,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-15T22:17:35+03:00",
+      "fetched_at": "2026-11-15T22:21:15+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1458890,7 +1458890,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-15T22:17:35+03:00",
+      "fetched_at": "2026-11-15T22:21:15+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1474607,7 +1474607,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-15T22:17:35+03:00",
+      "fetched_at": "2026-11-15T22:21:15+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-06",
       "estimated": true,
@@ -1480491,7 +1480491,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-15T22:17:35+03:00",
+      "fetched_at": "2026-11-15T22:21:15+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-06",
       "estimated": true,
@@ -1585313,7 +1585313,7 @@
           "value": 3898.15
         }
       ],
-      "fetched_at": "2026-11-15T22:17:44+03:00"
+      "fetched_at": "2026-11-15T22:21:22+03:00"
     },
     "BFRC.NETFX.GOLD.ADJUSTED.CHANGE": {
       "id": "BFRC.NETFX.GOLD.ADJUSTED.CHANGE",
@@ -1611383,7 +1611383,7 @@
         "2026-11-12": "12-11-2026",
         "2026-11-13": "13-11-2026"
       },
-      "fetched_at": "2026-11-15T22:17:49+03:00"
+      "fetched_at": "2026-11-15T22:21:25+03:00"
     },
     "BFRC.GOLD.NET.CHANGE": {
       "provider": "derived",
@@ -1649640,7 +1649640,7 @@
           "net_gold_million_usd": 56873.60565269835
         }
       ],
-      "fetched_at": "2026-11-15T22:17:50+03:00"
+      "fetched_at": "2026-11-15T22:21:25+03:00"
     },
     "BFRC.GOLD.NET.USD": {
       "provider": "derived",
@@ -1687897,7 +1687897,7 @@
           "net_gold_million_usd": 56873.60565269835
         }
       ],
-      "fetched_at": "2026-11-15T22:17:50+03:00"
+      "fetched_at": "2026-11-15T22:21:25+03:00"
     },
     "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE": {
       "provider": "derived",
@@ -1687905,7 +1687905,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-15T22:17:35+03:00",
+      "fetched_at": "2026-11-15T22:21:15+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-06",
       "estimated": true,
@@ -1693813,7 +1693813,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-15T22:17:35+03:00",
+      "fetched_at": "2026-11-15T22:21:15+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-06",
       "estimated": true,
@@ -1700163,6 +1700163,435 @@
           "value": -2.7
         }
       ]
+    },
+    "BFRC.CONSTRUCTION.YOY": {
+      "id": "BFRC.CONSTRUCTION.YOY",
+      "code": "BFRC.CONSTRUCTION.YOY",
+      "provider": "eurostat",
+      "unit": "%",
+      "source": "TÜİK / Eurostat",
+      "observations": [
+        {
+          "date": "2018-01-01",
+          "value": 41.7
+        },
+        {
+          "date": "2018-02-01",
+          "value": 34.7
+        },
+        {
+          "date": "2018-03-01",
+          "value": 21.4
+        },
+        {
+          "date": "2018-04-01",
+          "value": 13.6
+        },
+        {
+          "date": "2018-05-01",
+          "value": 7.9
+        },
+        {
+          "date": "2018-06-01",
+          "value": 2.3
+        },
+        {
+          "date": "2018-07-01",
+          "value": -2.1
+        },
+        {
+          "date": "2018-08-01",
+          "value": -8.6
+        },
+        {
+          "date": "2018-09-01",
+          "value": -18.6
+        },
+        {
+          "date": "2018-10-01",
+          "value": -23.3
+        },
+        {
+          "date": "2018-11-01",
+          "value": -23.9
+        },
+        {
+          "date": "2018-12-01",
+          "value": -27.3
+        },
+        {
+          "date": "2019-01-01",
+          "value": -15.1
+        },
+        {
+          "date": "2019-02-01",
+          "value": -16.2
+        },
+        {
+          "date": "2019-03-01",
+          "value": -15.7
+        },
+        {
+          "date": "2019-04-01",
+          "value": -16.7
+        },
+        {
+          "date": "2019-05-01",
+          "value": -17.6
+        },
+        {
+          "date": "2019-06-01",
+          "value": -18.6
+        },
+        {
+          "date": "2019-07-01",
+          "value": -16.0
+        },
+        {
+          "date": "2019-08-01",
+          "value": -12.0
+        },
+        {
+          "date": "2019-09-01",
+          "value": -4.0
+        },
+        {
+          "date": "2019-10-01",
+          "value": 4.0
+        },
+        {
+          "date": "2019-11-01",
+          "value": 10.2
+        },
+        {
+          "date": "2019-12-01",
+          "value": 16.7
+        },
+        {
+          "date": "2020-01-01",
+          "value": -11.3
+        },
+        {
+          "date": "2020-02-01",
+          "value": -11.0
+        },
+        {
+          "date": "2020-03-01",
+          "value": -14.4
+        },
+        {
+          "date": "2020-04-01",
+          "value": -19.5
+        },
+        {
+          "date": "2020-05-01",
+          "value": -20.4
+        },
+        {
+          "date": "2020-06-01",
+          "value": -15.0
+        },
+        {
+          "date": "2020-07-01",
+          "value": -1.8
+        },
+        {
+          "date": "2020-08-01",
+          "value": 7.8
+        },
+        {
+          "date": "2020-09-01",
+          "value": 5.4
+        },
+        {
+          "date": "2020-10-01",
+          "value": 5.3
+        },
+        {
+          "date": "2020-11-01",
+          "value": 2.1
+        },
+        {
+          "date": "2020-12-01",
+          "value": 1.0
+        },
+        {
+          "date": "2021-01-01",
+          "value": -3.2
+        },
+        {
+          "date": "2021-02-01",
+          "value": -0.2
+        },
+        {
+          "date": "2021-03-01",
+          "value": 3.2
+        },
+        {
+          "date": "2021-04-01",
+          "value": 12.0
+        },
+        {
+          "date": "2021-05-01",
+          "value": 12.7
+        },
+        {
+          "date": "2021-06-01",
+          "value": 7.2
+        },
+        {
+          "date": "2021-07-01",
+          "value": -2.1
+        },
+        {
+          "date": "2021-08-01",
+          "value": -7.2
+        },
+        {
+          "date": "2021-09-01",
+          "value": -3.6
+        },
+        {
+          "date": "2021-10-01",
+          "value": -0.4
+        },
+        {
+          "date": "2021-11-01",
+          "value": -1.9
+        },
+        {
+          "date": "2021-12-01",
+          "value": -6.0
+        },
+        {
+          "date": "2022-01-01",
+          "value": -6.4
+        },
+        {
+          "date": "2022-02-01",
+          "value": -8.8
+        },
+        {
+          "date": "2022-03-01",
+          "value": -5.7
+        },
+        {
+          "date": "2022-04-01",
+          "value": 0.0
+        },
+        {
+          "date": "2022-05-01",
+          "value": 0.6
+        },
+        {
+          "date": "2022-06-01",
+          "value": 1.6
+        },
+        {
+          "date": "2022-07-01",
+          "value": -7.2
+        },
+        {
+          "date": "2022-08-01",
+          "value": -8.3
+        },
+        {
+          "date": "2022-09-01",
+          "value": -14.8
+        },
+        {
+          "date": "2022-10-01",
+          "value": -11.7
+        },
+        {
+          "date": "2022-11-01",
+          "value": -10.8
+        },
+        {
+          "date": "2022-12-01",
+          "value": -4.7
+        },
+        {
+          "date": "2023-01-01",
+          "value": 4.0
+        },
+        {
+          "date": "2023-02-01",
+          "value": 5.0
+        },
+        {
+          "date": "2023-03-01",
+          "value": 10.2
+        },
+        {
+          "date": "2023-04-01",
+          "value": 3.6
+        },
+        {
+          "date": "2023-05-01",
+          "value": 5.5
+        },
+        {
+          "date": "2023-06-01",
+          "value": 7.3
+        },
+        {
+          "date": "2023-07-01",
+          "value": 9.4
+        },
+        {
+          "date": "2023-08-01",
+          "value": 5.3
+        },
+        {
+          "date": "2023-09-01",
+          "value": 12.7
+        },
+        {
+          "date": "2023-10-01",
+          "value": 9.2
+        },
+        {
+          "date": "2023-11-01",
+          "value": 8.7
+        },
+        {
+          "date": "2023-12-01",
+          "value": 10.4
+        },
+        {
+          "date": "2024-01-01",
+          "value": 17.3
+        },
+        {
+          "date": "2024-02-01",
+          "value": 24.3
+        },
+        {
+          "date": "2024-03-01",
+          "value": 18.1
+        },
+        {
+          "date": "2024-04-01",
+          "value": 13.2
+        },
+        {
+          "date": "2024-05-01",
+          "value": 5.2
+        },
+        {
+          "date": "2024-06-01",
+          "value": 3.4
+        },
+        {
+          "date": "2024-07-01",
+          "value": 8.9
+        },
+        {
+          "date": "2024-08-01",
+          "value": 7.9
+        },
+        {
+          "date": "2024-09-01",
+          "value": 8.0
+        },
+        {
+          "date": "2024-10-01",
+          "value": 3.3
+        },
+        {
+          "date": "2024-11-01",
+          "value": 7.4
+        },
+        {
+          "date": "2024-12-01",
+          "value": 10.9
+        },
+        {
+          "date": "2025-01-01",
+          "value": 8.8
+        },
+        {
+          "date": "2025-02-01",
+          "value": 6.1
+        },
+        {
+          "date": "2025-03-01",
+          "value": 4.2
+        },
+        {
+          "date": "2025-04-01",
+          "value": 2.4
+        },
+        {
+          "date": "2025-05-01",
+          "value": 12.2
+        },
+        {
+          "date": "2025-06-01",
+          "value": 16.4
+        },
+        {
+          "date": "2025-07-01",
+          "value": 15.4
+        },
+        {
+          "date": "2025-08-01",
+          "value": 16.1
+        },
+        {
+          "date": "2025-09-01",
+          "value": 20.7
+        },
+        {
+          "date": "2025-10-01",
+          "value": 19.2
+        },
+        {
+          "date": "2025-11-01",
+          "value": 13.6
+        },
+        {
+          "date": "2025-12-01",
+          "value": 7.4
+        },
+        {
+          "date": "2026-01-01",
+          "value": 7.8
+        },
+        {
+          "date": "2026-02-01",
+          "value": 5.7
+        },
+        {
+          "date": "2026-03-01",
+          "value": -1.1
+        },
+        {
+          "date": "2026-04-01",
+          "value": 1.9
+        },
+        {
+          "date": "2026-05-01",
+          "value": -3.2
+        },
+        {
+          "date": "2026-06-01",
+          "value": -5.7
+        },
+        {
+          "date": "2026-07-01",
+          "value": -4.5
+        },
+        {
+          "date": "2026-08-01",
+          "value": 2.3
+        },
+        {
+          "date": "2026-09-01",
+          "value": -6.3
+        }
+      ]
     }
   },
   "_fx_weekly": {
@@ -1701804,7 +1702233,7 @@
       2024,
       2025
     ],
-    "fetched_at": "2026-11-15T22:17:44+03:00",
+    "fetched_at": "2026-11-15T22:21:22+03:00",
     "observations": [
       {
         "date": "2019-01-02",
