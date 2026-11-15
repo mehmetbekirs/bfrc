@@ -2648,7 +2648,7 @@ def apply_excel_gold_archive(records,today):
 
 CONSTRUCTION_SERIES=(
     ('BFRC.CONSTRUCTION.MOM','PCH_PRE','SCA'),
-    ('BFRC.CONSTRUCTION.YOY','PCH_SM','CCA'),
+    ('BFRC.CONSTRUCTION.YOY','PCH_SM','CA'),
 )
 CURATED_CHARTS.append({
     'id':'insaat-uretimi-degisim','name':'İnşaat Üretimi Aylık-Yıllık Değişim',
@@ -2676,10 +2676,20 @@ def attach_construction(records,previous,errors,today):
     with session() as client:
         for code,unit,adjustment in CONSTRUCTION_SERIES:
             try:
-                response=client.get(url,params={'lang':'en','freq':'M','geo':'TR',
-                    'nace_r2':'F','unit':unit,'s_adj':adjustment},timeout=(10,30))
-                response.raise_for_status()
-                points=construction_points(response.json(),today)
+                def pull(request_unit):
+                    response=client.get(url,params={'lang':'en','freq':'M','geo':'TR',
+                        'nace_r2':'F','indic_bt':'PRD','unit':request_unit,'s_adj':adjustment},timeout=(10,30))
+                    response.raise_for_status()
+                    return construction_points(response.json(),today)
+                try:
+                    points=pull(unit)
+                except (DataError,KeyError,ValueError,requests.HTTPError):
+                    levels=pull('I21')
+                    monthly={r['date'][:7]:r['value'] for r in levels}
+                    lag=1 if unit=='PCH_PRE' else 12
+                    points=validate([{'date':m+'-01','value':100*(v/base-1)}
+                        for m,v in monthly.items()
+                        if (base:=monthly.get(previous_month(m,lag))) not in (None,0)],today)
                 records[code]={'id':code,'code':code,'provider':'eurostat','unit':'%',
                                'source':'TÜİK / Eurostat','observations':points}
             except (DataError,requests.RequestException,ValueError,KeyError,TypeError) as error:
