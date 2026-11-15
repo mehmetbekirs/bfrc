@@ -721,6 +721,9 @@ def curated_figure(chart,records,demo=False):
         yaxis={"side":"right","showgrid":True,"gridcolor":"rgba(44,66,83,0.35)",
                "griddash":"dot","zeroline":True,"zerolinecolor":"#7d8f9b",
                "tickformat":",.1f","tickfont":{"size":17,"family":"Arial Black, Arial, sans-serif"},"showline":False,"fixedrange":False})
+    if chart.get('legend_top'):
+        fig.update_layout(showlegend=True,legend={'y':1.02,'yanchor':'bottom','x':0,'xanchor':'left'},
+                          margin={'t':155})
     if chart.get("daily_bars"):
         fig.update_xaxes(range=[(date.fromisoformat(earliest)-timedelta(days=1)).isoformat(),
                                 (latest+timedelta(days=1)).isoformat()])
@@ -734,7 +737,7 @@ def curated_figure(chart,records,demo=False):
         fig.update_xaxes(rangebreaks=[{'values':missing,'dvalue':86400000}] if missing else [])
     fig.add_layout_image(source=CURATED_LOGO,xref="paper",yref="paper",x=.5,y=.53,
         xanchor="center",yanchor="middle",sizex=.75,sizey=.90,sizing="contain",opacity=.15,layer="below")
-    labels=[("Kaynak: TCMB / EVDS"+(" / London Fix" if chart["id"] in ("net-altin-degisim","net-altin") else ""),-109),
+    labels=[(chart.get("source_label") or "Kaynak: TCMB / EVDS"+(" / London Fix" if chart["id"] in ("net-altin-degisim","net-altin") else ""),-109),
             ("Grafik: Mehmet Faruk Bekir",-129)]
     footer_shift=-105
     for text,_ in labels:
@@ -917,7 +920,10 @@ def curated_demo(today):
 def build_curated(demo=False):
     today=datetime.now(TR).date();stamp=datetime.now(TR).isoformat(timespec='seconds')
     if demo:
-        n=write_curated(ROOT/'demo',demo_with_fx(today),[],stamp,True)
+        records=demo_with_fx(today)
+        for i,(code,_,_) in enumerate(CONSTRUCTION_SERIES):
+            records[code]={'observations':[{'date':f'{y}-{m:02d}-01','value':round(4*math.sin((y*12+m)/(3+i*6)),2)} for y in range(2021,today.year+1) for m in range(1,13) if date(y,m,1)<=today]}
+        n=write_curated(ROOT/'demo',records,[],stamp,True)
         print(f'{n} demo grafik üretildi');return
     path=ROOT/'state/cache.json';cache=json.loads(path.read_text()) if path.exists() else {}
     previous=cache.get('_panel',{});records={};errors=[];groups={}
@@ -945,6 +951,7 @@ def build_curated(demo=False):
     attach_analytic_daily(records,errors)
     attach_gold_adjustment(records,cache,errors,today)
     apply_excel_gold_archive(records,today)
+    attach_construction(records,previous,errors,today)
     output=ROOT/'dist';count=write_curated(output,records,errors,stamp)
     if not count:raise DataError('Seçili göstergeler için grafik üretilemedi')
     cache['_panel']={k:{a:v for a,v in r.items() if a!='fallback'} for k,r in records.items()}
@@ -2638,6 +2645,46 @@ def apply_excel_gold_archive(records,today):
                 **live,'id':code,'code':code,'name':title,
                 'source':'Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall' if tail else 'Excel arşivi',
                 'observations':points+tail}
+
+CONSTRUCTION_SERIES=(
+    ('BFRC.CONSTRUCTION.MOM','PCH_PRE','SCA'),
+    ('BFRC.CONSTRUCTION.YOY','PCH_SM','CCA'),
+)
+CURATED_CHARTS.append({
+    'id':'insaat-uretimi-degisim','name':'İnşaat Üretimi Aylık-Yıllık Değişim',
+    'unit':'%','source_label':'Kaynak: TÜİK / Eurostat','legend_top':True,
+    'default_years':5,'lines':[line(CONSTRUCTION_SERIES[0][0],'Aylık değişim',color='#432454'),
+                              line(CONSTRUCTION_SERIES[1][0],'Yıllık değişim',color='#468698')],
+})
+
+def construction_points(payload,today):
+    ids=payload['id']
+    sizes=payload['size']
+    pos=ids.index('time')
+    if len(ids)!=len(sizes) or any(size!=1 for i,size in enumerate(sizes) if i!=pos):
+        raise DataError('İnşaat üretimi: tek zaman serisi bekleniyor')
+    index=payload['dimension']['time']['category']['index']
+    if isinstance(index,list):index={key:i for i,key in enumerate(index)}
+    values=payload['value']
+    if isinstance(values,list):values={str(i):v for i,v in enumerate(values)}
+    return validate([{'date':month+'-01','value':values.get(str(i))}
+                     for month,i in index.items() if re.fullmatch(r'\d{4}-\d{2}',month)
+                     and month<=today.isoformat()[:7]],today)
+
+def attach_construction(records,previous,errors,today):
+    url='https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_copr_m'
+    with session() as client:
+        for code,unit,adjustment in CONSTRUCTION_SERIES:
+            try:
+                response=client.get(url,params={'lang':'en','freq':'M','geo':'TR',
+                    'nace_r2':'F','unit':unit,'s_adj':adjustment},timeout=(10,30))
+                response.raise_for_status()
+                points=construction_points(response.json(),today)
+                records[code]={'id':code,'code':code,'provider':'eurostat','unit':'%',
+                               'source':'TÜİK / Eurostat','observations':points}
+            except (DataError,requests.RequestException,ValueError,KeyError,TypeError) as error:
+                errors.append('İnşaat üretimi '+unit+': '+str(error))
+                if previous.get(code):records[code]={**previous[code],'fallback':True}
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
