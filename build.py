@@ -2652,7 +2652,7 @@ CONSTRUCTION_SERIES=(
 )
 CURATED_CHARTS.append({
     'id':'insaat-uretimi-degisim','name':'İnşaat Üretimi Aylık-Yıllık Değişim',
-    'unit':'%','source_label':'Kaynak: TÜİK / Eurostat','legend_top':True,
+    'unit':'%','source_label':'Kaynak: TÜİK ','legend_top':True,
     'default_years':5,'lines':[line(CONSTRUCTION_SERIES[0][0],'Aylık değişim',color='#432454'),
                               line(CONSTRUCTION_SERIES[1][0],'Yıllık değişim',color='#468698')],
 })
