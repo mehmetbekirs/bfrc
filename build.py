@@ -666,6 +666,7 @@ def transformed(record,spec):
 
 
 def curated_figure(chart,records,demo=False):
+    if chart.get("labour_snapshot"):return labour_snapshot_figure(chart)
     candidates=[[s["code"]]+s.get("alternates",[]) for s in chart["lines"]]
     if not all(any(c in records for c in group) for group in candidates):
         raise DataError("Bu gösterge için veri henüz alınamadı")
@@ -872,7 +873,7 @@ button{background:#eff6fa;border:1px solid #cbd7df;border-radius:4px;padding:7px
 const built=STAMP_JSON,select=document.getElementById('series'),msg=document.getElementById('message'),graph=document.getElementById('chart');
 let generation=0,currentFigure=null,currentYears=5;
 function age(){document.getElementById('stale').hidden=Date.now()-new Date(built).getTime()<86400000;}age();setInterval(age,60000);
-function applyRange(){if(!currentFigure)return;const dates=currentFigure.data.flatMap(t=>t.x.filter((d,i)=>d&&typeof t.y[i]==='number'&&Number.isFinite(t.y[i]))).sort();if(!dates.length)return;const end=dates[dates.length-1];
+function applyRange(){if(!currentFigure)return;const snapshot=Boolean(currentFigure.layout.meta?.labour_snapshot);document.querySelectorAll('[data-years]').forEach(b=>b.disabled=snapshot);if(snapshot)return;const dates=currentFigure.data.flatMap(t=>t.x.filter((d,i)=>d&&typeof t.y[i]==='number'&&Number.isFinite(t.y[i]))).sort();if(!dates.length)return;const end=dates[dates.length-1];
 const start=new Date(end+'T12:00:00Z');start.setUTCMonth(start.getUTCMonth()-Math.round(currentYears*12));const begin=currentYears===0?dates[0]:start.toISOString().slice(0,10);
 const values=[];for(const t of currentFigure.data){for(let i=0;i<t.x.length;i++){if(t.x[i]>=begin&&t.x[i]<=end&&typeof t.y[i]==='number'&&Number.isFinite(t.y[i]))values.push(t.y[i]);}
 if(t.type==='bar'||t.fill==='tozeroy')values.push(0);}
@@ -2719,6 +2720,66 @@ def attach_construction(records,previous,errors,today):
             except (DataError,requests.RequestException,ValueError,KeyError,TypeError) as error:
                 errors.append('İnşaat üretimi '+unit+': '+str(error))
                 if previous.get(code):records[code]={**previous[code],'fallback':True}
+
+
+# Values transcribed from the six user-supplied TÜİK 2026 Q3 charts.
+# These are dated snapshots, not API-updated time series.
+LABOUR_SNAPSHOTS=[
+ {'id':'isgucu-issizlik-atil','name':'İşsizlik ve Atıl İşgücü',
+  'categories':['İşsizlik oranı','Atıl işgücü oranı'],'unit':'%',
+  'traces':[('2026 II. Çeyrek',[8.0,29.9],'#5290a5'),('2026 III. Çeyrek',[8.1,30.9],'#432454')]},
+ {'id':'isgucu-sektorel-degisim','name':'Sektörel İstihdam Değişimi',
+  'categories':['Sanayi','Tarım','İnşaat','Hizmetler'],'unit':'Bin kişi','horizontal':True,
+  'period':'2026 III. çeyrek · II. çeyreğe göre değişim',
+  'traces':[('Değişim',[-133,-58,9,120],['#aa6070','#aa6070','#438f8a','#438f8a'])]},
+ {'id':'isgucu-cinsiyet','name':'İstihdam ve Katılımda Cinsiyet Farkı',
+  'categories':['İşgücüne katılım','İstihdam oranı'],'unit':'%','horizontal':True,
+  'traces':[('Erkek',[70.5,65.7],'#432454'),('Kadın',[35.1,31.4],'#5290a5')]},
+ {'id':'isgucu-genc-cinsiyet','name':'Genç İşsizliğinde Cinsiyet Ayrışması',
+  'categories':['Toplam','Erkek','Kadın'],'unit':'%',
+  'traces':[('15+ yaş',[8.1,6.8,10.7],'#5290a5'),('15–24 yaş',[14.1,10.4,21.3],'#432454')]},
+ {'id':'isgucu-sektorel-paylar','name':'İstihdamın Sektörel Dağılımı',
+  'categories':['Hizmetler','Sanayi','Tarım','İnşaat'],'unit':'%','horizontal':True,
+  'traces':[('Pay',[60.3,19.3,13.6,6.8],['#432454','#5290a5','#438f8a','#a9bac5'])]},
+ {'id':'isgucu-oran-degisim','name':'İşgücü Piyasasında Çeyreklik Değişim',
+  'categories':['Atıl işgücü','İşsizlik','Genç işsizliği','İşgücüne katılım','İstihdam oranı'],
+  'unit':'Yüzde puan','horizontal':True,'period':'2026 III. çeyrek · II. çeyreğe göre değişim',
+  'traces':[('Değişim',[1.0,0.1,0.1,-0.2,-0.3],['#aa6070']*3+['#5290a5']*2)]},
+]
+for snapshot in LABOUR_SNAPSHOTS:
+    CURATED_CHARTS.append({**snapshot,'name':snapshot['name']+' (2026 III. Çeyrek)',
+                           'labour_snapshot':True,'lines':[],'default_years':0})
+
+def labour_snapshot_figure(chart):
+    fig=go.Figure()
+    horizontal=chart.get('horizontal',False)
+    for label,values,color in chart['traces']:
+        text=[(f'{v:+.1f}' if chart['unit']=='Yüzde puan' else f'{v:.1f}' if chart['unit']=='%' else f'{v:+.0f}').replace('.',',') for v in values]
+        axes={'y':chart['categories'],'x':values} if horizontal else {'x':chart['categories'],'y':values}
+        fig.add_trace(go.Bar(**axes,name=label,orientation='h' if horizontal else 'v',
+            marker_color=color,text=text,textposition='outside',cliponaxis=False,
+            hovertemplate='%{text} '+chart['unit']+'<extra>%{fullData.name}</extra>'))
+    fig.update_layout(template='none',height=760,barmode='group',bargap=.35,
+        paper_bgcolor='#eff6fa',plot_bgcolor='#eff6fa',
+        font={'family':'Courier New, monospace','size':18,'color':'#102536'},
+        title={'text':'<b>'+chart['name']+'</b>','x':.025,'font':{'size':27}},
+        margin={'l':260 if horizontal else 70,'r':110,'t':145,'b':150},
+        legend={'orientation':'h','y':1.08,'x':0},showlegend=len(chart['traces'])>1,
+        meta={'labour_snapshot':True,'reference_period':'2026-Q3','auto_updated':False})
+    axis={'showgrid':True,'gridcolor':'rgba(44,66,83,0.2)','griddash':'dot','zeroline':True}
+    fig.update_xaxes(**axis if horizontal else {'showgrid':False,'type':'category'})
+    fig.update_yaxes(**{'type':'category','autorange':'reversed'} if horizontal else axis)
+    all_values=[v for _,values,_ in chart['traces'] for v in values]
+    lo=min(0,min(all_values));hi=max(all_values);pad=(hi-lo or 1)*.18
+    if horizontal:fig.update_xaxes(range=[lo-pad if lo<0 else 0,hi+pad],title=chart['unit'])
+    else:fig.update_yaxes(range=[lo,hi+pad],title=chart['unit'])
+    fig.add_layout_image(source=CURATED_LOGO,xref='paper',yref='paper',x=.5,y=.5,
+        xanchor='center',yanchor='middle',sizex=.65,sizey=.8,opacity=.15,layer='below')
+    for text,y in [(chart.get('period','2026 III. çeyrek · Mevsim etkisinden arındırılmış'),-.14),
+                   ('Kaynak: TÜİK',-.22),('Grafik: Mehmet Faruk Bekir',-.29)]:
+        fig.add_annotation(text=text,x=0,y=y,xref='paper',yref='paper',
+            xanchor='left',showarrow=False,font={'size':17})
+    return fig
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
