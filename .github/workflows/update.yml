@@ -88,6 +88,13 @@ jobs:
           target.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
           PY
             git -C "$cache_worktree" add state/cache.json
+            # Daily Excel export: one workbook, overwritten each run (history lives in git).
+            # The file is byte-identical when data is unchanged, so no empty commits.
+            if test -f dist/bfrc-veriler.xlsx; then
+              mkdir -p "$cache_worktree/excel"
+              cp dist/bfrc-veriler.xlsx "$cache_worktree/excel/bfrc-veriler.xlsx"
+              git -C "$cache_worktree" add excel/bfrc-veriler.xlsx
+            fi
             if git -C "$cache_worktree" diff --cached --quiet; then
               saved=1
               break
