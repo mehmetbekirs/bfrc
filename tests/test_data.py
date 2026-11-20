@@ -83,6 +83,51 @@ class DataTests(unittest.TestCase):
                 with self.assertRaises(build.DataError):
                     build.build()
 
+    def test_excel_sheet_names_are_short_clean_and_unique(self):
+        used = set()
+        title = "Özel Sektörün Yurt Dışından Sağladığı Uzun Vadeli Kredi Borcu"
+        first = build.excel_sheet_name(title, used)
+        second = build.excel_sheet_name(title, used)
+        self.assertLessEqual(len(first), 31)
+        self.assertLessEqual(len(second), 31)
+        self.assertNotEqual(first.lower(), second.lower())
+        self.assertNotIn("/", build.excel_sheet_name("A/B:C?", set()))
+
+    def test_excel_export_merges_net_fx_into_one_sheet_and_is_deterministic(self):
+        import time
+        import openpyxl
+        def obs(*pairs):
+            return {"observations": [{"date": d, "value": v} for d, v in pairs]}
+        records = {
+            build.FX_LEVEL_CODE: obs(("2026-11-02", 100.0), ("2026-11-03", 110.0)),
+            "BFRC.NETFX.TREASURYEX": obs(("2026-11-02", 90.0), ("2026-11-03", 95.0)),
+            build.FX_EX_GOLD_LEVEL: obs(("2026-11-03", -50.0)),
+            build.FX_CHANGE_CODE: obs(("2026-11-03", 10.0)),
+        }
+        with tempfile.TemporaryDirectory() as folder:
+            first, second = Path(folder) / "a.xlsx", Path(folder) / "b.xlsx"
+            build.write_excel_export(first, records)
+            time.sleep(1.1)  # a changing clock must not change the file
+            build.write_excel_export(second, records)
+            self.assertEqual(first.read_bytes(), second.read_bytes())
+            book = openpyxl.load_workbook(first)
+            self.assertEqual(book.sheetnames, ["Hakkında", "Net Döviz Pozisyonu"])
+            sheet = book["Net Döviz Pozisyonu"]
+            headers = [c.value for c in sheet[1]]
+            self.assertIn("Swap hariç net döviz pozisyonu (Hazine dahil)", headers)
+            self.assertIn("Swap ve Hazine hariç net döviz pozisyonu", headers)
+            self.assertIn("Swap ve Hazine hariç net döviz pozisyonu, altın etkisi çıkarılmış", headers)
+            self.assertEqual(sheet.max_row, 3)
+            self.assertEqual(sheet.cell(3, 2).value, 110.0)
+            self.assertIsNone(sheet.cell(2, 4).value)
+
+    def test_excel_export_without_data_fails_instead_of_writing_empty_file(self):
+        with tempfile.TemporaryDirectory() as folder:
+            target = Path(folder) / "x.xlsx"
+            with self.assertRaises(build.DataError):
+                build.write_excel_export(target, {})
+            self.assertFalse(target.exists())
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -906,6 +906,121 @@ select.disabled=false;select.addEventListener('change',draw);draw();
     return available
 
 
+EXCEL_EXPORT_NAME='bfrc-veriler.xlsx'
+# Charts whose data is exported on the combined "Net Döviz Pozisyonu" / "Net Altın Varlığı" sheets.
+EXCEL_MERGED_CHARTS={'netfx-gunluk','netfx-degisim','netfx-hazine-haric','netfx-degisim-hazine-dahil',
+                     'netfx-seviye-altin-haric','netfx-degisim-altin-haric','net-altin','net-altin-degisim'}
+
+
+EXCEL_SHEET_NAMES={'netfx-bilanco':'Net Ulusl. Rezervler (Haftalık)','net-ic':'Net İç Varlıklar (Günlük)',
+    'net-dis':'Net Dış Varlıklar (Günlük)','kapasite':'Kapasite Kullanım Oranı',
+    'ozel-uzun':'Özel Sek. Uzun Vadeli Dış Borç','ozel-kisa':'Özel Sek. Kısa Vadeli Dış Borç',
+    'cari-denge-aylik-sutun':'Cari Denge (Aylık)','cari-denge-12-ay':'Cari Denge 12 Aylık Kümülatif',
+    'insaat-uretimi-degisim':'İnşaat Üretimi Değişim'}
+
+
+def excel_sheet_name(title,used):
+    name=re.sub(r'[\[\]:*?/\\]','-',title).strip("' ")
+    if len(name)>31:name=name[:32].rsplit(' ',1)[0][:31]
+    name=name or 'Sayfa'
+    base=name;n=2
+    while name.lower() in used:
+        suffix=f' {n}';name=base[:31-len(suffix)]+suffix;n+=1
+    used.add(name.lower());return name
+
+
+def excel_series(record):
+    return {o['date']:o['value'] for o in record['observations'] if o.get('value') is not None}
+
+
+def excel_chart_series(chart,records):
+    """One {date: value} map per chart line, using the same transforms as the graph."""
+    maps=[]
+    for spec in chart['lines']:
+        combined={}
+        for code in [spec['code']]+spec.get('alternates',[]):
+            if code not in records:continue
+            for d,v in transformed(records[code],spec):
+                if v is not None or d not in combined:combined[d]=v
+        points={d:v for d,v in combined.items() if v is not None}
+        if not points:return None
+        maps.append(points)
+    return maps
+
+
+def write_excel_export(path,records):
+    """Single workbook: one sheet per dataset; all net FX variants share one sheet."""
+    from openpyxl import Workbook
+    from openpyxl.styles import Alignment,Font
+    wb=Workbook();wb.remove(wb.active);used=set();index=[];last_dates=[]
+    wb.properties.creator='BFRC';wb.properties.created=wb.properties.modified=datetime(2000,1,1)
+    def add_sheet(title,unit,columns,note='',full=''):
+        maps=[m for _,m in columns]
+        dates=sorted(set().union(*maps))
+        if not dates:return
+        ws=wb.create_sheet(excel_sheet_name(title,used))
+        ws.append(['Tarih']+[h for h,_ in columns])
+        for d in dates:ws.append([date.fromisoformat(d)]+[m.get(d) for m in maps])
+        for cell in ws[1]:
+            cell.font=Font(bold=True);cell.alignment=Alignment(wrap_text=True,vertical='center')
+        ws.row_dimensions[1].height=48;ws.freeze_panes='B2';ws.column_dimensions['A'].width=12
+        for n in range(len(columns)):
+            ws.column_dimensions[chr(66+n) if n<25 else 'AA'].width=26
+        for row in ws.iter_rows(min_row=2):
+            row[0].number_format='DD.MM.YYYY'
+            for cell in row[1:]:cell.number_format='#,##0.00'
+        last_dates.append(dates[-1])
+        index.append((ws.title,full or title,unit,date.fromisoformat(dates[0]),date.fromisoformat(dates[-1]),note))
+    fx_columns=[
+        ('Swap hariç net döviz pozisyonu (Hazine dahil)',FX_LEVEL_CODE),
+        ('Swap ve Hazine hariç net döviz pozisyonu','BFRC.NETFX.TREASURYEX'),
+        ('Swap ve Hazine hariç net döviz pozisyonu, altın etkisi çıkarılmış',FX_EX_GOLD_LEVEL),
+        ('Günlük değişim: swap hariç (Hazine dahil)',FX_CHANGE_CODE),
+        ('Günlük değişim: swap ve Hazine hariç','BFRC.NETFX.TREASURYEX.CHANGE'),
+        ('Günlük değişim: swap ve Hazine hariç, altın etkisi çıkarılmış',FX_EX_GOLD_CODE)]
+    gold_columns=[('Net altın varlığı',GOLD_LEVEL_CODE),('Günlük net altın değişimi',GOLD_ADJUSTED_CODE)]
+    fx=[(h,excel_series(records[c])) for h,c in fx_columns if c in records]
+    if fx:add_sheet('Net Döviz Pozisyonu','Milyon ABD doları',fx,
+        'Net dış varlıklar + swap düzeltmesi; Hazine dahil/hariç ve altın etkisi çıkarılmış sürümler yan yana.')
+    gold=[(h,excel_series(records[c])) for h,c in gold_columns if c in records]
+    if gold:add_sheet('Net Altın Varlığı','Milyon ABD doları',gold,
+        'Günlük değerlenmiş altın varlığı − altın pasifleri − altın swap stoku.')
+    seen=set()
+    for chart in CURATED_CHARTS:
+        if chart['id'] in EXCEL_MERGED_CHARTS or chart.get('labour_snapshot'):continue
+        key=tuple((s['code'],s.get('transform','level'),s.get('factor',1)) for s in chart['lines'])
+        if key in seen:continue
+        maps=excel_chart_series(chart,records)
+        if maps is None:continue
+        seen.add(key)
+        add_sheet(EXCEL_SHEET_NAMES.get(chart['id'],chart['name']),chart['unit'],
+                  [(f"{s['label']} ({chart['unit']})",m) for s,m in zip(chart['lines'],maps)],full=chart['name'])
+    if not index:raise DataError('Excel çıktısı için veri yok')
+    about=wb.create_sheet('Hakkında',0)
+    about.append(['BFRC veri seti']);about['A1'].font=Font(bold=True,size=14)
+    about.append(['Kaynak: TCMB / EVDS ve haftalık rezerv tablosu; hesaplama: BFRC. Son gözlem: '+
+                  date.fromisoformat(max(last_dates)).strftime('%d.%m.%Y')])
+    about.append([]);about.append(['Sayfa','Veri seti','Birim','İlk gözlem','Son gözlem','Not'])
+    for cell in about[4]:cell.font=Font(bold=True)
+    for row in index:
+        about.append(list(row));about.cell(about.max_row,4).number_format='DD.MM.YYYY'
+        about.cell(about.max_row,5).number_format='DD.MM.YYYY'
+    for col,width in zip('ABCDEF',(34,60,22,14,14,90)):about.column_dimensions[col].width=width
+    buffer=io.BytesIO();wb.save(buffer)
+    # Rewrite the zip with fixed timestamps so unchanged data gives identical bytes (no empty daily commits).
+    source=zipfile.ZipFile(io.BytesIO(buffer.getvalue()));out=io.BytesIO()
+    with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as target:
+        for name in sorted(source.namelist()):
+            info=zipfile.ZipInfo(name,date_time=(2000,1,1,0,0,0))
+            info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o600<<16
+            data=source.read(name)
+            if name=='docProps/core.xml':
+                data=re.sub(rb'(<dcterms:modified[^>]*>)[^<]*(</dcterms:modified>)',rb'\g<1>2000-01-01T00:00:00Z\g<2>',data)
+            target.writestr(info,data)
+    path.write_bytes(out.getvalue())
+    return [row[0] for row in index]
+
+
 def curated_demo(today):
     # Synthetic monthly fixtures, labelled in all graphs, never written into the live cache.
     result={}
@@ -959,7 +1074,10 @@ def build_curated(demo=False):
     attach_gold_adjustment(records,cache,errors,today)
     apply_excel_gold_archive(records,today)
     attach_construction(records,previous,errors,today)
-    output=ROOT/'dist';count=write_curated(output,records,errors,stamp)
+    output=ROOT/'dist';output.mkdir(exist_ok=True)
+    try:write_excel_export(output/EXCEL_EXPORT_NAME,records)
+    except Exception as error:errors.append('Excel çıktısı: '+str(error))  # never block the site for the extra file
+    count=write_curated(output,records,errors,stamp)
     if not count:raise DataError('Seçili göstergeler için grafik üretilemedi')
     cache['_panel']={k:{a:v for a,v in r.items() if a!='fallback'} for k,r in records.items()}
     path.parent.mkdir(exist_ok=True);tmp=path.with_suffix('.tmp');tmp.write_text(json.dumps(cache,ensure_ascii=False),encoding='utf-8');tmp.replace(path)
