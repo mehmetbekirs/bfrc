@@ -90659,7 +90659,7 @@
         "2026-11-25": "25-11-2026",
         "2026-11-26": "26-11-2026"
       },
-      "fetched_at": "2026-11-27T17:15:23+03:00"
+      "fetched_at": "2026-11-27T19:37:32+03:00"
     },
     "TP.AB.A03": {
       "id": "TP.AB.A03",
@@ -189685,7 +189685,7 @@
         "2026-11-25": "25-11-2026",
         "2026-11-26": "26-11-2026"
       },
-      "fetched_at": "2026-11-27T17:15:23+03:00"
+      "fetched_at": "2026-11-27T19:37:32+03:00"
     },
     "TP.AB.A11": {
       "id": "TP.AB.A11",
@@ -219474,7 +219474,7 @@
         "2026-11-25": "25-11-2026",
         "2026-11-26": "26-11-2026"
       },
-      "fetched_at": "2026-11-27T17:15:23+03:00"
+      "fetched_at": "2026-11-27T19:37:32+03:00"
     },
     "TP.AB.A14": {
       "id": "TP.AB.A14",
@@ -239372,7 +239372,7 @@
         "2026-11-25": "25-11-2026",
         "2026-11-26": "26-11-2026"
       },
-      "fetched_at": "2026-11-27T17:15:23+03:00"
+      "fetched_at": "2026-11-27T19:37:32+03:00"
     },
     "TP.AB.A16": {
       "id": "TP.AB.A16",
@@ -973628,7 +973628,7 @@
         "2026-11-26": "26-11-2026",
         "2026-11-27": "27-11-2026"
       },
-      "fetched_at": "2026-11-27T17:15:24+03:00"
+      "fetched_at": "2026-11-27T19:37:31+03:00"
     },
     "TP.DK.USD.S.YTL": {
       "id": "TP.DK.USD.S.YTL",
@@ -1430648,6 +1430648,10 @@
         {
           "date": "2026-11-26",
           "value": 4685.0
+        },
+        {
+          "date": "2026-11-27",
+          "value": 12572.0
         }
       ],
       "periods": {
@@ -1432713,9 +1432717,10 @@
         "2026-11-23": "23-11-2026",
         "2026-11-24": "24-11-2026",
         "2026-11-25": "25-11-2026",
-        "2026-11-26": "26-11-2026"
+        "2026-11-26": "26-11-2026",
+        "2026-11-27": "27-11-2026"
       },
-      "fetched_at": "2026-11-27T17:15:31+03:00"
+      "fetched_at": "2026-11-27T19:37:40+03:00"
     },
     "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU": {
       "id": "TP.SWAPTEKTAR.TOTALSTOKSATIMYONLU",
@@ -1438651,6 +1438656,10 @@
         {
           "date": "2026-11-26",
           "value": 2635.92606
+        },
+        {
+          "date": "2026-11-27",
+          "value": 1753.62907
         }
       ],
       "periods": {
@@ -1440716,9 +1440725,10 @@
         "2026-11-23": "23-11-2026",
         "2026-11-24": "24-11-2026",
         "2026-11-25": "25-11-2026",
-        "2026-11-26": "26-11-2026"
+        "2026-11-26": "26-11-2026",
+        "2026-11-27": "27-11-2026"
       },
-      "fetched_at": "2026-11-27T17:15:31+03:00"
+      "fetched_at": "2026-11-27T19:37:40+03:00"
     },
     "BFRC.NETFX.SWAPEX": {
       "provider": "derived",
@@ -1440726,7 +1440736,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-27T17:15:23+03:00",
+      "fetched_at": "2026-11-27T19:37:31+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-20",
       "estimated": true,
@@ -1446646,7 +1446656,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-27T17:15:23+03:00",
+      "fetched_at": "2026-11-27T19:37:31+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-20",
       "estimated": true,
@@ -1452563,7 +1452573,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-27T17:15:23+03:00",
+      "fetched_at": "2026-11-27T19:37:32+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1460502,7 +1460512,7 @@
       "source": "TCMB / EVDS — Günlük Analitik Bilanço; hesaplama: BFRC",
       "unit": "Bin TL",
       "frequency": "İŞ GÜNÜ",
-      "fetched_at": "2026-11-27T17:15:23+03:00",
+      "fetched_at": "2026-11-27T19:37:32+03:00",
       "observations": [
         {
           "date": "2019-01-02",
@@ -1476259,7 +1476269,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-27T17:15:23+03:00",
+      "fetched_at": "2026-11-27T19:37:31+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-20",
       "estimated": true,
@@ -1482183,7 +1482193,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-27T17:15:23+03:00",
+      "fetched_at": "2026-11-27T19:37:31+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-20",
       "estimated": true,
@@ -1587137,9 +1587147,13 @@
         {
           "date": "2026-11-26",
           "value": 3562.4
+        },
+        {
+          "date": "2026-11-27",
+          "value": 3672.1
         }
       ],
-      "fetched_at": "2026-11-27T17:15:33+03:00"
+      "fetched_at": "2026-11-27T19:37:41+03:00"
     },
     "BFRC.NETFX.GOLD.ADJUSTED.CHANGE": {
       "id": "BFRC.NETFX.GOLD.ADJUSTED.CHANGE",
@@ -1611187,6 +1611201,10 @@
         {
           "date": "2026-11-26",
           "value": 2635.92606
+        },
+        {
+          "date": "2026-11-27",
+          "value": 1753.62907
         }
       ],
       "periods": {
@@ -1613252,9 +1613270,10 @@
         "2026-11-23": "23-11-2026",
         "2026-11-24": "24-11-2026",
         "2026-11-25": "25-11-2026",
-        "2026-11-26": "26-11-2026"
+        "2026-11-26": "26-11-2026",
+        "2026-11-27": "27-11-2026"
       },
-      "fetched_at": "2026-11-27T17:15:39+03:00"
+      "fetched_at": "2026-11-27T19:37:48+03:00"
     },
     "BFRC.GOLD.NET.CHANGE": {
       "provider": "derived",
@@ -1651831,7 +1651850,7 @@
           "net_gold_million_usd": 51856.79244243994
         }
       ],
-      "fetched_at": "2026-11-27T17:15:39+03:00"
+      "fetched_at": "2026-11-27T19:37:48+03:00"
     },
     "BFRC.GOLD.NET.USD": {
       "provider": "derived",
@@ -1690408,7 +1690427,7 @@
           "net_gold_million_usd": 51856.79244243994
         }
       ],
-      "fetched_at": "2026-11-27T17:15:39+03:00"
+      "fetched_at": "2026-11-27T19:37:48+03:00"
     },
     "BFRC.NETFX.TREASURYEX.GOLDNETEX.CHANGE": {
       "provider": "derived",
@@ -1690416,7 +1690435,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-27T17:15:23+03:00",
+      "fetched_at": "2026-11-27T19:37:31+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-20",
       "estimated": true,
@@ -1696372,7 +1696391,7 @@
       "frequency": "Günlük tahmin",
       "audit": [],
       "source": "Excel arşivi; yeni gözlemler: TCMB / EVDS / Westmetall",
-      "fetched_at": "2026-11-27T17:15:23+03:00",
+      "fetched_at": "2026-11-27T19:37:31+03:00",
       "group": "Günlük net döviz pozisyonu",
       "weekly_anchor": "2026-11-20",
       "estimated": true,
@@ -1705325,7 +1705344,7 @@
       2024,
       2025
     ],
-    "fetched_at": "2026-11-27T17:15:33+03:00",
+    "fetched_at": "2026-11-27T19:37:41+03:00",
     "observations": [
       {
         "date": "2019-01-02",
@@ -1713270,6 +1713289,10 @@
       {
         "date": "2026-11-26",
         "value": 3562.4
+      },
+      {
+        "date": "2026-11-27",
+        "value": 3672.1
       }
     ]
   }
